@@ -1,0 +1,411 @@
+rule-providers:
+    reject_non_ip_no_drop:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt
+      path: ./sukkaw_ruleset/reject_non_ip_no_drop.txt
+    reject_non_ip_drop:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/reject-drop.txt
+      path: ./sukkaw_ruleset/reject_non_ip_drop.txt
+    reject_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/reject.txt
+      path: ./sukkaw_ruleset/reject_non_ip.txt
+    reject_domainset:
+      type: http
+      behavior: domain
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/domainset/reject.txt
+      path: ./sukkaw_ruleset/reject_domainset.txt
+    # 在 Clash 上，同时启用基础和额外的拦截域名会导致内存占用过高和匹配用时增加等性能问题
+    reject_extra_domainset:
+      type: http
+      behavior: domain
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/domainset/reject_extra.txt
+      path: ./sukkaw_ruleset/reject_domainset_extra.txt
+    reject_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/reject.txt
+      path: ./sukkaw_ruleset/reject_ip.txt
+    download_domainset:
+      type: http
+      behavior: domain
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/domainset/download.txt
+      path: ./sukkaw_ruleset/download_domainset.txt
+    download_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/download.txt
+      path: ./sukkaw_ruleset/download_non_ip.txt
+    cdn_domainset:
+      type: http
+      behavior: domain
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/domainset/cdn.txt
+      path: ./sukkaw_ruleset/cdn_domainset.txt
+    cdn_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
+      path: ./sukkaw_ruleset/cdn_non_ip.txt
+    apple_cdn:
+      type: http
+      behavior: domain
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
+      path: ./sukkaw_ruleset/apple_cdn.txt
+    microsoft_cdn_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/microsoft_cdn.txt
+      path: ./sukkaw_ruleset/microsoft_cdn_non_ip.txt
+    AI:
+      type: http
+      format: text
+      interval: 86400
+      behavior: classical
+      url: https://ruleset.skk.moe/Clash/non_ip/ai.txt
+      path: ./rule-providers/AI.list
+    apple_cn_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/apple_cn.txt
+      path: ./sukkaw_ruleset/apple_cn_non_ip.txt
+    apple_services:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/apple_services.txt
+      path: ./sukkaw_ruleset/apple_services.txt
+    Bilibili:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BiliBili/BiliBili.list
+      path: ./rule-providers/Bilibili.list
+    YouTube:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.list
+      path: ./rule-providers/YouTube.list
+    Google:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list
+      path: ./rule-providers/Google.list
+    OneDrive:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OneDrive/OneDrive.list
+      path: ./rule-providers/OneDrive.list
+    GitHub:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.list
+      path: ./rule-providers/Github.list
+    microsoft_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/microsoft.txt
+      path: ./sukkaw_ruleset/microsoft_non_ip.txt
+    telegram_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/telegram.txt
+      path: ./sukkaw_ruleset/telegram_non_ip.txt
+    telegram_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/telegram.txt
+      path: ./sukkaw_ruleset/telegram_ip.txt
+    Telegram:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.list
+      path: ./rule-providers/Telegram.list
+    Discord:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Discord/Discord.list
+      path: ./rule-providers/Discord.list
+    Twitter:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Twitter/Twitter.list
+      path: ./rule-providers/Twitter.list
+    Steam:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Steam/Steam.list
+      path: ./rule-providers/Steam.list
+    Epic:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Epic/Epic.list
+      path: ./rule-providers/Epic.list
+    Spotify:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.list
+      path: ./rule-providers/Spotify.list
+    Bahamut:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Bahamut/Bahamut.list
+      path: ./rule-providers/Bahamut.list
+    Netflix:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Netflix.list
+      path: ./rule-providers/Netflix.list
+    Disney:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Disney.list
+      path: ./rule-providers/Disney.list
+    PrimeVideo:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/PrimeVideo.list
+      path: ./rule-providers/PrimeVideo.list
+    HBO:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/HBO.list
+      path: ./rule-providers/HBO.list
+    Emby:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Emby/Emby.list
+      path: ./rule-providers/Emby.list
+
+
+    # 北美相关流媒体
+    stream_us_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/stream_us.txt
+      path: ./sukkaw_ruleset/stream_us_non_ip.txt
+    stream_us_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/stream_us.txt
+      path: ./sukkaw_ruleset/stream_us_ip.txt
+    # 欧洲相关流媒体
+    stream_eu_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/stream_eu.txt
+      path: ./sukkaw_ruleset/stream_eu_non_ip.txt
+    stream_eu_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/stream_eu.txt
+      path: ./sukkaw_ruleset/stream_eu_ip.txt
+    # 日本相关流媒体
+    stream_jp_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/stream_jp.txt
+      path: ./sukkaw_ruleset/stream_jp_non_ip.txt
+    stream_jp_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/stream_jp.txt
+      path: ./sukkaw_ruleset/stream_jp_ip.txt
+    # 韩国相关流媒体
+    stream_kr_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/stream_kr.txt
+      path: ./sukkaw_ruleset/stream_kr_non_ip.txt
+    stream_kr_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/stream_kr.txt
+      path: ./sukkaw_ruleset/stream_kr_ip.txt
+    # 香港相关流媒体
+    stream_hk_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/stream_hk.txt
+      path: ./sukkaw_ruleset/stream_hk_non_ip.txt
+    stream_hk_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/stream_hk.txt
+      path: ./sukkaw_ruleset/stream_hk_ip.txt
+    # 台湾相关流媒体
+    stream_tw_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/stream_tw.txt
+      path: ./sukkaw_ruleset/stream_tw_non_ip.txt
+    stream_tw_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/stream_tw.txt
+      path: ./sukkaw_ruleset/stream_tw_ip.txt
+    # 所有流媒体（包括上述所有流媒体）
+    stream_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/stream.txt
+      path: ./sukkaw_ruleset/stream_non_ip.txt
+    stream_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/stream.txt
+      path: ./sukkaw_ruleset/stream_ip.txt
+
+    domestic_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/domestic.txt
+      path: ./sukkaw_ruleset/domestic_non_ip.txt
+    direct_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/direct.txt
+      path: ./sukkaw_ruleset/direct_non_ip.txt
+    global_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/global.txt
+      path: ./sukkaw_ruleset/global_non_ip.txt
+    domestic_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/domestic.txt
+      path: ./sukkaw_ruleset/domestic_ip.txt
+    china_ip:
+      type: http
+      behavior: ipcidr
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/china_ip.txt
+      path: ./sukkaw_ruleset/china_ip.txt
+    china_ip_ipv6:
+      type: http
+      behavior: ipcidr
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt
+      path: ./sukkaw_ruleset/china_ipv6.txt
+    lan_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/lan.txt
+      path: ./sukkaw_ruleset/lan_non_ip.txt
+    lan_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/lan.txt
+      path: ./sukkaw_ruleset/lan_ip.txt

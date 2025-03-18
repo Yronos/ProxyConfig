@@ -1,0 +1,199 @@
+# 基本设置
+port: 7892 # http(s) 代理端口
+socks-port: 7891 # socks4/4a/5 代理端口
+# redir-port: 7892 # 透明代理端口，用于 Linux 和 MacOS
+# 混合端口是一个特殊的端口，它同时支持 HTTP(S) 和 SOCKS5 协议。您可以使用任何支持 HTTP 或 SOCKS 代理的程序连接到这个端口
+mixed-port: 7890 # 混合端口
+# Transparent proxy server port for Linux (TProxy TCP and TProxy UDP)
+# tproxy-port: 7893 # tproxy 透明代理端口，可代理 TCP 与 UDP 流量
+ipv6: true
+allow-lan: false # 局域网连接
+bind-address: "*" # 监听地址：* 表示绑定所有地址
+lan-allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+lan-disallowed-ips: []
+skip-auth-prefixes:
+  - 127.0.0.1/32
+  - ::1/128
+authentication: []
+#external-controller: 127.0.0.1:6666 # 外部控制端口
+#secret: miyao+123
+mode: rule # 运行模式
+log-level: warning #日志
+unified-delay: true # 同一延迟
+tcp-concurrent: true # TCP 并发
+find-process-mode: strict # 进程匹配模式
+tcp-concurrent-users: 64      # TCP并发连接数,根据服务器性能调整,建议值:16-128
+disable-keep-alive: false #目前在android端强制为true
+keep-alive-idle: 15
+keep-alive-interval: 15       # 保活心跳间隔(秒),建议值:15-30
+#inbound-tfo: true            # 入站TCP Fast Open
+#outbound-tfo: true           # 出站TCP Fast Open
+# Windows示例
+#interface-name: WLAN   # Windows中的无线网卡名称
+# 或
+#interface-name: 以太网  # Windows中的有线网卡名称
+# macOS示例
+#interface-name: en0    # macOS中通常是Wi-Fi
+# 或
+#interface-name: en1    # macOS中通常是有线网卡
+# Linux示例
+#interface-name: eth0   # Linux中常见的有线网卡名
+# 或
+#interface-name: wlan0  # Linux中常见的无线网卡名
+# 连接池配置
+connection-pool-size: 256     # 连接池大小,建议值:128-512
+idle-timeout: 60             # 空闲超时时间(秒)
+global-client-fingerprint: chrome
+tls:
+  enable: true
+  skip-cert-verify: false
+  alpn:
+    - h2
+    - http/1.1
+  min-version: "1.2"
+  max-version: "1.3"
+  cipher-suites:
+    - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+    - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+    - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+
+tun:
+  enable: true
+  device: Mihomo
+  stack: mixed
+  auto-route: true
+  # auto-redirect: true # 仅支持 Linux
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  mtu: 1500
+  strict-route: true
+  # gso: true # 仅支持 Linux
+  # gso-max-size: 65536 # 仅支持 Linux
+  # UDP NAT 过期时间，以秒为单位，默认为 300(5 分钟)
+  udp-timeout: 300
+  iproute2-table-index: 2022
+  iproute2-rule-index: 9000
+  endpoint-independent-nat: false
+  route-exclude-address:
+  - 127.0.0.0/8
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+  - 192.168.0.0/16
+  - fc00::/7
+  - fe80::/10
+  # route-exclude-address-set: # 将指定规则集中的目标 IP CIDR 规则添加到防火墙，匹配的流量将绕过路由，仅支持Linux，且需要nftables以及auto-route和auto-redirect已启用。
+    # - ruleset-2
+sniffer:
+  enable: true
+  parse-pure-ip: true # 对所有未获取到域名的流量进行强制嗅探
+  force-dns-mapping: true # 对 redir-host 类型识别的流量进行强制嗅探
+  override-destination: true # 是否使用嗅探结果作为实际访问，默认为 true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 443
+        - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+        - 443
+        - 8443
+    QUIC:
+      ports:
+        - 443
+        - 8443
+  force-domain:
+    - +.v2ex.com
+  skip-domain: # 跳过嗅探的域名列表
+    - +.push.apple.com
+  # skip-src-address: # 对于来源ip跳过嗅探
+  #   - 192.168.0.3/32
+  # skip-dst-address: # 对于目标ip跳过嗅探
+  #   - 192.168.0.3/32
+profile:
+  store-selected: true # 储存 API 对策略组的选择，以供下次启动时使用
+  store-fake-ip: true # 储存 fakeip 映射表，域名再次发生连接时，使用原有映射地址
+geo-auto-update: true
+geo-update-interval: 24
+geodata-mode: true
+geodata-loader: memconservative
+geox-url:
+  geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
+  asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
+global-ua: clash.meta
+etag-support: true
+
+hosts:
+  # --- CUSTOM HOSTS ---
+  # > IPv6
+  ip6-localhost: ::1
+  ip6-loopback: ::1
+  ip6-localnet: fe00::0
+  ip6-mcastprefix: ff00::0
+  ip6-allnodes: ff02::1
+  ip6-allrouters: ff02::2
+  ip6-allhosts: ff02::3
+  # > Encrypted DNS
+  dns.google: 8.8.8.8
+  dns64.dns.google: 2001:4860:4860::6464
+  cloudflare-dns.com: 104.16.249.249
+  1dot1dot1dot1.cloudflare-dns.com: 1.1.1.1
+  one.one.one.one: 1.1.1.1
+  dns.alidns.com: 223.5.5.5
+  doh.pub: 1.12.12.12
+  dot.pub: 1.12.12.12
+  doh.360.cn: 23.6.48.18
+  dot.360.cn: 101.198.198.198
+  dns.twnic.tw: 101.101.101.101
+  ordns.he.net: 74.82.42.42
+  # GitHub 静态资源
+  # raw.githubusercontent.com: 185.199.108.133
+  # raw.githubusercontent.com: 185.199.109.133
+  # raw.githubusercontent.com: 185.199.110.133
+  # raw.githubusercontent.com: 185.199.111.133
+  # Google FCM
+  # mtalk.google.com: 74.125.197.188
+  # mtalk.google.com: 142.251.188.188
+  # mtalk.google.com: 172.253.117.188
+  # mtalk.google.com: 74.125.135.188
+  # mtalk.google.com: 142.250.107.188
+  # mtalk.google.com: 108.177.98.188
+  # mtalk.google.com: 74.125.195.188
+  # mtalk.google.com: 173.194.174.188
+  # mtalk.google.com: 142.250.157.188
+  # mtalk.google.com: 64.233.187.188
+  # mtalk.google.com: 64.233.189.188
+  # mtalk.google.com: 74.125.142.188
+  # mtalk.google.com: 74.125.203.188
+  # mtalk.google.com: 74.125.204.188
+  # mtalk.google.com: 108.177.97.188
+  # mtalk.google.com: 142.250.99.188
+  # mtalk.google.com: 64.233.188.188
+  # mtalk.google.com: 142.251.170.188
+  # mtalk.google.com: 108.177.125.188
+  # mtalk.google.com: 74.125.23.188
+  # mtalk.google.com: 142.251.2.188
+  # mtalk.google.com: 66.220.148.145
+  # mtalk.google.com: 104.244.46.165
+  # mtalk.google.com: 142.250.101.188
+  # mtalk.google.com: 199.59.149.235
+  # mtalk.google.com: 199.59.148.9
+  # mtalk.google.com: 142.251.179.188
+  # mtalk.google.com: 172.253.63.188
+  # mtalk.google.com: 64.233.184.188
+  # mtalk.google.com: 74.125.24.188
+  # mtalk.google.com: 172.217.192.188
+  # mtalk.google.com: 64.233.167.188
+  # mtalk.google.com: 142.250.0.188
+  # mtalk.google.com: 173.194.76.188
+  # mtalk.google.com: 74.125.133.188
+
+
