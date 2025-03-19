@@ -236,8 +236,6 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
-    geosite:
-      - gfw
     ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver解析出这些结果时将会采用 fallback的解析结果
       - 240.0.0.0/4
       - 0.0.0.0/32
