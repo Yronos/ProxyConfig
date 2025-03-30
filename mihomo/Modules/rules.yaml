@@ -1,4 +1,13 @@
 rules:
+    # Privacy
+    - DOMAIN-KEYWORD,analytics.,REJECT
+    - DOMAIN-KEYWORD,app-analytics,REJECT
+    - DOMAIN-KEYWORD,app-log.,REJECT
+    - DOMAIN-KEYWORD,applog.,REJECT
+    - DOMAIN-KEYWORD,ios-log.,REJECT
+    - DOMAIN-KEYWORD,ioslog.,REJECT
+    - DOMAIN-KEYWORD,pc-log.,REJECT
+    - DOMAIN-KEYWORD,pclog.,REJECT
     # 广告过滤
     - RULE-SET,reject_non_ip,REJECT
     - RULE-SET,reject_domainset,REJECT
