@@ -64,9 +64,10 @@ rules:
     - DOMAIN-SUFFIX,v2ex.com,香港节点
     - DOMAIN-SUFFIX,nodeseek.com,香港节点
     - DOMAIN-SUFFIX,nodeloc.com,香港节点
-    - DOMAIN-SUFFIX,cn,DIRECT
+    - DOMAIN-KEYWORD,kaspersky,DIRECT
     - DOMAIN-SUFFIX,deepseek.com,DIRECT
     - DOMAIN-SUFFIX,qwen.ai,DIRECT
+    - DOMAIN-SUFFIX,cn,DIRECT
     # 媒体
     - RULE-SET,Disney,国际媒体,no-resolve
     - RULE-SET,PrimeVideo,国际媒体,no-resolve
