@@ -148,8 +148,7 @@ dns:
   use-system-hosts: true
   respect-rules: true
   default-nameserver:
-    - quic://223.5.5.5:853
-    - tls://223.5.5.5
+    - system
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   # 配置fake-ip-filter的匹配模式，默认为blacklist，即如果匹配成功不返回fake-ip
@@ -169,6 +168,270 @@ dns:
     # - geosite:fakeip-filter
     - geosite:cn
   nameserver-policy:
+    # > BiliBili
+    # BiliBili upos视频服务器（阿里云）
+    +.upos-sz-mirrorali.bilivideo.com: https://dns.alidns.com/dns-query
+    +.upos-sz-mirrorali?.bilivideo.com: https://dns.alidns.com/dns-query
+    +.upos-sz-mirrorali??.bilivideo.com: https://dns.alidns.com/dns-query
+    # BiliBili upos视频服务器（百度云）
+    +.upos-sz-mirrorbos.bilivideo.com: 180.76.76.76
+    # BiliBili upos视频服务器（腾讯云）
+    +.upos-sz-mirrorcos.bilivideo.com: https://doh.pub/dns-query
+    +.upos-sz-mirrorcos?.bilivideo.com: https://doh.pub/dns-query
+    +.upos-sz-mirrorcos??.bilivideo.com: https://doh.pub/dns-query
+    # BiliBili upos视频服务器（百度云）
+    +.upos-sz-upcdnbd??.bilivideo.com: 180.76.76.76
+    # BiliBili upos视频服务器（腾讯云）
+    +.upos-sz-upcdntx.bilivideo.com: https://doh.pub/dns-query  
+    +.uc.cn: quic://dns.alidns.com:853
+    +.alibaba.com: quic://dns.alidns.com:853
+    +.alicdn.com: quic://dns.alidns.com:853
+    +.ialicdn.com: quic://dns.alidns.com:853
+    +.myalicdn.com: quic://dns.alidns.com:853
+    +.alidns.com: quic://dns.alidns.com:853
+    +.aliimg.com: quic://dns.alidns.com:853
+    +.aliyun.com: quic://dns.alidns.com:853
+    +.aliyuncs.com: quic://dns.alidns.com:853
+    +.alikunlun.com: quic://dns.alidns.com:853
+    +.alikunlun.net: quic://dns.alidns.com:853
+    +.cdngslb.com: quic://dns.alidns.com:853
+    +.alipay.com: quic://dns.alidns.com:853
+    +.alipay.cn: quic://dns.alidns.com:853
+    +.alipay.com.cn: quic://dns.alidns.com:853
+    +.alipayobjects.com: quic://dns.alidns.com:853
+    +.alibaba-inc.com: quic://dns.alidns.com:853
+    +.alibabausercontent.com: quic://dns.alidns.com:853
+    +.alibabadns.com: quic://dns.alidns.com:853
+    +.alibabachengdun.com: quic://dns.alidns.com:853
+    +.alicloudccp.com: quic://dns.alidns.com:853
+    +.alipan.com: quic://dns.alidns.com:853
+    +.aliyundrive.com: quic://dns.alidns.com:853
+    +.aliyundrive.net: quic://dns.alidns.com:853
+    +.cainiao.com: quic://dns.alidns.com:853
+    +.cainiao.com.cn: quic://dns.alidns.com:853
+    +.cainiaoyizhan.com: quic://dns.alidns.com:853
+    +.guoguo-app.com: quic://dns.alidns.com:853
+    +.etao.com: quic://dns.alidns.com:853
+    +.yitao.com: quic://dns.alidns.com:853
+    +.1688.com: quic://dns.alidns.com:853
+    +.amap.com: quic://dns.alidns.com:853
+    +.gaode.com: quic://dns.alidns.com:853
+    +.autonavi.com: quic://dns.alidns.com:853
+    +.dingtalk.com: quic://dns.alidns.com:853
+    +.mxhichina.com: quic://dns.alidns.com:853
+    +.soku.com: quic://dns.alidns.com:853
+    +.tb.cn: quic://dns.alidns.com:853
+    +.taobao.com: quic://dns.alidns.com:853
+    +.taobaocdn.com: quic://dns.alidns.com:853
+    +.tbcache.com: quic://dns.alidns.com:853
+    +.tmall.com: quic://dns.alidns.com:853
+    +.goofish.com: quic://dns.alidns.com:853
+    +.xiami.com: quic://dns.alidns.com:853
+    +.xiami.net: quic://dns.alidns.com:853
+    +.ykimg.com: quic://dns.alidns.com:853
+    +.youku.com: quic://dns.alidns.com:853
+    +.tudou.com: quic://dns.alidns.com:853
+    +.cibntv.net: quic://dns.alidns.com:853
+    +.ele.me: quic://dns.alidns.com:853
+    +.elemecdn.com: quic://dns.alidns.com:853
+    +.feizhu.com: quic://dns.alidns.com:853
+    +.taopiaopiao.com: quic://dns.alidns.com:853
+    +.fliggy.com: quic://dns.alidns.com:853
+    +.koubei.com: quic://dns.alidns.com:853
+    +.mybank.cn: quic://dns.alidns.com:853
+    +.mmstat.com: quic://dns.alidns.com:853
+    +.uczzd.cn: quic://dns.alidns.com:853
+    +.iconfont.cn: quic://dns.alidns.com:853
+    +.freshhema.com: quic://dns.alidns.com:853
+    +.hemamax.com: quic://dns.alidns.com:853
+    +.hemaos.com: quic://dns.alidns.com:853
+    +.hemashare.cn: quic://dns.alidns.com:853
+    +.shyhhema.com: quic://dns.alidns.com:853
+    +.sm.cn: quic://dns.alidns.com:853
+    +.npmmirror.com: quic://dns.alidns.com:853
+    +.alios.cn: quic://dns.alidns.com:853
+    +.wandoujia.com: quic://dns.alidns.com:853
+    +.aligames.com: quic://dns.alidns.com:853
+    +.25pp.com: quic://dns.alidns.com:853
+    +.aliapp.org: quic://dns.alidns.com:853
+    +.tanx.com: quic://dns.alidns.com:853
+    +.hellobike.com: quic://dns.alidns.com:853
+    +.hichina.com: quic://dns.alidns.com:853
+    +.yunos.com: quic://dns.alidns.com:853 
+    +.qcloud.com: https://doh.pub/dns-query 
+    +.gtimg.cn: https://doh.pub/dns-query 
+    +.gtimg.com: https://doh.pub/dns-query 
+    +.gtimg.com.cn: https://doh.pub/dns-query 
+    +.gdtimg.com: https://doh.pub/dns-query 
+    +.idqqimg.com: https://doh.pub/dns-query 
+    +.udqqimg.com: https://doh.pub/dns-query 
+    +.igamecj.com: https://doh.pub/dns-query 
+    +.myapp.com: https://doh.pub/dns-query 
+    +.myqcloud.com: https://doh.pub/dns-query 
+    +.dnspod.com: https://doh.pub/dns-query 
+    +.qpic.cn: https://doh.pub/dns-query 
+    +.qlogo.cn: https://doh.pub/dns-query 
+    +.qq.com: https://doh.pub/dns-query 
+    +.qq.com.cn: https://doh.pub/dns-query 
+    +.qqmail.com: https://doh.pub/dns-query 
+    +.qzone.com: https://doh.pub/dns-query 
+    +.tencent-cloud.net: https://doh.pub/dns-query 
+    +.tencent-cloud.com: https://doh.pub/dns-query 
+    +.tencent.com: https://doh.pub/dns-query 
+    +.tencent.com.cn: https://doh.pub/dns-query 
+    +.tencentmusic.com: https://doh.pub/dns-query 
+    +.weixinbridge.com: https://doh.pub/dns-query 
+    +.weixin.com: https://doh.pub/dns-query 
+    +.weiyun.com: https://doh.pub/dns-query 
+    +.soso.com: https://doh.pub/dns-query 
+    +.sogo.com: https://doh.pub/dns-query 
+    +.sogou.com: https://doh.pub/dns-query 
+    +.sogoucdn.com: https://doh.pub/dns-query 
+    +.roblox.cn: https://doh.pub/dns-query 
+    +.robloxdev.cn: https://doh.pub/dns-query 
+    +.wegame.com: https://doh.pub/dns-query 
+    +.wegame.com.cn: https://doh.pub/dns-query 
+    +.wegameplus.com: https://doh.pub/dns-query 
+    +.cdn-go.cn: https://doh.pub/dns-query 
+    +.tencentcs.cn: https://doh.pub/dns-query 
+    +.qcloudimg.com: https://doh.pub/dns-query 
+    +.dnspod.cn: https://doh.pub/dns-query 
+    +.anticheatexpert.com: https://doh.pub/dns-query 
+    +.qlivecdn.com: https://doh.pub/dns-query 
+    +.tcdnlive.com: https://doh.pub/dns-query 
+    +.dnsv1.com: https://doh.pub/dns-query 
+    +.smtcdns.net: https://doh.pub/dns-query 
+    +.coding.net: https://doh.pub/dns-query 
+    +.codehub.cn: https://doh.pub/dns-query 
+    +.bilibili.cn: https://doh.pub/dns-query 
+    +.bilibili.com: https://doh.pub/dns-query 
+    +.acgvideo.com: https://doh.pub/dns-query 
+    +.bilivideo.com: https://doh.pub/dns-query 
+    +.bilivideo.cn: https://doh.pub/dns-query 
+    +.bilivideo.net: https://doh.pub/dns-query 
+    +.hdslb.com: https://doh.pub/dns-query 
+    +.biliimg.com: https://doh.pub/dns-query 
+    +.biliapi.com: https://doh.pub/dns-query 
+    +.biliapi.net: https://doh.pub/dns-query 
+    +.biligame.com: https://doh.pub/dns-query 
+    +.biligame.net: https://doh.pub/dns-query 
+    +.bilicomic.com: https://doh.pub/dns-query 
+    +.bilicomics.com: https://doh.pub/dns-query 
+    +.bilicdn1.com: https://doh.pub/dns-query 
+    +.mi.com: https://doh.pub/dns-query 
+    +.duokan.com: https://doh.pub/dns-query 
+    +.mi-img.com: https://doh.pub/dns-query 
+    +.mi-idc.com: https://doh.pub/dns-query 
+    +.xiaoaisound.com: https://doh.pub/dns-query 
+    +.xiaomixiaoai.com: https://doh.pub/dns-query 
+    +.mi-fds.com: https://doh.pub/dns-query 
+    +.mifile.cn: https://doh.pub/dns-query 
+    +.mijia.tech: https://doh.pub/dns-query 
+    +.miui.com: https://doh.pub/dns-query 
+    +.xiaomi.com: https://doh.pub/dns-query 
+    +.xiaomi.cn: https://doh.pub/dns-query 
+    +.xiaomi.net: https://doh.pub/dns-query 
+    +.xiaomiev.com: https://doh.pub/dns-query 
+    +.xiaomiyoupin.com: https://doh.pub/dns-query 
+    +.bytedance.com: 180.184.2.2 
+    +.bytecdn.cn: 180.184.2.2 
+    +.volccdn.com: 180.184.2.2 
+    +.toutiaoimg.com: 180.184.2.2 
+    +.toutiaoimg.cn: 180.184.2.2 
+    +.toutiaostatic.com: 180.184.2.2 
+    +.toutiaovod.com: 180.184.2.2 
+    +.toutiaocloud.com: 180.184.2.2 
+    +.toutiaopage.com: 180.184.2.2 
+    +.feiliao.com: 180.184.2.2 
+    +.iesdouyin.com: 180.184.2.2 
+    +.pstatp.com: 180.184.2.2 
+    +.snssdk.com: 180.184.2.2 
+    +.bytegoofy.com: 180.184.2.2 
+    +.toutiao.com: 180.184.2.2 
+    +.feishu.cn: 180.184.2.2 
+    +.feishu.net: 180.184.2.2 
+    +.feishucdn.com: 180.184.2.2 
+    +.feishupkg.com: 180.184.2.2 
+    +.douyin.com: 180.184.2.2 
+    +.douyinpic.com: 180.184.2.2 
+    +.douyinstatic.com: 180.184.2.2 
+    +.douyincdn.com: 180.184.2.2 
+    +.douyinliving.com: 180.184.2.2 
+    +.douyinvod.com: 180.184.2.2 
+    +.huoshan.com: 180.184.2.2 
+    +.huoshanstatic.com: 180.184.2.2 
+    +.huoshanzhibo.com: 180.184.2.2 
+    +.ixigua.com: 180.184.2.2 
+    +.ixiguavideo.com: 180.184.2.2 
+    +.ixgvideo.com: 180.184.2.2 
+    +.byted-static.com: 180.184.2.2 
+    +.volces.com: 180.184.2.2 
+    +.baike.com: 180.184.2.2 
+    +.zjcdn.com: 180.184.2.2 
+    +.zijieapi.com: 180.184.2.2 
+    +.feelgood.cn: 180.184.2.2 
+    +.bytetcc.com: 180.184.2.2 
+    +.bytednsdoc.com: 180.184.2.2 
+    +.byteimg.com: 180.184.2.2 
+    +.byteacctimg.com: 180.184.2.2 
+    +.ibytedapm.com: 180.184.2.2 
+    +.oceanengine.com: 180.184.2.2 
+    +.edge-byted.com: 180.184.2.2 
+    +.volcvideo.com: 180.184.2.2 
+    +.91.com: 180.76.76.76 
+    +.hao123.com: 180.76.76.76 
+    +.baidu.cn: 180.76.76.76 
+    +.baidu.com: 180.76.76.76 
+    +.iqiyi.com: 180.76.76.76 
+    +.iqiyipic.com: 180.76.76.76 
+    +.baidubce.com: 180.76.76.76 
+    +.bcelive.com: 180.76.76.76 
+    +.baiducontent.com: 180.76.76.76 
+    +.baidustatic.com: 180.76.76.76 
+    +.bdstatic.com: 180.76.76.76 
+    +.bdimg.com: 180.76.76.76 
+    +.bcebos.com: 180.76.76.76 
+    +.baidupcs.com: 180.76.76.76 
+    +.baidubcr.com: 180.76.76.76 
+    +.yunjiasu-cdn.net: 180.76.76.76 
+    +.tieba.com: 180.76.76.76 
+    +.xiaodutv.com: 180.76.76.76 
+    +.shifen.com: 180.76.76.76 
+    +.jomodns.com: 180.76.76.76 
+    +.bdydns.com: 180.76.76.76 
+    +.jomoxc.com: 180.76.76.76 
+    +.duapp.com: 180.76.76.76 
+    +.antpcdn.com: 180.76.76.76 
+    +.qhimg.com: https://doh.360.cn/dns-query 
+    +.qhimgs.com: https://doh.360.cn/dns-query 
+    +.qhimgs?.com: https://doh.360.cn/dns-query 
+    +.qhres.com: https://doh.360.cn/dns-query 
+    +.qhres2.com: https://doh.360.cn/dns-query 
+    +.qhmsg.com: https://doh.360.cn/dns-query 
+    +.qhstatic.com: https://doh.360.cn/dns-query 
+    +.qhupdate.com: https://doh.360.cn/dns-query 
+    +.qihucdn.com: https://doh.360.cn/dns-query 
+    +.360.com: https://doh.360.cn/dns-query 
+    +.360.cn: https://doh.360.cn/dns-query 
+    +.360.net: https://doh.360.cn/dns-query 
+    +.360safe.com: https://doh.360.cn/dns-query 
+    +.360tpcdn.com: https://doh.360.cn/dns-query 
+    +.360os.com: https://doh.360.cn/dns-query 
+    +.360webcache.com: https://doh.360.cn/dns-query 
+    +.360kuai.com: https://doh.360.cn/dns-query 
+    +.so.com: https://doh.360.cn/dns-query 
+    +.haosou.com: https://doh.360.cn/dns-query 
+    +.yunpan.cn: https://doh.360.cn/dns-query 
+    +.yunpan.com: https://doh.360.cn/dns-query 
+    +.yunpan.com.cn: https://doh.360.cn/dns-query 
+    +.qh-cdn.com: https://doh.360.cn/dns-query 
+    +.baomitu.com: https://doh.360.cn/dns-query 
+    +.qiku.com: https://doh.360.cn/dns-query 
+    # > 🇨🇳 CHN
+    # CNNIC SDNS
+    # 中国政府网
+    +.gov.cn: 1.2.4.8
+    # *.政务: 1.2.4.8
     # > 🇭🇰 HKG
     # PCCW Enterprises Limited
     +.pccw.com: dns1.pccw.com
@@ -215,10 +478,7 @@ dns:
     # Hurricane Electric
     +.he.net: https://ordns.he.net/dns-query
   nameserver:
-    - quic://223.5.5.5:853
-    # - quic://dns.alidns.com:853
-    - https://dns.alidns.com/dns-query#h3=true
-    - https://doh.pub/dns-query#h3=true
+    - system
   proxy-server-nameserver:
     - quic://223.5.5.5:853
     - https://dns.alidns.com/dns-query#h3=true
@@ -236,6 +496,8 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
+    geosite:
+      - gfw
     ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver解析出这些结果时将会采用 fallback的解析结果
       - 240.0.0.0/4
       - 0.0.0.0/32
@@ -264,6 +526,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       include-all: true
       icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg
@@ -294,6 +559,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
 
@@ -304,6 +572,7 @@ proxy-groups:
       name: Download
       type: select
       proxies:
+        - DIRECT
         - 负载均衡
         - 手动切换
         - 香港节点
@@ -312,9 +581,11 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png      
-  
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png 
+
     ## 哔哩哔哩
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
@@ -322,10 +593,17 @@ proxy-groups:
       name: 哔哩哔哩
       type: select
       proxies:
+        - DIRECT
         - 手动切换
         - 香港节点
         - 台湾节点
-        - DIRECT
+        - 日本节点
+        - 狮城节点
+        - 美国节点
+        - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png
   
     ## GitHub
@@ -342,6 +620,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
   
@@ -359,6 +640,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
   
@@ -376,6 +660,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
   
@@ -393,7 +680,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png 
     
     ## 谷歌服务
@@ -410,7 +699,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
     
     ## Telegram
@@ -427,7 +718,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
   
     ## Discord
@@ -444,7 +737,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Discord.png  
    
     ## Twitter
@@ -461,7 +756,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
   
     ## 苹果服务
@@ -478,6 +775,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
     
@@ -495,6 +795,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
   
@@ -512,7 +815,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     
       ## Netflix
@@ -529,7 +834,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
     
     ## Bahamut
@@ -539,14 +846,9 @@ proxy-groups:
       name: Bahamut
       type: select
       proxies:
-        - 手动切换
-        - 香港节点
         - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - DIRECT
+        - 香港节点
+        - 手动切换
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
     
     ## 游戏平台
@@ -563,6 +865,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
     
@@ -581,6 +886,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
     
@@ -598,7 +906,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     
     ## 国际媒体
@@ -615,7 +925,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
-        - DIRECT
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     
     ## 兜底分流
@@ -632,6 +944,9 @@ proxy-groups:
         - 狮城节点
         - 美国节点
         - 韩国节点
+        - 英国节点
+        - 德国节点
+        - 欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     
@@ -700,6 +1015,61 @@ proxy-groups:
       include-all: true
       filter: "(?i)🇰🇷|韩国|韩|(\b(Korea|KR|韓|首尔|Seoul)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+    
+    ## 英国节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      max-failed-times: 3
+      name: 英国节点
+      type: url-test
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇬🇧|英国|英|(\b(United Kingdom|UK|Britain|伦敦|London)\b)"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
+    
+    ## 德国节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      max-failed-times: 3
+      name: 德国节点
+      type: url-test
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇩🇪|德国|德|(\b(Germany|DE|柏林|Berlin)\b)"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
+
+    ## 法国节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      max-failed-times: 3
+      name: 法国节点
+      type: url-test
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇫🇷|法国|(\b(France|FR|巴黎|Paris)\b)"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
+
+    ## 荷兰节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      max-failed-times: 3
+      name: 荷兰节点
+      type: url-test
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇳🇱|荷兰|(\b(Netherlands|NL|阿姆斯特丹|Amsterdam)\b)"
+      icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/master/icon/Netherlands.png
+    
+    ## 欧洲节点：英国、德国、法国、荷兰
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      max-failed-times: 3
+      name: 欧洲节点
+      type: url-test
+      tolerance: 0
+      include-all: true
+      filter: "(?i)(🇬🇧|英国|(\b(United Kingdom|UK|Britain|伦敦|London)\b))|(🇩🇪|德国|(\b(Germany|DE|柏林|Berlin)\b))|(🇫🇷|法国|(\b(France|FR|巴黎|Paris)\b))|(🇳🇱|荷兰|(\b(Netherlands|NL|阿姆斯特丹|Amsterdam)\b))"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/European_Union.png
   
 rules:
     # Privacy
@@ -767,9 +1137,10 @@ rules:
     - DOMAIN-SUFFIX,v2ex.com,香港节点
     - DOMAIN-SUFFIX,nodeseek.com,香港节点
     - DOMAIN-SUFFIX,nodeloc.com,香港节点
-    - DOMAIN-SUFFIX,cn,DIRECT
+    - DOMAIN-KEYWORD,kaspersky,DIRECT
     - DOMAIN-SUFFIX,deepseek.com,DIRECT
     - DOMAIN-SUFFIX,qwen.ai,DIRECT
+    - DOMAIN-SUFFIX,cn,DIRECT
     # 媒体
     - RULE-SET,Disney,国际媒体,no-resolve
     - RULE-SET,PrimeVideo,国际媒体,no-resolve

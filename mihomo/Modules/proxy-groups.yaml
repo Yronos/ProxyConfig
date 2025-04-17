@@ -533,7 +533,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇫🇷|法国|(\b(France|FR|巴黎|Paris)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
 
     ## 荷兰节点
     - interval: 300
@@ -544,7 +544,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇳🇱|荷兰|(\b(Netherlands|NL|阿姆斯特丹|Amsterdam)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
+      icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/master/icon/Netherlands.png
     
     ## 欧洲节点：英国、德国、法国、荷兰
     - interval: 300
