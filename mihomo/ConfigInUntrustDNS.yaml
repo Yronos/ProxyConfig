@@ -1,3 +1,5 @@
+# 此版本拥有较为完善的国家节点分类，完全使用加密DNS处理（除去部分域名分流）
+
 # 基本设置
 port: 7892 # http(s) 代理端口
 socks-port: 7891 # socks4/4a/5 代理端口
@@ -478,11 +480,31 @@ dns:
     # > 🇺🇸 USA
     # Hurricane Electric
     +.he.net: https://ordns.he.net/dns-query
+    # 国内
+    "geosite:cn,private":
+      # 腾讯
+      - https://doh.pub/dns-query#h3=true
+      # 阿里
+      - quic://223.5.5.5:853
+      - quic://223.6.6.6:853
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
+      
   nameserver:
-    - quic://223.5.5.5:853
-    # - quic://dns.alidns.com:853
-    - https://dns.alidns.com/dns-query#h3=true
-    - https://doh.pub/dns-query#h3=true
+    # Cloud Flare
+    # DOH
+    - https://1.1.1.1/dns-query#h3=true&#proxy
+    - https://1.0.0.1/dns-query#h3=true&#proxy
+    # DOT
+    #- tls://1.1.1.1:853
+    #- tls://1.0.0.1:853
+    # Google
+    # DOH
+    - https://8.8.8.8/dns-query#h3=true&#proxy
+    - https://8.8.4.4/dns-query#h3=true&#proxy
+    # DOT
+    #- tls://8.8.8.8:853
+    #- tls://8.4.4.8:853
   proxy-server-nameserver:
     - quic://223.5.5.5:853
     - https://dns.alidns.com/dns-query#h3=true
@@ -527,15 +549,17 @@ proxy-groups:
       name: 手动切换
       type: select
       proxies:
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       include-all: true
       icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg
@@ -560,15 +584,17 @@ proxy-groups:
       proxies:
         - 负载均衡
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
 
@@ -582,15 +608,17 @@ proxy-groups:
         - DIRECT
         - 负载均衡
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png 
 
     ## 哔哩哔哩
@@ -602,15 +630,17 @@ proxy-groups:
       proxies:
         - DIRECT
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png
   
     ## GitHub
@@ -621,15 +651,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
   
@@ -641,15 +673,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
   
@@ -661,15 +695,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
   
@@ -681,15 +717,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png 
     
     ## 谷歌服务
@@ -700,15 +738,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
     
     ## Telegram
@@ -719,15 +759,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
   
     ## Discord
@@ -738,15 +780,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Discord.png  
    
     ## Twitter
@@ -757,15 +801,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
   
     ## 苹果服务
@@ -776,15 +822,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
     
@@ -796,15 +844,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
   
@@ -816,15 +866,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     
       ## Netflix
@@ -835,15 +887,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
     
     ## Bahamut
@@ -853,8 +907,8 @@ proxy-groups:
       name: Bahamut
       type: select
       proxies:
-        - 台湾节点
-        - 香港节点
+        - 🇨🇳台湾节点
+        - 🇭🇰香港节点
         - 手动切换
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
     
@@ -866,15 +920,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
     
@@ -887,15 +943,17 @@ proxy-groups:
       include-all: true
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
     
@@ -907,15 +965,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     
     ## 国际媒体
@@ -926,15 +986,17 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     
     ## 兜底分流
@@ -945,133 +1007,135 @@ proxy-groups:
       type: select
       proxies:
         - 手动切换
-        - 香港节点
-        - 台湾节点
-        - 日本节点
-        - 狮城节点
-        - 美国节点
-        - 韩国节点
-        - 英国节点
-        - 德国节点
-        - 欧洲节点
+        - 🇭🇰香港节点
+        - 🇨🇳台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     
-    ## 香港节点
+    ## 🇭🇰香港节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 香港节点
+      name: 🇭🇰香港节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇭🇰|香港|港|(\b(HK|Hong)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     
-    ## 台湾节点
+    ## 🇨🇳台湾节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 台湾节点
+      name: 🇨🇳台湾节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇨🇳|台湾|台|(\b(Tai|TW|Taiwan)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
     
-    ## 日本节点
+    ## 🇯🇵日本节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 日本节点
+      name: 🇯🇵日本节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇯🇵|日本|日|(\b(Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     
-    ## 狮城节点
+    ## 🇸🇬狮城节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 狮城节点
+      name: 🇸🇬狮城节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇸🇬|新加坡|新|(\b(Singapore|SG|狮)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
     
-    ## 美国节点
+    ## 🇺🇸美国节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 美国节点
+      name: 🇺🇸美国节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇺🇸|美国|美|(\b(United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     
-    ## 韩国节点
+    ## 🇰🇷韩国节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 韩国节点
+      name: 🇰🇷韩国节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇰🇷|韩国|韩|(\b(Korea|KR|韓|首尔|Seoul)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
     
-    ## 英国节点
+    ## 🇬🇧英国节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 英国节点
+      name: 🇬🇧英国节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇬🇧|英国|英|(\b(United Kingdom|UK|Britain|伦敦|London)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
     
-    ## 德国节点
+    ## 🇩🇪德国节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 德国节点
+      name: 🇩🇪德国节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇩🇪|德国|德|(\b(Germany|DE|柏林|Berlin)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
 
-    ## 法国节点
+    ## 🇫🇷法国节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 法国节点
+      name: 🇫🇷法国节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇫🇷|法国|(\b(France|FR|巴黎|Paris)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
 
-    ## 荷兰节点
+    ## 🇳🇱荷兰节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 荷兰节点
+      name: 🇳🇱荷兰节点
       type: url-test
       tolerance: 0
       include-all: true
       filter: "(?i)🇳🇱|荷兰|(\b(Netherlands|NL|阿姆斯特丹|Amsterdam)\b)"
       icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/master/icon/Netherlands.png
     
-    ## 欧洲节点：英国、德国、法国、荷兰
+    ## 🇪🇺欧洲节点：英国、德国、法国、荷兰
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       max-failed-times: 3
-      name: 欧洲节点
+      name: 🇪🇺欧洲节点
       type: url-test
       tolerance: 0
       include-all: true
@@ -1079,6 +1143,11 @@ proxy-groups:
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/European_Union.png
   
 rules:
+    # DNS
+    - IP-CIDR,1.1.1.1/32,CDN,no-resolve
+    - IP-CIDR,1.0.0.1/32,CDN,no-resolve
+    - IP-CIDR,8.8.8.8/32,CDN,no-resolve
+    - IP-CIDR,8.8.4.4/32,CDN,no-resolve
     # Privacy
     - DOMAIN-KEYWORD,analytics.,REJECT
     - DOMAIN-KEYWORD,app-analytics,REJECT
@@ -1140,10 +1209,10 @@ rules:
     # Emby
     - RULE-SET,Emby,Emby,no-resolve
     # 自定义规则
-    - DOMAIN-SUFFIX,linux.do,香港节点
-    - DOMAIN-SUFFIX,v2ex.com,香港节点
-    - DOMAIN-SUFFIX,nodeseek.com,香港节点
-    - DOMAIN-SUFFIX,nodeloc.com,香港节点
+    - DOMAIN-SUFFIX,linux.do,🇭🇰香港节点
+    - DOMAIN-SUFFIX,v2ex.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeseek.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeloc.com,🇭🇰香港节点
     - DOMAIN-KEYWORD,kaspersky,DIRECT
     - DOMAIN-SUFFIX,deepseek.com,DIRECT
     - DOMAIN-SUFFIX,qwen.ai,DIRECT
@@ -1153,21 +1222,21 @@ rules:
     - RULE-SET,PrimeVideo,国际媒体,no-resolve
     - RULE-SET,HBO,国际媒体,no-resolve
     # 流媒体
-    - RULE-SET,stream_us_non_ip,美国节点
-    - RULE-SET,stream_eu_non_ip,美国节点
-    - RULE-SET,stream_jp_non_ip,日本节点
-    - RULE-SET,stream_kr_non_ip,韩国节点
-    - RULE-SET,stream_hk_non_ip,香港节点
-    - RULE-SET,stream_tw_non_ip,台湾节点
-    - RULE-SET,stream_non_ip,美国节点
+    - RULE-SET,stream_us_non_ip,🇺🇸美国节点
+    - RULE-SET,stream_eu_non_ip,🇺🇸美国节点
+    - RULE-SET,stream_jp_non_ip,🇯🇵日本节点
+    - RULE-SET,stream_kr_non_ip,🇰🇷韩国节点
+    - RULE-SET,stream_hk_non_ip,🇭🇰香港节点
+    - RULE-SET,stream_tw_non_ip,🇨🇳台湾节点
+    - RULE-SET,stream_non_ip,🇺🇸美国节点
     # 流媒体
-    - RULE-SET,stream_us_ip,美国节点,no-resolve
-    - RULE-SET,stream_eu_ip,美国节点,no-resolve
-    - RULE-SET,stream_jp_ip,日本节点,no-resolve
-    - RULE-SET,stream_kr_ip,韩国节点,no-resolve
-    - RULE-SET,stream_hk_ip,香港节点,no-resolve
-    - RULE-SET,stream_tw_ip,台湾节点,no-resolve
-    - RULE-SET,stream_ip,美国节点,no-resolve
+    - RULE-SET,stream_us_ip,🇺🇸美国节点,no-resolve
+    - RULE-SET,stream_eu_ip,🇺🇸美国节点,no-resolve
+    - RULE-SET,stream_jp_ip,🇯🇵日本节点,no-resolve
+    - RULE-SET,stream_kr_ip,🇰🇷韩国节点,no-resolve
+    - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
+    - RULE-SET,stream_tw_ip,🇨🇳台湾节点,no-resolve
+    - RULE-SET,stream_ip,🇺🇸美国节点,no-resolve
     # 国内外域名
     - RULE-SET,domestic_non_ip,DIRECT
     - RULE-SET,direct_non_ip,DIRECT

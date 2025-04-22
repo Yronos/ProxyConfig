@@ -1,4 +1,9 @@
 rules:
+    # DNS
+    - IP-CIDR,1.1.1.1/32,CDN,no-resolve
+    - IP-CIDR,1.0.0.1/32,CDN,no-resolve
+    - IP-CIDR,8.8.8.8/32,CDN,no-resolve
+    - IP-CIDR,8.8.4.4/32,CDN,no-resolve
     # Privacy
     - DOMAIN-KEYWORD,analytics.,REJECT
     - DOMAIN-KEYWORD,app-analytics,REJECT
@@ -60,10 +65,10 @@ rules:
     # Emby
     - RULE-SET,Emby,Emby,no-resolve
     # 自定义规则
-    - DOMAIN-SUFFIX,linux.do,香港节点
-    - DOMAIN-SUFFIX,v2ex.com,香港节点
-    - DOMAIN-SUFFIX,nodeseek.com,香港节点
-    - DOMAIN-SUFFIX,nodeloc.com,香港节点
+    - DOMAIN-SUFFIX,linux.do,🇭🇰香港节点
+    - DOMAIN-SUFFIX,v2ex.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeseek.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeloc.com,🇭🇰香港节点
     - DOMAIN-KEYWORD,kaspersky,DIRECT
     - DOMAIN-SUFFIX,deepseek.com,DIRECT
     - DOMAIN-SUFFIX,qwen.ai,DIRECT
@@ -73,21 +78,21 @@ rules:
     - RULE-SET,PrimeVideo,国际媒体,no-resolve
     - RULE-SET,HBO,国际媒体,no-resolve
     # 流媒体
-    - RULE-SET,stream_us_non_ip,美国节点
-    - RULE-SET,stream_eu_non_ip,美国节点
-    - RULE-SET,stream_jp_non_ip,日本节点
-    - RULE-SET,stream_kr_non_ip,韩国节点
-    - RULE-SET,stream_hk_non_ip,香港节点
-    - RULE-SET,stream_tw_non_ip,台湾节点
-    - RULE-SET,stream_non_ip,美国节点
+    - RULE-SET,stream_us_non_ip,🇺🇸美国节点
+    - RULE-SET,stream_eu_non_ip,🇺🇸美国节点
+    - RULE-SET,stream_jp_non_ip,🇯🇵日本节点
+    - RULE-SET,stream_kr_non_ip,🇰🇷韩国节点
+    - RULE-SET,stream_hk_non_ip,🇭🇰香港节点
+    - RULE-SET,stream_tw_non_ip,🇨🇳台湾节点
+    - RULE-SET,stream_non_ip,🇺🇸美国节点
     # 流媒体
-    - RULE-SET,stream_us_ip,美国节点,no-resolve
-    - RULE-SET,stream_eu_ip,美国节点,no-resolve
-    - RULE-SET,stream_jp_ip,日本节点,no-resolve
-    - RULE-SET,stream_kr_ip,韩国节点,no-resolve
-    - RULE-SET,stream_hk_ip,香港节点,no-resolve
-    - RULE-SET,stream_tw_ip,台湾节点,no-resolve
-    - RULE-SET,stream_ip,美国节点,no-resolve
+    - RULE-SET,stream_us_ip,🇺🇸美国节点,no-resolve
+    - RULE-SET,stream_eu_ip,🇺🇸美国节点,no-resolve
+    - RULE-SET,stream_jp_ip,🇯🇵日本节点,no-resolve
+    - RULE-SET,stream_kr_ip,🇰🇷韩国节点,no-resolve
+    - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
+    - RULE-SET,stream_tw_ip,🇨🇳台湾节点,no-resolve
+    - RULE-SET,stream_ip,🇺🇸美国节点,no-resolve
     # 国内外域名
     - RULE-SET,domestic_non_ip,DIRECT
     - RULE-SET,direct_non_ip,DIRECT
