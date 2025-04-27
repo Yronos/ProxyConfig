@@ -338,40 +338,64 @@ dns:
     # > 🇺🇸 USA
     # Hurricane Electric
     +.he.net: https://ordns.he.net/dns-query
+    # 国内
+    "geosite:cn,private":
+      # 腾讯
+      - https://doh.pub/dns-query#h3=true
+      # 阿里
+      - quic://223.5.5.5:853
+      - quic://223.6.6.6:853
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
+      #- system
+    # 国外
+    "geosite:gfw":
+      - https://cloudflare-dns.com/dns-query#h3=true
+      - https://dns.google/dns-query#h3=true
   nameserver:
-    - quic://223.5.5.5:853
-    # - quic://dns.alidns.com:853
-    - https://dns.alidns.com/dns-query#h3=true
-    - https://doh.pub/dns-query#h3=true
+    # Cloud Flare
+    # DOH
+    - https://1.1.1.1/dns-query#h3=true
+    - https://1.0.0.1/dns-query#h3=true
+    # DOT
+    #- tls://1.1.1.1:853
+    #- tls://1.0.0.1:853
+    # Google
+    # DOH
+    - https://8.8.8.8/dns-query#h3=true
+    - https://8.8.4.4/dns-query#h3=true
+    # DOT
+    #- tls://8.8.8.8:853
+    #- tls://8.4.4.8:853
   proxy-server-nameserver:
     - quic://223.5.5.5:853
     - https://dns.alidns.com/dns-query#h3=true
-    #- https://doh.pub/dns-query#h3=true
-    #- https://1.1.1.1/dns-query#h3=true&#proxy
-    #- https://8.8.8.8/dns-query#h3=true&#proxy
-#  direct-nameserver:
-#    - system
-#  direct-nameserver-follow-policy: true # 是否遵循nameserver-policy，默认为不遵守，仅当direct-nameserver不为空时生效
-#  fallback:
-#    - https://1.1.1.1/dns-query#h3=true&#proxy
-#    - https://8.8.8.8/dns-query#h3=true&#proxy
-#    - tls://8.8.4.4
-#    - tls://1.1.1.1
-#  fallback-filter:
-#    geoip: true
-#    geoip-code: CN
-#    geosite:
-#      - gfw
-#    ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver解析出这些结果时将会采用 fallback的解析结果
-#      - 240.0.0.0/4
-#      - 0.0.0.0/32
-#      - 223.75.236.241/32
-#      - 182.43.124.6/32
-#      - 106.74.25.198/32
-#      - 183.192.65.101/32
-#    domain: # 这些域名被视为已污染，匹配到这些域名，会直接使用 fallback解析，不去使用 nameserver
-#      - '+.google.com'
-#      - '+.youtube.com'
-#      - '+.facebook.com'
-#      - '+.jsdelivr.net'
-#      - '+.proton.me'
+    - https://doh.pub/dns-query#h3=true
+    #- https://1.1.1.1/dns-query#h3=true
+    #- https://8.8.8.8/dns-query#h3=true
+  direct-nameserver:
+    - quic://223.5.5.5:853
+    - quic://223.6.6.6:853
+    #- system
+  direct-nameserver-follow-policy: true # 是否遵循nameserver-policy，默认为不遵守，仅当direct-nameserver不为空时生效
+  fallback:
+    - https://1.1.1.1/dns-query#h3=true
+    - https://8.8.8.8/dns-query#h3=true
+    - tls://8.8.4.4
+    - tls://1.1.1.1
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver解析出这些结果时将会采用 fallback的解析结果
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+      - 223.75.236.241/32
+      - 182.43.124.6/32
+      - 106.74.25.198/32
+      - 183.192.65.101/32
+    domain: # 这些域名被视为已污染，匹配到这些域名，会直接使用 fallback解析，不去使用 nameserver
+      - '+.google.com'
+      - '+.youtube.com'
+      - '+.facebook.com'
+      - '+.jsdelivr.net'
+      - '+.proton.me'

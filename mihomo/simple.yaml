@@ -217,50 +217,39 @@ dns:
     +.he.net: https://ordns.he.net/dns-query
     # 国内
     "geosite:cn,private":
-      # 腾讯
-      #- https://doh.pub/dns-query#h3=true
-      # 阿里
-      #- quic://223.5.5.5:853
-      #- quic://223.6.6.6:853
-      #- https://223.5.5.5/dns-query
-      #- https://223.6.6.6/dns-query
       - system
-
+    # 国外
+    "geosite:gfw":
+      - https://cloudflare-dns.com/dns-query#h3=true
+      - https://dns.google/dns-query#h3=true
   nameserver:
     # Cloud Flare
     # DOH
-    - https://1.1.1.1/dns-query#h3=true&#proxy
-    - https://1.0.0.1/dns-query#h3=true&#proxy
+    - https://1.1.1.1/dns-query#h3=true
+    - https://1.0.0.1/dns-query#h3=true
     # DOT
     #- tls://1.1.1.1:853
     #- tls://1.0.0.1:853
     # Google
     # DOH
-    - https://8.8.8.8/dns-query#h3=true&#proxy
-    - https://8.8.4.4/dns-query#h3=true&#proxy
+    - https://8.8.8.8/dns-query#h3=true
+    - https://8.8.4.4/dns-query#h3=true
     # DOT
     #- tls://8.8.8.8:853
     #- tls://8.4.4.8:853
   proxy-server-nameserver:
-    #- quic://223.5.5.5:853
-    #- https://dns.alidns.com/dns-query#h3=true
-    #- https://doh.pub/dns-query#h3=true
-    #- https://1.1.1.1/dns-query#h3=true&#proxy
-    #- https://8.8.8.8/dns-query#h3=true&#proxy
     - system
   direct-nameserver:
     - system
   direct-nameserver-follow-policy: true # 是否遵循nameserver-policy，默认为不遵守，仅当direct-nameserver不为空时生效
   fallback:
-    - https://1.1.1.1/dns-query#h3=true&#proxy
-    - https://8.8.8.8/dns-query#h3=true&#proxy
+    - https://1.1.1.1/dns-query#h3=true
+    - https://8.8.8.8/dns-query#h3=true
     - tls://8.8.4.4
     - tls://1.1.1.1
   fallback-filter:
     geoip: true
     geoip-code: CN
-    geosite:
-      - gfw
     ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver解析出这些结果时将会采用 fallback的解析结果
       - 240.0.0.0/4
       - 0.0.0.0/32
@@ -750,6 +739,18 @@ rules:
     # 软件游戏驱动，酌情调整
     - RULE-SET,download_domainset,Download
     - RULE-SET,download_non_ip,Download
+    # 部分需要直连的资源
+    - DOMAIN-SUFFIX,hdslb.com,DIRECT
+    - DOMAIN-SUFFIX,bilivideo.com,DIRECT
+    # 自定义规则
+    - DOMAIN-SUFFIX,linux.do,🇭🇰香港节点
+    - DOMAIN-SUFFIX,v2ex.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeseek.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeloc.com,🇭🇰香港节点
+    - DOMAIN-KEYWORD,kaspersky,DIRECT
+    - DOMAIN-SUFFIX,deepseek.com,DIRECT
+    - DOMAIN-SUFFIX,qwen.ai,DIRECT
+    - DOMAIN-SUFFIX,cn,DIRECT
     # AI
     - RULE-SET,AI,AI
     # 苹果服务
@@ -782,15 +783,6 @@ rules:
     - RULE-SET,Epic,游戏平台,no-resolve
     # Emby
     - RULE-SET,Emby,Emby,no-resolve
-    # 自定义规则
-    - DOMAIN-SUFFIX,linux.do,🇭🇰香港节点
-    - DOMAIN-SUFFIX,v2ex.com,🇭🇰香港节点
-    - DOMAIN-SUFFIX,nodeseek.com,🇭🇰香港节点
-    - DOMAIN-SUFFIX,nodeloc.com,🇭🇰香港节点
-    - DOMAIN-KEYWORD,kaspersky,DIRECT
-    - DOMAIN-SUFFIX,deepseek.com,DIRECT
-    - DOMAIN-SUFFIX,qwen.ai,DIRECT
-    - DOMAIN-SUFFIX,cn,DIRECT
     # 媒体
     - RULE-SET,Disney,国际媒体,no-resolve
     - RULE-SET,PrimeVideo,国际媒体,no-resolve

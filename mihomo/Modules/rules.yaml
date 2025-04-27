@@ -32,6 +32,18 @@ rules:
     # 软件游戏驱动，酌情调整
     - RULE-SET,download_domainset,Download
     - RULE-SET,download_non_ip,Download
+    # 部分需要直连的资源
+    - DOMAIN-SUFFIX,hdslb.com,DIRECT
+    - DOMAIN-SUFFIX,bilivideo.com,DIRECT
+    # 自定义规则
+    - DOMAIN-SUFFIX,linux.do,🇭🇰香港节点
+    - DOMAIN-SUFFIX,v2ex.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeseek.com,🇭🇰香港节点
+    - DOMAIN-SUFFIX,nodeloc.com,🇭🇰香港节点
+    - DOMAIN-KEYWORD,kaspersky,DIRECT
+    - DOMAIN-SUFFIX,deepseek.com,DIRECT
+    - DOMAIN-SUFFIX,qwen.ai,DIRECT
+    - DOMAIN-SUFFIX,cn,DIRECT
     # AI
     - RULE-SET,AI,AI
     # 苹果服务
@@ -64,15 +76,6 @@ rules:
     - RULE-SET,Epic,游戏平台,no-resolve
     # Emby
     - RULE-SET,Emby,Emby,no-resolve
-    # 自定义规则
-    - DOMAIN-SUFFIX,linux.do,🇭🇰香港节点
-    - DOMAIN-SUFFIX,v2ex.com,🇭🇰香港节点
-    - DOMAIN-SUFFIX,nodeseek.com,🇭🇰香港节点
-    - DOMAIN-SUFFIX,nodeloc.com,🇭🇰香港节点
-    - DOMAIN-KEYWORD,kaspersky,DIRECT
-    - DOMAIN-SUFFIX,deepseek.com,DIRECT
-    - DOMAIN-SUFFIX,qwen.ai,DIRECT
-    - DOMAIN-SUFFIX,cn,DIRECT
     # 媒体
     - RULE-SET,Disney,国际媒体,no-resolve
     - RULE-SET,PrimeVideo,国际媒体,no-resolve
