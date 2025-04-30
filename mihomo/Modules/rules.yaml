@@ -86,7 +86,7 @@ rules:
     - RULE-SET,stream_jp_non_ip,🇯🇵日本节点
     - RULE-SET,stream_kr_non_ip,🇰🇷韩国节点
     - RULE-SET,stream_hk_non_ip,🇭🇰香港节点
-    - RULE-SET,stream_tw_non_ip,🇨🇳台湾节点
+    - RULE-SET,stream_tw_non_ip,🇹🇼台湾节点
     - RULE-SET,stream_non_ip,🇺🇸美国节点
     # 流媒体
     - RULE-SET,stream_us_ip,🇺🇸美国节点,no-resolve
@@ -94,13 +94,13 @@ rules:
     - RULE-SET,stream_jp_ip,🇯🇵日本节点,no-resolve
     - RULE-SET,stream_kr_ip,🇰🇷韩国节点,no-resolve
     - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
-    - RULE-SET,stream_tw_ip,🇨🇳台湾节点,no-resolve
+    - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
     - RULE-SET,stream_ip,🇺🇸美国节点,no-resolve
     # 国内外域名
     - RULE-SET,domestic_non_ip,DIRECT
     - RULE-SET,direct_non_ip,DIRECT
     - RULE-SET,global_non_ip,国外网站
-    - RULE-SET,domestic_ip,DIRECT
+    - RULE-SET,domestic_ip,DIRECT,no-resolve
     # 国内 IP
     - RULE-SET,china_ip,DIRECT,no-resolve
     # Only use it if you are using IPv6

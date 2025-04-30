@@ -1,22 +1,32 @@
 # 基本设置
-port: 7892 # http(s) 代理端口
-socks-port: 7891 # socks4/4a/5 代理端口
-# redir-port: 7892 # 透明代理端口，用于 Linux 和 MacOS
+port: 7891 # http(s) 代理端口
+socks-port: 7892 # socks4/4a/5 代理端口
+redir-port: 7893 # 透明代理端口，用于 Linux 和 MacOS
+# Transparent proxy server port for Linux (TProxy TCP and TProxy UDP)
+tproxy-port: 7894 # tproxy 透明代理端口，可代理 TCP 与 UDP 流量
 # 混合端口是一个特殊的端口，它同时支持 HTTP(S) 和 SOCKS5 协议。您可以使用任何支持 HTTP 或 SOCKS 代理的程序连接到这个端口
 mixed-port: 7890 # 混合端口
-# Transparent proxy server port for Linux (TProxy TCP and TProxy UDP)
-# tproxy-port: 7893 # tproxy 透明代理端口，可代理 TCP 与 UDP 流量
 ipv6: true
 allow-lan: false # 局域网连接
 bind-address: "*" # 监听地址：* 表示绑定所有地址
 lan-allowed-ips:
   - 0.0.0.0/0
   - ::/0
-lan-disallowed-ips: []
+lan-disallowed-ips:
+  - 192.168.0.3/32 # 仅为示例
 skip-auth-prefixes:
-  - 127.0.0.1/32
-  - ::1/128
-authentication: []
+  - 127.0.0.1/32 # 单个IPV4
+  - ::1/128 # 单个IPV6
+  #- 192.168.1.0/24
+  #- 192.168.31.0/24
+  #- 192.168.100.0/24
+  #- 127.0.0.1/8
+authentication:
+  - mihomo:mimimimimi
+# 外部控制
+#external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
+#external-ui-name: zashboard
+#external-ui: ui
 #external-controller: 127.0.0.1:6666 # 外部控制端口
 #secret: miyao+123
 mode: rule # 运行模式
@@ -86,6 +96,9 @@ tun:
   - 192.168.0.0/16
   - fc00::/7
   - fe80::/10
+  - 172.17.0.1/32
+  - 172.18.0.1/32
+  - 172.19.0.1/32
   # route-exclude-address-set: # 将指定规则集中的目标 IP CIDR 规则添加到防火墙，匹配的流量将绕过路由，仅支持Linux，且需要nftables以及auto-route和auto-redirect已启用。
     # - ruleset-2
 sniffer:
@@ -121,14 +134,18 @@ profile:
   store-fake-ip: true # 储存 fakeip 映射表，域名再次发生连接时，使用原有映射地址
 geo-auto-update: true
 geo-update-interval: 24
-geodata-mode: true
-geodata-loader: memconservative
+# 更改 geoip 使用文件，mmdb 或者 dat，可选 true/false,true为 dat，此项有默认值 false
+geodata-mode: false
+# standard：标准加载器 memconservative：专为内存受限 (小内存) 设备优化的加载器 (默认值)
+geodata-loader: standard
 geox-url:
   geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
   geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
   mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
   asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
-global-ua: clash.meta
+# 自定义外部资源下载时使用的的 UA，默认为 clash.meta
+global-ua: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#global-ua: clash.meta
 etag-support: true
 
 hosts:

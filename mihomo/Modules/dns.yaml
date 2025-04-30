@@ -10,24 +10,33 @@ dns:
   default-nameserver:
     - quic://223.5.5.5:853
     - tls://223.5.5.5
+    #- system
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   # 配置fake-ip-filter的匹配模式，默认为blacklist，即如果匹配成功不返回fake-ip
   # 可设置为whitelist，即只有匹配成功才返回fake-ip
   fake-ip-filter-mode: blacklist
-  fake-ip-filter: # 配置不使用 fake-ip 的域名
+  fake-ip-filter: # 配置不使用 fake-ip 的域名,使用通配符时，应当使用引号 ' '或 " "将内容包裹起来
     - '+.lan'
     - '+.local'
     - 'time.*.com'
     - 'ntp.*.com'
+    - '+.push.apple.com'
+    - '+.miwifi.com'
     - '+.market.xiaomi.com'
+    - '+.docker.io'
     - 'localhost.ptlogin2.qq.com'
     # fakeip-filter 为 rule-providers 中的名为 fakeip-filter 规则订阅，
     # 且 behavior 必须为 domain/classical，当为 classical 时仅会生效域名类规则
     # - rule-set:fakeip-filter
+    - 'rule-set:domestic_non_ip'
+    - 'rule-set:direct_non_ip'
+    - 'rule-set:lan_non_ip'
     # fakeip-filter 为 geosite 中名为 fakeip-filter 的分类（需要自行保证该分类存在）
     # - geosite:fakeip-filter
-    - geosite:cn
+    - 'geosite:cn'
+    - 'geosite:connectivity-check'
+    - 'geosite:private'
   nameserver-policy:
     # > BiliBili
     # BiliBili upos视频服务器（阿里云）
@@ -373,6 +382,7 @@ dns:
     - https://doh.pub/dns-query#h3=true
     #- https://1.1.1.1/dns-query#h3=true
     #- https://8.8.8.8/dns-query#h3=true
+    #- system
   direct-nameserver:
     - quic://223.5.5.5:853
     - quic://223.6.6.6:853
@@ -380,13 +390,17 @@ dns:
   direct-nameserver-follow-policy: true # 是否遵循nameserver-policy，默认为不遵守，仅当direct-nameserver不为空时生效
   fallback:
     - https://1.1.1.1/dns-query#h3=true
+    - https://1.0.0.1/dns-query#h3=true
     - https://8.8.8.8/dns-query#h3=true
+    - https://8.8.4.4/dns-query#h3=true
     - tls://8.8.4.4
     - tls://1.1.1.1
+  # 后备域名解析服务器筛选，满足条件的将使用 fallback结果或只使用 fallback解析
   fallback-filter:
     geoip: true
+    # 可选值为 国家缩写，默认值为 CN,除了 geoip-code 配置的国家 IP, 其他的 IP 结果会被视为污染,geoip-code 配置的国家的结果会直接采用，否则将采用 fallback结果
     geoip-code: CN
-    ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver解析出这些结果时将会采用 fallback的解析结果
+    ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver 解析出这些结果时将会采用 fallback的解析结果
       - 240.0.0.0/4
       - 0.0.0.0/32
       - 223.75.236.241/32
@@ -396,6 +410,11 @@ dns:
     domain: # 这些域名被视为已污染，匹配到这些域名，会直接使用 fallback解析，不去使用 nameserver
       - '+.google.com'
       - '+.youtube.com'
+      - '+.twitter.com'
+      - '+.x.com'
+      - '+.reddit.com'
+      - '+.telegram.org'
+      - '+.instagram.com'
       - '+.facebook.com'
       - '+.jsdelivr.net'
       - '+.proton.me'

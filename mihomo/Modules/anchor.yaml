@@ -1,0 +1,33 @@
+PProviders: &PProviders {type: http, interval: 86400, proxy: DIRECT, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 600}, filter: '^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))'}
+# 锚点 - 筛选组 
+FilterHK: &FilterHK '^(?=.*(?i)(港|🇭🇰|HK|Hong|HKG))(?!.*(排除1|排除2|5x)).*$'
+FilterSG: &FilterSG '^(?=.*(?i)(坡|🇸🇬|SG|Sing|SIN|XSP))(?!.*(排除1|排除2|5x)).*$'
+FilterJP: &FilterJP '^(?=.*(?i)(日|🇯🇵|JP|Japan|NRT|HND|KIX|CTS|FUK))(?!.*(排除1|排除2|5x)).*$'
+FilterKR: &FilterKR '^(?=.*(?i)(韩|🇰🇷|韓|首尔|南朝鲜|KR|KOR|Korea|South))(?!.*(排除1|排除2|5x)).*$'
+FilterUS: &FilterUS '^(?=.*(?i)(美|🇺🇸|US|USA|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD))(?!.*(排除1|排除2|5x)).*$'
+FilterTW: &FilterTW '^(?=.*(?i)(台|🇼🇸|🇹🇼|TW|tai|TPE|TSA|KHH))(?!.*(排除1|排除2|5x)).*$'
+FilterEU: &FilterEU '^(?=.*(?i)(奥|比|保|克罗地亚|塞|捷|丹|爱沙|芬|法|德|希|匈|爱尔|意|拉|立|卢|马其它|荷|波|葡|罗|斯洛伐|斯洛文|西|瑞|英|🇧🇪|🇨🇿|🇩🇰|🇫🇮|🇫🇷|🇩🇪|🇮🇪|🇮🇹|🇱🇹|🇱🇺|🇳🇱|🇵🇱|🇸🇪|🇬🇧|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU))(?!.*(排除1|排除2|5x)).*$'
+FilterOther: &FilterOther '^(?!.*(DIRECT|美|港|坡|台|新|日|韩|奥|比|保|克罗地亚|塞|捷|丹|爱沙|芬|法|德|希|匈|爱尔|意|拉|立|卢|马其它|荷|波|葡|罗|斯洛伐|斯洛文|西|瑞|英|🇭🇰|🇼🇸|🇹🇼|🇸🇬|🇯🇵|🇰🇷|🇺🇸|🇬🇧|🇦🇹|🇧🇪|🇨🇿|🇩🇰|🇫🇮|🇫🇷|🇩🇪|🇮🇪|🇮🇹|🇱🇹|🇱🇺|🇳🇱|🇵🇱|🇸🇪|HK|TW|SG|JP|KR|US|GB|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU|HKG|TPE|TSA|KHH|SIN|XSP|NRT|HND|KIX|CTS|FUK|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD|LHR|LGW))'
+FilterAll: &FilterAll '^(?!.*(DIRECT|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))'
+# 锚点 - 策略组
+UrlTest: &UrlTest {type: url-test, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
+FallBack: &FallBack {type: fallback, interval: 60, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: false}
+LoadBalanceCH: &LoadBalanceCH {type: load-balance, interval: 60, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, strategy: consistent-hashing, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
+LoadBalanceCR: &LoadBalanceCR {type: load-balance, interval: 60, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, strategy: round-robin, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
+
+# 锚点 - 选择组 
+SelectFB: &SelectFB {type: select, proxies: [故障转移, 香港策略, 新加坡策略, 日本策略, 韩国策略, 美国策略, 台湾策略, 欧盟策略, 冷门自选, 全球手动, 链式代理, DIRECT]}
+SelectHK: &SelectHK {type: select, proxies: [香港策略, 新加坡策略, 日本策略, 韩国策略, 美国策略, 台湾策略, 欧盟策略, 冷门自选, 全球手动, 链式代理, DIRECT]}
+SelectSG: &SelectSG {type: select, proxies: [新加坡策略, 故障转移, 香港策略, 日本策略, 韩国策略, 美国策略, 台湾策略, 欧盟策略, 冷门自选, 全球手动, 链式代理, DIRECT]}
+SelectUS: &SelectUS {type: select, proxies: [美国策略, 故障转移, 香港策略, 新加坡策略, 日本策略, 韩国策略, 台湾策略, 欧盟策略, 冷门自选, 全球手动, 链式代理, DIRECT]}
+SelectProxy: &SelectProxy {type: select, proxies: [默认代理, 故障转移, 香港策略, 新加坡策略, 日本策略, 韩国策略, 美国策略, 台湾策略, 欧盟策略, 冷门自选, 全球手动, 链式代理, DIRECT]}
+# 锚点 - 规则集 
+DomainMrs: &DomainMrs {type: http, interval: 86400, behavior: domain, format: mrs}
+DomainText: &DomainText {type: http, interval: 86400, behavior: domain, format: text}
+domainYaml: &domainYaml {type: http, interval: 86400, behavior: domain, format: yaml}
+IPcidrMrs: &IPcidrMrs {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+IPcidrText: &IPcidrText {type: http, interval: 86400, behavior: ipcidr, format: text}
+ClassicalText: &ClassicalText {type: http, interval: 86400, behavior: classical, format: text}
+ClassicalYaml: &ClassicalYaml {type: http, interval: 86400, behavior: classical, format: yaml}
+############################################## - ⚓️ 锚点区结束 - ############################################## 
+

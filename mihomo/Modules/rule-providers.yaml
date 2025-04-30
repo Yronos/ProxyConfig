@@ -246,7 +246,6 @@ rule-providers:
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Emby/Emby.list
       path: ./rule-providers/Emby.list
 
-
     # 北美相关流媒体
     stream_us_non_ip:
       type: http
