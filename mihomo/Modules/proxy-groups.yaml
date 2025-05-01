@@ -53,16 +53,16 @@ proxy-groups:
       type: select
       proxies:
         - DIRECT
-        - 🇭🇰香港负载均衡轮询
-        - 🇹🇼台湾负载均衡轮询
-        - 🇯🇵日本负载均衡轮询
-        - 🇰🇷韩国负载均衡轮询
-        - 冷门地区负载均衡轮询
         - 🇭🇰香港负载均衡散列
         - 🇹🇼台湾负载均衡散列
         - 🇯🇵日本负载均衡散列
         - 🇰🇷韩国负载均衡散列
         - 冷门地区负载均衡散列
+        - 🇭🇰香港负载均衡轮询
+        - 🇹🇼台湾负载均衡轮询
+        - 🇯🇵日本负载均衡轮询
+        - 🇰🇷韩国负载均衡轮询
+        - 冷门地区负载均衡轮询
         - 手动切换
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png 
 
