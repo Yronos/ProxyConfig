@@ -827,7 +827,7 @@ proxy-groups:
       # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
       # round-robin 将会把所有的请求分配给策略组内不同的代理节点
       strategy: round-robin
-      filter: "(?i)(?:🇯🇵|日本|日|\b(?:Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)(?:🇼🇸|🇹🇼|台湾|台|\b(?:Tai|TW|Taiwan|TPE|TSA|KHH)\b)(?:🇭🇰|香港|港|\b(?:HK|Hong|HKG)\b)"
+      filter: "(?i)🇭🇰|🇼🇸|🇹🇼|🇯🇵|香港|港|台湾|台|日本|(\b(HK|Hong|HKG|Tai|TW|Taiwan|TPE|TSA|KHH|Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
       include-all: true
       #use:
       #  - provider1
@@ -846,7 +846,7 @@ proxy-groups:
       # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
       # round-robin 将会把所有的请求分配给策略组内不同的代理节点
       strategy: consistent-hashing
-      filter: "(?i)(?:🇯🇵|日本|日|\b(?:Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)(?:🇼🇸|🇹🇼|台湾|台|\b(?:Tai|TW|Taiwan|TPE|TSA|KHH)\b)(?:🇭🇰|香港|港|\b(?:HK|Hong|HKG)\b)"
+      filter: "(?i)🇭🇰|🇼🇸|🇹🇼|🇯🇵|香港|港|台湾|台|日本|(\b(HK|Hong|HKG|Tai|TW|Taiwan|TPE|TSA|KHH|Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
       include-all: true
       #use:
       #  - provider1
