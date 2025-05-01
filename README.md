@@ -1,3 +1,4 @@
+[English](https://github.com/Yronos/ProxyConfig/blob/main/README.md) | [中文](https://github.com/Yronos/ProxyConfig/blob/main/README_zh.md)
 # ProxyConfig
 
 Based on modularity, you can combine and match in the following order, adjusting the configuration as needed.
