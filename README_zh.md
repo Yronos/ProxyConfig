@@ -1,3 +1,4 @@
+[English](https://github.com/Yronos/ProxyConfig/blob/main/README.md) | [中文](https://github.com/Yronos/ProxyConfig/blob/main/README_zh.md)
 # ProxyConfig
 
 基于模块化，可以按照如下顺序，自行组合搭配，根据需求删减配置
