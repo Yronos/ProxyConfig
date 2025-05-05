@@ -1,24 +1,32 @@
-# 此版本只有香港、台湾、日本、新加坡、美国、韩国的节点分类，简化的DNS设置（缺省了部分域名分流）
-
 # 基本设置
-port: 7892 # http(s) 代理端口
-socks-port: 7891 # socks4/4a/5 代理端口
-# redir-port: 7892 # 透明代理端口，用于 Linux 和 MacOS
+port: 7891 # http(s) 代理端口
+socks-port: 7892 # socks4/4a/5 代理端口
+redir-port: 7893 # 透明代理端口，用于 Linux 和 MacOS
+# Transparent proxy server port for Linux (TProxy TCP and TProxy UDP)
+tproxy-port: 7894 # tproxy 透明代理端口，可代理 TCP 与 UDP 流量
 # 混合端口是一个特殊的端口，它同时支持 HTTP(S) 和 SOCKS5 协议。您可以使用任何支持 HTTP 或 SOCKS 代理的程序连接到这个端口
 mixed-port: 7890 # 混合端口
-# Transparent proxy server port for Linux (TProxy TCP and TProxy UDP)
-# tproxy-port: 7893 # tproxy 透明代理端口，可代理 TCP 与 UDP 流量
 ipv6: true
 allow-lan: false # 局域网连接
 bind-address: "*" # 监听地址：* 表示绑定所有地址
 lan-allowed-ips:
   - 0.0.0.0/0
   - ::/0
-lan-disallowed-ips: []
+lan-disallowed-ips:
+  - 192.168.0.3/32 # 仅为示例
 skip-auth-prefixes:
-  - 127.0.0.1/32
-  - ::1/128
-authentication: []
+  - 127.0.0.1/32 # 单个IPV4
+  - ::1/128 # 单个IPV6
+  #- 192.168.1.0/24
+  #- 192.168.31.0/24
+  #- 192.168.100.0/24
+  #- 127.0.0.1/8
+authentication:
+  - mihomo:mimimimimi
+# 外部控制
+#external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
+#external-ui-name: zashboard
+#external-ui: ui
 #external-controller: 127.0.0.1:6666 # 外部控制端口
 #secret: miyao+123
 mode: rule # 运行模式
@@ -53,6 +61,7 @@ tun:
   device: Mihomo
   stack: mixed
   auto-route: true
+  # auto-redirect: true # 仅支持 Linux
   auto-detect-interface: true
   dns-hijack:
     - any:53
@@ -71,6 +80,9 @@ tun:
   - 192.168.0.0/16
   - fc00::/7
   - fe80::/10
+  - 172.17.0.1/32
+  - 172.18.0.1/32
+  - 172.19.0.1/32
   # route-exclude-address-set: # 将指定规则集中的目标 IP CIDR 规则添加到防火墙，匹配的流量将绕过路由，仅支持Linux，且需要nftables以及auto-route和auto-redirect已启用。
     # - ruleset-2
 sniffer:
@@ -106,14 +118,18 @@ profile:
   store-fake-ip: true # 储存 fakeip 映射表，域名再次发生连接时，使用原有映射地址
 geo-auto-update: true
 geo-update-interval: 24
-geodata-mode: true
-geodata-loader: memconservative
+# 更改 geoip 使用文件，mmdb 或者 dat，可选 true/false,true为 dat，此项有默认值 false
+geodata-mode: false
+# standard：标准加载器 memconservative：专为内存受限 (小内存) 设备优化的加载器 (默认值)
+geodata-loader: standard
 geox-url:
   geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
   geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
   mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
   asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
-global-ua: clash.meta
+# 自定义外部资源下载时使用的的 UA，默认为 clash.meta
+global-ua: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#global-ua: clash.meta
 etag-support: true
 
 hosts:
@@ -150,25 +166,35 @@ dns:
   use-system-hosts: true
   respect-rules: true
   default-nameserver:
+    #- quic://223.5.5.5:853
+    #- tls://223.5.5.5
     - system
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   # 配置fake-ip-filter的匹配模式，默认为blacklist，即如果匹配成功不返回fake-ip
   # 可设置为whitelist，即只有匹配成功才返回fake-ip
   fake-ip-filter-mode: blacklist
-  fake-ip-filter: # 配置不使用 fake-ip 的域名
+  fake-ip-filter: # 配置不使用 fake-ip 的域名,使用通配符时，应当使用引号 ' '或 " "将内容包裹起来
     - '+.lan'
     - '+.local'
     - 'time.*.com'
     - 'ntp.*.com'
+    - '+.push.apple.com'
+    - '+.miwifi.com'
     - '+.market.xiaomi.com'
+    - '+.docker.io'
     - 'localhost.ptlogin2.qq.com'
     # fakeip-filter 为 rule-providers 中的名为 fakeip-filter 规则订阅，
     # 且 behavior 必须为 domain/classical，当为 classical 时仅会生效域名类规则
     # - rule-set:fakeip-filter
+    - 'rule-set:domestic_non_ip'
+    - 'rule-set:direct_non_ip'
+    - 'rule-set:lan_non_ip'
     # fakeip-filter 为 geosite 中名为 fakeip-filter 的分类（需要自行保证该分类存在）
     # - geosite:fakeip-filter
-    - geosite:cn
+    - 'geosite:cn'
+    - 'geosite:connectivity-check'
+    - 'geosite:private'
   nameserver-policy:
     # > 🇭🇰 HKG
     # PCCW Enterprises Limited
@@ -217,7 +243,14 @@ dns:
     +.he.net: https://ordns.he.net/dns-query
     # 国内
     "geosite:cn,private":
-      - system
+      # 腾讯
+      - https://doh.pub/dns-query#h3=true
+      # 阿里
+      - quic://223.5.5.5:853
+      - quic://223.6.6.6:853
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
+      #- system
     # 国外
     "geosite:gfw":
       - https://cloudflare-dns.com/dns-query#h3=true
@@ -238,19 +271,30 @@ dns:
     #- tls://8.8.8.8:853
     #- tls://8.4.4.8:853
   proxy-server-nameserver:
-    - system
+    - quic://223.5.5.5:853
+    - https://dns.alidns.com/dns-query#h3=true
+    - https://doh.pub/dns-query#h3=true
+    #- https://1.1.1.1/dns-query#h3=true
+    #- https://8.8.8.8/dns-query#h3=true
+    #- system
   direct-nameserver:
+    #- quic://223.5.5.5:853
+    #- quic://223.6.6.6:853
     - system
   direct-nameserver-follow-policy: true # 是否遵循nameserver-policy，默认为不遵守，仅当direct-nameserver不为空时生效
   fallback:
     - https://1.1.1.1/dns-query#h3=true
+    - https://1.0.0.1/dns-query#h3=true
     - https://8.8.8.8/dns-query#h3=true
+    - https://8.8.4.4/dns-query#h3=true
     - tls://8.8.4.4
     - tls://1.1.1.1
+  # 后备域名解析服务器筛选，满足条件的将使用 fallback结果或只使用 fallback解析
   fallback-filter:
     geoip: true
+    # 可选值为 国家缩写，默认值为 CN,除了 geoip-code 配置的国家 IP, 其他的 IP 结果会被视为污染,geoip-code 配置的国家的结果会直接采用，否则将采用 fallback结果
     geoip-code: CN
-    ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver解析出这些结果时将会采用 fallback的解析结果
+    ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver 解析出这些结果时将会采用 fallback的解析结果
       - 240.0.0.0/4
       - 0.0.0.0/32
       - 223.75.236.241/32
@@ -260,451 +304,757 @@ dns:
     domain: # 这些域名被视为已污染，匹配到这些域名，会直接使用 fallback解析，不去使用 nameserver
       - '+.google.com'
       - '+.youtube.com'
+      - '+.twitter.com'
+      - '+.x.com'
+      - '+.reddit.com'
+      - '+.telegram.org'
+      - '+.instagram.com'
       - '+.facebook.com'
       - '+.jsdelivr.net'
       - '+.proton.me'
 
 proxy-groups:
-    ## 手动切换
-    - interval: 300
-      url: http://latency-test.skk.moe/endpoint
-      max-failed-times: 3
-      name: 手动切换
-      type: select
-      proxies:
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
-        - 🇺🇸美国节点
-        - 🇰🇷韩国节点
-        - DIRECT
-      include-all: true
-      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg
-    
-    ## 负载均衡
-    - interval: 300
-      url: http://latency-test.skk.moe/endpoint
-      max-failed-times: 3
-      name: 负载均衡
-      type: load-balance
-      tolerance: 0
-      filter: "(?i)🇭🇰|香港|港|🇨🇳|台湾|台|🇯🇵|日本|日|(\b(HK|Hong|Tai|TW|Taiwan|Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama)\b)"
-      include-all: true
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blinkload.png
-  
+
     ## CDN
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: CDN
       type: select
       proxies:
-        - 负载均衡
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
-        - 🇺🇸美国节点
-        - 🇰🇷韩国节点
+        - 欧洲北美洲CDN均衡轮询
+        - 港台日负载均衡轮询
+        - 🇭🇰香港负载均衡轮询
+        - 🇹🇼台湾负载均衡轮询
+        - 🇯🇵日本负载均衡轮询
+        - 冷门地区负载均衡轮询
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
 
     ## Download
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: Download
       type: select
       proxies:
         - DIRECT
-        - 负载均衡
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
-        - 🇺🇸美国节点
-        - 🇰🇷韩国节点
+        - 欧洲北美洲CDN均衡散列
+        - 港台日负载均衡散列
+        - 🇭🇰香港负载均衡散列
+        - 🇹🇼台湾负载均衡散列
+        - 🇯🇵日本负载均衡散列
+        - 冷门地区负载均衡散列
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png 
 
     ## 哔哩哔哩
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 哔哩哔哩
       type: select
       proxies:
         - DIRECT
-        - 手动切换
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
-        - 🇺🇸美国节点
-        - 🇰🇷韩国节点
+        - 🇹🇼台湾节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png
   
     ## GitHub
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: GitHub
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
-        - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
   
     ## OneDrive
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: OneDrive
       type: select
       proxies:
-        - 手动切换
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
   
     ## 微软服务
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 微软服务
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
   
     ## YouTube
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: YouTube
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png 
     
     ## 谷歌服务
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 谷歌服务
       type: select
       proxies:
-        - 手动切换
+        - 🇺🇸美国节点
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
-        - 🇺🇸美国节点
-        - 🇰🇷韩国节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
     
     ## Telegram
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 电报消息
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
         - 🇸🇬狮城节点
-        - 🇺🇸美国节点
-        - 🇰🇷韩国节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
   
     ## Discord
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: Discord
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Discord.png  
    
     ## Twitter
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 推特消息
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
   
     ## 苹果服务
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 苹果服务
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
     
     ## AI
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: AI
       type: select
+      include-all: true
       proxies:
-        - 手动切换
+        - 🇺🇸美国节点
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
-        - 🇺🇸美国节点
         - 🇰🇷韩国节点
-        - DIRECT
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
       icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
   
     ## Spotify
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: Spotify
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     
       ## Netflix
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: Netflix
       type: select
       proxies:
-        - 手动切换
-        - 🇭🇰香港节点
-        - 🇨🇳台湾节点
-        - 🇯🇵日本节点
-        - 🇸🇬狮城节点
         - 🇺🇸美国节点
-        - 🇰🇷韩国节点
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
     
     ## Bahamut
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: Bahamut
       type: select
       proxies:
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇭🇰香港节点
-        - 手动切换
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
     
     ## 游戏平台
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 游戏平台
       type: select
       proxies:
-        - 手动切换
+        - 🇺🇸美国节点
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
-        - 🇺🇸美国节点
         - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
     
     ## Emby
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: Emby
       type: select
       include-all: true
       proxies:
-        - 手动切换
+        - 🇺🇸美国节点
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
-        - 🇺🇸美国节点
         - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
     
     ## 国外网站
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 国外网站
       type: select
       proxies:
-        - 手动切换
+        - 🇺🇸美国节点
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
-        - 🇺🇸美国节点
         - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     
     ## 国际媒体
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 国际媒体
       type: select
       proxies:
-        - 手动切换
+        - 🇺🇸美国节点
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
-        - 🇺🇸美国节点
         - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     
     ## 兜底分流
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 兜底分流
       type: select
       proxies:
-        - 手动切换
+        - 🇭🇰香港负载均衡散列
+        - 🇹🇼台湾负载均衡散列
+        - 🇯🇵日本负载均衡散列
         - 🇭🇰香港节点
-        - 🇨🇳台湾节点
+        - 🇹🇼台湾节点
         - 🇯🇵日本节点
         - 🇸🇬狮城节点
         - 🇺🇸美国节点
         - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     
+    ## 🇪🇺欧洲手动
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇪🇺欧洲手动
+      type: select
+      #hidden: true
+      disable-udp: false
+      lazy: true
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇬🇧|英国|联合王国|不列颠|(\b(UK|GB|United Kingdom|Britain|London)\b)|伦敦|🇩🇪|德国|(\b(DE|Germany|Berlin)\b)|柏林|🇫🇷|法国|(\b(FR|France|Paris)\b)|巴黎|🇳🇱|荷兰|(\b(NL|Netherlands|Amsterdam)\b)|阿姆斯特丹|🇧🇪|比利时|(\b(BE|Belgium|Brussels)\b)|布鲁塞尔|🇨🇿|捷克|捷克共和国|(\b(CZ|Czech Republic|Prague)\b)|布拉格|🇩🇰|丹麦|(\b(DK|Denmark|Copenhagen)\b)|哥本哈根|🇪🇪|爱沙尼亚|(\b(EE|Estonia|Tallinn)\b)|塔林|🇫🇮|芬兰|(\b(FI|Finland|Helsinki)\b)|赫尔辛基|🇮🇪|爱尔兰|(\b(IE|Ireland|Dublin)\b)|都柏林|🇮🇹|意大利|(\b(IT|Italy|Rome)\b)|罗马|🇱🇹|立陶宛|(\b(LT|Lithuania|Vilnius)\b)|维尔纽斯|🇱🇻|拉脱维亚|(\b(LV|Latvia|Riga)\b)|里加|🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)\b)|卢森堡市|🇭🇷|克罗地亚|(\b(HR|Croatia|Zagreb)\b)|萨格勒布|🇸🇮|斯洛文尼亚|(\b(SI|Slovenia|Ljubljana)\b)|卢布尔雅那|🇸🇰|斯洛伐克|(\b(SK|Slovakia|Bratislava)\b)|布拉迪斯拉发|🇵🇱|波兰|(\b(PL|Poland|Warsaw)\b)|华沙|🇭🇺|匈牙利|(\b(HU|Hungary|Budapest)\b)|布达佩斯|🇵🇹|葡萄牙|(\b(PT|Portugal|Lisbon)\b)|里斯本|🇷🇴|罗马尼亚|(\b(RO|Romania|Bucharest)\b)|布加勒斯特|🇪🇸|西班牙|(\b(ES|Spain|Madrid|MAD|Barcelona|BCN)\b)|马德里|巴塞罗那|🇸🇪|瑞典|(\b(SE|Sweden|Stockholm)\b)|斯德哥尔摩|🇨🇭|瑞士|(\b(CH|Switzerland|Bern|Zurich)\b)|伯尔尼|苏黎世|🇬🇷|希腊|(\b(GR|Greece|Athens)\b)|雅典|🇲🇹|马耳他|(\b(MT|Malta|Valletta)\b)|瓦莱塔|🇹🇷|土耳其|(\b(TR|Turkey|Ankara|Istanbul)\b)|安卡拉|伊斯坦布尔"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/European_Union.png
+
     ## 🇭🇰香港节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 🇭🇰香港节点
       type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
       tolerance: 0
       include-all: true
-      filter: "(?i)🇭🇰|香港|港|(\b(HK|Hong)\b)"
+      filter: "(?i)🇭🇰|香港|港|(\b(HK|Hong|HKG)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     
-    ## 🇨🇳台湾节点
+    ## 🇹🇼台湾节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
-      name: 🇨🇳台湾节点
+      name: 🇹🇼台湾节点
       type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
       tolerance: 0
       include-all: true
-      filter: "(?i)🇨🇳|台湾|台|(\b(Tai|TW|Taiwan)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+      filter: "(?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\b)"
+      icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png
     
     ## 🇯🇵日本节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 🇯🇵日本节点
       type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
       tolerance: 0
       include-all: true
-      filter: "(?i)🇯🇵|日本|日|(\b(Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama)\b)"
+      filter: "(?i)🇯🇵|日本|日|(\b(Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     
     ## 🇸🇬狮城节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 🇸🇬狮城节点
       type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
       tolerance: 0
       include-all: true
-      filter: "(?i)🇸🇬|新加坡|新|(\b(Singapore|SG|狮)\b)"
+      filter: "(?i)🇸🇬|新加坡|新|(\b(Singapore|SG|Sing|SIN|XSP|狮)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
     
     ## 🇺🇸美国节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 🇺🇸美国节点
       type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
       tolerance: 0
       include-all: true
-      filter: "(?i)🇺🇸|美国|美|(\b(United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago)\b)"
+      exclude-filter: "北美洲|白嫖优化"
+      filter: "(?i)🇺🇸|美国|美|(\b(United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     
     ## 🇰🇷韩国节点
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
       max-failed-times: 3
       name: 🇰🇷韩国节点
       type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
       tolerance: 0
       include-all: true
-      filter: "(?i)🇰🇷|韩国|韩|(\b(Korea|KR|韓|首尔|Seoul)\b)"
+      filter: "(?i)🇰🇷|韩国|韩|(\b(Korea|KR|韓|首尔|Seoul|南朝鲜|KOR|South)\b)"
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
     
+    ## 🇬🇧英国节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇬🇧英国节点
+      type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇬🇧|英国|英|(\b(United Kingdom|UK|Britain|伦敦|London)\b)"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
+    
+    ## 🇩🇪德国节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇩🇪德国节点
+      type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇩🇪|德国|德|(\b(Germany|DE|柏林|Berlin)\b)"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
+
+    ## 🇫🇷法国节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇫🇷法国节点
+      type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇫🇷|法国|(\b(France|FR|巴黎|Paris)\b)"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
+
+    ## 🇳🇱荷兰节点
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇳🇱荷兰节点
+      type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇳🇱|荷兰|(\b(Netherlands|NL|阿姆斯特丹|Amsterdam)\b)"
+      icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/master/icon/Netherlands.png
+    
+    ## 🇪🇺欧洲自动
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇪🇺欧洲自动
+      type: url-test
+      #hidden: true
+      disable-udp: false
+      lazy: true
+      tolerance: 0
+      include-all: true
+      filter: "(?i)🇬🇧|英国|联合王国|不列颠|(\b(UK|GB|United Kingdom|Britain|London)\b)|伦敦|🇩🇪|德国|(\b(DE|Germany|Berlin)\b)|柏林|🇫🇷|法国|(\b(FR|France|Paris)\b)|巴黎|🇳🇱|荷兰|(\b(NL|Netherlands|Amsterdam)\b)|阿姆斯特丹|🇧🇪|比利时|(\b(BE|Belgium|Brussels)\b)|布鲁塞尔|🇨🇿|捷克|捷克共和国|(\b(CZ|Czech Republic|Prague)\b)|布拉格|🇩🇰|丹麦|(\b(DK|Denmark|Copenhagen)\b)|哥本哈根|🇪🇪|爱沙尼亚|(\b(EE|Estonia|Tallinn)\b)|塔林|🇫🇮|芬兰|(\b(FI|Finland|Helsinki)\b)|赫尔辛基|🇮🇪|爱尔兰|(\b(IE|Ireland|Dublin)\b)|都柏林|🇮🇹|意大利|(\b(IT|Italy|Rome)\b)|罗马|🇱🇹|立陶宛|(\b(LT|Lithuania|Vilnius)\b)|维尔纽斯|🇱🇻|拉脱维亚|(\b(LV|Latvia|Riga)\b)|里加|🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)\b)|卢森堡市|🇭🇷|克罗地亚|(\b(HR|Croatia|Zagreb)\b)|萨格勒布|🇸🇮|斯洛文尼亚|(\b(SI|Slovenia|Ljubljana)\b)|卢布尔雅那|🇸🇰|斯洛伐克|(\b(SK|Slovakia|Bratislava)\b)|布拉迪斯拉发|🇵🇱|波兰|(\b(PL|Poland|Warsaw)\b)|华沙|🇭🇺|匈牙利|(\b(HU|Hungary|Budapest)\b)|布达佩斯|🇵🇹|葡萄牙|(\b(PT|Portugal|Lisbon)\b)|里斯本|🇷🇴|罗马尼亚|(\b(RO|Romania|Bucharest)\b)|布加勒斯特|🇪🇸|西班牙|(\b(ES|Spain|Madrid|MAD|Barcelona|BCN)\b)|马德里|巴塞罗那|🇸🇪|瑞典|(\b(SE|Sweden|Stockholm)\b)|斯德哥尔摩|🇨🇭|瑞士|(\b(CH|Switzerland|Bern|Zurich)\b)|伯尔尼|苏黎世|🇬🇷|希腊|(\b(GR|Greece|Athens)\b)|雅典|🇲🇹|马耳他|(\b(MT|Malta|Valletta)\b)|瓦莱塔|🇹🇷|土耳其|(\b(TR|Turkey|Ankara|Istanbul)\b)|安卡拉|伊斯坦布尔"
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/European_Union.png
+
+      ## 🇭🇰香港负载均衡轮询
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇭🇰香港负载均衡轮询
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: round-robin
+      filter: "(?i)🇭🇰|香港|港|(\b(HK|Hong|HKG)\b)"
+      include-all: true # 当使用所有代理集合时设置为 true，也可以通过设置 proxy-provides，使用自定义的代理集合
+      #use:
+      #  - provider1
+      #  - provider2
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+  
+    ## 🇭🇰香港负载均衡散列
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇭🇰香港负载均衡散列
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: consistent-hashing
+      filter: "(?i)🇭🇰|香港|港|(\b(HK|Hong|HKG)\b)"
+      include-all: true # 当使用所有代理集合时设置为 true，也可以通过设置 proxy-provides，使用自定义的代理集合
+      #use:
+      #  - provider1
+      #  - provider2
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+
+    ## 🇹🇼台湾负载均衡轮询
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇹🇼台湾负载均衡轮询
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: round-robin
+      filter: "(?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\b)"
+      include-all: true # 当使用所有代理集合时设置为 true，也可以通过设置 proxy-provides，使用自定义的代理集合
+      #use:
+      #  - provider1
+      #  - provider2
+      icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png
+  
+    ## 🇹🇼台湾负载均衡散列
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇹🇼台湾负载均衡散列
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: consistent-hashing
+      filter: "(?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\b)"
+      include-all: true # 当使用所有代理集合时设置为 true，也可以通过设置 proxy-provides，使用自定义的代理集合
+      #use:
+      #  - provider1
+      #  - provider2
+      icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png
+
+    ## 🇯🇵日本负载均衡轮询
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇯🇵日本负载均衡轮询
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: round-robin
+      filter: "(?i)🇯🇵|日本|日|(\b(Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
+      #include-all: true # 当使用所有代理集合时设置为 true，也可以通过设置 proxy-provides，使用自定义的代理集合
+      use:
+        - provider1
+        - provider2
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+  
+    ## 🇯🇵日本负载均衡散列
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 🇯🇵日本负载均衡散列
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: consistent-hashing
+      filter: "(?i)🇯🇵|日本|日|(\b(Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
+      #include-all: true # 当使用所有代理集合时设置为 true，也可以通过设置 proxy-provides，使用自定义的代理集合
+      use:
+        - provider1
+        - provider2
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+
+    ## 港台日负载均衡轮询
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 港台日负载均衡轮询
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: round-robin
+      filter: "(?i)🇭🇰|🇼🇸|🇹🇼|🇯🇵|香港|港|台湾|台|日本|(\b(HK|Hong|HKG|Tai|TW|Taiwan|TPE|TSA|KHH|Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
+      #include-all: true
+      use:
+        - provider1
+        - provider2
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Asia_Map.png
+  
+    ## 港台日负载均衡散列
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 港台日负载均衡散列
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: consistent-hashing
+      filter: "(?i)🇭🇰|🇼🇸|🇹🇼|🇯🇵|香港|港|台湾|台|日本|(\b(HK|Hong|HKG|Tai|TW|Taiwan|TPE|TSA|KHH|Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
+      #include-all: true
+      use:
+        - provider1
+        - provider2
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Asia_Map.png
+
+    ## 冷门地区负载均衡轮询
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 冷门地区负载均衡轮询
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: round-robin
+      filter: ^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+      exclude-filter: "(?i)(?:🇭🇰|香港|港|\b(?:HK|Hong|HKG)\b)|(?:🇼🇸|🇹🇼|台湾|台|\b(?:Tai|TW|Taiwan|TPE|TSA|KHH)\b)|(?:🇯🇵|日本|日|\b(?:Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)|(?:🇸🇬|新加坡|新|\b(?:Singapore|SG|Sing|SIN|XSP|狮)\b)|(?:🇺🇸|美国|美|\b(?:United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)"
+      include-all: true
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Area.png
+  
+    ## 冷门地区负载均衡散列
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 冷门地区负载均衡散列
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: consistent-hashing
+      filter: ^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+      exclude-filter: "(?i)(?:🇭🇰|香港|港|\b(?:HK|Hong|HKG)\b)|(?:🇼🇸|🇹🇼|台湾|台|\b(?:Tai|TW|Taiwan|TPE|TSA|KHH)\b)|(?:🇯🇵|日本|日|\b(?:Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)|(?:🇸🇬|新加坡|新|\b(?:Singapore|SG|Sing|SIN|XSP|狮)\b)|(?:🇺🇸|美国|美|\b(?:United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)"
+      include-all: true
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Area.png
+
+    ## 欧洲北美洲CDN均衡轮询
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 欧洲北美洲CDN均衡轮询
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: round-robin
+      filter: (?i)🇬🇧|英国|联合王国|不列颠|(\b(UK|GB|United Kingdom|Britain|London)\b)|伦敦|🇩🇪|德国|(\b(DE|Germany|Berlin)\b)|柏林|🇫🇷|法国|(\b(FR|France|Paris)\b)|巴黎|🇳🇱|荷兰|(\b(NL|Netherlands|Amsterdam)\b)|阿姆斯特丹|🇧🇪|比利时|(\b(BE|Belgium|Brussels)\b)|布鲁塞尔|🇨🇿|捷克|捷克共和国|(\b(CZ|Czech Republic|Prague)\b)|布拉格|🇩🇰|丹麦|(\b(DK|Denmark|Copenhagen)\b)|哥本哈根|🇪🇪|爱沙尼亚|(\b(EE|Estonia|Tallinn)\b)|塔林|🇫🇮|芬兰|(\b(FI|Finland|Helsinki)\b)|赫尔辛基|🇮🇪|爱尔兰|(\b(IE|Ireland|Dublin)\b)|都柏林|🇮🇹|意大利|(\b(IT|Italy|Rome)\b)|罗马|🇱🇹|立陶宛|(\b(LT|Lithuania|Vilnius)\b)|维尔纽斯|🇱🇻|拉脱维亚|(\b(LV|Latvia|Riga)\b)|里加|🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)\b)|卢森堡市|🇭🇷|克罗地亚|(\b(HR|Croatia|Zagreb)\b)|萨格勒布|🇸🇮|斯洛文尼亚|(\b(SI|Slovenia|Ljubljana)\b)|卢布尔雅那|🇸🇰|斯洛伐克|(\b(SK|Slovakia|Bratislava)\b)|布拉迪斯拉发|🇵🇱|波兰|(\b(PL|Poland|Warsaw)\b)|华沙|🇭🇺|匈牙利|(\b(HU|Hungary|Budapest)\b)|布达佩斯|🇵🇹|葡萄牙|(\b(PT|Portugal|Lisbon)\b)|里斯本|🇷🇴|罗马尼亚|(\b(RO|Romania|Bucharest)\b)|布加勒斯特|🇪🇸|西班牙|(\b(ES|Spain|Madrid|MAD|Barcelona|BCN)\b)|马德里|巴塞罗那|🇸🇪|瑞典|(\b(SE|Sweden|Stockholm)\b)|斯德哥尔摩|🇨🇭|瑞士|(\b(CH|Switzerland|Bern|Zurich)\b)|伯尔尼|苏黎世|🇬🇷|希腊|(\b(GR|Greece|Athens)\b)|雅典|🇲🇹|马耳他|(\b(MT|Malta|Valletta)\b)|瓦莱塔|🇹🇷|土耳其|(\b(TR|Turkey|Ankara|Istanbul)\b)|安卡拉|伊斯坦布尔|美国|加拿大
+      #include-all: true
+      use:
+        - provider1
+        - provider2
+        - provider3
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Europe_Map.png  
+
+    ## 欧洲北美洲CDN均衡散列
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: 欧洲北美洲CDN均衡散列
+      type: load-balance
+      #hidden: true
+      lazy: true
+      # consistent-hashing 将相同的目标地址的请求分配给策略组内的同一个代理节点
+      # round-robin 将会把所有的请求分配给策略组内不同的代理节点
+      strategy: consistent-hashing
+      filter: (?i)🇬🇧|英国|联合王国|不列颠|(\b(UK|GB|United Kingdom|Britain|London)\b)|伦敦|🇩🇪|德国|(\b(DE|Germany|Berlin)\b)|柏林|🇫🇷|法国|(\b(FR|France|Paris)\b)|巴黎|🇳🇱|荷兰|(\b(NL|Netherlands|Amsterdam)\b)|阿姆斯特丹|🇧🇪|比利时|(\b(BE|Belgium|Brussels)\b)|布鲁塞尔|🇨🇿|捷克|捷克共和国|(\b(CZ|Czech Republic|Prague)\b)|布拉格|🇩🇰|丹麦|(\b(DK|Denmark|Copenhagen)\b)|哥本哈根|🇪🇪|爱沙尼亚|(\b(EE|Estonia|Tallinn)\b)|塔林|🇫🇮|芬兰|(\b(FI|Finland|Helsinki)\b)|赫尔辛基|🇮🇪|爱尔兰|(\b(IE|Ireland|Dublin)\b)|都柏林|🇮🇹|意大利|(\b(IT|Italy|Rome)\b)|罗马|🇱🇹|立陶宛|(\b(LT|Lithuania|Vilnius)\b)|维尔纽斯|🇱🇻|拉脱维亚|(\b(LV|Latvia|Riga)\b)|里加|🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)\b)|卢森堡市|🇭🇷|克罗地亚|(\b(HR|Croatia|Zagreb)\b)|萨格勒布|🇸🇮|斯洛文尼亚|(\b(SI|Slovenia|Ljubljana)\b)|卢布尔雅那|🇸🇰|斯洛伐克|(\b(SK|Slovakia|Bratislava)\b)|布拉迪斯拉发|🇵🇱|波兰|(\b(PL|Poland|Warsaw)\b)|华沙|🇭🇺|匈牙利|(\b(HU|Hungary|Budapest)\b)|布达佩斯|🇵🇹|葡萄牙|(\b(PT|Portugal|Lisbon)\b)|里斯本|🇷🇴|罗马尼亚|(\b(RO|Romania|Bucharest)\b)|布加勒斯特|🇪🇸|西班牙|(\b(ES|Spain|Madrid|MAD|Barcelona|BCN)\b)|马德里|巴塞罗那|🇸🇪|瑞典|(\b(SE|Sweden|Stockholm)\b)|斯德哥尔摩|🇨🇭|瑞士|(\b(CH|Switzerland|Bern|Zurich)\b)|伯尔尼|苏黎世|🇬🇷|希腊|(\b(GR|Greece|Athens)\b)|雅典|🇲🇹|马耳他|(\b(MT|Malta|Valletta)\b)|瓦莱塔|🇹🇷|土耳其|(\b(TR|Turkey|Ankara|Istanbul)\b)|安卡拉|伊斯坦布尔|美国|加拿大
+      #include-all: true
+      use:
+        - provider1
+        - provider2
+        - provider3
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Europe_Map.png  
+
+  
+  
 rules:
     # DNS
     - IP-CIDR,1.1.1.1/32,CDN,no-resolve
@@ -793,7 +1143,7 @@ rules:
     - RULE-SET,stream_jp_non_ip,🇯🇵日本节点
     - RULE-SET,stream_kr_non_ip,🇰🇷韩国节点
     - RULE-SET,stream_hk_non_ip,🇭🇰香港节点
-    - RULE-SET,stream_tw_non_ip,🇨🇳台湾节点
+    - RULE-SET,stream_tw_non_ip,🇹🇼台湾节点
     - RULE-SET,stream_non_ip,🇺🇸美国节点
     # 流媒体
     - RULE-SET,stream_us_ip,🇺🇸美国节点,no-resolve
@@ -801,13 +1151,13 @@ rules:
     - RULE-SET,stream_jp_ip,🇯🇵日本节点,no-resolve
     - RULE-SET,stream_kr_ip,🇰🇷韩国节点,no-resolve
     - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
-    - RULE-SET,stream_tw_ip,🇨🇳台湾节点,no-resolve
+    - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
     - RULE-SET,stream_ip,🇺🇸美国节点,no-resolve
     # 国内外域名
     - RULE-SET,domestic_non_ip,DIRECT
     - RULE-SET,direct_non_ip,DIRECT
     - RULE-SET,global_non_ip,国外网站
-    - RULE-SET,domestic_ip,DIRECT
+    - RULE-SET,domestic_ip,DIRECT,no-resolve
     # 国内 IP
     - RULE-SET,china_ip,DIRECT,no-resolve
     # Only use it if you are using IPv6
@@ -1066,7 +1416,6 @@ rule-providers:
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Emby/Emby.list
       path: ./rule-providers/Emby.list
 
-
     # 北美相关流媒体
     stream_us_non_ip:
       type: http
@@ -1229,3 +1578,59 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/lan.txt
       path: ./sukkaw_ruleset/lan_ip.txt
+
+proxy-providers:
+  provider1:
+    type: http
+    interval: 86400
+    proxy: DIRECT
+    size-limit: 0
+    health-check:
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 300
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+    filter: ^(?!.*(群|导航站|监控|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+    url: 
+    path: ./proxy_providers/provider1.yaml
+    override:
+      tfo: false
+      udp: true
+  provider2:
+    type: http
+    interval: 86400
+    proxy: DIRECT
+    size-limit: 0
+    health-check:
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 300
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+    filter: ^(?!.*(群|导航站|监控|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+    url: 
+    path: ./proxy_providers/provider2.yaml
+    override:
+      tfo: false
+      udp: true
+  provider3:
+    type: http
+    interval: 86400
+    proxy: DIRECT
+    size-limit: 0
+    health-check:
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 300
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+    filter: ^(?!.*(群|导航站|监控|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+    url: 
+    path: ./proxy_providers/provider2.yaml
+    override:
+      tfo: false
+      udp: true
