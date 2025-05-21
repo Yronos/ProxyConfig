@@ -203,6 +203,27 @@ rule-providers:
       behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.list
       path: ./rule-providers/Spotify.list
+    Qobuz:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Qobuz/Qobuz.list
+      path: ./rule-providers/Qobuz.list
+    TIDAL:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TIDAL/TIDAL.list
+      path: ./rule-providers/Tidal.list
+    Deezer:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Deezer/Deezer.list
+      path: ./rule-providers/Deezer.list
     Bahamut:
       type: http
       format: text

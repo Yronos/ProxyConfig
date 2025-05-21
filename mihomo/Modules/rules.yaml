@@ -68,6 +68,10 @@ rules:
     - RULE-SET,Twitter,推特消息,no-resolve
     # Spotify
     - RULE-SET,Spotify,Spotify,no-resolve
+    # Music
+    - RULE-SET,Qobuz,Music,no-resolve
+    - RULE-SET,TIDAL,Music,no-resolve
+    - RULE-SET,Deezer,Music,no-resolve
     # 媒体
     - RULE-SET,Bahamut,Bahamut,no-resolve
     - RULE-SET,Netflix,Netflix,no-resolve
