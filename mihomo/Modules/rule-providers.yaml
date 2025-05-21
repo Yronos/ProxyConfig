@@ -387,6 +387,16 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/non_ip/direct.txt
       path: ./sukkaw_ruleset/direct_non_ip.txt
+
+    # 补充部分直连列表
+    LanZouYun:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/LanZouYun/LanZouYun.list
+      path: ./rule-providers/LanZouYun.list
+
     global_non_ip:
       type: http
       behavior: classical

@@ -105,6 +105,8 @@ rules:
     - RULE-SET,direct_non_ip,DIRECT
     - RULE-SET,global_non_ip,国外网站
     - RULE-SET,domestic_ip,DIRECT,no-resolve
+    # 补充部分直连列表
+    - RULE-SET,LanZouYun,DIRECT,no-resolve
     # 国内 IP
     - RULE-SET,china_ip,DIRECT,no-resolve
     # Only use it if you are using IPv6
