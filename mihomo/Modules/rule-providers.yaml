@@ -1,4 +1,11 @@
 rule-providers:
+    ProxyDNS:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyDNS.list
+      path: ./rule-providers/ProxyDNS.list
     reject_non_ip_no_drop:
       type: http
       behavior: classical
