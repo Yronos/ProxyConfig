@@ -77,6 +77,21 @@ proxy-groups:
         - 手动切换
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png 
 
+    ## ProxyDNS
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: ProxyDNS
+      type: select
+      proxies:
+        - 🇯🇵日本节点
+        - 🇭🇰香港节点
+        - 🇹🇼台湾节点
+        - 🇸🇬狮城节点
+        - 🇰🇷韩国节点
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png 
+
     ## 哔哩哔哩
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
