@@ -53,6 +53,8 @@ rules:
     - RULE-SET,OneDrive,OneDrive,no-resolve
     - RULE-SET,microsoft_non_ip,微软服务,no-resolve
     # 谷歌服务
+    - RULE-SET,YouTubeMusic,YouTubeMusic,no-resolve
+    - PROCESS-NAME,YouTube Music.exe,YouTubeMusic
     - RULE-SET,YouTube,YouTube,no-resolve
     - RULE-SET,Google,谷歌服务,no-resolve
     # Telegram

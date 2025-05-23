@@ -119,6 +119,13 @@ rule-providers:
       behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BiliBili/BiliBili.list
       path: ./rule-providers/Bilibili.list
+    YouTubeMusic:
+      type: http
+      format: text
+      interval: 43200
+      behavior: classical
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTubeMusic/YouTubeMusic.list
+      path: ./rule-providers/YouTubeMusic.list
     YouTube:
       type: http
       format: text

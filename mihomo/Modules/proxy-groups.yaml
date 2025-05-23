@@ -188,6 +188,30 @@ proxy-groups:
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
   
+    ## YouTubeMusic
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: YouTubeMusic
+      type: select
+      include-all: true
+      proxies:
+        - 手动切换
+        - 🇭🇰香港节点
+        - 🇹🇼台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube_Music.png 
+ 
     ## YouTube
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
@@ -382,6 +406,7 @@ proxy-groups:
       max-failed-times: 3
       name: Music
       type: select
+      include-all: true
       proxies:
         - 手动切换
         - 🇭🇰香港节点
@@ -405,6 +430,7 @@ proxy-groups:
       max-failed-times: 3
       name: Netflix
       type: select
+      include-all: true
       proxies:
         - 手动切换
         - 🇭🇰香港节点
