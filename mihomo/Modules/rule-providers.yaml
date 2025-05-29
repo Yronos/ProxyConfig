@@ -387,6 +387,20 @@ rule-providers:
       url: https://ruleset.skk.moe/Clash/ip/stream.txt
       path: ./sukkaw_ruleset/stream_ip.txt
 
+    neteasemusic_non_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/non_ip/neteasemusic.txt
+      path: ./sukkaw_ruleset/neteasemusic_non_ip.txt
+    neteasemusic_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Clash/ip/neteasemusic.txt
+      path: ./sukkaw_ruleset/neteasemusic_ip.txt
     domestic_non_ip:
       type: http
       behavior: classical
