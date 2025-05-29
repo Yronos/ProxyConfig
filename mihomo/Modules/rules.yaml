@@ -55,6 +55,7 @@ rules:
     # 谷歌服务
     - RULE-SET,YouTubeMusic,YouTubeMusic,no-resolve
     - PROCESS-NAME,YouTube Music.exe,YouTubeMusic
+    - PROCESS-NAME,youtube-music,YouTubeMusic
     - RULE-SET,YouTube,YouTube,no-resolve
     - RULE-SET,Google,谷歌服务,no-resolve
     # Telegram
