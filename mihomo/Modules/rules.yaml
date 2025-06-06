@@ -80,20 +80,20 @@ rules:
     - RULE-SET,HBO,国际媒体,no-resolve
     # 流媒体
     - RULE-SET,stream_us_non_ip,🇺🇸美国节点
-    - RULE-SET,stream_eu_non_ip,🇺🇸美国节点
+    - RULE-SET,stream_eu_non_ip,🇪🇺欧洲手动
     - RULE-SET,stream_jp_non_ip,🇯🇵日本节点
     - RULE-SET,stream_kr_non_ip,🇰🇷韩国节点
     - RULE-SET,stream_hk_non_ip,🇭🇰香港节点
     - RULE-SET,stream_tw_non_ip,🇹🇼台湾节点
-    - RULE-SET,stream_non_ip,🇺🇸美国节点
+    - RULE-SET,stream_non_ip,国际媒体
     # 流媒体
     - RULE-SET,stream_us_ip,🇺🇸美国节点,no-resolve
-    - RULE-SET,stream_eu_ip,🇺🇸美国节点,no-resolve
+    - RULE-SET,stream_eu_ip,🇪🇺欧洲手动,no-resolve
     - RULE-SET,stream_jp_ip,🇯🇵日本节点,no-resolve
     - RULE-SET,stream_kr_ip,🇰🇷韩国节点,no-resolve
     - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
     - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
-    - RULE-SET,stream_ip,🇺🇸美国节点,no-resolve
+    - RULE-SET,stream_ip,国际媒体,no-resolve
     # Cloudflare
     - RULE-SET,Cloudflare,Cloudflare,no-resolve
     # 网易云音乐
