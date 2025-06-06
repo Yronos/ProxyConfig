@@ -309,6 +309,14 @@ rule-providers:
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Emby/Emby.list
       path: ./rule_providers/Emby.list
 
+    Pixiv:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Pixiv/Pixiv.list
+      path: ./rule_providers/Pixiv.list
+
     # 北美相关流媒体
     stream_us_non_ip:
       type: http

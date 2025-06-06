@@ -77,6 +77,8 @@ rules:
     - RULE-SET,Epic,游戏平台,no-resolve
     # Emby
     - RULE-SET,Emby,Emby,no-resolve
+    # Pixiv
+    - RULE-SET,Pixiv,🇯🇵日本节点,no-resolve
     # 媒体
     - RULE-SET,Disney,国际媒体,no-resolve
     - RULE-SET,PrimeVideo,国际媒体,no-resolve
