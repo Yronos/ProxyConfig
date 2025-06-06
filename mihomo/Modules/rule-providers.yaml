@@ -182,13 +182,13 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/telegram.txt
       path: ./sukkaw_ruleset/telegram_ip.txt
-    Telegram:
-      type: http
-      behavior: classical
-      format: text
-      interval: 43200
-      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.list
-      path: ./rule_providers/Telegram.list
+    #Telegram:
+    #  type: http
+    #  behavior: classical
+    #  format: text
+    #  interval: 43200
+    #  url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.list
+    #  path: ./rule_providers/Telegram.list
     Discord:
       type: http
       behavior: classical
@@ -203,6 +203,20 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Twitter/Twitter.list
       path: ./rule_providers/Twitter.list
+    Instagram:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Instagram/Instagram.list
+      path: ./rule_providers/Instagram.list
+    Facebook:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Facebook/Facebook.list
+      path: ./rule_providers/Facebook.list
     Steam:
       type: http
       behavior: classical
@@ -400,6 +414,21 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/stream.txt
       path: ./sukkaw_ruleset/stream_ip.txt
+    
+    Docker:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Docker/Docker.list
+      path: ./rule_providers/Docker.list
+    Notion:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Notion/Notion.list
+      path: ./rule_providers/Notion.list
 
     Cloudflare:
       type: http
@@ -408,6 +437,13 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloudflare/Cloudflare.list
       path: ./rule_providers/Cloudflare.list
+    Amazon:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Amazon/Amazon.list
+      path: ./rule_providers/Amazon.list
 
     neteasemusic_non_ip:
       type: http

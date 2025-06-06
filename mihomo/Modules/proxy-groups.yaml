@@ -164,12 +164,12 @@ proxy-groups:
         - DIRECT
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
   
-    ## 微软服务
+    ## Microsoft
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       expected-status: 204
       max-failed-times: 3
-      name: 微软服务
+      name: Microsoft
       type: select
       proxies:
         - 手动切换
@@ -235,12 +235,12 @@ proxy-groups:
         - 🇪🇺欧洲自动
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png 
     
-    ## 谷歌服务
+    ## Google
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       expected-status: 204
       max-failed-times: 3
-      name: 谷歌服务
+      name: Google
       type: select
       proxies:
         - 手动切换
@@ -263,7 +263,7 @@ proxy-groups:
       url: http://latency-test.skk.moe/endpoint
       expected-status: 204
       max-failed-times: 3
-      name: 电报消息
+      name: Telegram
       type: select
       proxies:
         - 手动切换
@@ -309,7 +309,7 @@ proxy-groups:
       url: http://latency-test.skk.moe/endpoint
       expected-status: 204
       max-failed-times: 3
-      name: 推特消息
+      name: Twitter
       type: select
       proxies:
         - 手动切换
@@ -326,13 +326,36 @@ proxy-groups:
         - 🇪🇺欧洲手动
         - 🇪🇺欧洲自动
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-  
-    ## 苹果服务
+
+    ## Meta
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       expected-status: 204
       max-failed-times: 3
-      name: 苹果服务
+      name: Meta
+      type: select
+      proxies:
+        - 手动切换
+        - 🇭🇰香港节点
+        - 🇹🇼台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png
+  
+    ## Apple
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: Apple
       type: select
       proxies:
         - 手动切换
@@ -349,7 +372,7 @@ proxy-groups:
         - 🇪🇺欧洲手动
         - 🇪🇺欧洲自动
         - DIRECT
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     
     ## AI
     - interval: 300
@@ -423,6 +446,30 @@ proxy-groups:
         - 🇪🇺欧洲自动
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Music_Enhance.png
 
+    ## ProxyApplication
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: ProxyApplication
+      type: select
+      include-all: true
+      proxies:
+        - 手动切换
+        - 🇭🇰香港节点
+        - 🇹🇼台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Ingress.png
+
     ## Cloudflare
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
@@ -445,6 +492,29 @@ proxy-groups:
         - 🇪🇺欧洲手动
         - 🇪🇺欧洲自动
       icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cloudflare.png
+
+    ## Amazon
+    - interval: 300
+      url: http://latency-test.skk.moe/endpoint
+      expected-status: 204
+      max-failed-times: 3
+      name: Amazon
+      type: select
+      proxies:
+        - 手动切换
+        - 🇭🇰香港节点
+        - 🇹🇼台湾节点
+        - 🇯🇵日本节点
+        - 🇸🇬狮城节点
+        - 🇺🇸美国节点
+        - 🇰🇷韩国节点
+        - 🇬🇧英国节点
+        - 🇩🇪德国节点
+        - 🇫🇷法国节点
+        - 🇳🇱荷兰节点
+        - 🇪🇺欧洲手动
+        - 🇪🇺欧洲自动
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Amazon_1.png
  
       ## Netflix
     - interval: 300
@@ -576,7 +646,7 @@ proxy-groups:
         - 🇳🇱荷兰节点
         - 🇪🇺欧洲手动
         - 🇪🇺欧洲自动
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
     
     ## 兜底分流
     - interval: 300
@@ -636,7 +706,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇭🇰|香港|港|(\b(HK|Hong|HKG)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/hk.svg
     
     ## 🇹🇼台湾节点
     - interval: 300
@@ -651,7 +721,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\b)"
-      icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/tw.svg
     
     ## 🇯🇵日本节点
     - interval: 300
@@ -666,7 +736,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇯🇵|日本|日|(\b(Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/jp.svg
     
     ## 🇸🇬狮城节点
     - interval: 300
@@ -681,7 +751,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇸🇬|新加坡|新|(\b(Singapore|SG|Sing|SIN|XSP|狮)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/sg.svg
     
     ## 🇺🇸美国节点
     - interval: 300
@@ -696,7 +766,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇺🇸|美国|美|(\b(United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/us.svg
     
     ## 🇰🇷韩国节点
     - interval: 300
@@ -711,7 +781,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇰🇷|韩国|韩|(\b(Korea|KR|韓|首尔|Seoul|南朝鲜|KOR|South)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/kr.svg
     
     ## 🇬🇧英国节点
     - interval: 300
@@ -726,7 +796,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇬🇧|英国|英|(\b(United Kingdom|UK|Britain|伦敦|London)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/gb.svg
     
     ## 🇩🇪德国节点
     - interval: 300
@@ -741,7 +811,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇩🇪|德国|德|(\b(Germany|DE|柏林|Berlin)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/de.svg
 
     ## 🇫🇷法国节点
     - interval: 300
@@ -756,7 +826,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇫🇷|法国|(\b(France|FR|巴黎|Paris)\b)"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/fr.svg
 
     ## 🇳🇱荷兰节点
     - interval: 300
@@ -771,7 +841,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇳🇱|荷兰|(\b(Netherlands|NL|阿姆斯特丹|Amsterdam)\b)"
-      icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/master/icon/Netherlands.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/nl.svg
     
     ## 🇪🇺欧洲自动
     - interval: 300
@@ -786,7 +856,7 @@ proxy-groups:
       tolerance: 0
       include-all: true
       filter: "(?i)🇬🇧|英国|联合王国|不列颠|(\b(UK|GB|United Kingdom|Britain|London)\b)|伦敦|🇩🇪|德国|(\b(DE|Germany|Berlin)\b)|柏林|🇫🇷|法国|(\b(FR|France|Paris)\b)|巴黎|🇳🇱|荷兰|(\b(NL|Netherlands|Amsterdam)\b)|阿姆斯特丹|🇧🇪|比利时|(\b(BE|Belgium|Brussels)\b)|布鲁塞尔|🇨🇿|捷克|捷克共和国|(\b(CZ|Czech Republic|Prague)\b)|布拉格|🇩🇰|丹麦|(\b(DK|Denmark|Copenhagen)\b)|哥本哈根|🇪🇪|爱沙尼亚|(\b(EE|Estonia|Tallinn)\b)|塔林|🇫🇮|芬兰|(\b(FI|Finland|Helsinki)\b)|赫尔辛基|🇮🇪|爱尔兰|(\b(IE|Ireland|Dublin)\b)|都柏林|🇮🇹|意大利|(\b(IT|Italy|Rome)\b)|罗马|🇱🇹|立陶宛|(\b(LT|Lithuania|Vilnius)\b)|维尔纽斯|🇱🇻|拉脱维亚|(\b(LV|Latvia|Riga)\b)|里加|🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)\b)|卢森堡市|🇭🇷|克罗地亚|(\b(HR|Croatia|Zagreb)\b)|萨格勒布|🇸🇮|斯洛文尼亚|(\b(SI|Slovenia|Ljubljana)\b)|卢布尔雅那|🇸🇰|斯洛伐克|(\b(SK|Slovakia|Bratislava)\b)|布拉迪斯拉发|🇵🇱|波兰|(\b(PL|Poland|Warsaw)\b)|华沙|🇭🇺|匈牙利|(\b(HU|Hungary|Budapest)\b)|布达佩斯|🇵🇹|葡萄牙|(\b(PT|Portugal|Lisbon)\b)|里斯本|🇷🇴|罗马尼亚|(\b(RO|Romania|Bucharest)\b)|布加勒斯特|🇪🇸|西班牙|(\b(ES|Spain|Madrid|MAD|Barcelona|BCN)\b)|马德里|巴塞罗那|🇸🇪|瑞典|(\b(SE|Sweden|Stockholm)\b)|斯德哥尔摩|🇨🇭|瑞士|(\b(CH|Switzerland|Bern|Zurich)\b)|伯尔尼|苏黎世|🇬🇷|希腊|(\b(GR|Greece|Athens)\b)|雅典|🇲🇹|马耳他|(\b(MT|Malta|Valletta)\b)|瓦莱塔|🇹🇷|土耳其|(\b(TR|Turkey|Ankara|Istanbul)\b)|安卡拉|伊斯坦布尔"
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/European_Union.png
+      icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/eu.svg
 
       ## 🇭🇰香港负载均衡轮询
     - interval: 300
@@ -1069,7 +1139,7 @@ proxy-groups:
       filter: ^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
       exclude-filter: "(?i)(?:🇭🇰|香港|港|\b(?:HK|Hong|HKG)\b)|(?:🇼🇸|🇹🇼|台湾|台|\b(?:Tai|TW|Taiwan|TPE|TSA|KHH)\b)|(?:🇯🇵|日本|日|\b(?:Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)|(?:🇸🇬|新加坡|新|\b(?:Singapore|SG|Sing|SIN|XSP|狮)\b)|(?:🇺🇸|美国|美|\b(?:United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)"
       include-all: true
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Area.png
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Filter.png
   
     ## 冷门地区负载均衡散列
     - interval: 300
@@ -1086,5 +1156,5 @@ proxy-groups:
       filter: ^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
       exclude-filter: "(?i)(?:🇭🇰|香港|港|\b(?:HK|Hong|HKG)\b)|(?:🇼🇸|🇹🇼|台湾|台|\b(?:Tai|TW|Taiwan|TPE|TSA|KHH)\b)|(?:🇯🇵|日本|日|\b(?:Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)|(?:🇸🇬|新加坡|新|\b(?:Singapore|SG|Sing|SIN|XSP|狮)\b)|(?:🇺🇸|美国|美|\b(?:United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)"
       include-all: true
-      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Area.png
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Filter.png
   

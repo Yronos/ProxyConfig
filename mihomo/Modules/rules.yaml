@@ -36,29 +36,32 @@ rules:
     - DOMAIN-SUFFIX,cn,DIRECT
     # AI
     - RULE-SET,AI,AI
-    # 苹果服务
-    - RULE-SET,apple_cn_non_ip,苹果服务
-    - RULE-SET,apple_services,苹果服务 
+    # Apple
+    - RULE-SET,apple_cn_non_ip,Apple
+    - RULE-SET,apple_services,Apple
     # 哔哩哔哩
     - RULE-SET,Bilibili,哔哩哔哩,no-resolve
-    # 微软服务
+    # Microsoft
     - RULE-SET,GitHub,GitHub,no-resolve
     - RULE-SET,OneDrive,OneDrive,no-resolve
-    - RULE-SET,microsoft_non_ip,微软服务,no-resolve
-    # 谷歌服务
+    - RULE-SET,microsoft_non_ip,Microsoft,no-resolve
+    # Google
     - RULE-SET,YouTubeMusic,YouTubeMusic,no-resolve
     - PROCESS-NAME,YouTube Music.exe,YouTubeMusic
     - PROCESS-NAME,youtube-music,YouTubeMusic
     - RULE-SET,YouTube,YouTube,no-resolve
-    - RULE-SET,Google,谷歌服务,no-resolve
+    - RULE-SET,Google,Google,no-resolve
     # Telegram
-    - RULE-SET,telegram_non_ip,电报消息
-    - RULE-SET,telegram_ip,电报消息,no-resolve
-    - RULE-SET,Telegram,电报消息,no-resolve
+    - RULE-SET,telegram_non_ip,Telegram
+    - RULE-SET,telegram_ip,Telegram,no-resolve
+    #- RULE-SET,Telegram,Telegram,no-resolve
     # Discord
     - RULE-SET,Discord,Discord,no-resolve
     # Twitter
-    - RULE-SET,Twitter,推特消息,no-resolve
+    - RULE-SET,Twitter,Twitter,no-resolve
+    # Meta
+    - RULE-SET,Instagram,Meta,no-resolve
+    - RULE-SET,Facebook,Meta,no-resolve
     # Spotify
     - RULE-SET,Spotify,Spotify,no-resolve
     # Music
@@ -94,8 +97,13 @@ rules:
     - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
     - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
     - RULE-SET,stream_ip,国际媒体,no-resolve
+    # ProxyApplication
+    - RULE-SET,Docker,ProxyApplication,no-resolve
+    - RULE-SET,Notion,ProxyApplication,no-resolve
     # Cloudflare
     - RULE-SET,Cloudflare,Cloudflare,no-resolve
+    # Amazon
+    - RULE-SET,Amazon,Amazon,no-resolve
     # 网易云音乐
     - RULE-SET,neteasemusic_non_ip,DIRECT
     - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
