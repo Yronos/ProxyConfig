@@ -33,6 +33,7 @@ rules:
     - DOMAIN-KEYWORD,kaspersky,DIRECT
     - DOMAIN-SUFFIX,deepseek.com,DIRECT
     - DOMAIN-SUFFIX,qwen.ai,DIRECT
+    - DOMAIN-SUFFIX,fanyu.com,DIRECT
     - DOMAIN-SUFFIX,cn,DIRECT
     # AI
     - RULE-SET,AI,AI
@@ -49,6 +50,7 @@ rules:
     - RULE-SET,YouTubeMusic,YouTubeMusic,no-resolve
     - PROCESS-NAME,YouTube Music.exe,YouTubeMusic
     - PROCESS-NAME,youtube-music,YouTubeMusic
+    - PROCESS-PATH,/usr/lib/electron35/electron,YouTubeMusic
     - RULE-SET,YouTube,YouTube,no-resolve
     - RULE-SET,Google,Google,no-resolve
     # Telegram

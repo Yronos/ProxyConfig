@@ -453,7 +453,6 @@ proxy-groups:
       max-failed-times: 3
       name: ProxyApplication
       type: select
-      include-all: true
       proxies:
         - 手动切换
         - 🇭🇰香港节点
