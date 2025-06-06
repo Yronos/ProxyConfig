@@ -2,14 +2,7 @@ rules:
     # ProxyDNS
     - RULE-SET,ProxyDNS,ProxyDNS,no-resolve
     # Privacy
-    - DOMAIN-KEYWORD,analytics.,REJECT
-    - DOMAIN-KEYWORD,app-analytics,REJECT
-    - DOMAIN-KEYWORD,app-log.,REJECT
-    - DOMAIN-KEYWORD,applog.,REJECT
-    - DOMAIN-KEYWORD,ios-log.,REJECT
-    - DOMAIN-KEYWORD,ioslog.,REJECT
-    - DOMAIN-KEYWORD,pc-log.,REJECT
-    - DOMAIN-KEYWORD,pclog.,REJECT
+    - RULE-SET,BlockAnalytics,REJECT
     # 广告过滤
     - RULE-SET,reject_non_ip,REJECT
     - RULE-SET,reject_domainset,REJECT
@@ -72,6 +65,7 @@ rules:
     - RULE-SET,Qobuz,Music,no-resolve
     - RULE-SET,TIDAL,Music,no-resolve
     - RULE-SET,Deezer,Music,no-resolve
+    - RULE-SET,KKBOX,🇹🇼台湾节点,no-resolve
     # 媒体
     - RULE-SET,Bahamut,Bahamut,no-resolve
     - RULE-SET,Netflix,Netflix,no-resolve
@@ -100,6 +94,8 @@ rules:
     - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
     - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
     - RULE-SET,stream_ip,🇺🇸美国节点,no-resolve
+    # Cloudflare
+    - RULE-SET,Cloudflare,Cloudflare,no-resolve
     # 网易云音乐
     - RULE-SET,neteasemusic_non_ip,DIRECT
     - RULE-SET,neteasemusic_ip,DIRECT,no-resolve

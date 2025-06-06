@@ -1,11 +1,18 @@
 rule-providers:
     ProxyDNS:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyDNS.list
-      path: ./rule-providers/ProxyDNS.list
+      path: ./rule_providers/ProxyDNS.list
+    BlockAnalytics:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/BlockAnalytics.list
+      path: ./rule_providers/BlockAnalytics.list
     reject_non_ip_no_drop:
       type: http
       behavior: classical
@@ -93,11 +100,11 @@ rule-providers:
       path: ./sukkaw_ruleset/microsoft_cdn_non_ip.txt
     AI:
       type: http
+      behavior: classical
       format: text
       interval: 86400
-      behavior: classical
       url: https://ruleset.skk.moe/Clash/non_ip/ai.txt
-      path: ./rule-providers/AI.list
+      path: ./rule_providers/AI.list
     apple_cn_non_ip:
       type: http
       behavior: classical
@@ -114,46 +121,46 @@ rule-providers:
       path: ./sukkaw_ruleset/apple_services.txt
     Bilibili:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BiliBili/BiliBili.list
-      path: ./rule-providers/Bilibili.list
+      path: ./rule_providers/Bilibili.list
     YouTubeMusic:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTubeMusic/YouTubeMusic.list
-      path: ./rule-providers/YouTubeMusic.list
+      path: ./rule_providers/YouTubeMusic.list
     YouTube:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.list
-      path: ./rule-providers/YouTube.list
+      path: ./rule_providers/YouTube.list
     Google:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list
-      path: ./rule-providers/Google.list
+      path: ./rule_providers/Google.list
     OneDrive:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OneDrive/OneDrive.list
-      path: ./rule-providers/OneDrive.list
+      path: ./rule_providers/OneDrive.list
     GitHub:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.list
-      path: ./rule-providers/Github.list
+      path: ./rule_providers/Github.list
     microsoft_non_ip:
       type: http
       behavior: classical
@@ -177,109 +184,116 @@ rule-providers:
       path: ./sukkaw_ruleset/telegram_ip.txt
     Telegram:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.list
-      path: ./rule-providers/Telegram.list
+      path: ./rule_providers/Telegram.list
     Discord:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Discord/Discord.list
-      path: ./rule-providers/Discord.list
+      path: ./rule_providers/Discord.list
     Twitter:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Twitter/Twitter.list
-      path: ./rule-providers/Twitter.list
+      path: ./rule_providers/Twitter.list
     Steam:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Steam/Steam.list
-      path: ./rule-providers/Steam.list
+      path: ./rule_providers/Steam.list
     Epic:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Epic/Epic.list
-      path: ./rule-providers/Epic.list
+      path: ./rule_providers/Epic.list
     Spotify:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.list
-      path: ./rule-providers/Spotify.list
+      path: ./rule_providers/Spotify.list
     Qobuz:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Qobuz/Qobuz.list
-      path: ./rule-providers/Qobuz.list
+      path: ./rule_providers/Qobuz.list
     TIDAL:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TIDAL/TIDAL.list
-      path: ./rule-providers/Tidal.list
+      path: ./rule_providers/Tidal.list
     Deezer:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Deezer/Deezer.list
-      path: ./rule-providers/Deezer.list
+      path: ./rule_providers/Deezer.list
+    KKBOX:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/KKBOX/KKBOX.list
+      path: ./rule_providers/KKBOX.list
     Bahamut:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Bahamut/Bahamut.list
-      path: ./rule-providers/Bahamut.list
+      path: ./rule_providers/Bahamut.list
     Netflix:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Netflix.list
-      path: ./rule-providers/Netflix.list
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix.list
+      path: ./rule_providers/Netflix.list
     Disney:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Disney.list
-      path: ./rule-providers/Disney.list
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Disney/Disney.list
+      path: ./rule_providers/Disney.list
     PrimeVideo:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/PrimeVideo.list
-      path: ./rule-providers/PrimeVideo.list
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PrimeVideo/PrimeVideo.list
+      path: ./rule_providers/PrimeVideo.list
     HBO:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
-      url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/HBO.list
-      path: ./rule-providers/HBO.list
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/HBO/HBO.list
+      path: ./rule_providers/HBO.list
     Emby:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Emby/Emby.list
-      path: ./rule-providers/Emby.list
+      path: ./rule_providers/Emby.list
 
     # 北美相关流媒体
     stream_us_non_ip:
@@ -387,6 +401,14 @@ rule-providers:
       url: https://ruleset.skk.moe/Clash/ip/stream.txt
       path: ./sukkaw_ruleset/stream_ip.txt
 
+    Cloudflare:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloudflare/Cloudflare.list
+      path: ./rule_providers/Cloudflare.list
+
     neteasemusic_non_ip:
       type: http
       behavior: classical
@@ -417,13 +439,14 @@ rule-providers:
       path: ./sukkaw_ruleset/direct_non_ip.txt
 
     # 补充部分直连列表
+    # 蓝奏云
     LanZouYun:
       type: http
+      behavior: classical
       format: text
       interval: 43200
-      behavior: classical
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/LanZouYun/LanZouYun.list
-      path: ./rule-providers/LanZouYun.list
+      path: ./rule_providers/LanZouYun.list
 
     global_non_ip:
       type: http
