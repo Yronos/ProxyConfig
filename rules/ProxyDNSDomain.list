@@ -1,0 +1,41 @@
+# ProxyDNSDomain + ProxyDNSIPCIDR = ProxyDNS
+# Cloudflare DNS
+DOMAIN,1dot1dot1dot1.cloudflare-dns.com
+DOMAIN,one.one.one.one
+DOMAIN,dns.cloudflare.com
+DOMAIN,cloudflare-dns.com
+DOMAIN,family.cloudflare-dns.com
+DOMAIN,security.cloudflare-dns.com
+DOMAIN,chrome.cloudflare-dns.com
+DOMAIN,mozilla.cloudflare-dns.com
+# Google DNS
+DOMAIN,8888.google
+DOMAIN,dns.google
+DOMAIN,dns.google.com
+DOMAIN,dns64.dns.google
+# Quad9 DNS
+DOMAIN,dns.quad9.net
+DOMAIN,dns9.quad9.net
+DOMAIN,dns10.quad9.net
+DOMAIN,dns11.quad9.net
+# DNS.SB
+DOMAIN,dns.sb
+DOMAIN,doh.dns.sb
+DOMAIN,doh.sb
+DOMAIN,dot.sb
+# Cisco OpenDNS/Cisco Umbrella
+DOMAIN,doh.opendns.com
+DOMAIN,dns.opendns.com
+DOMAIN,doh.umbrella.com
+DOMAIN,dns.umbrella.com
+DOMAIN,dns.sse.cisco.com
+DOMAIN,familyshield.opendns.com
+DOMAIN,doh.familyshield.opendns.com
+DOMAIN,familyshield.sse.cisco.com
+# AdGuard DNS
+DOMAIN,dns.adguard.com
+DOMAIN,dns-unfiltered.adguard.com
+DOMAIN,unfiltered.adguard-dns.com
+DOMAIN,dns-family.adguard.com
+# TWNIC DNS Quad 101
+DOMAIN,dns.twnic.tw
