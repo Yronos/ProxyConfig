@@ -4,14 +4,14 @@ rule-providers:
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyDNS.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyDNS.list
       path: ./rule_providers/ProxyDNS.list
     BlockAnalytics:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/BlockAnalytics.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/BlockAnalytics.list
       path: ./rule_providers/BlockAnalytics.list
     reject_non_ip_no_drop:
       type: http
@@ -62,7 +62,7 @@ rule-providers:
       behavior: domain
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyDownload.txt
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyDownload.txt
       path: ./rule_providers/ProxyDownload.txt
 
     download_domainset:
@@ -113,21 +113,21 @@ rule-providers:
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyForum.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyForum.list
       path: ./rule_providers/ProxyForum.list
     ProxyList:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyList.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyList.list
       path: ./rule_providers/ProxyList.list
     DirectList:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/DirectList.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/DirectList.list
       path: ./rule_providers/DirectList.list
 
     AI:
@@ -164,7 +164,7 @@ rule-providers:
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/YouTubeMusic.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/YouTubeMusic.list
       path: ./rule_providers/YouTubeMusic.list
 
     YouTube:
