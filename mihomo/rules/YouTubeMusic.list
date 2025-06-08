@@ -1,0 +1,9 @@
+# YouTubeMusic list
+# 域名
+DOMAIN,music.youtube.com
+# Windows 进程名称
+PROCESS-NAME,YouTube Music.exe,YouTubeMusic
+# Linux 进程名称
+PROCESS-NAME,youtube-music,YouTubeMusic
+# Arch Linux 进程路径
+PROCESS-PATH,/usr/lib/electron35/electron,YouTubeMusic

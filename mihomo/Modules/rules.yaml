@@ -10,8 +10,10 @@ rules:
     - RULE-SET,reject_ip,REJECT,no-resolve
     - RULE-SET,reject_non_ip_drop,REJECT-DROP
     - RULE-SET,reject_non_ip_no_drop,REJECT
+###################################################################################################################################
     # 部分需要代理的资源
-    - DOMAIN-SUFFIX,greasyfork.org,CDN
+    - RULE-SET,ProxyDownload,CDN
+###################################################################################################################################
     # 静态 CDN
     - RULE-SET,cdn_domainset,CDN
     - RULE-SET,cdn_non_ip,CDN
@@ -22,19 +24,12 @@ rules:
     # 软件游戏驱动，酌情调整
     - RULE-SET,download_domainset,Download
     - RULE-SET,download_non_ip,Download
-    # 部分需要直连的资源
-    - DOMAIN-SUFFIX,hdslb.com,DIRECT
-    - DOMAIN-SUFFIX,bilivideo.com,DIRECT
+###################################################################################################################################    
     # 自定义规则
-    - DOMAIN-SUFFIX,linux.do,🇭🇰香港节点
-    - DOMAIN-SUFFIX,v2ex.com,🇭🇰香港节点
-    - DOMAIN-SUFFIX,nodeseek.com,🇭🇰香港节点
-    - DOMAIN-SUFFIX,nodeloc.com,🇭🇰香港节点
-    - DOMAIN-KEYWORD,kaspersky,DIRECT
-    - DOMAIN-SUFFIX,deepseek.com,DIRECT
-    - DOMAIN-SUFFIX,qwen.ai,DIRECT
-    - DOMAIN-SUFFIX,fanyu.com,DIRECT
-    - DOMAIN-SUFFIX,cn,DIRECT
+    - RULE-SET,ProxyForum,🇭🇰香港节点
+    - RULE-SET,ProxyList,🇭🇰香港节点
+    - RULE-SET,DirectList,DIRECT
+###################################################################################################################################
     # AI
     - RULE-SET,AI,AI
     # Apple
@@ -47,10 +42,9 @@ rules:
     - RULE-SET,OneDrive,OneDrive,no-resolve
     - RULE-SET,microsoft_non_ip,Microsoft,no-resolve
     # Google
+###################################################################################################################################
     - RULE-SET,YouTubeMusic,YouTubeMusic,no-resolve
-    - PROCESS-NAME,YouTube Music.exe,YouTubeMusic
-    - PROCESS-NAME,youtube-music,YouTubeMusic
-    - PROCESS-PATH,/usr/lib/electron35/electron,YouTubeMusic
+###################################################################################################################################
     - RULE-SET,YouTube,YouTube,no-resolve
     - RULE-SET,Google,Google,no-resolve
     # Telegram
@@ -101,9 +95,11 @@ rules:
     - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
     - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
     - RULE-SET,stream_ip,国际媒体,no-resolve
+###################################################################################################################################   
     # ProxyApplication
     - RULE-SET,Docker,ProxyApplication,no-resolve
     - RULE-SET,Notion,ProxyApplication,no-resolve
+###################################################################################################################################
     # Cloudflare
     - RULE-SET,Cloudflare,Cloudflare,no-resolve
     # Amazon
@@ -116,13 +112,26 @@ rules:
     - RULE-SET,direct_non_ip,DIRECT
     - RULE-SET,global_non_ip,国外网站
     - RULE-SET,domestic_ip,DIRECT,no-resolve
+###################################################################################################################################
     # 补充部分直连列表
     - RULE-SET,LanZouYun,DIRECT,no-resolve
     - RULE-SET,ChinaCompanyIp,DIRECT,no-resolve
+###################################################################################################################################
     # 国内 IP
     - RULE-SET,china_ip,DIRECT,no-resolve
     # Only use it if you are using IPv6
     - RULE-SET,china_ip_ipv6,DIRECT,no-resolve
+###################################################################################################################################
+    # 国家分流
+    - DOMAIN-SUFFIX,hk,🇭🇰香港节点
+    - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
+    - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
+    - DOMAIN-SUFFIX,jp,🇯🇵日本节点
+    - DOMAIN-SUFFIX,uk,🇬🇧英国节点
+    - DOMAIN-SUFFIX,de,🇩🇪德国节点
+    - DOMAIN-SUFFIX,fr,🇫🇷法国节点
+    - DOMAIN-SUFFIX,eu,🇪🇺欧洲手动
+###################################################################################################################################
     # 局域网
     - RULE-SET,lan_non_ip,DIRECT
     - RULE-SET,lan_ip,DIRECT,no-resolve

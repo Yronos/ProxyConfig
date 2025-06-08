@@ -56,6 +56,15 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/reject.txt
       path: ./sukkaw_ruleset/reject_ip.txt
+    # ProxyDownload
+    ProxyDownload:
+      type: http
+      behavior: domain
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyDownload.txt
+      path: ./rule_providers/ProxyDownload.txt
+
     download_domainset:
       type: http
       behavior: domain
@@ -98,13 +107,36 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/non_ip/microsoft_cdn.txt
       path: ./sukkaw_ruleset/microsoft_cdn_non_ip.txt
+
+    ProxyForum:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyForum.list
+      path: ./rule_providers/ProxyForum.list
+    ProxyList:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/ProxyList.list
+      path: ./rule_providers/ProxyList.list
+    DirectList:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/DirectList.list
+      path: ./rule_providers/DirectList.list
+
     AI:
       type: http
       behavior: classical
       format: text
       interval: 86400
       url: https://ruleset.skk.moe/Clash/non_ip/ai.txt
-      path: ./rule_providers/AI.list
+      path: ./sukkaw_ruleset/AI.list
     apple_cn_non_ip:
       type: http
       behavior: classical
@@ -126,13 +158,15 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BiliBili/BiliBili.list
       path: ./rule_providers/Bilibili.list
+
     YouTubeMusic:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTubeMusic/YouTubeMusic.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/mihomo/rules/YouTubeMusic.list
       path: ./rule_providers/YouTubeMusic.list
+
     YouTube:
       type: http
       behavior: classical
