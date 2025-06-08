@@ -491,6 +491,13 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/LanZouYun/LanZouYun.list
       path: ./rule_providers/LanZouYun.list
+    ChinaCompanyIp:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list
+      path: ./rule_providers/ChinaCompanyIp.list
 
     global_non_ip:
       type: http
