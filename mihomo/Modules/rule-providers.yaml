@@ -59,7 +59,7 @@ rule-providers:
     # ProxyDownload
     ProxyDownload:
       type: http
-      behavior: domain
+      behavior: classical
       format: text
       interval: 43200
       url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyDownload.txt
@@ -93,6 +93,15 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
       path: ./sukkaw_ruleset/cdn_non_ip.txt
+
+    # CDNSupplements
+    CDNSupplements:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/CDNSupplements.txt
+      path: ./rule_providers/CDNSupplements.txt
     apple_cdn:
       type: http
       behavior: domain
@@ -265,6 +274,13 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Epic/Epic.list
       path: ./rule_providers/Epic.list
+    Xbox:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Xbox/Xbox.list
+      path: ./rule_providers/Xbox.list
     Spotify:
       type: http
       behavior: classical
@@ -561,6 +577,15 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt
       path: ./sukkaw_ruleset/china_ipv6.txt
+
+    # 修正与补充
+    CorrectionSupplement:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/CorrectionSupplement.list
+      path: ./rule_providers/CorrectionSupplement.list
     lan_non_ip:
       type: http
       behavior: classical

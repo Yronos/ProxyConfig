@@ -3,6 +3,10 @@
 
 # 脚本
 DOMAIN-SUFFIX,tampermonkey.net
+DOMAIN-SUFFIX,greasyfork.org
+DOMAIN-SUFFIX,userscript.zone
+DOMAIN-SUFFIX,openuserjs.org
+DOMAIN-SUFFIX,scriptcat.org
 # 翻译
 DOMAIN-SUFFIX,translate-pa.googleapis.com
 DOMAIN-SUFFIX,immersivetranslate.com
@@ -40,6 +44,7 @@ DOMAIN-SUFFIX,leijing.xyz
 DOMAIN-SUFFIX,subhd.tv
 DOMAIN-SUFFIX,assrt.net
 #其他
+DOMAIN-SUFFIX,bitwarden.com
 DOMAIN-SUFFIX,stripe.com
 DOMAIN-SUFFIX,zotero.org
 DOMAIN-SUFFIX,now61.com

@@ -1,9 +1,9 @@
 # ProxyDownload list
-update.googleapis.com
-download.tensorflow.google.com
-maven.google.com
-cache.pack.google.com
-download.mlcc.google.com
-dl.google.com
-dl.l.google.com
-update.greasyfork.org
+DOMAIN-SUFFIX,update.googleapis.com
+DOMAIN-SUFFIX,download.tensorflow.google.com
+DOMAIN-SUFFIX,maven.google.com
+DOMAIN-SUFFIX,cache.pack.google.com
+DOMAIN-SUFFIX,download.mlcc.google.com
+DOMAIN-SUFFIX,dl.google.com
+DOMAIN-SUFFIX,dl.l.google.com
+DOMAIN-SUFFIX,update.greasyfork.org
