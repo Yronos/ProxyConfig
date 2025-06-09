@@ -62,7 +62,7 @@ rule-providers:
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyDownload.txt
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyDownload.list
       path: ./rule_providers/ProxyDownload.txt
 
     download_domainset:
@@ -100,7 +100,7 @@ rule-providers:
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/CDNSupplements.txt
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/CDNSupplements.list
       path: ./rule_providers/CDNSupplements.txt
     apple_cdn:
       type: http
