@@ -109,6 +109,8 @@ rules:
     - RULE-SET,Cloudflare,Cloudflare,no-resolve
     # Amazon
     - RULE-SET,Amazon,Amazon,no-resolve
+    # Jetbrains
+    - RULE-SET,Jetbrains,国外网站,no-resolve
     # 网易云音乐
     - RULE-SET,neteasemusic_non_ip,DIRECT
     - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
