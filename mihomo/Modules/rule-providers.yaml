@@ -606,3 +606,75 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/lan.txt
       path: ./sukkaw_ruleset/lan_ip.txt
+
+    # DNS Mapping
+    alibaba:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/alibaba.conf
+      path: ./sukkaw_ruleset_dns_mapping/alibaba.conf
+    tencent:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/tencent.conf
+      path: ./sukkaw_ruleset_dns_mapping/tencent.conf
+    bilibili:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/bilibili.conf
+      path: ./sukkaw_ruleset_dns_mapping/bilibili.conf
+    xiaomi:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/xiaomi.conf
+      path: ./sukkaw_ruleset_dns_mapping/xiaomi.conf
+    bytedance:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/bytedance.conf
+      path: ./sukkaw_ruleset_dns_mapping/bytedance.conf
+    baidu:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/baidu.conf
+      path: ./sukkaw_ruleset_dns_mapping/baidu.conf
+    qihoo360:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/qihoo360.conf
+      path: ./sukkaw_ruleset_dns_mapping/qihoo360.conf
+    router:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/router.conf
+      path: ./sukkaw_ruleset_dns_mapping/router.conf
+    lan_without_real_ip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/lan_without_real_ip.conf
+      path: ./sukkaw_ruleset_dns_mapping/lan_without_real_ip.conf
+    lan_with_realip:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/lan_with_realip.conf
+      path: ./sukkaw_ruleset_dns_mapping/lan_with_realip.conf
