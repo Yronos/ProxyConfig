@@ -185,7 +185,9 @@ dns:
     +.he.net: https://ordns.he.net/dns-query
     # 映射规则集
     "rule-set:alibaba":
-      - quic://dns.alidns.com:853
+      #- quic://dns.alidns.com:853
+      - quic://223.5.5.5:853
+      - quic://223.6.6.6:853
     "rule-set:tencent":
       - https://doh.pub/dns-query
     "rule-set:bilibili":
@@ -253,8 +255,8 @@ dns:
     - https://1.0.0.1/dns-query#h3=true
     - https://8.8.8.8/dns-query#h3=true
     - https://8.8.4.4/dns-query#h3=true
-    - tls://8.8.4.4
-    - tls://1.1.1.1
+    #- tls://8.8.4.4
+    #- tls://1.1.1.1
   # 后备域名解析服务器筛选，满足条件的将使用 fallback结果或只使用 fallback解析
   fallback-filter:
     geoip: true
