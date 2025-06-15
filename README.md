@@ -1,33 +1,69 @@
-[English](https://github.com/Yronos/ProxyConfig/blob/main/README.md) | [中文](https://github.com/Yronos/ProxyConfig/blob/main/README_zh.md)
+[English](https://github.com/Yronos/ProxyConfig/blob/main/README.md) | [Chinese](https://github.com/Yronos/ProxyConfig/blob/main/README_zh.md)
+
 # ProxyConfig
 
-Based on modularity, you can combine and match in the following order, adjusting the configuration as needed.
+Based on modularization, you can combine and match according to the following order and delete the configuration according to your needs
 
 1. BasicSettings.yaml
 2. dns.yaml
 3. proxy-groups.yaml
 4. rules.yaml
 5. rule-providers.yaml
-6. proxy-providers.yaml (this module can be omitted if using client software, such as [sub-store](https://github.com/sub-store-org/Sub-Store))
+6. proxy-providers.yaml (If you use client software, you can omit this module, such as using [sub-store](https://github.com/sub-store-org/Sub-Store))
 
-# The following are some examples:
+# Quick use:
 
-The configuration has a relatively complete core basic setting and a comprehensive DNS diversion setting, with the proxy-groups section having a relatively complete software diversion, and the rules and rule-providers sections refer to the design of [author Sukka](https://github.com/sukkaw).
+The configuration has relatively complete kernel basic settings and complete DNS diversion settings. The proxy-groups part has relatively complete software diversion. The rules and rule-providers parts refer to Design by [author Sukka](https://github.com/sukkaw).
 
-The following configuration only differs in the proxy-groups section, with other parts unchanged, allowing for personal modifications based on individual needs:
+The following configurations are different only in the proxy-groups part, and the rest are unchanged. You can modify them based on your personal needs:
 
-## mihomo.yaml
+## config.yaml
 
-Includes proxy-groups for common regions (**Hong Kong, Taiwan, Japan, Singapore, USA, South Korea**)
+Contains proxy-groups for common regions (**Hong Kong, Taiwan, Japan, Singapore, the United States, South Korea**)
 
-## mihomoPlus.yaml
+##　configPlus.yaml
 
-Includes proxy-groups for most regions (**Hong Kong, Taiwan, Japan, Singapore, USA, South Korea, UK, Germany, France, Netherlands, Europe manual, Europe automatic**)
+Contains proxy-groups for most regions (**Hong Kong, Taiwan, Japan, Singapore, the United States, South Korea, the United Kingdom, Germany, France, the Netherlands, European manual, European automatic**)
 
-## mihomoPro.yaml
+## configPro.yaml
 
-Includes proxy-groups for most regions (**Hong Kong, Taiwan, Japan, Singapore, USA, South Korea, UK, Germany, France, Netherlands, Europe manual, Europe automatic**) as well as **load balancing** strategies for some regions (**Hong Kong, Taiwan, Japan, and Hong Kong-Taiwan-Japan combination**), where the load balancing includes **polling** (`which will distribute all requests to different proxy nodes within the strategy group`) and **hashing** (`which will assign requests with the same target address to the same proxy node within the strategy group`), refer to [kernel configuration](https://wiki.metacubex.one/config/proxy-groups/load-balance/).
+Contains proxy-groups for most regions (**Hong Kong, Taiwan, Japan, Singapore, the United States, South Korea, the United Kingdom, Germany, France, the Netherlands, European manual, European automatic**) and **load balancing** strategies for some regions (**Hong Kong, Taiwan, Japan, and Hong Kong, Taiwan, and Japan combination**). The load balancing includes **round robin** (`all requests will be assigned to different proxy nodes in the policy group`) and **hashing** (`assign requests with the same target address to the same proxy node in the policy group`). For reference, [Kernel configuration](https://wiki.metacubex.one/config/proxy-groups/load-balance/).
 
-## mihomoProMax.yaml
+## configProMax.yaml
 
-Includes proxy-groups for most regions (**Hong Kong, Taiwan, Japan, Singapore, USA, South Korea, UK, Germany, France, Netherlands, Europe manual, Europe automatic**) as well as **load balancing** strategies for most regions (**Hong Kong, Taiwan, Japan, Hong Kong-Taiwan-Japan combination, South Korea, Singapore, USA, obscure regions combination**), where the load balancing includes **polling** (`which will distribute all requests to different proxy nodes within the strategy group`) and **hashing** (`which will assign requests with the same target address to the same proxy node within the strategy group`), refer to [kernel configuration](https://wiki.metacubex.one/config/proxy-groups/load-balance/).
+Contains proxy-groups for most regions (**Hong Kong, Taiwan, Japan, Singapore, the United States, South Korea, the United Kingdom, Germany, France, the Netherlands, European manual, European automatic**) and **load balancing** strategies for most regions (**Hong Kong, Taiwan, Japan, Hong Kong, Taiwan and Japan combination, South Korea, Singapore, the United States, unpopular region combination**). The load balancing includes **round robin** (`all requests will be assigned to different proxy nodes in the policy group`) and **hashing** (`assign requests with the same target address to the same proxy node in the policy group`). Please refer to [Kernel configuration](https://wiki.metacubex.one/config/proxy-groups/load-balance/).
+
+# Introduction
+
+## Note:
+
+In the above configuration, external access control [control panel](https://github.com/Zephyruso/zashboard) is enabled by default and the password is set to *"123456789"*. If necessary, please change the password by yourself and modify the secret field in the configuration:
+
+```yaml
+secret: 123456789
+```
+
+Web control panel **access address**: http://127.0.0.1:9090/ui/zashboard/. If necessary, you can change the port by yourself and modify the external-controller field in the configuration:
+
+```yaml
+external-controller: 127.0.0.1:9090
+```
+
+## Some enhanced settings:
+
+- Domain name filtering of fake-ip
+- DNS mapping of some domain names
+
+------
+
+Thanks to the authors who provided rule sets and tutorials. This project is just for reference and organization.
+
+[@SukkaW](https://github.com/sukkaw)
+
+[@blackmatrix7](https://github.com/blackmatrix7)
+
+[@Zephyruso](https://github.com/Zephyruso)
+
+[@Koolson](https://github.com/Koolson)
+
+Other authors
