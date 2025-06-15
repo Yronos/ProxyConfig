@@ -1,0 +1,3 @@
+[Host]
+RULE-SET:https://ruleset.skk.moe/List/non_ip/apple_cdn.conf = server:system
+RULE-SET:https://ruleset.skk.moe/List/non_ip/apple_cn.conf = server:system
