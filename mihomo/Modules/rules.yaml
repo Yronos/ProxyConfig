@@ -114,6 +114,18 @@ rules:
     # 网易云音乐
     - RULE-SET,neteasemusic_non_ip,DIRECT
     - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
+###################################################################################################################################
+    # 国家分流
+    - DOMAIN-SUFFIX,hk,🇭🇰香港节点
+    - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
+    - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
+    - DOMAIN-SUFFIX,jp,🇯🇵日本节点
+    - DOMAIN-SUFFIX,uk,🇬🇧英国节点
+    - DOMAIN-SUFFIX,de,🇩🇪德国节点
+    - DOMAIN-SUFFIX,fr,🇫🇷法国节点
+    - DOMAIN-SUFFIX,eu,🇪🇺欧洲手动
+    - RULE-SET,CorrectionSupplement,🇺🇸美国节点
+###################################################################################################################################
     # 国内外域名
     - RULE-SET,domestic_non_ip,DIRECT
     - RULE-SET,direct_non_ip,DIRECT
@@ -128,18 +140,6 @@ rules:
     - RULE-SET,china_ip,DIRECT,no-resolve
     # Only use it if you are using IPv6
     - RULE-SET,china_ip_ipv6,DIRECT,no-resolve
-###################################################################################################################################
-    # 国家分流
-    - DOMAIN-SUFFIX,hk,🇭🇰香港节点
-    - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
-    - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
-    - DOMAIN-SUFFIX,jp,🇯🇵日本节点
-    - DOMAIN-SUFFIX,uk,🇬🇧英国节点
-    - DOMAIN-SUFFIX,de,🇩🇪德国节点
-    - DOMAIN-SUFFIX,fr,🇫🇷法国节点
-    - DOMAIN-SUFFIX,eu,🇪🇺欧洲手动
-    - RULE-SET,CorrectionSupplement,🇺🇸美国节点
-###################################################################################################################################
     # 局域网
     - RULE-SET,lan_non_ip,DIRECT
     - RULE-SET,lan_ip,DIRECT,no-resolve
