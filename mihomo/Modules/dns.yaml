@@ -1,6 +1,6 @@
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   ipv6-timeout: 300 # 单位：ms，内部双栈并发时，向上游查询 AAAA 时，等待 AAAA 的时间，默认 100ms
   # prefer-h3: true
   listen: 0.0.0.0:5335
@@ -9,7 +9,7 @@ dns:
   respect-rules: true
   default-nameserver:
     - quic://223.5.5.5:853
-    - tls://223.5.5.5
+    - quic://223.6.6.6:853
     #- system
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -129,9 +129,10 @@ dns:
     #- 'rule-set:lan_non_ip'
     # fakeip-filter 为 geosite 中名为 fakeip-filter 的分类（需要自行保证该分类存在）
     # - geosite:fakeip-filter
+    - 'geosite:private'
     - 'geosite:cn'
     - 'geosite:connectivity-check'
-    - 'geosite:private'
+
   nameserver-policy:
     # > 🇨🇳 CHN
     # CNNIC SDNS
@@ -223,9 +224,13 @@ dns:
       #- https://223.6.6.6/dns-query
       - system
     # 国外
-    "geosite:gfw":
-      - https://cloudflare-dns.com/dns-query#h3=true
-      - https://dns.google/dns-query#h3=true
+    #"geosite:gfw":
+      #- https://1.1.1.1/dns-query#h3=true
+      #- https://1.0.0.1/dns-query#h3=true
+      #- https://8.8.8.8/dns-query#h3=true
+      #- https://8.8.4.4/dns-query#h3=true
+      #- https://cloudflare-dns.com/dns-query#h3=true
+      #- https://dns.google/dns-query#h3=true
   nameserver:
     # Cloud Flare
     # DOH
@@ -241,6 +246,13 @@ dns:
     # DOT
     #- tls://8.8.8.8:853
     #- tls://8.4.4.8:853
+    # 腾讯
+    #- https://doh.pub/dns-query#h3=true
+    # 阿里
+    #- quic://223.5.5.5:853
+    #- quic://223.6.6.6:853
+    #- https://223.5.5.5/dns-query
+    #- https://223.6.6.6/dns-query
   proxy-server-nameserver:
     - quic://223.5.5.5:853
     - https://dns.alidns.com/dns-query#h3=true
@@ -252,7 +264,7 @@ dns:
     - quic://223.5.5.5:853
     - quic://223.6.6.6:853
     #- system
-  direct-nameserver-follow-policy: true # 是否遵循nameserver-policy，默认为不遵守，仅当direct-nameserver不为空时生效
+  direct-nameserver-follow-policy: true # 是否遵循 nameserver-policy，默认为不遵守，仅当 direct-nameserver 不为空时生效
   fallback:
     - https://1.1.1.1/dns-query#h3=true
     - https://1.0.0.1/dns-query#h3=true
@@ -260,19 +272,19 @@ dns:
     - https://8.8.4.4/dns-query#h3=true
     #- tls://8.8.4.4
     #- tls://1.1.1.1
-  # 后备域名解析服务器筛选，满足条件的将使用 fallback结果或只使用 fallback解析
+  # 后备域名解析服务器筛选，满足条件的将使用 fallback 结果或只使用 fallback 解析
   fallback-filter:
     geoip: true
-    # 可选值为 国家缩写，默认值为 CN,除了 geoip-code 配置的国家 IP, 其他的 IP 结果会被视为污染,geoip-code 配置的国家的结果会直接采用，否则将采用 fallback结果
+    # 可选值为 国家缩写，默认值为 CN,除了 geoip-code 配置的国家 IP, 其他的 IP 结果会被视为污染，geoip-code 配置的国家的结果会直接采用，否则将采用 fallback 结果
     geoip-code: CN
-    ipcidr: #书写内容为 IP/掩码,这些网段的结果会被视为污染，nameserver 解析出这些结果时将会采用 fallback的解析结果
+    ipcidr: #书写内容为 IP/掩码，这些网段的结果会被视为污染，nameserver 解析出这些结果时将会采用 fallback 的解析结果
       - 240.0.0.0/4
       - 0.0.0.0/32
       - 223.75.236.241/32
       - 182.43.124.6/32
       - 106.74.25.198/32
       - 183.192.65.101/32
-    domain: # 这些域名被视为已污染，匹配到这些域名，会直接使用 fallback解析，不去使用 nameserver
+    domain: # 这些域名被视为已污染，匹配到这些域名，会直接使用 fallback 解析，不去使用 nameserver
       - '+.google.com'
       - '+.youtube.com'
       - '+.twitter.com'
