@@ -184,6 +184,9 @@ dns:
     # Hurricane Electric
     +.he.net: https://ordns.he.net/dns-query
     # 映射规则集
+    +.dns.alidns.com: 223.5.5.5
+    +.doh.pub: 119.29.29.29
+    +.dot.pub: 119.29.29.29
     "rule-set:alibaba":
       #- quic://dns.alidns.com:853
       - quic://223.5.5.5:853
