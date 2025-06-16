@@ -5,5 +5,5 @@ DOMAIN,music.youtube.com
 PROCESS-NAME,YouTube Music.exe,YouTubeMusic
 # Linux 进程名称
 PROCESS-NAME,youtube-music,YouTubeMusic
-# Arch Linux 进程路径
+# Arch Linux 进程路径，但是如果遇到同样使用该路径程序的某些软件，可能会出现某些代理问题，如有需要自行更改或补充规则
 PROCESS-PATH,/usr/lib/electron35/electron,YouTubeMusic
