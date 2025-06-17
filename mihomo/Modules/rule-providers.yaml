@@ -124,13 +124,20 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyForum.list
       path: ./rule_providers/ProxyForum.list
-    ProxyList:
+    ProxyHK:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyList.list
-      path: ./rule_providers/ProxyList.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyHK.list
+      path: ./rule_providers/ProxyHK.list
+    ProxyJP:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyJP.list
+      path: ./rule_providers/ProxyJP.list
     DirectList:
       type: http
       behavior: classical
@@ -585,13 +592,13 @@ rule-providers:
       path: ./sukkaw_ruleset/china_ipv6.txt
 
     # 修正与补充
-    CorrectionSupplement:
+    ProxyUS:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/CorrectionSupplement.list
-      path: ./rule_providers/CorrectionSupplement.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyUS.list
+      path: ./rule_providers/ProxyUS.list
     lan_non_ip:
       type: http
       behavior: classical

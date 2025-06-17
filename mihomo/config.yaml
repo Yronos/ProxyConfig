@@ -1072,7 +1072,8 @@ rules:
 ###################################################################################################################################    
     # 自定义规则
     - RULE-SET,ProxyForum,🇭🇰香港节点
-    - RULE-SET,ProxyList,🇭🇰香港节点
+    - RULE-SET,ProxyHK,🇭🇰香港节点
+    - RULE-SET,ProxyJP,🇯🇵日本节点
     - RULE-SET,DirectList,DIRECT
 ###################################################################################################################################
     # AI
@@ -1155,6 +1156,17 @@ rules:
     # 网易云音乐
     - RULE-SET,neteasemusic_non_ip,DIRECT
     - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
+###################################################################################################################################
+    # 国家分流
+    - DOMAIN-SUFFIX,hk,🇭🇰香港节点
+    - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
+    - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
+    - DOMAIN-SUFFIX,jp,🇯🇵日本节点
+    - DOMAIN-SUFFIX,uk,🇬🇧英国节点
+    - DOMAIN-SUFFIX,de,🇩🇪德国节点
+    - DOMAIN-SUFFIX,fr,🇫🇷法国节点
+    - DOMAIN-SUFFIX,eu,🇪🇺欧洲手动
+###################################################################################################################################
     # 国内外域名
     - RULE-SET,domestic_non_ip,DIRECT
     - RULE-SET,direct_non_ip,DIRECT
@@ -1170,12 +1182,7 @@ rules:
     # Only use it if you are using IPv6
     - RULE-SET,china_ip_ipv6,DIRECT,no-resolve
 ###################################################################################################################################
-    # 国家分流
-    - DOMAIN-SUFFIX,hk,🇭🇰香港节点
-    - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
-    - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
-    - DOMAIN-SUFFIX,jp,🇯🇵日本节点
-    - RULE-SET,CorrectionSupplement,🇺🇸美国节点
+    - RULE-SET,ProxyUS,🇺🇸美国节点
 ###################################################################################################################################
     # 局域网
     - RULE-SET,lan_non_ip,DIRECT
@@ -1278,6 +1285,7 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
       path: ./sukkaw_ruleset/cdn_non_ip.txt
+
     # CDNSupplements
     CDNSupplements:
       type: http
@@ -1308,13 +1316,20 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyForum.list
       path: ./rule_providers/ProxyForum.list
-    ProxyList:
+    ProxyHK:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyList.list
-      path: ./rule_providers/ProxyList.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyHK.list
+      path: ./rule_providers/ProxyHK.list
+    ProxyJP:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyJP.list
+      path: ./rule_providers/ProxyJP.list
     DirectList:
       type: http
       behavior: classical
@@ -1767,14 +1782,15 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt
       path: ./sukkaw_ruleset/china_ipv6.txt
+
     # 修正与补充
-    CorrectionSupplement:
+    ProxyUS:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/CorrectionSupplement.list
-      path: ./rule_providers/CorrectionSupplement.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyUS.list
+      path: ./rule_providers/ProxyUS.list
     lan_non_ip:
       type: http
       behavior: classical
@@ -1789,6 +1805,7 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Clash/ip/lan.txt
       path: ./sukkaw_ruleset/lan_ip.txt
+
     # DNS Mapping
     alibaba:
       type: http
@@ -1860,4 +1877,3 @@ rule-providers:
       interval: 43200
       url: https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/lan_with_realip.conf
       path: ./sukkaw_ruleset_dns_mapping/lan_with_realip.conf
-
