@@ -1162,10 +1162,6 @@ rules:
     - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
     - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
     - DOMAIN-SUFFIX,jp,🇯🇵日本节点
-    - DOMAIN-SUFFIX,uk,🇬🇧英国节点
-    - DOMAIN-SUFFIX,de,🇩🇪德国节点
-    - DOMAIN-SUFFIX,fr,🇫🇷法国节点
-    - DOMAIN-SUFFIX,eu,🇪🇺欧洲手动
 ###################################################################################################################################
     # 国内外域名
     - RULE-SET,domestic_non_ip,DIRECT
