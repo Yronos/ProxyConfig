@@ -74,3 +74,6 @@ DOMAIN-SUFFIX,cn
 DOMAIN-SUFFIX,xn--fiqs8s
 DOMAIN-SUFFIX,xn--55qx5d
 DOMAIN-SUFFIX,xn--io0a7i
+
+# IP 规则
+IP-CIDR,132.145.48.0/20,no-resolve
