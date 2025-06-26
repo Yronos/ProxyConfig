@@ -3,6 +3,7 @@ rules:
     - RULE-SET,ProxyDNS,ProxyDNS,no-resolve
     # Privacy
     - RULE-SET,BlockAnalytics,REJECT
+    - RULE-SET,RejectList,REJECT
     # 广告过滤
     - RULE-SET,reject_non_ip,REJECT
     - RULE-SET,reject_domainset,REJECT

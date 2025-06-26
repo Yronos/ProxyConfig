@@ -6,6 +6,13 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyDNS.list
       path: ./rule_providers/ProxyDNS.list
+    RejectList:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/RejectList.list
+      path: ./rule_providers/RejectList.list
     BlockAnalytics:
       type: http
       behavior: classical
