@@ -1,6 +1,6 @@
 # 链式代理
 proxy-groups:
-    ## 中继节点
+    ## 中继节点，注意中继节点的使用逻辑问题，在节点筛选策略组和应用分流策略组设置中仔细设置，防止出现回环的状态导致无法使用
     - interval: 300
       url: http://latency-test.skk.moe/endpoint
       expected-status: 204

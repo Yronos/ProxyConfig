@@ -15,5 +15,5 @@ proxy-providers:
     url: 机场订阅地址
     path: ./proxy_providers/provider.yaml
     override:
-      dialer-proxy: 中继节点 # 即当前订阅得到的全部代理，通过中继节点进行链接
+      dialer-proxy: 中继节点 # 即当前订阅得到的全部代理，通过中继节点进行链接，注意中继节点的使用逻辑问题，在节点筛选策略组和应用分流策略组设置中仔细设置，防止出现回环的状态导致无法使用
       udp: true
