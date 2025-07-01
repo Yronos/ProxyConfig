@@ -1747,6 +1747,7 @@ rules:
     # Only use it if you are using IPv6
     - RULE-SET,china_ip_ipv6,DIRECT,no-resolve
 ###################################################################################################################################
+    - RULE-SET,SupplementDirect,DIRECT
     - RULE-SET,ProxyUS,🇺🇸美国节点
 ###################################################################################################################################
     # 局域网
@@ -1895,13 +1896,13 @@ rule-providers:
       interval: 43200
       url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ProxyJP.list
       path: ./rule_providers/ProxyJP.list
-    DirectList:
+    ForceDirect:
       type: http
       behavior: classical
       format: text
       interval: 43200
-      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/DirectList.list
-      path: ./rule_providers/DirectList.list
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/ForceDirect.list
+      path: ./rule_providers/ForceDirect.list
 
     AI:
       type: http
@@ -2349,6 +2350,13 @@ rule-providers:
       path: ./sukkaw_ruleset/china_ipv6.txt
 
     # 修正与补充
+    SupplementDirect:
+      type: http
+      behavior: classical
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/SupplementDirect.list
+      path: ./rule_providers/SupplementDirect.list
     ProxyUS:
       type: http
       behavior: classical
