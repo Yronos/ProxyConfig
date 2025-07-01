@@ -1,0 +1,45 @@
+# SupplementDirect
+# 抖音
+DOMAIN-SUFFIX,amemv.com
+DOMAIN-SUFFIX,bytefcdnrd.com
+DOMAIN-SUFFIX,bytetos.com
+DOMAIN-SUFFIX,bytescm.com
+DOMAIN-SUFFIX,bytegoofy.com
+DOMAIN-SUFFIX,yhgfb-cn-static.com
+DOMAIN-SUFFIX,byteeffecttos.com
+DOMAIN-SUFFIX,bytegecko.com
+DOMAIN-SUFFIX,qnqcdn.net
+DOMAIN,lf3-static.bytednsdoc.com
+DOMAIN,v5-dy-o-abtest.zjcdn.com
+DOMAIN-SUFFIX,pstatp.com
+
+# 联想
+DOMAIN-SUFFIX,blurdev.com
+DOMAIN-SUFFIX,cftsupport.com
+DOMAIN-SUFFIX,fm365.com
+DOMAIN-SUFFIX,ileapcloud.com
+DOMAIN-SUFFIX,juhuiwan.com
+DOMAIN-SUFFIX,juhuiwan.net
+DOMAIN-SUFFIX,lenauth.com
+DOMAIN-SUFFIX,lenovo.com
+DOMAIN-SUFFIX,lenovocloudos.com
+DOMAIN-SUFFIX,lenovoeservice.com
+DOMAIN-SUFFIX,lenovogame.com
+DOMAIN-SUFFIX,lenovomm.com
+DOMAIN-SUFFIX,lx.pub
+DOMAIN-SUFFIX,lx.run
+DOMAIN-SUFFIX,lxzjjt.com
+DOMAIN-SUFFIX,thinkcloudlab.com
+DOMAIN-SUFFIX,thinkpad.com
+DOMAIN-SUFFIX,zui.com
+DOMAIN-SUFFIX,zuk.com
+
+# CN域名直连(中国|公司|网络)
+DOMAIN-SUFFIX,cn
+DOMAIN-SUFFIX,xn--fiqs8s
+DOMAIN-SUFFIX,xn--55qx5d
+DOMAIN-SUFFIX,xn--io0a7i
+
+# IP 规则
+IP-CIDR,132.145.48.0/20,no-resolve
+IP-CIDR,143.47.224.0/19,no-resolve
