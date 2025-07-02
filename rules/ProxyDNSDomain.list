@@ -1,4 +1,4 @@
-# ProxyDNSDomain + ProxyDNSIPCIDR = ProxyDNS 无需重复添加，ProxyDNSIPCIDR.list 中适配 IP-CIDR6 字段
+# ProxyDNSDomain + ProxyDNSIPCIDR = ProxyDNS 无需重复添加
 # Cloudflare DNS
 DOMAIN,1dot1dot1dot1.cloudflare-dns.com
 DOMAIN,one.one.one.one
