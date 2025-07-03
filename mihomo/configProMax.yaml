@@ -1639,7 +1639,7 @@ rules:
     - RULE-SET,ProxyForum,🇭🇰香港节点
     - RULE-SET,ProxyHK,🇭🇰香港节点
     - RULE-SET,ProxyJP,🇯🇵日本节点
-    - RULE-SET,DirectList,DIRECT
+    - RULE-SET,ForceDirect,DIRECT
 ###################################################################################################################################
     # AI
     - RULE-SET,AI,AI
