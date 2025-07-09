@@ -1,4 +1,11 @@
 rule-providers:
+    fakeip-filter:
+      type: http
+      behavior: domain
+      format: text
+      interval: 43200
+      url: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/fakeip-filter.list
+      path: ./rule_providers/fakeip-filter.list
     ProxyDNS:
       type: http
       behavior: classical
