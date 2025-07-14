@@ -12,6 +12,8 @@ DOMAIN-SUFFIX,hdslb.com
 DOMAIN-SUFFIX,bilivideo.com
 
 DOMAIN-KEYWORD,kaspersky
+# 提供证书吊销列表
+DOMAIN-SUFFIX,swisssign.net
 
 DOMAIN-SUFFIX,deepseek.com
 DOMAIN-SUFFIX,qwen.ai
