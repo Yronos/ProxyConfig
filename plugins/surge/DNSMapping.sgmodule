@@ -1,0 +1,27 @@
+#!name=DNSMapping_System
+#!desc=Custom mapping based on GitHub @Sukkaw author's ruleset https://ruleset.skk.moe/Modules/sukka_local_dns_mapping.sgmodule. Use default DNS assignments whenever possible.
+
+[Host]
+RULE-SET:https://ruleset.skk.moe/List/non_ip/apple_cdn.conf = server:114.114.114.114
+RULE-SET:https://ruleset.skk.moe/List/non_ip/apple_cn.conf = server:114.114.114.114
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/alibaba.conf = server:223.5.5.5
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/tencent.conf = server:119.29.29.29
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/bilibili.conf = server:119.29.29.29
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/xiaomi.conf = server:119.29.29.29
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/bytedance.conf = server:180.184.2.2
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/baidu.conf = server:180.76.76.76
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/qihoo360.conf = server:101.226.4.6
+securelogin.com.cn = server:system
+*.securelogin.com.cn = server:system
+captive.apple.com = server:system
+hotspot.cslwifi.com = server:system
+*.m2m = server:system
+injections.adguard.org = server:system
+local.adguard.org = server:system
+*.bogon = server:system
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/router.conf = server:system
+127.0.0.1.sslip.io = 127.0.0.1
+127.atlas.skk.moe = 127.0.0.1
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/lan_without_real_ip.conf = server:system
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/lan_with_realip.conf = server:system
+cdn.jsdelivr.net = cdn.jsdelivr.net.cdn.cloudflare.net
