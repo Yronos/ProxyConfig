@@ -29,3 +29,7 @@ DOMAIN-SUFFIX,kde-look.org
 DOMAIN-SUFFIX,pling.com
 DOMAIN-SUFFIX,opendesktop.org
 DOMAIN-SUFFIX,opencode.net
+
+# IP 规则
+IP-CIDR,132.145.48.0/20,no-resolve
+IP-CIDR,143.47.224.0/19,no-resolve
