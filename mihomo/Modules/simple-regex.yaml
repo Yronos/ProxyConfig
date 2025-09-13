@@ -1,4 +1,4 @@
-# 第一组不进行字段边界判断，第二组进行字段边界判断,第三组中文地区名前移从而不进行中文字段的边界判断,第四组字段边界匹配加上两位数字
+# 第一组不进行字段边界判断，第二组进行字段边界判断,第三组中文地区名前移从而不进行中文字段的边界判断,第四组字段边界匹配加上两位数字,第五组剔出单字防止误匹配
 ^(?=.*(?i)(🇭🇰|香港|港|HK|Hong|HKG))(?!.*(排除1|排除2)).*$
 ^(?=.*(?i)(🇼🇸|🇹🇼|台湾|台|Tai|TW|Taiwan|TPE|TSA|KHH))(?!.*(排除1|排除2)).*$
 ^(?=.*(?i)(🇯🇵|日本|日|Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK))(?!.*(排除1|排除2)).*$
@@ -16,7 +16,7 @@
 (?i)🇭🇰|香港|港|(\b(HK|Hong|HKG)\b)
 (?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\b)
 (?i)🇯🇵|日本|日|(\b(Japan|JP|川日|东京|Tokyo|大阪|Osaka|泉日|埼玉|Saitama|NRT|HND|KIX|CTS|FUK)\b)
-(?i)🇸🇬|新加坡|新|(\b(Singapore|SG|Sing|SIN|XSP|狮)\b)
+(?i)🇸🇬|新加坡|狮城|新|(\b(Singapore|SG|Sing|SIN|XSP|狮)\b)
 (?i)🇺🇸|美国|美|(\b(United States|US|USA|波特兰|Portland|达拉斯|Dallas|俄勒冈|Oregon|凤凰城|Phoenix|费利蒙|Fremont|硅谷|Silicon Valley|拉斯维加斯|Las Vegas|洛杉矶|Los Angeles|圣何塞|San Jose|圣克拉拉|Santa Clara|阿什本|Ashburn|西雅图|Seattle|芝加哥|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)
 (?i)🇰🇷|韩国|韩|(\b(Korea|KR|韓|首尔|Seoul|南朝鲜|KOR|South)\b)
 (?i)🇬🇧|英国|英|(\b(United Kingdom|UK|Britain|伦敦|London)\b)
@@ -27,12 +27,13 @@
 (?i)🇨🇦|加拿大|(\b(CA|Canada|多伦多)\b)
 (?i)🇦🇺|澳大利亚|(\b(AU|Australia|墨尔本|珀斯)\b)
 (?i)🇹🇷|土耳其|(\b(TR|TUR|Turkey|安卡拉|伊斯坦布尔)\b)
+(?i)🇲🇴|澳门|(\b(MO|Oman)\b)
 
 
 (?i)🇭🇰|香港|港|(\b(HK|Hong|HKG)\b)
 (?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\b)
 (?i)🇯🇵|日本|日|东京|川日|大阪|泉日|埼玉|(\b(Japan|JP|Tokyo|Osaka|Saitama|NRT|HND|KIX|CTS|FUK)\b)
-(?i)🇸🇬|新加坡|新|狮|(\b(Singapore|SG|Sing|SIN|XSP)\b)
+(?i)🇸🇬|新加坡|狮城|新|狮|(\b(Singapore|SG|Sing|SIN|XSP)\b)
 (?i)🇺🇸|美国|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|阿什本|西雅图|芝加哥|(\b(United States|US|USA|Portland|Dallas|Oregon|Phoenix|Fremont|Silicon Valley|Las Vegas|Los Angeles|San Jose|Santa Clara|Ashburn|Seattle|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\b)
 (?i)🇰🇷|韩国|韩|韓|首尔|南朝鲜|(\b(Korea|KR|Seoul|KOR|South)\b)
 (?i)🇬🇧|英国|英|伦敦|(\b(United Kingdom|UK|Britain|London)\b)
@@ -42,19 +43,36 @@
 (?i)🇨🇦|加拿大|多伦多|(\b(CA|Canada)\b)
 (?i)🇦🇺|澳大利亚|墨尔本|珀斯|(\b(AU|Australia)\b)
 (?i)🇹🇷|土耳其|安卡拉|伊斯坦布尔|(\b(TR|TUR|Turkey)\b)
-
+(?i)🇲🇴|澳门|(\b(MO|Oman)\b)
 
 
 (?i)🇭🇰|香港|港|(\b(HK|Hong|HKG)\d{0,2}\b)
-(?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\b)
+(?i)🇼🇸|🇹🇼|台湾|台|(\b(Tai|TW|Taiwan|TPE|TSA|KHH)\d{0,2}\b)
 (?i)🇯🇵|日本|日|东京|川日|大阪|泉日|埼玉|(\b(Japan|JP|Tokyo|Osaka|Saitama|NRT|HND|KIX|CTS|FUK)\d{0,2}\b)
-(?i)🇸🇬|新加坡|新|狮|(\b(Singapore|SG|Sing|SIN|XSP)\d{0,2}\b)
+(?i)🇸🇬|新加坡|狮城|新|狮|(\b(Singapore|SG|Sing|SIN|XSP)\d{0,2}\b)
 (?i)🇺🇸|美国|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|阿什本|西雅图|芝加哥|(\b(United States|US|USA|Portland|Dallas|Oregon|Phoenix|Fremont|Silicon Valley|Las Vegas|Los Angeles|San Jose|Santa Clara|Ashburn|Seattle|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD)\d{0,2}\b)
 (?i)🇰🇷|韩国|韩|韓|首尔|南朝鲜|(\b(Korea|KR|Seoul|KOR|South)\d{0,2}\b)
 (?i)🇬🇧|英国|英|伦敦|(\b(United Kingdom|UK|Britain|London)\d{0,2}\b)
 (?i)🇩🇪|德国|德|柏林|法兰克福|(\b(Germany|DE|Berlin)\d{0,2}\b)
-(?i)🇫🇷|法国|(\b(France|FR|巴黎|Paris)\d{0,2}\b)
+(?i)🇫🇷|法国|巴黎|(\b(France|FR|Paris)\d{0,2}\b)
 (?i)🇳🇱|荷兰|阿姆斯特丹|(\b(Netherlands|NL|Amsterdam)\d{0,2}\b)
 (?i)🇨🇦|加拿大|多伦多|(\b(CA|Canada)\d{0,2}\b)
 (?i)🇦🇺|澳大利亚|墨尔本|珀斯|(\b(AU|Australia)\d{0,2}\b)
 (?i)🇹🇷|土耳其|安卡拉|伊斯坦布尔|(\b(TR|TUR|Turkey)\d{0,2}\b)
+(?i)🇲🇴|澳门|(\b(MO|Oman)\d{0,2}\b)
+
+
+(?i)🇭🇰|香港|(\b(HK|Hong|HKG|港)\d{0,2}\b)
+(?i)🇼🇸|🇹🇼|台湾|(\b(Tai|TW|Taiwan|TPE|TSA|KHH|台)\d{0,2}\b)
+(?i)🇯🇵|日本|东京|川日|大阪|泉日|埼玉|(\b(Japan|JP|Tokyo|Osaka|Saitama|NRT|HND|KIX|CTS|FUK|日)\d{0,2}\b)
+(?i)🇸🇬|新加坡|狮城|(\b(Singapore|SG|Sing|SIN|XSP|新|狮)\d{0,2}\b)
+(?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|阿什本|西雅图|芝加哥|(\b(United States|US|USA|Portland|Dallas|Oregon|Phoenix|Fremont|Silicon Valley|Las Vegas|Los Angeles|San Jose|Santa Clara|Ashburn|Seattle|Chicago|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD|美)\d{0,2}\b)
+(?i)🇰🇷|韩国|首尔|南朝鲜|(\b(Korea|KR|Seoul|KOR|South|韩|韓)\d{0,2}\b)
+(?i)🇬🇧|英国|伦敦|(\b(United Kingdom|UK|Britain|London|英)\d{0,2}\b)
+(?i)🇩🇪|德国|柏林|法兰克福|(\b(Germany|DE|Berlin|德)\d{0,2}\b)
+(?i)🇫🇷|法国|巴黎|(\b(France|FR|Paris|法)\d{0,2}\b)
+(?i)🇳🇱|荷兰|阿姆斯特丹|(\b(Netherlands|NL|Amsterdam)\d{0,2}\b)
+(?i)🇨🇦|加拿大|多伦多|(\b(CA|Canada)\d{0,2}\b)
+(?i)🇦🇺|澳大利亚|墨尔本|珀斯|(\b(AU|Australia)\d{0,2}\b)
+(?i)🇹🇷|土耳其|安卡拉|伊斯坦布尔|(\b(TR|TUR|Turkey)\d{0,2}\b)
+(?i)🇲🇴|澳门|(\b(MO|Oman|澳)\d{0,2}\b)
