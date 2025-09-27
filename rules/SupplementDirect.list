@@ -71,11 +71,7 @@ DOMAIN-SUFFIX,xn--55qx5d
 DOMAIN-SUFFIX,xn--io0a7i
 
 # IP 规则
-IP-CIDR,154.201.79.0/24,no-resolve
-IP-CIDR,84.54.3.0/24,no-resolve
-IP-CIDR,104.224.155.0/24,no-resolve
-IP-CIDR,23.95.165.0/24,no-resolve
-IP-CIDR,45.205.31.0/24,no-resolve
+
 
 # 微软
 IP-CIDR,103.46.230.61/32,no-resolve
