@@ -1,3 +1,4 @@
+# DNS
 DOMAIN-SUFFIX,doh.pub
 DOMAIN-SUFFIX,dns.pub
 DOMAIN-SUFFIX,dot.pub
@@ -8,6 +9,7 @@ DOMAIN-SUFFIX,qq.com
 DOMAIN-SUFFIX,163.com
 DOMAIN-SUFFIX,kugou.com
 
+# 哔哩哔哩
 DOMAIN-SUFFIX,hdslb.com
 DOMAIN-SUFFIX,bilivideo.com
 
@@ -23,6 +25,10 @@ DOMAIN-SUFFIX,huatu.com
 DOMAIN-SUFFIX,eoffcn.com
 DOMAIN-SUFFIX,ldmnq.com
 DOMAIN-SUFFIX,wtzw.com
+
+# 银行
+DOMAIN-SUFFIX,bankcomm.com
+
 
 DOMAIN-SUFFIX,archlinuxcn.org
 DOMAIN-SUFFIX,ghxi.com
