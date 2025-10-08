@@ -1,49 +1,57 @@
 # SupplementDirect
 # 抖音
 DOMAIN-SUFFIX,amemv.com
+DOMAIN-SUFFIX,ndcpp.com
+DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,idouyinvod.com
 DOMAIN-SUFFIX,bytefcdnrd.com
 DOMAIN-SUFFIX,bytetos.com
 DOMAIN-SUFFIX,bytescm.com
 DOMAIN-SUFFIX,bytegoofy.com
-DOMAIN-SUFFIX,yhgfb-cn-static.com
 DOMAIN-SUFFIX,byteeffecttos.com
 DOMAIN-SUFFIX,bytegecko.com
-DOMAIN-SUFFIX,qnqcdn.net
-DOMAIN-SUFFIX,ndcpp.com
 DOMAIN-SUFFIX,pstatp.com
-DOMAIN-SUFFIX,snssdk.com
+DOMAIN-SUFFIX,searchpstatp.com
 DOMAIN-SUFFIX,bdxiguaimg.com
+DOMAIN-SUFFIX,yhgfb-cn-static.com
+
+DOMAIN,lf3-static.bytednsdoc.com
 DOMAIN-SUFFIX,bytedns3.com
-DOMAIN-SUFFIX,queniubg.com
+
 DOMAIN-SUFFIX,hypercachenode.com
 DOMAIN-SUFFIX,ecombdimg.com
 DOMAIN-SUFFIX,ecombdstatic.com
-DOMAIN-SUFFIX,ksyuncdn.com
+
 DOMAIN-SUFFIX,bytelb.net
-DOMAIN-SUFFIX,cdnhwc1.com
-DOMAIN-SUFFIX,cdnhwc2.com
 DOMAIN-SUFFIX,volcgtm.com
 DOMAIN-SUFFIX,bsgslb.com
-DOMAIN-SUFFIX,cdnbuild.net
+
+DOMAIN-SUFFIX,queniubg.com
 DOMAIN-SUFFIX,queniuuf.com
 DOMAIN-SUFFIX,queniuso.com
 DOMAIN-SUFFIX,queniusy.com
 DOMAIN-SUFFIX,queniusz.com
 DOMAIN-SUFFIX,queniuyk.com
+
+# 抖音CDN相关
+DOMAIN-SUFFIX,zjcdn.com
+DOMAIN-SUFFIX,ksyuncdn.com
+DOMAIN-SUFFIX,qnqcdn.net
+DOMAIN-SUFFIX,cdnbuild.net
+DOMAIN-SUFFIX,applogcdn.com
+# 抖音华为CDN
+DOMAIN-SUFFIX,cdnhwc1.com
+DOMAIN-SUFFIX,cdnhwc2.com
 DOMAIN-SUFFIX,cdnhwcljk104.com
+DOMAIN-KEYWORD,cdnhw
 
 DOMAIN-KEYWORD,douyinpic
+DOMAIN-KEYWORD,douyincdn
 DOMAIN-KEYWORD,douyinliving
 DOMAIN-KEYWORD,bytedance
 DOMAIN-KEYWORD,zijieapi
 DOMAIN-KEYWORD,douyin
-DOMAIN-KEYWORD,cdnhw
 
-DOMAIN,lf3-static.bytednsdoc.com
-DOMAIN,v5-dy-o-abtest.zjcdn.com
-DOMAIN,lf-static.applogcdn.com
-DOMAIN,lf3-material.searchpstatp.com
 
 # 联想
 DOMAIN-SUFFIX,blurdev.com
