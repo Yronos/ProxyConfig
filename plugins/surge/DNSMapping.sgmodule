@@ -11,10 +11,7 @@ RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/xiaomi.co
 RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/bytedance.conf = server:180.184.2.2
 RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/baidu.conf = server:180.76.76.76
 RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/qihoo360.conf = server:101.226.4.6
-securelogin.com.cn = server:system
-*.securelogin.com.cn = server:system
-captive.apple.com = server:system
-hotspot.cslwifi.com = server:system
+RULE-SET:https://ruleset.skk.moe/Modules/Rules/sukka_local_dns_mapping/hotspot_captive_portal.conf = server:system
 *.m2m = server:system
 injections.adguard.org = server:system
 local.adguard.org = server:system
