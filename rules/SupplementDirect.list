@@ -1,5 +1,8 @@
 # SupplementDirect
-# 抖音
+# 补充
+# 此部分是对应用@Sukka规则中https://ruleset.skk.moe/Clash/non_ip/domestic.txt,https://ruleset.skk.moe/Clash/non_ip/direct.txt 的部分使用补充
+########################################################################################################################
+# 抖音系列
 DOMAIN-SUFFIX,amemv.com
 DOMAIN-SUFFIX,ndcpp.com
 DOMAIN-SUFFIX,snssdk.com
@@ -74,17 +77,18 @@ DOMAIN-KEYWORD,feelgood
 DOMAIN-SUFFIX,picshack.net
 DOMAIN-SUFFIX,travel-eye.org
 
-# 阿里CDN
+# 阿里云CDN
 # DOMAIN-SUFFIX,alicdn.com
 # DOMAIN-SUFFIX,alikunlun.com
 # DOMAIN-SUFFIX,aliyuncs.com
 # DOMAIN-KEYWORD,kunlun
-# 腾讯CDN
-# DOMAIN-SUFFIX,cdn.dnsv1.com
-# DOMAIN-SUFFIX,cdn.dnsv5.com
-# DOMAIN-SUFFIX,tdnsv6.com
-# DOMAIN-SUFFIX,myqcloud.com
-
+# 腾讯云CDN
+DOMAIN-SUFFIX,smtcdns.com
+DOMAIN-SUFFIX,cdn.dnsv1.com
+DOMAIN-SUFFIX,cdn.dnsv5.com
+DOMAIN-SUFFIX,tdnsv6.com
+DOMAIN-SUFFIX,myqcloud.com
+########################################################################################################################
 # 联想
 DOMAIN-SUFFIX,blurdev.com
 DOMAIN-SUFFIX,cftsupport.com
@@ -106,19 +110,47 @@ DOMAIN-SUFFIX,thinkpad.com
 DOMAIN-SUFFIX,zui.com
 DOMAIN-SUFFIX,zuk.com
 
+########################################################################################################################
 # DeepSeek intercom
 DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,intercom.com
 
+########################################################################################################################
 # CN域名直连(中国|公司|网络)
 DOMAIN-SUFFIX,cn
 DOMAIN-SUFFIX,xn--fiqs8s
 DOMAIN-SUFFIX,xn--55qx5d
 DOMAIN-SUFFIX,xn--io0a7i
 
+########################################################################################################################
 # IP 规则
-
-
 # 微软
 IP-CIDR,103.46.230.61/32,no-resolve
 IP-CIDR,103.11.9.33/32,no-resolve
+
+########################################################################################################################
+# 论坛
+DOMAIN-SUFFIX,ikuai8.com
+DOMAIN-SUFFIX,ghxi.com
+DOMAIN-SUFFIX,ifanr.com
+DOMAIN-SUFFIX,geekpark.net
+DOMAIN-SUFFIX,appinn.com
+DOMAIN-SUFFIX,lovestu.com
+DOMAIN-SUFFIX,hifini.com
+DOMAIN-SUFFIX,fanyu.com
+DOMAIN-SUFFIX,iplaysoft.com
+# 云盘
+DOMAIN-SUFFIX,jianguoyun.com
+# 其他
+DOMAIN-SUFFIX,swisssign.net
+DOMAIN-SUFFIX,wedata.net
+DOMAIN-SUFFIX,hikvision.com
+DOMAIN-SUFFIX,wisecleaner.com
+DOMAIN-SUFFIX,wisecleaner.net
+DOMAIN-SUFFIX,dmpdmp.com
+DOMAIN-SUFFIX,sixyin.com
+DOMAIN-SUFFIX,kgimg.com
+DOMAIN-SUFFIX,caixin.com
+DOMAIN-SUFFIX,udeskcs.com
+DOMAIN-SUFFIX,natriumgroup.com
+DOMAIN-SUFFIX,weicewang.com

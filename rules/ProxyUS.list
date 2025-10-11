@@ -1,4 +1,4 @@
-# This list of websites recommended by America agents
+# This website list recommends using a US node proxy
 
 # NVIDIA Domains
 DOMAIN-SUFFIX,nvidia.com
@@ -9,14 +9,26 @@ DOMAIN-SUFFIX,nvidiagrid.net
 DOMAIN-SUFFIX,shotwithgeforce.com
 DOMAIN-SUFFIX,tegrazone.com
 
+# KDE GNOME
+DOMAIN-SUFFIX,kde-look.org
+DOMAIN-SUFFIX,gnome.org
+DOMAIN-SUFFIX,pling.com
+DOMAIN-SUFFIX,opendesktop.org
+DOMAIN-SUFFIX,opencode.net
+
+# Linux
 DOMAIN-SUFFIX,kernel.org
 DOMAIN-SUFFIX,archlinux.org
+
+# 论坛
+DOMAIN-SUFFIX,sportscult.org
+
+# others
 DOMAIN-SUFFIX,ssl.com
 DOMAIN-SUFFIX,entrust.net
 DOMAIN-SUFFIX,a-volute.com
 DOMAIN-SUFFIX,steelseries.com
 DOMAIN-SUFFIX,virscan.org
-DOMAIN-SUFFIX,sportscult.org
 DOMAIN-SUFFIX,namecheap.com
 DOMAIN-SUFFIX,apache.org
 DOMAIN-SUFFIX,trancy.org
@@ -26,14 +38,6 @@ DOMAIN-SUFFIX,warp.dev
 DOMAIN-SUFFIX,hcaptcha.com
 DOMAIN-SUFFIX,jscrambler.com
 DOMAIN-SUFFIX,stripe.com
-
-
-# KDE GNOME
-DOMAIN-SUFFIX,kde-look.org
-DOMAIN-SUFFIX,pling.com
-DOMAIN-SUFFIX,opendesktop.org
-DOMAIN-SUFFIX,opencode.net
+DOMAIN-SUFFIX,quantumult.app
 
 # IP 规则
-IP-CIDR,132.145.48.0/20,no-resolve
-IP-CIDR,143.47.224.0/19,no-resolve

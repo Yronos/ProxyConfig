@@ -1,4 +1,5 @@
 # ProxyDownload list
+# 此部分作为直连下载速度过慢,而使用代理
 DOMAIN-SUFFIX,update.googleapis.com
 DOMAIN-SUFFIX,download.tensorflow.google.com
 DOMAIN-SUFFIX,maven.google.com
