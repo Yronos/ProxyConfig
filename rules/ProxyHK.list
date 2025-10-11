@@ -14,6 +14,7 @@ DOMAIN-SUFFIX,follow.is
 DOMAIN-SUFFIX,qireader.com
 DOMAIN-SUFFIX,rssreaderone.com
 DOMAIN-SUFFIX,buzzing.cc
+DOMAIN-KEYWORD,hacker-news
 # 破解软件
 DOMAIN-SUFFIX,apphot.cc
 DOMAIN-SUFFIX,mirrorz.org
@@ -33,6 +34,7 @@ DOMAIN-SUFFIX,nyaa.si
 DOMAIN-SUFFIX,orzx.im
 DOMAIN-SUFFIX,dmhy.org
 # 网盘资源
+DOMAIN-KEYWORD,infini-cloud
 DOMAIN-SUFFIX,hdhive.online
 DOMAIN-SUFFIX,whalehd.com
 DOMAIN-SUFFIX,pansearch.me
@@ -45,6 +47,7 @@ DOMAIN-SUFFIX,assrt.net
 # 影视
 DOMAIN-SUFFIX,olevod.com
 #其他
+DOMAIN-SUFFIX,aria2e.com
 DOMAIN-SUFFIX,bitwarden.com
 DOMAIN-SUFFIX,bitwarden.net
 DOMAIN-SUFFIX,zotero.org
@@ -74,5 +77,5 @@ DOMAIN-SUFFIX,sadidc.com
 DOMAIN-SUFFIX,atlucky.me
 
 DOMAIN-KEYWORD,sms-activate
-DOMAIN-KEYWORD,hacker-news
-DOMAIN-KEYWORD,infini-cloud
+
+
