@@ -1,16 +1,17 @@
 # ProxyDownload list
 # 此部分作为直连下载速度过慢,而使用代理
-DOMAIN-SUFFIX,update.googleapis.com
-DOMAIN-SUFFIX,download.tensorflow.google.com
-DOMAIN-SUFFIX,maven.google.com
-DOMAIN-SUFFIX,cache.pack.google.com
-DOMAIN-SUFFIX,download.mlcc.google.com
-DOMAIN-SUFFIX,dl.google.com
-DOMAIN-SUFFIX,dl.l.google.com
-DOMAIN-SUFFIX,dl.sourceforge.net
-DOMAIN-SUFFIX,update.greasyfork.org
+DOMAIN,update.googleapis.com
+DOMAIN,download.tensorflow.google.com
+DOMAIN,maven.google.com
+DOMAIN,cache.pack.google.com
+DOMAIN,download.mlcc.google.com
+DOMAIN,dl.google.com
+DOMAIN,dl.l.google.com
+DOMAIN,dl.sourceforge.net
+DOMAIN,update.greasyfork.org
 DOMAIN,releases.warp.dev
 DOMAIN,static.rust-lang.org
 DOMAIN,edgedl.me.gvt1.com
 DOMAIN,files.pythonhosted.org
 DOMAIN,repo.anaconda.com
+DOMAIN,pypi.org
