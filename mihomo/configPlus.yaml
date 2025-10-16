@@ -102,7 +102,7 @@ tun:
   # route-exclude-address-set: # 将指定规则集中的目标 IP CIDR 规则添加到防火墙，匹配的流量将绕过路由，仅支持Linux，且需要nftables以及auto-route和auto-redirect已启用。
     # - ruleset-2
 sniffer:
-  enable: true
+  enable: false
   parse-pure-ip: true # 对所有未获取到域名的流量进行强制嗅探
   force-dns-mapping: true # 对 redir-host 类型识别的流量进行强制嗅探
   override-destination: true # 是否使用嗅探结果作为实际访问，默认为 true
