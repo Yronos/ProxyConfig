@@ -1,5 +1,6 @@
 #!name=AppleCN_DNSMapping
 #!desc=Custom mapping based on GitHub @Sukkaw author's ruleset
+#!category=Myself
 
 [Host]
 RULE-SET:https://ruleset.skk.moe/List/non_ip/apple_cdn.conf = server:system

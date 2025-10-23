@@ -1,5 +1,6 @@
 #!name=DNSMapping
 #!desc=Custom mapping based on GitHub @Sukkaw author's ruleset https://ruleset.skk.moe/Modules/sukka_local_dns_mapping.sgmodule. Use default DNS assignments whenever possible.
+#!category=Myself
 
 [Host]
 RULE-SET:https://ruleset.skk.moe/List/non_ip/apple_cdn.conf = server:114.114.114.114
