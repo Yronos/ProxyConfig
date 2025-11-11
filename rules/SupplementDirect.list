@@ -14,7 +14,6 @@ DOMAIN-SUFFIX,volc-dns.com
 DOMAIN-SUFFIX,volc-dns.net
 DOMAIN-KEYWORD,volcfcdn
 DOMAIN-SUFFIX,imagevolc.com
-
 DOMAIN-SUFFIX,cdnbuild.net
 DOMAIN-SUFFIX,applogcdn.com
 
@@ -61,10 +60,7 @@ DOMAIN-KEYWORD,queniu
 # DOMAIN-SUFFIX,queniuyk.com
 # DOMAIN-SUFFIX,queniuiq.com
 
-# 抖音华为CDN
-DOMAIN-KEYWORD,cdnhwc
-DOMAIN-SUFFIX,hwcdn.net
-
+# 关键词补充兜底
 # DOMAIN-SUFFIX,idouyinvod.com
 # DOMAIN-KEYWORD,douyinpic
 # DOMAIN-KEYWORD,douyincdn
@@ -73,17 +69,25 @@ DOMAIN-KEYWORD,douyin
 DOMAIN-KEYWORD,bytedance
 DOMAIN-KEYWORD,zijieapi
 DOMAIN-KEYWORD,dy-vod
+
 DOMAIN-KEYWORD,feelgood
 DOMAIN-SUFFIX,picshack.net
 DOMAIN-SUFFIX,travel-eye.org
+
+# 流媒体共用CDN资源
+# 华为CDN
+DOMAIN-KEYWORD,cdnhwc
+DOMAIN-SUFFIX,hwcdn.net
 
 # 阿里云CDN
 # DOMAIN-SUFFIX,alicdn.com
 # DOMAIN-SUFFIX,alikunlun.com
 # DOMAIN-SUFFIX,aliyuncs.com
 DOMAIN-KEYWORD,kunlun
+
 # 腾讯云CDN
 DOMAIN-SUFFIX,smallfighter.com
+DOMAIN-SUFFIX,myqcloud.com
 DOMAIN-SUFFIX,smtcdns.com
 DOMAIN-SUFFIX,dnsv1.com
 DOMAIN-SUFFIX,dnsv2.com
@@ -96,7 +100,6 @@ DOMAIN-SUFFIX,tdnsv3.com
 DOMAIN-SUFFIX,tdnsv4.com
 DOMAIN-SUFFIX,tdnsv5.com
 DOMAIN-SUFFIX,tdnsv6.com
-DOMAIN-SUFFIX,myqcloud.com
 
 # 百度
 DOMAIN-SUFFIX,eastecloud.com
