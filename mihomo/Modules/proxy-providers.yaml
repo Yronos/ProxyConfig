@@ -1,8 +1,57 @@
 proxy-providers:
-  provider1:
+  provider01:
     type: http
     interval: 86400
+    proxy: 手动切换
+    size-limit: 0
+    # 防止订阅限制客户端
+    header:
+      User-Agent:
+        - "mihomo/v1.19.16"
+    health-check:
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 300
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+    filter: ^(?!.*(建议|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+    url: 订阅地址
+    path: ./proxy_providers/provider01.yaml
+    override:
+      # 添加节点前置标识名
+      additional-prefix: "订阅01|"
+      tfo: false
+      #dialer-proxy: 中继选择
+      udp: true
+
+  provider02:
+    type: http
+    interval: 1800
     proxy: DIRECT
+    size-limit: 0
+    header:
+      User-Agent:
+        - "mihomo/v1.19.16"
+    health-check:
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 300
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+    filter: ^(?!.*(群|邀请|返利|循环|官网|客服|服务|网站|导航|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+    url: 订阅地址
+    path: ./proxy_providers/provider02.yaml
+    override:
+      additional-prefix: "订阅02|"
+      tfo: false
+      udp: true
+
+  provider03:
+    type: http
+    interval: 86400
+    proxy: 手动切换
     size-limit: 0
     health-check:
       enable: true
@@ -11,16 +60,18 @@ proxy-providers:
       timeout: 3000
       lazy: true
       expected-status: 204
-    filter: ^(?!.*(群|导航站|监控|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
-    url: 机场订阅地址
-    path: ./proxy_providers/provider1.yaml
+    filter: ^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+    url: 订阅地址
+    path: ./proxy_providers/provider03.yaml
     override:
+      additional-prefix: "订阅03|"
       tfo: false
       udp: true
-  provider2:
+
+  provider04:
     type: http
     interval: 86400
-    proxy: DIRECT
+    proxy: 手动切换
     size-limit: 0
     health-check:
       enable: true
@@ -29,9 +80,27 @@ proxy-providers:
       timeout: 3000
       lazy: true
       expected-status: 204
-    filter: ^(?!.*(群|导航站|监控|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
-    url: 机场订阅地址
-    path: ./proxy_providers/provider2.yaml
+    filter: ^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))
+    url: 订阅地址
+    path: ./proxy_providers/provider04.yaml
     override:
+      additional-prefix: "订阅04|"
       tfo: false
       udp: true
+
+  # 本地节点，直接将节点内容放置到文件中，即可使用
+  providerlocal:
+    type: file
+    size-limit: 0
+    health-check:
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 300
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+    path: ./proxy_providers/providerlocal.yaml
+    override:
+      tfo: false
+      ip-version: ipv4
+      #dialer-proxy: 中继选择

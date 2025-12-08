@@ -1,3 +1,4 @@
+# 全部为包含类型的筛选，具有边界判断包含数字
 (?i)🇭🇰|香港|(\b(HK|Hong|HKG|港)\d{0,2}\b)
 (?i)🇼🇸|🇹🇼|台湾|(\b(Tai|TW|Taiwan|TPE|TSA|KHH|台)\d{0,2}\b)
 (?i)🇯🇵|日本|东京|川日|大阪|泉日|埼玉|(\b(Japan|JP|Tokyo|Osaka|Saitama|NRT|HND|KIX|CTS|FUK|日)\d{0,2}\b)

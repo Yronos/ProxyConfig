@@ -1,151 +1,151 @@
 rules:
-    # ProxyDNS
-    - RULE-SET,ProxyDNS,ProxyDNS,no-resolve
-    # Privacy
-    - RULE-SET,BlockAnalytics,REJECT
-    - RULE-SET,RejectList,REJECT
-    # 广告过滤
-    - RULE-SET,reject_non_ip,REJECT
-    - RULE-SET,reject_domainset,REJECT
-    - RULE-SET,reject_extra_domainset,REJECT
-    - RULE-SET,reject_ip,REJECT,no-resolve
-    - RULE-SET,reject_non_ip_drop,REJECT-DROP
-    - RULE-SET,reject_non_ip_no_drop,REJECT
-###################################################################################################################################
-    # 部分需要代理的下载域名
-    - RULE-SET,ProxyDownload,CDN
-###################################################################################################################################
-    # 静态 CDN
-    - RULE-SET,cdn_domainset,CDN
-    - RULE-SET,cdn_non_ip,CDN
-###################################################################################################################################
-    # CDN 补充
-    - RULE-SET,CDNSupplements,CDN
-###################################################################################################################################
-    # Apple 国内CDN
-    - RULE-SET,apple_cdn,DIRECT
-    # Microsoft 国内CDN
-    - RULE-SET,microsoft_cdn_non_ip,DIRECT
-    # 软件游戏驱动，酌情调整
-    - RULE-SET,download_domainset,Download
-    - RULE-SET,download_non_ip,Download
-###################################################################################################################################    
-    # 自定义规则
-    - RULE-SET,ProxyForum,🇭🇰香港节点
-    - RULE-SET,ProxyHK,🇭🇰香港节点
-    - RULE-SET,ProxyJP,🇯🇵日本节点
-    - RULE-SET,DirectList,DIRECT
-###################################################################################################################################
-    # AI
-    - RULE-SET,AI,AI
-    # Apple
-    - RULE-SET,apple_cn_non_ip,Apple
-    - RULE-SET,apple_services,Apple
-    # 哔哩哔哩
-    - RULE-SET,Bilibili,哔哩哔哩,no-resolve
-    # Microsoft
-    - RULE-SET,GitHub,GitHub,no-resolve
-    - RULE-SET,OneDrive,OneDrive,no-resolve
-    - RULE-SET,microsoft_non_ip,Microsoft,no-resolve
-    # Google
-###################################################################################################################################
-    - RULE-SET,YouTubeMusic,YouTubeMusic,no-resolve
-###################################################################################################################################
-    - RULE-SET,YouTube,YouTube,no-resolve
-    - RULE-SET,Google,Google,no-resolve
-    # Telegram
-    - RULE-SET,telegram_non_ip,Telegram
-    - RULE-SET,telegram_ip,Telegram,no-resolve
-    #- RULE-SET,Telegram,Telegram,no-resolve
-    # Discord
-    - RULE-SET,Discord,Discord,no-resolve
-    # Twitter
-    - RULE-SET,Twitter,Twitter,no-resolve
-    # Meta
-    - RULE-SET,Instagram,Meta,no-resolve
-    - RULE-SET,Facebook,Meta,no-resolve
-    # Spotify
-    - RULE-SET,Spotify,Spotify,no-resolve
-    # Music
-    - RULE-SET,Qobuz,Music,no-resolve
-    - RULE-SET,TIDAL,Music,no-resolve
-    - RULE-SET,Deezer,Music,no-resolve
-    - RULE-SET,KKBOX,🇹🇼台湾节点,no-resolve
-    # 媒体
-    - RULE-SET,Bahamut,Bahamut,no-resolve
-    - RULE-SET,Netflix,Netflix,no-resolve
-    # 游戏平台
-    - RULE-SET,Steam,游戏平台,no-resolve
-    - RULE-SET,Epic,游戏平台,no-resolve
-    - RULE-SET,Xbox,游戏平台,no-resolve
-    # Emby
-    - RULE-SET,Emby,Emby,no-resolve
-    # Pixiv
-    - RULE-SET,Pixiv,🇯🇵日本节点,no-resolve
-    # 媒体
-    - RULE-SET,Disney,国际媒体,no-resolve
-    - RULE-SET,PrimeVideo,国际媒体,no-resolve
-    - RULE-SET,HBO,国际媒体,no-resolve
-    # 流媒体
-    - RULE-SET,stream_us_non_ip,🇺🇸美国节点
-    - RULE-SET,stream_eu_non_ip,🇪🇺欧洲手动
-    - RULE-SET,stream_jp_non_ip,🇯🇵日本节点
-    - RULE-SET,stream_kr_non_ip,🇰🇷韩国节点
-    - RULE-SET,stream_hk_non_ip,🇭🇰香港节点
-    - RULE-SET,stream_tw_non_ip,🇹🇼台湾节点
-    - RULE-SET,stream_non_ip,国际媒体
-    # 流媒体
-    - RULE-SET,stream_us_ip,🇺🇸美国节点,no-resolve
-    - RULE-SET,stream_eu_ip,🇪🇺欧洲手动,no-resolve
-    - RULE-SET,stream_jp_ip,🇯🇵日本节点,no-resolve
-    - RULE-SET,stream_kr_ip,🇰🇷韩国节点,no-resolve
-    - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
-    - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
-    - RULE-SET,stream_ip,国际媒体,no-resolve
-###################################################################################################################################   
-    # ProxyApplication
-    - RULE-SET,Docker,ProxyApplication,no-resolve
-    - RULE-SET,Notion,ProxyApplication,no-resolve
-###################################################################################################################################
-    # Cloudflare
-    - RULE-SET,Cloudflare,Cloudflare,no-resolve
-    # Amazon
-    - RULE-SET,Amazon,Amazon,no-resolve
-    # Jetbrains
-    - RULE-SET,Jetbrains,国外网站,no-resolve
-    # 网易云音乐
-    - RULE-SET,neteasemusic_non_ip,DIRECT
-    - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
-###################################################################################################################################
-    # 国家分流
-    - DOMAIN-SUFFIX,hk,🇭🇰香港节点
-    - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
-    - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
-    - DOMAIN-SUFFIX,jp,🇯🇵日本节点
-    - DOMAIN-SUFFIX,uk,🇬🇧英国节点
-    - DOMAIN-SUFFIX,de,🇩🇪德国节点
-    - DOMAIN-SUFFIX,fr,🇫🇷法国节点
-    - DOMAIN-SUFFIX,eu,🇪🇺欧洲手动
-###################################################################################################################################
-    # 国内外域名
-    - RULE-SET,domestic_non_ip,DIRECT
-    - RULE-SET,direct_non_ip,DIRECT
-    - RULE-SET,global_non_ip,国外网站
-    - RULE-SET,domestic_ip,DIRECT,no-resolve
-###################################################################################################################################
-    # 补充部分直连列表
-    - RULE-SET,LanZouYun,DIRECT,no-resolve
-    - RULE-SET,ChinaCompanyIp,DIRECT,no-resolve
-###################################################################################################################################
-    # 国内 IP
-    - RULE-SET,china_ip,DIRECT,no-resolve
-    # Only use it if you are using IPv6
-    - RULE-SET,china_ip_ipv6,DIRECT,no-resolve
-###################################################################################################################################
-    - RULE-SET,ProxyUS,🇺🇸美国节点
-###################################################################################################################################
-    # 局域网
-    - RULE-SET,lan_non_ip,DIRECT
-    - RULE-SET,lan_ip,DIRECT,no-resolve
-    # 兜底分流
-    - MATCH,兜底分流
+  # ProxyDNS
+  - RULE-SET,ProxyDNS,ProxyDNS,no-resolve
+  # Privacy
+  - RULE-SET,BlockAnalytics,REJECT
+  - RULE-SET,RejectList,REJECT
+  # 广告过滤
+  - RULE-SET,reject_non_ip,REJECT
+  - RULE-SET,reject_domainset,REJECT
+  - RULE-SET,reject_extra_domainset,REJECT
+  - RULE-SET,reject_ip,REJECT,no-resolve
+  - RULE-SET,reject_non_ip_drop,REJECT-DROP
+  - RULE-SET,reject_non_ip_no_drop,REJECT
+  ###################################################################################################################################
+  # 部分需要代理的下载域名
+  - RULE-SET,ProxyDownload,CDN
+  ###################################################################################################################################
+  # 静态 CDN
+  - RULE-SET,cdn_domainset,CDN
+  - RULE-SET,cdn_non_ip,CDN
+  ###################################################################################################################################
+  # CDN 补充
+  - RULE-SET,CDNSupplements,CDN
+  ###################################################################################################################################
+  # Apple 国内CDN
+  - RULE-SET,apple_cdn,DIRECT
+  # Microsoft 国内CDN
+  - RULE-SET,microsoft_cdn_non_ip,DIRECT
+  # 软件游戏驱动，酌情调整
+  - RULE-SET,download_domainset,Download
+  - RULE-SET,download_non_ip,Download
+  ###################################################################################################################################
+  # 自定义规则
+  - RULE-SET,ProxyForum,🇭🇰香港节点
+  - RULE-SET,ProxyHK,🇭🇰香港节点
+  - RULE-SET,ProxyJP,🇯🇵日本节点
+  - RULE-SET,DirectList,DIRECT
+  ###################################################################################################################################
+  # AI
+  - RULE-SET,AI,AI
+  # Apple
+  - RULE-SET,apple_cn_non_ip,Apple
+  - RULE-SET,apple_services,Apple
+  # 哔哩哔哩
+  - RULE-SET,Bilibili,哔哩哔哩,no-resolve
+  # Microsoft
+  - RULE-SET,GitHub,GitHub,no-resolve
+  - RULE-SET,OneDrive,OneDrive,no-resolve
+  - RULE-SET,microsoft_non_ip,Microsoft,no-resolve
+  # Google
+  ###################################################################################################################################
+  - RULE-SET,YouTubeMusic,YouTubeMusic,no-resolve
+  ###################################################################################################################################
+  - RULE-SET,YouTube,YouTube,no-resolve
+  - RULE-SET,Google,Google,no-resolve
+  # Telegram
+  - RULE-SET,telegram_non_ip,Telegram
+  - RULE-SET,telegram_ip,Telegram,no-resolve
+  #- RULE-SET,Telegram,Telegram,no-resolve
+  # Discord
+  - RULE-SET,Discord,Discord,no-resolve
+  # Twitter
+  - RULE-SET,Twitter,Twitter,no-resolve
+  # Meta
+  - RULE-SET,Instagram,Meta,no-resolve
+  - RULE-SET,Facebook,Meta,no-resolve
+  # Spotify
+  - RULE-SET,Spotify,Spotify,no-resolve
+  # Music
+  - RULE-SET,Qobuz,Music,no-resolve
+  - RULE-SET,TIDAL,Music,no-resolve
+  - RULE-SET,Deezer,Music,no-resolve
+  - RULE-SET,KKBOX,🇹🇼台湾节点,no-resolve
+  # 媒体
+  - RULE-SET,Bahamut,Bahamut,no-resolve
+  - RULE-SET,Netflix,Netflix,no-resolve
+  # 游戏平台
+  - RULE-SET,Steam,游戏平台,no-resolve
+  - RULE-SET,Epic,游戏平台,no-resolve
+  - RULE-SET,Xbox,游戏平台,no-resolve
+  # Emby
+  - RULE-SET,Emby,Emby,no-resolve
+  # Pixiv
+  - RULE-SET,Pixiv,🇯🇵日本节点,no-resolve
+  # 媒体
+  - RULE-SET,Disney,国际媒体,no-resolve
+  - RULE-SET,PrimeVideo,国际媒体,no-resolve
+  - RULE-SET,HBO,国际媒体,no-resolve
+  # 流媒体
+  - RULE-SET,stream_us_non_ip,🇺🇸美国节点
+  - RULE-SET,stream_eu_non_ip,🇪🇺欧洲手动
+  - RULE-SET,stream_jp_non_ip,🇯🇵日本节点
+  - RULE-SET,stream_kr_non_ip,🇰🇷韩国节点
+  - RULE-SET,stream_hk_non_ip,🇭🇰香港节点
+  - RULE-SET,stream_tw_non_ip,🇹🇼台湾节点
+  - RULE-SET,stream_non_ip,国际媒体
+  # 流媒体
+  - RULE-SET,stream_us_ip,🇺🇸美国节点,no-resolve
+  - RULE-SET,stream_eu_ip,🇪🇺欧洲手动,no-resolve
+  - RULE-SET,stream_jp_ip,🇯🇵日本节点,no-resolve
+  - RULE-SET,stream_kr_ip,🇰🇷韩国节点,no-resolve
+  - RULE-SET,stream_hk_ip,🇭🇰香港节点,no-resolve
+  - RULE-SET,stream_tw_ip,🇹🇼台湾节点,no-resolve
+  - RULE-SET,stream_ip,国际媒体,no-resolve
+  ###################################################################################################################################
+  # ProxyApplication
+  - RULE-SET,Docker,ProxyApplication,no-resolve
+  - RULE-SET,Notion,ProxyApplication,no-resolve
+  ###################################################################################################################################
+  # Cloudflare
+  - RULE-SET,Cloudflare,Cloudflare,no-resolve
+  # Amazon
+  - RULE-SET,Amazon,Amazon,no-resolve
+  # Jetbrains
+  - RULE-SET,Jetbrains,国外网站,no-resolve
+  # 网易云音乐
+  - RULE-SET,neteasemusic_non_ip,DIRECT
+  - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
+  ###################################################################################################################################
+  # 国家分流
+  - DOMAIN-SUFFIX,hk,🇭🇰香港节点
+  - DOMAIN-SUFFIX,tw,🇹🇼台湾节点
+  - DOMAIN-SUFFIX,kr,🇰🇷韩国节点
+  - DOMAIN-SUFFIX,jp,🇯🇵日本节点
+  - DOMAIN-SUFFIX,uk,🇬🇧英国节点
+  - DOMAIN-SUFFIX,de,🇩🇪德国节点
+  - DOMAIN-SUFFIX,fr,🇫🇷法国节点
+  - DOMAIN-SUFFIX,eu,🇪🇺欧洲手动
+  ###################################################################################################################################
+  # 国内外域名
+  - RULE-SET,domestic_non_ip,DIRECT
+  - RULE-SET,direct_non_ip,DIRECT
+  - RULE-SET,global_non_ip,国外网站
+  - RULE-SET,domestic_ip,DIRECT,no-resolve
+  ###################################################################################################################################
+  # 补充部分直连列表
+  - RULE-SET,LanZouYun,DIRECT,no-resolve
+  - RULE-SET,ChinaCompanyIp,DIRECT,no-resolve
+  ###################################################################################################################################
+  # 国内 IP
+  - RULE-SET,china_ip,DIRECT,no-resolve
+  # Only use it if you are using IPv6
+  - RULE-SET,china_ip_ipv6,DIRECT,no-resolve
+  ###################################################################################################################################
+  - RULE-SET,ProxyUS,🇺🇸美国节点
+  ###################################################################################################################################
+  # 局域网
+  - RULE-SET,lan_non_ip,DIRECT
+  - RULE-SET,lan_ip,DIRECT,no-resolve
+  # 兜底分流
+  - MATCH,兜底分流

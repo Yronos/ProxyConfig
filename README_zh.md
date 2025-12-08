@@ -46,7 +46,8 @@
 secret: 123456789
 ```
 
-网页端控制面板**访问地址**：http://127.0.0.1:9090/ui/zashboard/，如有需要可自行更改端口，修改配置中的 external-controller 字段：
+网页端控制面板**访问地址**：http://127.0.0.1:9090/ui/zashboard/
+如有需要可自行更改端口，修改配置中的 external-controller 字段：
 
 ```yaml
 external-controller: 127.0.0.1:9090
