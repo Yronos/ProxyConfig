@@ -1,6 +1,5 @@
 # This website list recommends using a US node proxy
-
-# NVIDIA Domains
+# NVIDIA
 DOMAIN-SUFFIX,nvidia.com
 DOMAIN-SUFFIX,geforce.com
 DOMAIN-SUFFIX,gputechconf.com
@@ -8,6 +7,32 @@ DOMAIN-SUFFIX,nvidiaforhp.com
 DOMAIN-SUFFIX,nvidiagrid.net
 DOMAIN-SUFFIX,shotwithgeforce.com
 DOMAIN-SUFFIX,tegrazone.com
+
+# JetBrains
+DOMAIN-SUFFIX,intellij.com
+DOMAIN-SUFFIX,intellij.net
+DOMAIN-SUFFIX,intellij.org
+DOMAIN-SUFFIX,jetbrains.ai
+DOMAIN-SUFFIX,jetbrains.com
+DOMAIN-SUFFIX,jetbrains.io
+DOMAIN-SUFFIX,jetbrains.net
+DOMAIN-SUFFIX,jetbrains.org
+DOMAIN-SUFFIX,jetbrains.space
+DOMAIN-SUFFIX,jetbrains.team
+DOMAIN-SUFFIX,kotlinconf.com
+DOMAIN-SUFFIX,kotlinlang.org
+
+# notion
+DOMAIN-SUFFIX,notion.com
+DOMAIN-SUFFIX,notion.new
+DOMAIN-SUFFIX,notion.site
+DOMAIN-SUFFIX,notion.so
+
+# Docker
+DOMAIN-SUFFIX,compose-spec.io
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,docker.io
+DOMAIN-SUFFIX,dockerhub.com
 
 # KDE GNOME
 DOMAIN-SUFFIX,kde-look.org
@@ -54,4 +79,3 @@ DOMAIN-SUFFIX,pulsemcp.com
 DOMAIN-SUFFIX,zed.dev
 DOMAIN-SUFFIX,roxybrowser.net
 DOMAIN-SUFFIX,livechatinc.com
-# IP 规则
