@@ -1,108 +1,30 @@
 # fakeip-filter
-# -------------------------
-# 本地网络 & 保留域名 (已合并重复项)
-# -------------------------
-+.lan
-+.local      
-+.localhost
-+.example
-+.invalid
-+.home.arpa
-+.test        
-
-# -------------------------
-# STUN/TURN/ICE 相关 (通配符优化)
-# -------------------------
+# STUN/TURN/ICE 相关
 +.stun.*
 stun.*
 *.turn.twilio.com
 *.stun.twilio.com
 stun.syncthing.net
 
-# -------------------------
-# NTP 时间同步服务 (合并冗余项)
-# -------------------------
-+.pool.ntp.org
-time.*.com
-ntp.*.com
-time.*.gov
-time.*.edu.cn
-*.time.edu.cn
-*.ntp.org.cn
-time-ios.apple.com
-
-
-# -------------------------
-# Windows 网络连接检测 
-# -------------------------
-+.msftconnecttest.com
-+.msftncsi.com
-
-# -------------------------
-# 苹果生态 
-# -------------------------
-+.push.apple.com
-
-# -------------------------
-# 小米生态 
-# -------------------------
-+.miwifi.com
-+.market.xiaomi.com
-
-# -------------------------
 # Docker Hub
-# -------------------------
 +.docker.io
 
-# -------------------------
 # Steam 游戏平台
-# -------------------------
 +.steamcontent.com
 
-# -------------------------
 # Nintendo Switch
-# -------------------------
-+.srv.nintendo.net  # 覆盖所有子域
++.srv.nintendo.net
 +.cdn.nintendo.net
-# 移除冗余的*.srv.nintendo.net
 
-# -------------------------
 # Sony PlayStation
-# -------------------------
 +.stun.playstation.net
 
-# -------------------------
 # Microsoft Xbox
-# -------------------------
-xbox.*.microsoft.com   # 覆盖 xbox.*.*
-+.xboxlive.com         # 覆盖 *.*.xboxlive.com
+# 覆盖 xbox.*.*
+xbox.*.microsoft.com
+# 覆盖 *.*.xboxlive.com
++.xboxlive.com
 xnotify.xboxlive.com
 
-# -------------------------
 # Blizzard Battle.net
-# -------------------------
 +.battlenet.com.cn
-
-# -------------------------
-# 迅雷下载相关
-# -------------------------
-+.sandai.net
-+.n0808.com
-
-# -------------------------
-# UU 加速器
-# -------------------------
-+.uu.163.com
-ps.res.netease.com
-
-# -------------------------
-# 向日葵远程控制
-# -------------------------
-+.oray.com
-+.orayimg.com
-
-# -------------------------
-# 其他应用
-# -------------------------
-+.wggames.cn
-
