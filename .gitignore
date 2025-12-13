@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 原始下载文件（可选：如果不想提交）
+auto/original/
+
+# 环境
+.env
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp

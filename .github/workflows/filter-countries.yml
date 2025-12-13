@@ -1,0 +1,189 @@
+name: Filter Country Domain Rules
+
+on:
+  # 每3天执行一次（UTC时间凌晨2点 = 北京时间上午10点）
+  schedule:
+    - cron: "0 2 */3 * *"
+
+  # 支持手动触发
+  workflow_dispatch:
+    inputs:
+      threshold:
+        description: "区域变体阈值（默认5）"
+        required: false
+        default: "5"
+        type: string
+
+  # Push到main分支时执行（可选）
+  push:
+    branches:
+      - main
+    paths:
+      - "auto/**"
+      - ".github/workflows/filter-countries.yml"
+
+jobs:
+  filter-rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      # 1. 检出代码
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # 获取完整历史，便于比较
+
+      # 2. 设置Python环境
+      - name: 🐍 Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # 3. 安装依赖
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests urllib3
+
+      # 4. 显示环境信息
+      - name: ℹ️ Environment info
+        run: |
+          echo "Python version: $(python --version)"
+          echo "Pip version: $(pip --version)"
+          echo "Working directory: $(pwd)"
+          ls -la auto/
+
+      # 5. 运行过滤脚本
+      - name: 🚀 Run filter_countries.py
+        id: filter
+        run: |
+          cd auto
+          python filter_countries.py
+        continue-on-error: false
+
+      # 6. 验证输出
+      - name: ✅ Verify output files
+        run: |
+          if [ ! -d "auto/new" ]; then
+            echo "❌ Output directory not found"
+            exit 1
+          fi
+
+          file_count=$(ls -1 auto/new/*.list 2>/dev/null | wc -l)
+          if [ "$file_count" -eq 0 ]; then
+            echo "❌ No .list files generated"
+            exit 1
+          fi
+
+          echo "✅ Generated $file_count rule files"
+          ls -lh auto/new/
+
+      # 7. 检查是否有变化
+      - name: 🔍 Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet auto/new/ auto/original/; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "📌 No changes detected"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✨ Changes detected"
+            git diff --stat auto/new/ auto/original/
+          fi
+
+      # 8. 生成变更摘要
+      - name: 📊 Generate summary
+        if: always()
+        run: |
+          {
+            echo "## 🎯 Domain Rule Filter Results"
+            echo ""
+            echo "### 📈 Statistics"
+            echo "- **Execution Time**: $(date +'%Y-%m-%d %H:%M:%S UTC')"
+            echo "- **Status**: ${{ steps.filter.outcome }}"
+            echo "- **Files Generated**: $(ls -1 auto/new/*.list 2>/dev/null | wc -l)"
+            echo "- **Changes Detected**: ${{ steps.check_changes.outputs.changed }}"
+            echo ""
+            echo "### 📁 Output Files"
+            echo "\`\`\`"
+            ls -lh auto/new/ 2>/dev/null || echo "No files"
+            echo "\`\`\`"
+            echo ""
+            if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+              echo "### 🔄 Changes"
+              echo "\`\`\`diff"
+              git diff --stat auto/new/ auto/original/ 2>/dev/null || echo "Unable to show diff"
+              echo "\`\`\`"
+            fi
+          } >> $GITHUB_STEP_SUMMARY
+
+      # 9. 提交变化
+      - name: 💾 Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          # 添加文件
+          git add auto/new/
+          git add auto/original/
+
+          # 生成提交信息
+          commit_msg="🤖 Auto-update: Filter country domain rules
+
+          Generated at: $(date +'%Y-%m-%d %H:%M:%S UTC')
+          Workflow: ${{ github.workflow }}
+          Run: ${{ github.run_number }}"
+
+          git commit -m "$commit_msg"
+          git push
+
+      # 10. 上传处理结果（保留30天）
+      - name: 📤 Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: filtered-rules-${{ github.run_number }}
+          path: |
+            auto/new/
+            auto/original/
+          retention-days: 30
+          if-no-files-found: warn
+
+      # 11. 失败时创建Issue
+      - name: 🚨 Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `❌ Country Domain Filter Failed - ${new Date().toISOString().split('T')[0]}`;
+            const body = `
+            ## ⚠️ Workflow Execution Failed
+
+            **Details:**
+            - **Workflow**: ${context.workflow}
+            - **Run Number**: [#${context.runNumber}](${context.payload.repository.html_url}/actions/runs/${context.runId})
+            - **Branch**: \`${context.ref}\`
+            - **Commit**: [\`${context.sha.substring(0, 7)}\`](${context.payload.repository.html_url}/commit/${context.sha})
+            - **Triggered by**: ${context.eventName}
+            - **Time**: ${new Date().toISOString()}
+
+            **Next Steps:**
+            1. Check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId})
+            2. Verify the script logic in \`auto/filter_countries.py\`
+            3. Check if the source URLs are accessible
+
+            ---
+            *This issue was automatically created by GitHub Actions*
+            `;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['automated', 'bug', 'workflow-failure']
+            });
