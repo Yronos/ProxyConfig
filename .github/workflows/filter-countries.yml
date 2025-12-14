@@ -2,7 +2,7 @@ name: Filter Country Domain Rules
 
 on:
   schedule:
-    - cron: "0 2 */3 * *"
+    - cron: "0 2 */3 * *" # 每3天UTC时间2:00运行
   workflow_dispatch:
   push:
     branches:
@@ -20,25 +20,37 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # 获取完整历史（如果需要）
 
       - name: 🐍 Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip" # 缓存pip依赖
 
       - name: 📦 Install dependencies
-        run: pip install requests urllib3
+        run: |
+          pip install --upgrade pip
+          pip install requests urllib3
 
-      - name: 🗂️ Ensure directories exist
+      - name: 🗂️ Ensure base directories exist
         run: |
           mkdir -p auto/new
           mkdir -p auto/original
+          echo "✅ Base directories created"
           ls -la auto/
 
       - name: 🚀 Run filter_countries.py
+        id: run_script
         run: |
           cd auto
           python filter_countries.py
+          exit_code=$?
+          if [ $exit_code -ne 0 ]; then
+            echo "❌ Script failed with exit code $exit_code"
+            exit $exit_code
+          fi
+          echo "✅ Script completed successfully"
 
       - name: ✅ Verify output
         id: verify
@@ -48,68 +60,88 @@ jobs:
             exit 1
           fi
 
+          # 递归查找所有.list文件
           file_count=$(find auto/new -name "*.list" -type f | wc -l)
+
           if [ "$file_count" -eq 0 ]; then
             echo "❌ No .list files generated"
+            echo "📂 Directory structure:"
+            tree auto/ || ls -lR auto/
             exit 1
           fi
 
-          echo "✅ Generated $file_count rule files:"
-          ls -lh auto/new/
+          echo "✅ Generated $file_count rule files"
           echo "file_count=$file_count" >> $GITHUB_OUTPUT
 
-      - name: 📊 Show file contents preview
-        run: |
-          echo "📋 File preview:"
-          for file in auto/new/*.list; do
-            if [ -f "$file" ]; then
-              echo "---"
-              echo "File: $file"
-              echo "Lines: $(wc -l < "$file")"
-              echo "Size: $(du -h "$file" | cut -f1)"
-            fi
-          done
+          # 计算总大小
+          total_size=$(du -sh auto/new | cut -f1)
+          echo "total_size=$total_size" >> $GITHUB_OUTPUT
 
-      - name: 💾 Commit and push ALL files
+      - name: 📊 Show detailed file structure
+        run: |
+          echo "📋 Complete directory structure:"
+          echo "-----------------------------------"
+
+          # 显示目录树（如果有tree命令）或使用find
+          if command -v tree &> /dev/null; then
+            tree -h auto/
+          else
+            echo "📂 auto/new/"
+            find auto/new -type f -name "*.list" -exec sh -c 'echo "  ├─ {} ($(wc -l < {} | tr -d " ") lines, $(du -h {} | cut -f1))"' \;
+
+            echo ""
+            echo "📂 auto/original/"
+            find auto/original -type f -name "*.list" -exec sh -c 'echo "  ├─ {} ($(wc -l < {} | tr -d " ") lines, $(du -h {} | cut -f1))"' \;
+          fi
+
+      - name: 💾 Commit and push changes
         run: |
           # 配置 Git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # 显示当前状态
-          echo "📂 Current git status:"
+          echo "📂 Git status before adding files:"
           git status
 
-          # 强制添加所有文件（忽略 .gitignore）
-          git add -f auto/new/*.list
-          git add -f auto/original/*.list
+          # ✅ 修复：递归添加所有子目录中的文件
+          git add -f auto/new/
+          git add -f auto/original/
 
-          # 再次检查状态
-          echo "📂 After adding files:"
-          git status
+          # 检查是否有文件被添加
+          echo ""
+          echo "📂 Files to be committed:"
+          git diff --cached --name-only || echo "No files staged"
 
           # 如果有变化就提交
           if ! git diff --cached --quiet; then
-            # 创建详细的提交信息
-            commit_msg="🤖 Auto-update: Filter domain rules
+            # 获取变更的文件列表
+            changed_files=$(git diff --cached --name-only | wc -l)
+
+            # 创建提交信息
+            cat > /tmp/commit_msg.txt << 'EOF'
+          🤖 Auto-update: Filter domain rules
 
           📅 Generated: $(date +'%Y-%m-%d %H:%M:%S UTC')
-          📊 Files: ${{ steps.verify.outputs.file_count }} rule files
+          📊 Statistics:
+             • Rule files: ${{ steps.verify.outputs.file_count }}
+             • Total size: ${{ steps.verify.outputs.total_size }}
+             • Changed files: ${changed_files}
+
           🔄 Workflow: ${{ github.workflow }}
           🏃 Run: #${{ github.run_number }}
-
-          Files updated:
-          $(git diff --cached --name-only | sed 's/^/- /')"
+          🔗 Link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          EOF
 
             echo "💾 Committing changes..."
-            git commit -m "$commit_msg"
+            git commit -F /tmp/commit_msg.txt
 
             echo "🚀 Pushing to repository..."
-            git push
+            git push origin main
 
-            echo "✅ Successfully committed and pushed!"
+            echo "✅ Successfully committed and pushed ${changed_files} files!"
           else
-            echo "📌 No changes detected"
+            echo "📌 No changes detected, skipping commit"
           fi
 
       - name: 📤 Upload artifacts
@@ -118,22 +150,40 @@ jobs:
         with:
           name: filtered-rules-${{ github.run_number }}
           path: |
-            auto/new/*.list
-            auto/original/*.list
+            auto/new/**/*.list
+            auto/original/**/*.list
           retention-days: 30
+          if-no-files-found: warn
 
       - name: 📝 Generate summary
         if: always()
         run: |
           {
-            echo "## 🎯 Execution Results"
+            echo "## 🎯 Domain Rules Filtering Results"
             echo ""
             echo "### 📊 Statistics"
-            echo "- **Files Generated**: ${{ steps.verify.outputs.file_count }}"
-            echo "- **Execution Time**: $(date +'%Y-%m-%d %H:%M:%S UTC')"
+            echo "| Metric | Value |"
+            echo "|--------|-------|"
+            echo "| Files Generated | **${{ steps.verify.outputs.file_count }}** |"
+            echo "| Total Size | **${{ steps.verify.outputs.total_size }}** |"
+            echo "| Execution Time | $(date +'%Y-%m-%d %H:%M:%S UTC') |"
+            echo "| Workflow Run | [#${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |"
             echo ""
-            echo "### 📁 Generated Files"
+            echo "### 📁 File Structure"
             echo "\`\`\`"
-            ls -lh auto/new/ 2>/dev/null || echo "No files"
+            find auto/new -name "*.list" -type f -exec sh -c 'echo "📄 {} - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files found"
             echo "\`\`\`"
+            echo ""
+            echo "### 🔗 Artifacts"
+            echo "Download the generated files from the [Artifacts section](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})."
           } >> $GITHUB_STEP_SUMMARY
+
+      - name: 🔔 Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Workflow failed!"
+          echo "📋 Debug information:"
+          echo "---"
+          ls -lR auto/ 2>/dev/null || echo "auto/ directory not found"
+          echo "---"
+          echo "Check the logs above for details."

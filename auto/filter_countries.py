@@ -12,19 +12,101 @@ class DomainRuleFilter:
         """
         初始化过滤器
         脚本位于 ./auto 目录
-        原始文件存放在 ./auto/original
-        过滤后文件存放在 ./auto/new
+        原始文件存放在 ./auto/original/{rule_type}
+        过滤后文件存放在 ./auto/new/{rule_type}
         """
         # 获取脚本所在目录
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # 设置子目录路径
-        self.original_dir = os.path.join(self.script_dir, "original")
-        self.new_dir = os.path.join(self.script_dir, "new")
+        # 设置基础目录路径
+        self.original_base_dir = os.path.join(self.script_dir, "original")
+        self.new_base_dir = os.path.join(self.script_dir, "new")
 
-        # 常见国家/地区顶级域名后缀
+        # 规则类型映射表（URL路径关键字 -> 目录名）
+        self.rule_type_mapping = {
+            "clash": "mihomo",
+            "mihomo": "mihomo",
+            "loon": "loon",
+            "surge": "surge",
+            "quantumultx": "quantumultx",
+            "quantumult": "quantumult",
+            "shadowrocket": "shadowrocket",
+            "stash": "stash",
+            "egern": "egern",
+            "singbox": "singbox",
+            "sing-box": "singbox",
+        }
+
+        # 二级域名标识集合
+        self.second_level_indicators = {
+            "com",
+            # "co",
+            "net",
+            "org",
+            "gov",
+            "edu",
+            "ac",
+            "mil",
+            "nom",
+            "sch",
+            "gob",
+            "int",
+        }
+
+        # 【重要】具有特殊意义的ccTLD（虽然是国家代码，但被广泛用作通用域名）
+        # 这些不应被视为区域变体
+        self.special_purpose_cctlds = {
+            "io",  # 科技/初创公司（英属印度洋领地）
+            "ai",  # AI/人工智能（安圭拉）
+            "co",  # .com的替代品（哥伦比亚）
+            "gg",  # 游戏/社区（根西岛）
+            "tv",  # 视频/媒体（图瓦卢）
+            "me",  # 个人品牌（黑山）
+            "fm",  # 音频/广播（密克罗尼西亚）
+            "cc",  # 通用用途（科科斯群岛）
+            "ws",  # 网站服务（萨摩亚）
+            "to",  # URL缩短（汤加）
+            "sh",  # Shell/开发（圣赫勒拿）
+            "nu",  # 通用（纽埃）
+            "tk",  # 免费域名（托克劳）
+        }
+
+        # 通用顶级域名
+        self.generic_tlds = {
+            "com",
+            "org",
+            "net",
+            "edu",
+            "gov",
+            "mil",
+            "int",
+            "info",
+            "biz",
+            "app",
+            "dev",
+            "xyz",
+            "online",
+            "site",
+            "tech",
+            "store",
+            "club",
+            "top",
+            "vip",
+            "pro",
+            "ventures",
+            "wiki",
+            "ink",
+            "link",
+            "work",
+            "today",
+            "world",
+            "life",
+            "space",
+            "solutions",
+        }
+
+        # 真正的区域性顶级域名（排除特殊用途ccTLD）
         self.regional_tlds = {
-            # 国家代码顶级域名
             "us",
             "uk",
             "cn",
@@ -97,16 +179,12 @@ class DomainRuleFilter:
             "nc",
             "pf",
             "ck",
-            "ws",
-            "to",
             "vu",
             "sb",
             "ki",
             "nr",
-            "tv",
             "pw",
             "mh",
-            "fm",
             "mp",
             "gu",
             "as",
@@ -123,7 +201,6 @@ class DomainRuleFilter:
             "sr",
             "gf",
             "ve",
-            "co",
             "ec",
             "pe",
             "bo",
@@ -147,7 +224,6 @@ class DomainRuleFilter:
             "si",
             "ba",
             "rs",
-            "me",
             "mk",
             "al",
             "gr",
@@ -224,40 +300,73 @@ class DomainRuleFilter:
             "lr",
             "sl",
             "cv",
+            "ag",
+            "dm",
+            "gi",
+            "gl",
+            "im",
+            "je",
+            "ly",
+            "pn",
+            "vc",
+            "vg",
         }
 
-        # 确保目录存在
-        os.makedirs(self.original_dir, exist_ok=True)
-        os.makedirs(self.new_dir, exist_ok=True)
+        # 确保基础目录存在
+        os.makedirs(self.original_base_dir, exist_ok=True)
+        os.makedirs(self.new_base_dir, exist_ok=True)
+
+    def detect_rule_type(self, url):
+        """从URL中检测规则类型"""
+        url_lower = url.lower()
+
+        for keyword, directory in self.rule_type_mapping.items():
+            pattern = f"/{keyword}/"
+            if pattern in url_lower:
+                return directory
+
+        return "unknown"
+
+    def get_directories_for_rule_type(self, rule_type):
+        """根据规则类型获取对应的原始和输出目录"""
+        original_dir = os.path.join(self.original_base_dir, rule_type)
+        new_dir = os.path.join(self.new_base_dir, rule_type)
+
+        os.makedirs(original_dir, exist_ok=True)
+        os.makedirs(new_dir, exist_ok=True)
+
+        return original_dir, new_dir
 
     def download_rule_list(self, url):
-        """下载规则列表到original文件夹"""
+        """下载规则列表到对应的original子文件夹"""
         try:
             response = requests.get(url, timeout=30)
             response.raise_for_status()
 
-            # 从URL中提取文件名
+            rule_type = self.detect_rule_type(url)
+            print(f"  🔍 检测到规则类型: {rule_type}")
+
+            original_dir, _ = self.get_directories_for_rule_type(rule_type)
+
             filename = os.path.basename(urlparse(url).path)
             if not filename:
                 filename = "rules.list"
 
-            filepath = os.path.join(self.original_dir, filename)
+            filepath = os.path.join(original_dir, filename)
 
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(response.text)
 
             print(f"  ✓ 已下载: {filename}")
-            return filepath, filename
+            print(f"  📁 保存路径: {os.path.relpath(filepath)}")
+            return filepath, filename, rule_type
 
         except Exception as e:
             print(f"  ✗ 下载失败: {e}")
-            return None, None
+            return None, None, None
 
     def parse_header(self, lines):
-        """
-        解析文件头部信息
-        返回: (header_lines, header_info, content_start_index)
-        """
+        """解析文件头部信息"""
         header_lines = []
         header_info = {}
         content_start = 0
@@ -267,7 +376,6 @@ class DomainRuleFilter:
             if stripped.startswith("#"):
                 header_lines.append(line)
 
-                # 解析头部信息
                 if ":" in stripped:
                     parts = stripped[1:].split(":", 1)
                     if len(parts) == 2:
@@ -275,16 +383,13 @@ class DomainRuleFilter:
                         value = parts[1].strip()
                         header_info[key] = value
             else:
-                # 遇到第一个非注释行，头部结束
                 content_start = idx
                 break
 
         return header_lines, header_info, content_start
 
     def count_rule_types(self, lines, start_index=0):
-        """
-        统计各类规则的数量
-        """
+        """统计各类规则的数量"""
         counts = defaultdict(int)
 
         for line in lines[start_index:]:
@@ -292,7 +397,6 @@ class DomainRuleFilter:
             if not stripped or stripped.startswith("#"):
                 continue
 
-            # 识别规则类型
             if stripped.startswith("DOMAIN-SUFFIX,"):
                 counts["DOMAIN-SUFFIX"] += 1
             elif stripped.startswith("DOMAIN-KEYWORD,"):
@@ -315,27 +419,21 @@ class DomainRuleFilter:
         return counts
 
     def generate_header(self, header_info, rule_counts):
-        """
-        生成更新后的文件头部
-        """
+        """生成更新后的文件头部"""
         header_lines = []
 
-        # 保留原有的NAME, AUTHOR, REPO
         if "NAME" in header_info:
             header_lines.append(f"# NAME: {header_info['NAME']}\n")
 
-        # 更新时间
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         header_lines.append(f"# UPDATED: {current_time}\n")
 
-        # 添加规则统计（按字母顺序）
         total = 0
         for rule_type in sorted(rule_counts.keys()):
             count = rule_counts[rule_type]
             total += count
             header_lines.append(f"# {rule_type}: {count}\n")
 
-        # 总计
         header_lines.append(f"# TOTAL: {total}\n")
 
         return header_lines
@@ -344,11 +442,9 @@ class DomainRuleFilter:
         """从规则行中提取域名和规则类型"""
         line = line.strip()
 
-        # 跳过注释和空行
         if not line or line.startswith("#"):
             return None, None
 
-        # 处理不同的规则格式
         patterns = [
             (r"DOMAIN-SUFFIX,([^,\s]+)", "DOMAIN-SUFFIX"),
             (r"DOMAIN,([^,\s]+)", "DOMAIN"),
@@ -365,11 +461,14 @@ class DomainRuleFilter:
     def get_base_domain(self, domain):
         """
         提取基础域名（主域名）
-        例如：
-        youtube.az -> youtube
-        youtube.com -> youtube
-        ggpht.cn -> ggpht
-        www.youtube.com -> youtube
+
+        正确处理各种域名格式：
+        1. 二级国家域名：google.com.ag → google
+        2. 二级国家域名：google.co.uk → google
+        3. 国家顶级域名：google.cn → google
+        4. 通用顶级域名：google.com → google
+        5. 特殊用途ccTLD：google.io → google （不视为区域变体）
+        6. 新通用TLD：google.dev → google
         """
         if not domain:
             return None
@@ -383,32 +482,42 @@ class DomainRuleFilter:
         if len(parts) < 2:
             return domain
 
-        # 如果最后一个部分是区域性TLD，返回倒数第二个部分
+        # 处理二级国家域名（如 google.com.ag, google.co.uk）
+        if len(parts) >= 3:
+            tld = parts[-1]
+            sld = parts[-2]
+
+            # 如果是"二级标识.国家代码"的组合，返回主域名
+            if tld in self.regional_tlds and sld in self.second_level_indicators:
+                return parts[-3] if len(parts) >= 3 else parts[0]
+
+        # 处理普通国家顶级域名（如 google.cn）
         if parts[-1] in self.regional_tlds:
             return parts[-2] if len(parts) >= 2 else domain
 
-        # 对于通用TLD (com, org, net等)，也返回倒数第二个部分
-        common_tlds = {
-            "com",
-            "org",
-            "net",
-            "edu",
-            "gov",
-            "mil",
-            "int",
-            "info",
-            "biz",
-            "io",
-        }
-        if parts[-1] in common_tlds:
+        # 处理特殊用途ccTLD（如 google.io, google.ai）
+        if parts[-1] in self.special_purpose_cctlds:
             return parts[-2] if len(parts) >= 2 else domain
 
-        # 其他情况返回倒数第二个部分
+        # 处理通用顶级域名（如 google.com, google.dev）
+        if parts[-1] in self.generic_tlds:
+            return parts[-2] if len(parts) >= 2 else domain
+
+        # 其他情况，返回倒数第二个部分
         return parts[-2] if len(parts) >= 2 else domain
 
     def is_regional_variant(self, domain):
         """
         判断域名是否是区域性变体
+
+        区域变体包括：
+        1. 二级国家域名：youtube.com.co, google.co.uk （优先级最高）
+        2. 国家顶级域名：google.cn, google.jp
+
+        不包括：
+        1. 特殊用途ccTLD：google.co, github.io, discord.gg
+        2. 通用TLD：google.com, google.org
+        3. 新通用TLD：google.dev, google.ventures
         """
         if not domain:
             return False
@@ -417,9 +526,30 @@ class DomainRuleFilter:
         if len(parts) < 2:
             return False
 
-        # 检查TLD是否是国家/地区代码
         tld = parts[-1]
-        return tld in self.regional_tlds
+
+        # 【关键修复】优先检查二级国家域名结构
+        # 例如：.com.co, .co.uk, .com.ag
+        if len(parts) >= 3:
+            sld = parts[-2]
+            # 如果是"二级标识.国家代码"的组合
+            # 即使TLD在special_purpose_cctlds中，也视为区域变体
+            if sld in self.second_level_indicators and tld in self.regional_tlds:
+                return True
+
+        # 检查是否是特殊用途ccTLD（仅对非二级域名生效）
+        if tld in self.special_purpose_cctlds:
+            return False
+
+        # 检查是否是纯通用TLD
+        if tld in self.generic_tlds:
+            return False
+
+        # 检查TLD是否是真正的区域性国家代码
+        if tld in self.regional_tlds:
+            return True
+
+        return False
 
     def filter_rules(self, input_file, output_file, threshold=5):
         """过滤规则文件，移除区域性域名变体"""
@@ -427,10 +557,9 @@ class DomainRuleFilter:
             with open(input_file, "r", encoding="utf-8") as f:
                 lines = f.readlines()
 
-            # 解析文件头部
             header_lines, header_info, content_start = self.parse_header(lines)
 
-            # 第一遍：分析域名，统计每个基础域名的区域性变体数量
+            # 第一遍：分析域名
             base_domain_variants = defaultdict(list)
             domain_info = {}
 
@@ -461,16 +590,14 @@ class DomainRuleFilter:
                     print(f"    ✅ {base_domain}: {count} 个区域变体 → 保留")
 
                 # 显示部分域名示例
-                if count <= 10:
-                    for domain, _ in base_domain_variants[base_domain][:5]:
-                        symbol = (
-                            "    ├─"
-                            if base_domain in base_domains_to_filter
-                            else "    ├─"
-                        )
-                        print(f"{symbol} {domain}")
-                    if count > 5:
-                        print(f"    └─ ... 还有 {count - 5} 个")
+                display_count = min(10, count)
+                for i, (domain, _) in enumerate(
+                    base_domain_variants[base_domain][:display_count]
+                ):
+                    symbol = "    ├─" if i < display_count - 1 else "    └─"
+                    print(f"{symbol} {domain}")
+                if count > display_count:
+                    print(f"       ... 还有 {count - display_count} 个")
 
             # 第二遍：过滤规则
             filtered_lines = []
@@ -478,11 +605,9 @@ class DomainRuleFilter:
             removed_domains = []
 
             for idx, line in enumerate(lines):
-                # 跳过头部（头部会重新生成）
                 if idx < content_start:
                     continue
 
-                # 保留非域名规则
                 if idx not in domain_info:
                     filtered_lines.append(line)
                     continue
@@ -490,7 +615,6 @@ class DomainRuleFilter:
                 domain, rule_type, is_regional = domain_info[idx]
                 base_domain = self.get_base_domain(domain)
 
-                # 过滤区域性变体
                 if is_regional and base_domain in base_domains_to_filter:
                     removed_count += 1
                     removed_domains.append(domain)
@@ -498,13 +622,9 @@ class DomainRuleFilter:
 
                 filtered_lines.append(line)
 
-            # 统计过滤后的规则数量
             rule_counts = self.count_rule_types(filtered_lines)
-
-            # 生成新的头部
             new_header = self.generate_header(header_info, rule_counts)
 
-            # 写入过滤后的文件
             with open(output_file, "w", encoding="utf-8") as f:
                 f.writelines(new_header)
                 f.writelines(filtered_lines)
@@ -513,16 +633,17 @@ class DomainRuleFilter:
             print(f"    • 原始规则数: {len(lines) - content_start}")
             print(f"    • 过滤后规则: {len(filtered_lines)}")
             print(f"    • 已移除规则: {removed_count}")
-            print(
-                f"    • 保留比例: {len(filtered_lines) / (len(lines) - content_start) * 100:.1f}%"
-            )
+            if len(lines) - content_start > 0:
+                print(
+                    f"    • 保留比例: {len(filtered_lines) / (len(lines) - content_start) * 100:.1f}%"
+                )
 
-            if removed_domains and len(removed_domains) <= 20:
-                print(f"\n  🗑️  移除的域名示例 (前 {min(len(removed_domains), 20)} 个):")
-                for i, domain in enumerate(removed_domains[:20], 1):
+            if removed_domains and len(removed_domains) <= 30:
+                print(f"\n  🗑️  移除的域名示例 (前 {min(len(removed_domains), 30)} 个):")
+                for i, domain in enumerate(removed_domains[:30], 1):
                     print(f"    {i:2d}. {domain}")
-                if len(removed_domains) > 20:
-                    print(f"    ... 还有 {len(removed_domains) - 20} 个域名被移除")
+                if len(removed_domains) > 30:
+                    print(f"    ... 还有 {len(removed_domains) - 30} 个域名被移除")
 
             return True
 
@@ -541,19 +662,20 @@ class DomainRuleFilter:
         print(f"📎 URL: {url}")
         print(f"🎯 阈值: {threshold} (区域变体数)")
 
-        # 下载
-        input_file, filename = self.download_rule_list(url)
+        input_file, filename, rule_type = self.download_rule_list(url)
         if not input_file:
             return False
 
-        # 过滤
-        output_file = os.path.join(self.new_dir, filename)
+        _, new_dir = self.get_directories_for_rule_type(rule_type)
+        output_file = os.path.join(new_dir, filename)
+
         success = self.filter_rules(input_file, output_file, threshold)
 
         if success:
             print(f"\n✅ 处理完成!")
             print(f"📁 原始文件: {os.path.relpath(input_file)}")
             print(f"📁 输出文件: {os.path.relpath(output_file)}")
+            print(f"🏷️  规则类型: {rule_type}")
         else:
             print(f"\n❌ 处理失败!")
 
@@ -571,26 +693,67 @@ class DomainRuleFilter:
         for i, url in enumerate(urls, 1):
             print(f"\n[{i}/{len(urls)}] 处理中...")
             success = self.process_url(url, threshold)
-            results.append((url, success))
 
-        # 汇总结果
+            rule_type = self.detect_rule_type(url)
+            filename = os.path.basename(urlparse(url).path)
+            results.append((url, filename, rule_type, success))
+
         print(f"\n{'=' * 70}")
         print(f"📊 批量处理完成汇总")
         print(f"{'=' * 70}")
-        success_count = sum(1 for _, success in results if success)
+        success_count = sum(1 for _, _, _, success in results if success)
         fail_count = len(results) - success_count
 
         print(f"✅ 成功: {success_count} 个")
         print(f"❌ 失败: {fail_count} 个")
-        print(f"📈 成功率: {success_count / len(results) * 100:.1f}%")
+        if len(results) > 0:
+            print(f"📈 成功率: {success_count / len(results) * 100:.1f}%")
 
-        print(f"\n详细结果:")
-        for url, success in results:
-            status = "✅" if success else "❌"
-            filename = os.path.basename(urlparse(url).path)
-            print(f"  {status} {filename}")
+        print(f"\n详细结果 (按规则类型分组):")
+        by_type = defaultdict(list)
+        for url, filename, rule_type, success in results:
+            by_type[rule_type].append((filename, success))
+
+        for rule_type in sorted(by_type.keys()):
+            print(f"\n  📂 {rule_type.upper()}:")
+            for filename, success in by_type[rule_type]:
+                status = "✅" if success else "❌"
+                print(f"    {status} {filename}")
 
         return results
+
+    def list_directory_structure(self):
+        """列出当前的目录结构"""
+        print(f"\n{'=' * 70}")
+        print(f"📁 当前目录结构")
+        print(f"{'=' * 70}")
+
+        for base_name, base_dir in [
+            ("原始文件", self.original_base_dir),
+            ("处理后文件", self.new_base_dir),
+        ]:
+            print(f"\n{base_name}: {os.path.relpath(base_dir)}")
+            if os.path.exists(base_dir):
+                subdirs = [
+                    d
+                    for d in os.listdir(base_dir)
+                    if os.path.isdir(os.path.join(base_dir, d))
+                ]
+                if subdirs:
+                    for subdir in sorted(subdirs):
+                        subdir_path = os.path.join(base_dir, subdir)
+                        file_count = len(
+                            [
+                                f
+                                for f in os.listdir(subdir_path)
+                                if os.path.isfile(os.path.join(subdir_path, f))
+                            ]
+                        )
+                        print(f"  ├─ {subdir}/ ({file_count} 个文件)")
+                else:
+                    print(f"  └─ (空)")
+            else:
+                print(f"  └─ (目录不存在)")
 
 
 # 使用示例
@@ -599,22 +762,35 @@ if __name__ == "__main__":
     print("🔧 域名规则过滤工具")
     print("=" * 70)
     print("📝 功能: 剔除区域性域名变体，保留通用域名")
+    print("🎯 特性: 智能识别规则类型并分类存储")
+    print("✨ 新增: 支持特殊用途ccTLD（.io, .ai, .gg等）")
     print("=" * 70)
 
-    # 初始化过滤器（自动使用 ./auto/original 和 ./auto/new）
     filter_tool = DomainRuleFilter()
 
-    # 单个URL处理
-    # url = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.list"
-    # filter_tool.process_url(url, threshold=5)
+    # 显示目录结构
+    filter_tool.list_directory_structure()
 
-    # 批量处理多个URL示例
+    # 批量处理URL
     urls = [
+        # Clash/Mihomo 规则
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.list",
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Facebook/Facebook.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Facebook/Facebook.list",
+        # Surge 规则
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list",
+        # Loon 规则
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Google/Google.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Facebook/Facebook.list",
     ]
+
     filter_tool.process_urls(urls, threshold=5)
+
+    # 处理完成后再次显示目录结构
+    filter_tool.list_directory_structure()
 
     print("\n" + "=" * 70)
     print("✨ 程序执行完毕")
