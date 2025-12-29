@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "update.googleapis.com",
+        "download.tensorflow.google.com",
+        "maven.google.com",
+        "cache.pack.google.com",
+        "download.mlcc.google.com",
+        "dl.google.com",
+        "dl.l.google.com",
+        "update.greasyfork.org",
+        "releases.warp.dev",
+        "static.rust-lang.org",
+        "edgedl.me.gvt1.com",
+        "files.pythonhosted.org",
+        "repo.anaconda.com",
+        "pypi.org",
+        "ruleset.skk.moe",
+        "mirrors.kernel.org",
+        "mirrors.edge.kernel.org"
+      ],
+      "domain_suffix": [
+        "dl.sourceforge.net"
+      ]
+    }
+  ]
+}

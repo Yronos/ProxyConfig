@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "hdslb.com",
+        "bilivideo.com",
+        "deepseek.com",
+        "qwen.ai",
+        "fenbi.com",
+        "huatu.com",
+        "eoffcn.com",
+        "offcn.com",
+        "offcncloud.com",
+        "zcsdedu.com",
+        "zhipin.com",
+        "bankcomm.com",
+        "sinopec.com",
+        "iguopin.com",
+        "chinahr.com",
+        "zhiye.com",
+        "51job.com",
+        "51jobcdn.com",
+        "zhaopin.com",
+        "shiyebian.net",
+        "hebeeb.com",
+        "hbzyck.com",
+        "hebrsks.com",
+        "sjzhrgroup.com",
+        "dingxiang-inc.com",
+        "exam-sp.com",
+        "media.nijigem.by",
+        "cdn.bgp.yt",
+        "emby.bangumi.ca",
+        "okemby.org",
+        "10520.xyz",
+        "recaptcha.google.cn",
+        "cnb.cool",
+        "archlinuxcn.org",
+        "leigod.com",
+        "ldmnq.com",
+        "wtzw.com",
+        "lizhi.io",
+        "lizhi.shop",
+        "yylx.win"
+      ],
+      "domain_keyword": [
+        "kaspersky"
+      ]
+    }
+  ]
+}

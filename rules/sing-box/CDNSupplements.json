@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "streaming-qobuz-std.akamaized.net"
+      ],
+      "domain_suffix": [
+        "cdn.iconscout.com",
+        "tinypic.com"
+      ],
+      "domain_keyword": [
+        "cdn-icons-png"
+      ]
+    }
+  ]
+}
