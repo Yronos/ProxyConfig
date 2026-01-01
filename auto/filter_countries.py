@@ -787,7 +787,7 @@ if __name__ == "__main__":
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Google/Google.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Facebook/Facebook.list",
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/loon/Amazon/Amazon.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Amazon/Amazon.list",
     ]
 
     filter_tool.process_urls(urls, threshold=5)
