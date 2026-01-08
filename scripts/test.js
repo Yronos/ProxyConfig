@@ -1,7 +1,6 @@
-// 1. 状态码检查（静默失败）
+// 1. 状态码检查
 if ($response.statusCode != 200) {
   $done(null);
-  return;
 }
 
 // 2. 默认值配置
@@ -12,7 +11,7 @@ const DEFAULTS = {
   flag: "🏳️",
 };
 
-// 3. 下标数字映射
+// 3. 下标数字映射（字符串键）
 const SUBSCRIPT_MAP = {
   0: "₀",
   1: "₁",
@@ -273,31 +272,34 @@ const flags = new Map([
 
 // 5. 工具函数：IP 转下标数字
 function toSubscript(str) {
+  if (!str) return "";
   return str
+    .toString()
     .split("")
     .map((c) => SUBSCRIPT_MAP[c] || c)
     .join("");
 }
 
-// 6. 解析响应数据（静默失败）
-let data;
-try {
-  data = JSON.parse($response.body);
-} catch (error) {
-  $done(null);
-  return;
-}
+// 6. 解析响应数据
+var body = $response.body;
+var obj = JSON.parse(body);
 
-// 7. 提取并验证数据
-const flag = flags.get(data.countryCode) || DEFAULTS.flag;
-const city = data.city || DEFAULTS.city;
-const ip = data.query || "0.0.0.0";
-const isp = data.org || data.as || data.isp || DEFAULTS.isp;
-const timezone = data.timezone || DEFAULTS.timezone;
+// 7. 提取数据
+var country = obj.country || "Unknown";
+var countryCode = obj.countryCode || "";
+var city = obj.city || DEFAULTS.city;
+var query = obj.query || "0.0.0.0";
+var isp = obj.org || obj.as || obj.isp || DEFAULTS.isp;
+var timezone = obj.timezone || DEFAULTS.timezone;
 
-// 8. 格式化输出
-const title = `${flag} ${city} ${toSubscript(ip)}`;
-const subtitle = `${isp} | ${timezone}`;
+// 8. 获取国旗
+var flag = flags.get(countryCode) || DEFAULTS.flag;
 
-// 9. 返回结果
-$done({ title, subtitle, ip });
+// 9. 格式化输出
+var title = flag + " " + city + " " + toSubscript(query);
+var subtitle = isp + " | " + timezone;
+var ip = query;
+var description = country + "\n" + city + "\n" + isp + "\n" + timezone;
+
+// 10. 返回结果（必须包含 title, subtitle, ip, description）
+$done({ title, subtitle, ip, description });
