@@ -297,6 +297,27 @@ var flags = new Map([
   ["ZW", "🇿🇼"],
 ]);
 
+// 将数字转换为下标小数字
+function toSubscript(str) {
+  const map = {
+    0: "₀",
+    1: "₁",
+    2: "₂",
+    3: "₃",
+    4: "₄",
+    5: "₅",
+    6: "₆",
+    7: "₇",
+    8: "₈",
+    9: "₉",
+    ".": ".",
+  };
+  return str
+    .split("")
+    .map((c) => map[c] || c)
+    .join("");
+}
+
 var body = $response.body;
 var obj = JSON.parse(body);
 
@@ -308,7 +329,7 @@ var isp = ISP_ValidCheck(obj["org"] || obj["as"] || obj["isp"]);
 var timezone = Timezone_ValidCheck(obj["timezone"]);
 
 // 组装显示内容
-var title = flag + " " + city + " | " + ip;
+var title = flag + " " + city + " " + toSubscript(ip); // ← 使用转换函数
 var subtitle = isp + " | " + timezone;
 
 $done({ title, subtitle, ip });
