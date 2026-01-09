@@ -2,7 +2,7 @@ name: Filter Country Domain Rules
 
 on:
   schedule:
-    - cron: "0 2 */3 * *" # 每3天UTC时间2:00运行
+    - cron: "0 2 * * 0" # UTC 周日 02:00 = 北京周日 10:00
   workflow_dispatch:
   push:
     branches:

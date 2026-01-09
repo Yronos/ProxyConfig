@@ -14,6 +14,7 @@ class DomainRuleFilter:
         脚本位于 ./auto 目录
         原始文件存放在 ./auto/original/{rule_type}
         过滤后文件存放在 ./auto/new/{rule_type}
+        无IP规则文件存放在 ./auto/new/noip
         """
         # 获取脚本所在目录
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -21,6 +22,8 @@ class DomainRuleFilter:
         # 设置基础目录路径
         self.original_base_dir = os.path.join(self.script_dir, "original")
         self.new_base_dir = os.path.join(self.script_dir, "new")
+        # 新增：noip 目录
+        self.noip_dir = os.path.join(self.new_base_dir, "noip")
 
         # 规则类型映射表（URL路径关键字 -> 目录名）
         self.rule_type_mapping = {
@@ -35,6 +38,15 @@ class DomainRuleFilter:
             "egern": "egern",
             "singbox": "singbox",
             "sing-box": "singbox",
+        }
+
+        # IP 规则类型（需要在 noip 版本中移除的规则）
+        self.ip_rule_prefixes = {
+            "IP-CIDR,",
+            "IP-CIDR6,",
+            "IP6-CIDR,",
+            "IP-ASN,",
+            "GEOIP,",
         }
 
         # 二级域名标识集合
@@ -315,6 +327,7 @@ class DomainRuleFilter:
         # 确保基础目录存在
         os.makedirs(self.original_base_dir, exist_ok=True)
         os.makedirs(self.new_base_dir, exist_ok=True)
+        os.makedirs(self.noip_dir, exist_ok=True)  # 新增：创建 noip 目录
 
     def detect_rule_type(self, url):
         """从URL中检测规则类型"""
@@ -388,6 +401,17 @@ class DomainRuleFilter:
 
         return header_lines, header_info, content_start
 
+    def is_ip_rule(self, line):
+        """判断是否为 IP 规则"""
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            return False
+
+        for prefix in self.ip_rule_prefixes:
+            if stripped.startswith(prefix):
+                return True
+        return False
+
     def count_rule_types(self, lines, start_index=0):
         """统计各类规则的数量"""
         counts = defaultdict(int)
@@ -409,6 +433,10 @@ class DomainRuleFilter:
                 counts["IP-CIDR"] += 1
             elif stripped.startswith("IP6-CIDR,"):
                 counts["IP-CIDR6"] += 1
+            elif stripped.startswith("IP-ASN,"):
+                counts["IP-ASN"] += 1
+            elif stripped.startswith("GEOIP,"):
+                counts["GEOIP"] += 1
             elif stripped.startswith("USER-AGENT,"):
                 counts["USER-AGENT"] += 1
             elif stripped.startswith("URL-REGEX,"):
@@ -418,15 +446,21 @@ class DomainRuleFilter:
 
         return counts
 
-    def generate_header(self, header_info, rule_counts):
+    def generate_header(self, header_info, rule_counts, is_noip=False):
         """生成更新后的文件头部"""
         header_lines = []
 
         if "NAME" in header_info:
-            header_lines.append(f"# NAME: {header_info['NAME']}\n")
+            name = header_info["NAME"]
+            if is_noip:
+                name = f"{name} (No IP)"
+            header_lines.append(f"# NAME: {name}\n")
 
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         header_lines.append(f"# UPDATED: {current_time}\n")
+
+        if is_noip:
+            header_lines.append(f"# TYPE: No IP Rules Version\n")
 
         total = 0
         for rule_type in sorted(rule_counts.keys()):
@@ -551,7 +585,44 @@ class DomainRuleFilter:
 
         return False
 
-    def filter_rules(self, input_file, output_file, threshold=5):
+    def generate_noip_version(self, filtered_lines, header_info, filename):
+        """
+        生成无 IP 规则的版本（仅用于 Surge 规则）
+        """
+        print(f"\n  🔄 生成 NoIP 版本...")
+
+        noip_lines = []
+        removed_ip_count = 0
+
+        for line in filtered_lines:
+            if self.is_ip_rule(line):
+                removed_ip_count += 1
+                continue
+            noip_lines.append(line)
+
+        # 统计规则数量
+        rule_counts = self.count_rule_types(noip_lines)
+
+        # 生成头部
+        new_header = self.generate_header(header_info, rule_counts, is_noip=True)
+
+        # 输出文件路径
+        noip_output_path = os.path.join(self.noip_dir, filename)
+
+        with open(noip_output_path, "w", encoding="utf-8") as f:
+            f.writelines(new_header)
+            f.writelines(noip_lines)
+
+        print(f"  📊 NoIP 版本统计:")
+        print(f"    • 移除 IP 规则: {removed_ip_count} 条")
+        print(f"    • 保留规则数: {len(noip_lines)}")
+        print(f"    • 输出路径: {os.path.relpath(noip_output_path)}")
+
+        return noip_output_path
+
+    def filter_rules(
+        self, input_file, output_file, threshold=5, rule_type=None, filename=None
+    ):
         """过滤规则文件，移除区域性域名变体"""
         try:
             with open(input_file, "r", encoding="utf-8") as f:
@@ -565,12 +636,12 @@ class DomainRuleFilter:
 
             for idx in range(content_start, len(lines)):
                 line = lines[idx]
-                domain, rule_type = self.extract_domain_from_line(line)
+                domain, rule_type_extracted = self.extract_domain_from_line(line)
                 if domain:
                     base_domain = self.get_base_domain(domain)
                     is_regional = self.is_regional_variant(domain)
 
-                    domain_info[idx] = (domain, rule_type, is_regional)
+                    domain_info[idx] = (domain, rule_type_extracted, is_regional)
 
                     if is_regional and base_domain:
                         base_domain_variants[base_domain].append((domain, idx))
@@ -612,7 +683,7 @@ class DomainRuleFilter:
                     filtered_lines.append(line)
                     continue
 
-                domain, rule_type, is_regional = domain_info[idx]
+                domain, rule_type_extracted, is_regional = domain_info[idx]
                 base_domain = self.get_base_domain(domain)
 
                 if is_regional and base_domain in base_domains_to_filter:
@@ -645,6 +716,10 @@ class DomainRuleFilter:
                 if len(removed_domains) > 30:
                     print(f"    ... 还有 {len(removed_domains) - 30} 个域名被移除")
 
+            # 【新增】如果是 Surge 规则，生成 NoIP 版本
+            if rule_type == "surge" and filename:
+                self.generate_noip_version(filtered_lines, header_info, filename)
+
             return True
 
         except Exception as e:
@@ -669,13 +744,20 @@ class DomainRuleFilter:
         _, new_dir = self.get_directories_for_rule_type(rule_type)
         output_file = os.path.join(new_dir, filename)
 
-        success = self.filter_rules(input_file, output_file, threshold)
+        # 传递 rule_type 和 filename 参数
+        success = self.filter_rules(
+            input_file, output_file, threshold, rule_type=rule_type, filename=filename
+        )
 
         if success:
             print(f"\n✅ 处理完成!")
             print(f"📁 原始文件: {os.path.relpath(input_file)}")
             print(f"📁 输出文件: {os.path.relpath(output_file)}")
             print(f"🏷️  规则类型: {rule_type}")
+            if rule_type == "surge":
+                print(
+                    f"📁 NoIP文件: {os.path.relpath(os.path.join(self.noip_dir, filename))}"
+                )
         else:
             print(f"\n❌ 处理失败!")
 
@@ -719,6 +801,13 @@ class DomainRuleFilter:
             for filename, success in by_type[rule_type]:
                 status = "✅" if success else "❌"
                 print(f"    {status} {filename}")
+
+        # 显示 Surge NoIP 版本统计
+        surge_results = [(f, s) for _, f, rt, s in results if rt == "surge" and s]
+        if surge_results:
+            print(f"\n  📂 NOIP (Surge 无IP版本):")
+            for filename, _ in surge_results:
+                print(f"    ✅ {filename}")
 
         return results
 
@@ -764,6 +853,7 @@ if __name__ == "__main__":
     print("📝 功能: 剔除区域性域名变体，保留通用域名")
     print("🎯 特性: 智能识别规则类型并分类存储")
     print("✨ 新增: 支持特殊用途ccTLD（.io, .ai, .gg等）")
+    print("🆕 新增: Surge 规则自动生成 NoIP 版本")
     print("=" * 70)
 
     filter_tool = DomainRuleFilter()
@@ -778,16 +868,19 @@ if __name__ == "__main__":
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Facebook/Facebook.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Amazon/Amazon.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloudflare/Cloudflare.list",
         # Surge 规则
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Cloudflare/Cloudflare.list",
         # Loon 规则
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Google/Google.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Facebook/Facebook.list",
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Amazon/Amazon.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Cloudflare/Cloudflare.list",
     ]
 
     filter_tool.process_urls(urls, threshold=5)
