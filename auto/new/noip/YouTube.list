@@ -1,11 +1,10 @@
-# NAME: YouTube
+# NAME: YouTube (No IP)
 # UPDATED: 2026-01-09 04:14:24
+# TYPE: No IP Rules Version
 # DOMAIN-KEYWORD: 1
 # DOMAIN-SUFFIX: 33
-# IP-CIDR: 2
-# IP-CIDR6: 1
 # USER-AGENT: 7
-# TOTAL: 44
+# TOTAL: 41
 DOMAIN-SUFFIX,ggpht.cn
 DOMAIN-SUFFIX,ggpht.com
 DOMAIN-SUFFIX,googlevideo.com
@@ -40,9 +39,6 @@ DOMAIN-SUFFIX,youtubemobilesupport.com
 DOMAIN-SUFFIX,yt.be
 DOMAIN-SUFFIX,ytimg.com
 DOMAIN-KEYWORD,youtube
-IP-CIDR,172.110.32.0/21,no-resolve
-IP-CIDR,216.73.80.0/20,no-resolve
-IP-CIDR6,2620:120:e000::/40,no-resolve
 USER-AGENT,*YouTubeMusic*
 USER-AGENT,*com.google.ios.youtubemusic*
 USER-AGENT,*youtube*
