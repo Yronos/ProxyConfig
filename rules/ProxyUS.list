@@ -1,4 +1,5 @@
 # This website list recommends using a US node proxy
+# 基于 https://ruleset.skk.moe/List/non_ip/global.conf 内容补充，已覆盖部分规则被注释
 # NVIDIA
 DOMAIN-SUFFIX,nvidia.com
 DOMAIN-SUFFIX,geforce.com
@@ -26,18 +27,18 @@ DOMAIN-SUFFIX,kotlinlang.org
 DOMAIN-SUFFIX,notion.com
 DOMAIN-SUFFIX,notion.new
 DOMAIN-SUFFIX,notion.site
-DOMAIN-SUFFIX,notion.so
+#DOMAIN-SUFFIX,notion.so
 
 # ProtonMail
 DOMAIN-SUFFIX,protonmail.ch
 DOMAIN-SUFFIX,protonmail.com
 DOMAIN-SUFFIX,protonstatus.com
 DOMAIN-SUFFIX,pm.me
-DOMAIN-SUFFIX,proton.me
+#DOMAIN-SUFFIX,proton.me
 
 # Docker
 DOMAIN-SUFFIX,compose-spec.io
-DOMAIN-SUFFIX,docker.com
+#DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,dockerhub.com
 
@@ -78,7 +79,6 @@ DOMAIN-SUFFIX,hcaptcha.com
 DOMAIN-SUFFIX,jscrambler.com
 DOMAIN-SUFFIX,stripe.com
 DOMAIN-SUFFIX,cardinaltrusted.com
-DOMAIN-SUFFIX,quantumult.app
 DOMAIN-SUFFIX,mediamonkey.com
 DOMAIN-SUFFIX,ocsp-certum.com
 DOMAIN-SUFFIX,firehawk52.com
