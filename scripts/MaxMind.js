@@ -1,16 +1,6 @@
-/**
- * MaxMind GeoIP2
- * 适用于 Quantumult X
- *
- * 功能：
- * - 智能数据降级（城市 -> 州/省 -> 国家）
- * - ISP 信息降级（ISP -> Organization -> Network）
- * - 完善的空值处理
- * - 兼容旧版 JavaScript
- *
- */
+// MaxMind GeoIP2 for Quantumult X
+// $response.statusCode, $response.headers, $response.body
 
-// ========== 状态检查 ==========
 if ($response.statusCode != 200) {
   $done(null);
 }
@@ -18,11 +8,18 @@ if ($response.statusCode != 200) {
 // ========== 工具函数 ==========
 
 /**
- * 将 IP 地址转换为下标数字格式
- * 例如：192.168.1.1 -> ₁₉₂.₁₆₈.₁.₁
+ * IP 地址格式化
+ * IPv4: 转换为下标数字
+ * IPv6: 保持原样
  */
-function toSubscript(str) {
-  const map = {
+function formatIP(ip) {
+  // IPv6 直接返回原样
+  if (ip.indexOf(":") !== -1) {
+    return ip;
+  }
+
+  // IPv4 转换为下标
+  var map = {
     0: "₀",
     1: "₁",
     2: "₂",
@@ -35,7 +32,7 @@ function toSubscript(str) {
     9: "₉",
     ".": ".",
   };
-  return str
+  return ip
     .split("")
     .map(function (c) {
       return map[c] || c;
@@ -43,131 +40,83 @@ function toSubscript(str) {
     .join("");
 }
 
-/**
- * 动态生成国旗 Emoji
- * 根据 ISO 3166-1 alpha-2 国家代码生成
- */
 function getFlag(code) {
-  if (!code || code.length !== 2) return "��";
-
-  return String.fromCodePoint.apply(
-    null,
-    code
-      .toUpperCase()
-      .split("")
-      .map(function (c) {
-        return 127397 + c.charCodeAt(0);
-      }),
-  );
+  if (!code || code.length !== 2) return "🌐";
+  var codePoints = code
+    .toUpperCase()
+    .split("")
+    .map(function (c) {
+      return 127397 + c.charCodeAt(0);
+    });
+  return String.fromCodePoint.apply(null, codePoints);
 }
 
-/**
- * 从多语言名称对象中获取值
- * 优先级：zh-CN > en > 其他
- *
- * @param {Object} namesObj - MaxMind 的 names 对象
- * @returns {String|null} - 名称或 null
- */
 function getName(namesObj) {
   if (!namesObj) return null;
-
-  // 优先中文
-  if (namesObj["zh-CN"]) {
-    return namesObj["zh-CN"].trim();
-  }
-
-  // 其次英文
-  if (namesObj["en"]) {
-    return namesObj["en"].trim();
-  }
-
-  // 最后尝试其他语言
+  if (namesObj["zh-CN"]) return namesObj["zh-CN"].trim();
+  if (namesObj["en"]) return namesObj["en"].trim();
   var keys = Object.keys(namesObj);
-  if (keys.length > 0) {
-    var value = namesObj[keys[0]];
-    if (value && typeof value === "string") {
-      return value.trim();
-    }
+  if (keys.length > 0 && namesObj[keys[0]]) {
+    return String(namesObj[keys[0]]).trim();
   }
-
   return null;
 }
 
-// ========== 数据解析 ==========
+// ========== 解析响应 ==========
 
-var obj = JSON.parse($response.body);
+var body = $response.body;
+var obj = JSON.parse(body);
 
-// IP 地址
 var ip = (obj.traits && obj.traits.ip_address) || "N/A";
-
-// 国家代码和国旗
 var countryCode = (obj.country && obj.country.iso_code) || "";
 var flag = getFlag(countryCode);
 
-// 位置信息（降级策略）
+// 位置降级：城市 -> 州/省 -> 国家
 var city = obj.city && obj.city.names ? getName(obj.city.names) : null;
-
 var region =
   obj.subdivisions && obj.subdivisions[0] && obj.subdivisions[0].names
     ? getName(obj.subdivisions[0].names)
     : null;
-
 var country =
   obj.country && obj.country.names ? getName(obj.country.names) : null;
-
 var location = city || region || country || "未知位置";
 
-// ISP 信息（降级策略）
-var isp = null;
+// ISP 降级：ISP -> Organization -> ASN Org
+var isp = null,
+  network = null,
+  asn = null;
 if (obj.traits) {
   isp =
     obj.traits.isp ||
     obj.traits.organization ||
     obj.traits.autonomous_system_organization ||
     null;
-}
-
-// ASN 编号
-var asn =
-  obj.traits && obj.traits.autonomous_system_number
+  network = obj.traits.network || null;
+  asn = obj.traits.autonomous_system_number
     ? "AS" + obj.traits.autonomous_system_number
     : null;
+}
 
-// 网络段（兜底显示）
-var network = (obj.traits && obj.traits.network) || null;
-
-// 时区
 var timezone = (obj.location && obj.location.time_zone) || null;
 
 // ========== 构建输出 ==========
 
-// 第一行：国旗 + 位置 + IP
-var title = flag + " " + location + " " + toSubscript(ip);
+var title = flag + " " + location + " " + formatIP(ip);
 
-// 第二行：ISP/网络 + 时区
 var subtitleParts = [];
-
 if (isp) {
-  // 最佳情况：有 ISP 名称
-  var ispInfo = isp;
-  if (asn) {
-    ispInfo += " (" + asn + ")";
-  }
-  subtitleParts.push(ispInfo);
+  subtitleParts.push(asn ? isp + " (" + asn + ")" : isp);
+} else if (asn) {
+  subtitleParts.push(asn);
 } else if (network) {
-  // 次优情况：显示网络段
   subtitleParts.push(network);
 }
+if (timezone) subtitleParts.push(timezone);
 
-if (timezone) {
-  subtitleParts.push(timezone);
-}
-
-// 如果什么数据都没有
 var subtitle =
   subtitleParts.length > 0 ? subtitleParts.join(" | ") : "数据不足";
 
-// ========== 输出结果 ==========
+// ========== 输出 ==========
 
 $done({
   title: title,
