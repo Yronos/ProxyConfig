@@ -1,15 +1,17 @@
 # SupplementDirect
 # 补充
 # 此部分是对应用@Sukka规则中https://ruleset.skk.moe/Clash/non_ip/domestic.txt,https://ruleset.skk.moe/Clash/non_ip/direct.txt 的部分使用补充
+# 后续被添加“#”注释部分，为上述文件中已进行更新补充
 ########################################################################################################################
 # 抖音系列
 DOMAIN-SUFFIX,amemv.com
 DOMAIN-SUFFIX,ndcpp.com
-DOMAIN-SUFFIX,snssdk.com
+#DOMAIN-SUFFIX,snssdk.com
+DOMAIN-SUFFIX,qishui.com
 
 # 抖音火山引擎
 DOMAIN-SUFFIX,volcgtm.com
-DOMAIN-SUFFIX,volccdn.com
+#DOMAIN-SUFFIX,volccdn.com
 DOMAIN-SUFFIX,volc-dns.com
 DOMAIN-SUFFIX,volc-dns.net
 DOMAIN-KEYWORD,volcfcdn
@@ -18,15 +20,15 @@ DOMAIN-SUFFIX,cdnbuild.net
 DOMAIN-SUFFIX,applogcdn.com
 
 DOMAIN-SUFFIX,bytegslb.com
-DOMAIN-SUFFIX,bytetos.com
-DOMAIN-SUFFIX,bytescm.com
+#DOMAIN-SUFFIX,bytetos.com
+#DOMAIN-SUFFIX,bytescm.com
 DOMAIN-SUFFIX,bytefcdnrd.com
-DOMAIN-SUFFIX,byteeffecttos.com
+#DOMAIN-SUFFIX,byteeffecttos.com
 DOMAIN-SUFFIX,bytegecko.com
-DOMAIN-SUFFIX,bytegoofy.com
+#DOMAIN-SUFFIX,bytegoofy.com
 
 # 字节系产品静态资源CDN域名
-DOMAIN-SUFFIX,pstatp.com
+#DOMAIN-SUFFIX,pstatp.com
 DOMAIN-SUFFIX,searchpstatp.com
 DOMAIN-SUFFIX,bdxiguaimg.com
 DOMAIN-SUFFIX,huoshanimg.com
@@ -47,7 +49,7 @@ DOMAIN-SUFFIX,vegslb.com
 
 # 抖音CDN相关
 # 金山云
-DOMAIN-SUFFIX,zjcdn.com
+#DOMAIN-SUFFIX,zjcdn.com
 DOMAIN-SUFFIX,ksyuncdn.com
 # 七牛云
 DOMAIN-SUFFIX,qnqcdn.net
@@ -63,14 +65,13 @@ DOMAIN-KEYWORD,queniu
 # DOMAIN-SUFFIX,queniuiq.com
 
 # 关键词补充兜底
-# DOMAIN-SUFFIX,idouyinvod.com
 # DOMAIN-KEYWORD,douyinpic
 # DOMAIN-KEYWORD,douyincdn
 # DOMAIN-KEYWORD,douyinliving
-DOMAIN-KEYWORD,douyin
-DOMAIN-KEYWORD,bytedance
-DOMAIN-KEYWORD,zijieapi
-DOMAIN-KEYWORD,dy-vod
+#DOMAIN-KEYWORD,douyin
+#DOMAIN-KEYWORD,bytedance
+#DOMAIN-KEYWORD,zijieapi
+#DOMAIN-KEYWORD,dy-vod
 
 DOMAIN-KEYWORD,feelgood
 DOMAIN-SUFFIX,picshack.net
@@ -82,15 +83,12 @@ DOMAIN-KEYWORD,cdnhwc
 DOMAIN-SUFFIX,hwcdn.net
 
 # 阿里云CDN
-# DOMAIN-SUFFIX,alicdn.com
-# DOMAIN-SUFFIX,alikunlun.com
-# DOMAIN-SUFFIX,aliyuncs.com
 DOMAIN-KEYWORD,kunlun
 
 # 腾讯云CDN
 DOMAIN-SUFFIX,smallfighter.com
-DOMAIN-SUFFIX,myqcloud.com
-DOMAIN-SUFFIX,smtcdns.com
+#DOMAIN-SUFFIX,myqcloud.com
+#DOMAIN-SUFFIX,smtcdns.com
 DOMAIN-SUFFIX,dnsv1.com
 DOMAIN-SUFFIX,dnsv2.com
 DOMAIN-SUFFIX,dnsv3.com
