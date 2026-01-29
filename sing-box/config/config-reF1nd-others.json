@@ -1,0 +1,1160 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "udp",
+        "tag": "dns_local",
+        "server": "223.5.5.5",
+        "server_port": 53
+      },
+      {
+        "type": "https",
+        "tag": "dns_direct",
+        "domain_resolver": "dns_local",
+        "server": "dns.alidns.com",
+        "server_port": 443,
+        "path": "dns-query"
+      },
+      {
+        "type": "https",
+        "tag": "dns_proxy",
+        "domain_resolver": "dns_local",
+        "server": "dns.google",
+        "server_port": 443,
+        "path": "dns-query",
+        "detour": "🚀 节点选择"
+      },
+      {
+        "type": "fakeip",
+        "tag": "dns_fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fdec:ba98:7654:3210::/64"
+      }
+    ],
+    "rules": [
+      {
+        "clash_mode": "direct",
+        "action": "route",
+        "server": "dns_direct"
+      },
+      {
+        "clash_mode": "global",
+        "action": "route",
+        "server": "dns_proxy"
+      },
+      {
+        "rule_set": ["cn", "custom_direct"],
+        "action": "route",
+        "server": "dns_direct",
+        "disable_cache": true
+      },
+      {
+        "rule_set": ["cnip"],
+        "action": "route",
+        "invert": true,
+        "server": "dns_proxy",
+        "strategy": "ipv4_only",
+        "disable_cache": false,
+        "rewrite_ttl": 600,
+        "client_subnet": "39.0.0.0/8"
+      }
+    ],
+    "final": "dns_direct",
+    "independent_cache": true,
+    "cache_capacity": 32768,
+    "reverse_mapping": false
+  },
+  "inbounds": [
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "::",
+      "listen_port": 1053
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "0.0.0.0",
+      "listen_port": 2080
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-selector",
+      "listen": "0.0.0.0",
+      "listen_port": 2081
+    },
+    {
+      "type": "socks",
+      "tag": "ruminate",
+      "listen": "0.0.0.0",
+      "listen_port": 2079
+    },
+    {
+      "type": "mixed",
+      "tag": "tor",
+      "listen": "0.0.0.0",
+      "listen_port": 2088
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "utun",
+      "address": ["fdce:ba09:8765:4321::1/64", "203.0.113.1/24"],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": false,
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "DIRECT",
+      "type": "direct"
+    },
+    {
+      "tag": "🚀 节点选择",
+      "type": "selector",
+      "outbounds": [
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "👆 手动选择",
+      "type": "selector",
+      "use_all_providers": true
+    },
+    {
+      "tag": "🐟 漏网之鱼",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🇭🇰 香港节点"
+    },
+    {
+      "tag": "📈 网络测试",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🎯 全球直连"
+    },
+    {
+      "tag": "🤖 人工智能",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🇯🇵 日本节点"
+    },
+    {
+      "tag": "🎮 游戏服务",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "🪟 微软服务",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🇸🇬 新加坡节点"
+    },
+    {
+      "tag": "🇬 谷歌服务",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🇸🇬 新加坡节点"
+    },
+    {
+      "tag": "🍎 苹果服务",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🎯 全球直连"
+    },
+    {
+      "tag": "🌍 国外媒体",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "📹 油管视频",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🌍 国外媒体",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "🎵 TikTok",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🌍 国外媒体",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "☁ Cloudflare",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🇸🇬 新加坡节点"
+    },
+    {
+      "tag": "📺 哔哩哔哩",
+      "type": "selector",
+      "outbounds": [
+        "🎯 全球直连",
+        "🚀 节点选择",
+        "👆 手动选择",
+        "🌍 国外媒体",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇸🇬 新加坡节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "🇨🇳 直连",
+      "type": "selector",
+      "outbounds": ["🎯 全球直连", "🚀 节点选择", "👆 手动选择", "🏠 回家通道"]
+    },
+    {
+      "tag": "🪜 代理域名",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "📲 电报消息",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🇭🇰 香港节点"
+    },
+    {
+      "tag": "🖥️ 直连软件",
+      "type": "selector",
+      "outbounds": ["🎯 全球直连", "👆 手动选择", "🏠 回家通道"]
+    },
+    {
+      "tag": "🔒 私有网络",
+      "type": "selector",
+      "outbounds": ["🎯 全球直连", "👆 手动选择", "🏠 回家通道"]
+    },
+    {
+      "tag": "🥵 受限服务",
+      "type": "selector",
+      "outbounds": [
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🌍 国外媒体",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "🇭🇰 香港节点"
+    },
+    {
+      "tag": "🎯 全球直连",
+      "type": "selector",
+      "outbounds": ["DIRECT"]
+    },
+    {
+      "tag": "🤮 节点反刍",
+      "type": "selector",
+      "outbounds": [
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "🧅 TOR",
+      "type": "selector",
+      "outbounds": [
+        "🚀 节点选择",
+        "🎯 全球直连",
+        "👆 手动选择",
+        "🏡 稳定家宽",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ],
+      "default": "⚓ 自建节点"
+    },
+    {
+      "tag": "🏠 回家通道",
+      "type": "selector",
+      "providers": ["🏠 回家通道"],
+      "outbounds": ["🎯 全球直连"]
+    },
+    {
+      "tag": "REJECT",
+      "type": "block"
+    },
+    {
+      "tag": "GLOBAL",
+      "type": "selector",
+      "outbounds": [
+        "DIRECT",
+        "REJECT",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点",
+        "👨🏻 欧洲节点",
+        "🐵 东南亚节点",
+        "👨🏿 非洲及其他节点",
+        "🎮 游戏节点",
+        "📏 直连节点",
+        "⚓ 自建节点",
+        "🏠 回家通道",
+        "☁ Cloudflare",
+        "🤓👆 白嫖机场",
+        "Ⓜ 手动添加"
+      ]
+    },
+    {
+      "tag": "🏡 稳定家宽",
+      "type": "selector",
+      "providers": ["🛫 主要出口"],
+      "include": "^.*(家庭).*Pro.*|.*Pro.*(家庭).*$"
+    },
+    {
+      "tag": "🇭🇰 香港节点",
+      "type": "urltest",
+      "tolerance": 50,
+      "providers": ["🛫 主要出口"],
+      "include": "^.*(香港|澳门).*Pro.*|.*Pro.*(香港|澳门).*$",
+      "fallback": {
+        "enabled": true,
+        "max_delay": "300ms"
+      }
+    },
+    {
+      "tag": "🇹🇼 台湾节点",
+      "type": "urltest",
+      "tolerance": 50,
+      "providers": ["🛫 主要出口"],
+      "include": "^.*(台湾).*Pro.*|.*Pro.*(台湾).*$",
+      "fallback": {
+        "enabled": true,
+        "max_delay": "300ms"
+      }
+    },
+    {
+      "tag": "🇯🇵 日本节点",
+      "type": "urltest",
+      "tolerance": 50,
+      "providers": ["🛫 主要出口"],
+      "include": "^.*(日本).*Pro.*|.*Pro.*(日本).*$",
+      "fallback": {
+        "enabled": true,
+        "max_delay": "300ms"
+      }
+    },
+    {
+      "tag": "🇰🇷 韩国节点",
+      "type": "urltest",
+      "tolerance": 50,
+      "providers": ["🛫 主要出口"],
+      "include": "^.*(韩国).*Pro.*|.*Pro.*(韩国).*$",
+      "fallback": {
+        "enabled": true,
+        "max_delay": "300ms"
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡节点",
+      "type": "urltest",
+      "tolerance": 50,
+      "providers": ["🛫 主要出口"],
+      "include": "^.*(新加坡).*Pro.*|.*Pro.*(新加坡).*$",
+      "fallback": {
+        "enabled": true,
+        "max_delay": "300ms"
+      }
+    },
+    {
+      "tag": "🇺🇸 美国节点",
+      "type": "selector",
+      "providers": ["🛫 主要出口"],
+      "include": "^.*(美国|加拿大).*Pro.*|.*Pro.*(美国|加拿大).*$"
+    },
+    {
+      "tag": "👨🏻 欧洲节点",
+      "type": "selector",
+      "providers": ["🛫 主要出口"],
+      "include": "英国|瑞士|荷兰|法国|德国|希腊|俄罗斯|意大利|乌克兰|立陶宛|西班牙|土耳其|格林兰"
+    },
+    {
+      "tag": "🐵 东南亚节点",
+      "type": "selector",
+      "providers": ["🛫 主要出口"],
+      "include": "泰国|印度|老挝|越南|菲律宾|柬埔寨|马来西亚|新西兰|澳大利亚|印度尼西亚"
+    },
+    {
+      "tag": "👨🏿 非洲及其他节点",
+      "type": "selector",
+      "providers": ["🛫 主要出口"],
+      "include": "巴西|迪拜|蒙古|马里|南非|智利|秘鲁|以色列|阿根廷|南极洲|阿鲁巴|巴基斯坦|危地马拉|尼日利亚|格鲁吉亚|津巴布韦|塞尔维亚|哥斯达黎加|安提瓜"
+    },
+    {
+      "tag": "🎮 游戏节点",
+      "type": "selector",
+      "providers": ["🛫 主要出口"],
+      "include": "游戏|Game"
+    },
+    {
+      "tag": "📏 直连节点",
+      "type": "selector",
+      "providers": ["🛫 主要出口"],
+      "include": "直连"
+    },
+    {
+      "tag": "⚓ 自建节点",
+      "type": "selector",
+      "providers": ["⚓ 自建节点"]
+    },
+    {
+      "tag": "☁ Cloudflare",
+      "type": "selector",
+      "outbounds": [
+        //把你的cf worker节点放在这里，用于洗白脏ip节点
+        //将cf worker的detour设置成ruminate
+        //节点会二次进站，走的策略组是节点反刍
+        //节点反刍要选择脏ip节点，通过嵌套代理完成洗白
+        //最后把相应的策略组选择cf，就能用cf的ip使用服务
+      ]
+    },
+    {
+      "tag": "🤓👆 白嫖机场",
+      "type": "selector",
+      "providers": ["🤓👆 白嫖机场"]
+    },
+    {
+      "tag": "Ⓜ 手动添加",
+      "type": "selector",
+      "providers": ["Ⓜ 手动添加"]
+    },
+    {
+      "type": "socks",
+      "tag": "ruminate",
+      "server": "127.0.0.1",
+      "server_port": 2079,
+      "version": "5"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "clash_mode": "direct",
+        "action": "route",
+        "outbound": "DIRECT"
+      },
+      {
+        "clash_mode": "global",
+        "action": "route",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "protocol": ["quic"],
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
+      },
+      {
+        "inbound": "mixed-selector",
+        "action": "route",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "inbound": "ruminate",
+        "action": "route",
+        "outbound": "🤮 节点反刍"
+      },
+      {
+        "inbound": "tor",
+        "action": "route",
+        "outbound": "🧅 TOR"
+      },
+      {
+        "rule_set": ["custom_direct"],
+        "action": "route",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": ["custom_proxy"],
+        "action": "route",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "rule_set": ["custom_limited"],
+        "action": "route",
+        "outbound": "🥵 受限服务"
+      },
+      {
+        "rule_set": ["applications"],
+        "action": "route",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": ["private"],
+        "action": "route",
+        "outbound": "🔒 私有网络"
+      },
+      {
+        "rule_set": ["tld-proxy"],
+        "action": "route",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "rule_set": ["ai"],
+        "action": "route",
+        "outbound": "🤖 人工智能"
+      },
+      {
+        "rule_set": ["networktest"],
+        "action": "route",
+        "outbound": "📈 网络测试"
+      },
+      {
+        "rule_set": ["cn"],
+        "action": "route",
+        "outbound": "🇨🇳 直连"
+      },
+      {
+        "rule_set": ["microsoft-cn"],
+        "action": "route",
+        "outbound": "🪟 微软服务"
+      },
+      {
+        "rule_set": ["apple-cn"],
+        "action": "route",
+        "outbound": "🍎 苹果服务"
+      },
+      {
+        "rule_set": ["google-cn"],
+        "action": "route",
+        "outbound": "🇬 谷歌服务"
+      },
+      {
+        "rule_set": ["games-cn"],
+        "action": "route",
+        "outbound": "🎮 游戏服务"
+      },
+      {
+        "rule_set": ["bilibili"],
+        "action": "route",
+        "outbound": "📺 哔哩哔哩"
+      },
+      {
+        "rule_set": ["youtube"],
+        "action": "route",
+        "outbound": "📹 油管视频"
+      },
+      {
+        "rule_set": ["tiktok"],
+        "action": "route",
+        "outbound": "🎵 TikTok"
+      },
+      {
+        "rule_set": ["proxy_media"],
+        "action": "route",
+        "outbound": "🌍 国外媒体"
+      },
+      {
+        "rule_set": ["proxy"],
+        "action": "route",
+        "outbound": "🪜 代理域名"
+      },
+      {
+        "action": "resolve",
+        "server": "dns_direct",
+        "strategy": "prefer_ipv4",
+        "disable_cache": true
+      },
+      {
+        "rule_set": ["telegramip"],
+        "action": "route",
+        "outbound": "📲 电报消息"
+      },
+      {
+        "rule_set": ["privateip"],
+        "action": "route",
+        "outbound": "🔒 私有网络"
+      },
+      {
+        "rule_set": ["cnip"],
+        "action": "route",
+        "outbound": "🇨🇳 直连"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "custom_direct",
+        "type": "remote",
+        "format": "source",
+        "path": "./ruleset/json/custom_direct.json",
+        "url": "",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "custom_proxy",
+        "type": "remote",
+        "format": "source",
+        "path": "./ruleset/json/custom_proxy.json",
+        "url": "",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "custom_limited",
+        "type": "remote",
+        "format": "source",
+        "path": "./ruleset/json/custom_limited.json",
+        "url": "",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "proxy_media",
+        "type": "remote",
+        "format": "source",
+        "path": "./ruleset/json/ProxyMedia.json",
+        "url": "",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "applications",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/applications.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/applications.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "private",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/private.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/private.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "microsoft-cn",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/microsoft-cn.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/microsoft-cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "apple-cn",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/apple-cn.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/apple-cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "google-cn",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/google-cn.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/google-cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "games-cn",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/games-cn.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/games-cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "youtube",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/youtube.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/youtube.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "tiktok",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/tiktok.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/tiktok.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "bilibili",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/bilibili.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/bilibili.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "ai",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/ai.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/ai.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "networktest",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/networktest.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/networktest.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "proxy",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/proxy.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/proxy.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "cn",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/cn.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/cn.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "telegramip",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/telegramip.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/telegramip.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "privateip",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/privateip.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "cnip",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/cnip.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/cnip.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "tld-proxy",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/srs/tld-proxy.srs",
+        "url": "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/tld-proxy.srs",
+        "download_detour": "DIRECT"
+      }
+    ],
+    "final": "🐟 漏网之鱼",
+    "auto_detect_interface": true,
+    "default_domain_resolver": "dns_direct"
+  },
+  "providers": [
+    {
+      "tag": "🛫 主要出口",
+      "type": "remote",
+      "url": "",
+      "path": "./providers/MAIN.yaml",
+      "health_check": {
+        "enabled": true,
+        "url": "https://www.gstatic.com/generate_204",
+        "interval": "10m",
+        "timeout": "30s"
+      }
+    },
+    {
+      "tag": "⚓ 自建节点",
+      "type": "local",
+      "path": "./providers/Private.json",
+      "health_check": {
+        "enabled": true,
+        "url": "https://www.gstatic.com/generate_204",
+        "interval": "10m",
+        "timeout": "30s"
+      }
+    },
+    {
+      "tag": "🏠 回家通道",
+      "type": "local",
+      "path": "./providers/Home.json",
+      "health_check": {
+        "enabled": true,
+        "url": "https://www.gstatic.com/generate_204",
+        "interval": "10m",
+        "timeout": "30s"
+      }
+    },
+    {
+      "tag": "🤓👆 白嫖机场",
+      "type": "remote",
+      "url": "",
+      "path": "./providers/baipiao.json",
+      "health_check": {
+        "enabled": true,
+        "url": "https://www.gstatic.com/generate_204",
+        "interval": "10m",
+        "timeout": "30s"
+      }
+    },
+    {
+      "tag": "Ⓜ 手动添加",
+      "type": "local",
+      "path": "./providers/manual.txt",
+      "health_check": {
+        "enabled": true,
+        "url": "https://www.gstatic.com/generate_204",
+        "interval": "10m",
+        "timeout": "30s"
+      }
+    }
+  ],
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "./cache.db",
+      "store_fakeip": false,
+      "store_rdrc": false,
+      "rdrc_timeout": "24h0m0s"
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:9999",
+      "external_ui": "./webui",
+      "external_ui_download_url": "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
+      "external_ui_update_interval": "1d"
+    }
+  }
+}

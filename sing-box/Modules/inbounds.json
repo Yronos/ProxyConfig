@@ -1,0 +1,54 @@
+{
+  "log": {},
+  "dns": {},
+  "ntp": {},
+  "certificate": {},
+  "endpoints": [],
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7890,
+      "set_system_proxy": true,
+      "tcp_fast_open": false,
+      "tcp_multi_path": false,
+      "disable_tcp_keep_alive": false,
+      "tcp_keep_alive": "",
+      "tcp_keep_alive_interval": "",
+      "udp_fragment": false,
+      "udp_timeout": ""
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "utun",
+      "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
+      "mtu": 9000,
+      "auto_route": true,
+      "iproute2_table_index": 2022,
+      "iproute2_rule_index": 9000,
+      "auto_redirect": true,
+      "strict_route": true,
+      "route_exclude_address": [
+        "127.0.0.0/8",
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+        "169.254.0.0/16",
+        "224.0.0.0/4",
+        "255.255.255.255/32",
+        "::1/128",
+        "fc00::/7",
+        "fe80::/10",
+        "ff00::/8"
+      ],
+      "endpoint_independent_nat": false,
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [],
+  "route": {},
+  "services": [],
+  "experimental": {}
+}

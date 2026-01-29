@@ -1,0 +1,315 @@
+{
+  "log": {},
+  "dns": {},
+  "ntp": {},
+  "certificate": {},
+  "endpoints": [],
+  "inbounds": [],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "Selector",
+      "interrupt_exist_connections": true,
+      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR", "🇨🇳CN"],
+      "include": "",
+      "use_all_providers": true
+    },
+    {
+      "type": "selector",
+      "tag": "CDN",
+      "interrupt_exist_connections": true,
+      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
+    },
+    {
+      "type": "selector",
+      "tag": "Download",
+      "interrupt_exist_connections": true,
+      "outbounds": ["🇨🇳CN", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
+    },
+    {
+      "type": "selector",
+      "tag": "Bilibili",
+      "interrupt_exist_connections": true,
+      "outbounds": ["🇨🇳CN", "🇭🇰HK", "🇹🇼TW"]
+    },
+    {
+      "type": "selector",
+      "tag": "AsiaBilibili",
+      "interrupt_exist_connections": true,
+      "outbounds": ["🇸🇬SG"]
+    },
+    {
+      "type": "selector",
+      "tag": "GitHub",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "OneDrive",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇰🇷KR",
+        "🇨🇳CN"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "Microsoft",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "Selector",
+        "🇨🇳CN",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇰🇷KR"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "YouTube",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Google",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Telegram",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Discord",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Twitter",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Bahamut",
+      "interrupt_exist_connections": true,
+      "outbounds": ["🇹🇼TW", "🇭🇰HK", "Selector"]
+    },
+    {
+      "type": "selector",
+      "tag": "Emby",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇰🇷KR",
+        "🇨🇳CN"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "AI",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Spotify",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Music",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Game",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇰🇷KR",
+        "🇨🇳CN"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "Cloudflare",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Apple",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇰🇷KR",
+        "🇨🇳CN"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "Meta",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Amazon",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "Media",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "International",
+      "interrupt_exist_connections": true,
+      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR"]
+    },
+    {
+      "type": "selector",
+      "tag": "FINAL",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇰🇷KR",
+        "🇨🇳CN"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "Block-QUIC",
+      "interrupt_exist_connections": true,
+      "outbounds": ["block", "direct"]
+    },
+    {
+      "type": "direct",
+      "tag": "🇨🇳CN"
+    },
+    {
+      "type": "urltest",
+      "tag": "🇭🇰HK",
+      "url": "http://latency-test.skk.moe/endpoint",
+      "interval": "5m",
+      "tolerance": 10,
+      "interrupt_exist_connections": true,
+      "outbounds": [],
+      "providers": ["provider01", "provider02"],
+      "include": "(?i)🇭🇰|香港|(\\b(HK|Hong|HKG|港)\\d{0,2}\\b)",
+      "use_all_providers": true
+    },
+    {
+      "type": "urltest",
+      "tag": "🇹🇼TW",
+      "url": "http://latency-test.skk.moe/endpoint",
+      "interval": "5m",
+      "tolerance": 10,
+      "interrupt_exist_connections": true,
+      "outbounds": [],
+      "providers": ["provider01", "provider02"],
+      "include": "(?i)🇼🇸|🇹🇼|台湾|(\\b(Tai|TW|Taiwan|台)\\d{0,2}\\b)",
+      "use_all_providers": true
+    },
+    {
+      "type": "urltest",
+      "tag": "🇯🇵JP",
+      "url": "http://latency-test.skk.moe/endpoint",
+      "interval": "5m",
+      "tolerance": 10,
+      "interrupt_exist_connections": true,
+      "outbounds": [],
+      "providers": ["provider01", "provider02"],
+      "include": "(?i)🇯🇵|日本|东京|川日|大阪|泉日|埼玉|(\\b(Japan|JP|Tokyo|Osaka|Saitama|日)\\d{0,2}\\b)",
+      "use_all_providers": true
+    },
+    {
+      "type": "urltest",
+      "tag": "🇸🇬SG",
+      "url": "http://latency-test.skk.moe/endpoint",
+      "interval": "5m",
+      "tolerance": 10,
+      "interrupt_exist_connections": true,
+      "outbounds": [],
+      "providers": ["provider01", "provider02"],
+      "include": "(?i)🇸🇬|新加坡|狮城|(\\b(Singapore|SG|Sing|新|狮)\\d{0,2}\\b)",
+      "use_all_providers": true
+    },
+    {
+      "type": "urltest",
+      "tag": "🇺🇸US",
+      "url": "http://latency-test.skk.moe/endpoint",
+      "interval": "5m",
+      "tolerance": 10,
+      "interrupt_exist_connections": true,
+      "outbounds": [],
+      "providers": ["provider01", "provider02"],
+      "include": "(?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|阿什本|西雅图|芝加哥|(\\b(United States|US|USA|Portland|Dallas|Oregon|Phoenix|Fremont|Silicon Valley|Las Vegas|Los Angeles|San Jose|Santa Clara|Ashburn|Seattle|Chicago|美)\\d{0,2}\\b)",
+      "use_all_providers": true
+    },
+    {
+      "type": "urltest",
+      "tag": "🇰🇷KR",
+      "url": "http://latency-test.skk.moe/endpoint",
+      "interval": "5m",
+      "tolerance": 10,
+      "interrupt_exist_connections": true,
+      "outbounds": [],
+      "providers": ["provider01", "provider02"],
+      "include": "(?i)🇰🇷|韩国|首尔|南朝鲜|(\\b(Korea|KR|Seoul|South|韩|韓)\\d{0,2}\\b)",
+      "use_all_providers": true
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {},
+  "services": [],
+  "experimental": {}
+}

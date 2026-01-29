@@ -1,0 +1,65 @@
+{
+  "log": {},
+  "dns": {},
+  "ntp": {},
+  "certificate": {},
+  "endpoints": [],
+  "inbounds": [],
+  "outbounds": [],
+  "route": {},
+  "services": [],
+  "experimental": {},
+  "providers": [
+    {
+      "type": "remote",
+      "tag": "provider01",
+      "path": "./providers/provider01.json",
+      "health_check": {
+        "enabled": true,
+        "url": "http://latency-test.skk.moe/endpoint",
+        "interval": "5m",
+        "timeout": "3s"
+      },
+      "url": "",
+      "exclude": "",
+      "include": "^(?!.*(官网|订阅|流量|到期|过期|机场|网站|网址|导航站|已用|(?i:used|total|expire|com|tg))).*$",
+      "user_agent": "",
+      "download_detour": "",
+      "update_interval": "24h",
+      "override_dialer": {},
+      "override_tls": {}
+    },
+    {
+      "type": "remote",
+      "tag": "provider02",
+      "path": "./providers/provider02.json",
+      "health_check": {
+        "enabled": true,
+        "url": "http://latency-test.skk.moe/endpoint",
+        "interval": "5m",
+        "timeout": "3s"
+      },
+      "url": "",
+      "exclude": "",
+      "include": "^(?!.*(官网|订阅|流量|到期|过期|机场|网站|网址|导航站|已用|(?i:used|total|expire|com|tg))).*$",
+      "user_agent": "",
+      "download_detour": "",
+      "update_interval": "24h",
+      "override_dialer": {},
+      "override_tls": {}
+    },
+    {
+      "type": "local",
+      "tag": "provider-local",
+      "path": "./providers/provider-local.json",
+      "health_check": {
+        "enabled": true,
+        "url": "http://latency-test.skk.moe/endpoint",
+        "interval": "5m",
+        "timeout": "3s"
+      },
+      "override_dialer": {},
+      "override_tls": {}
+    }
+  ]
+}

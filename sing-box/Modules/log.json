@@ -1,0 +1,17 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "debug",
+    "output": "./log/sing-box.log",
+    "timestamp": true
+  },
+  "dns": {},
+  "ntp": {},
+  "certificate": {},
+  "endpoints": [],
+  "inbounds": [],
+  "outbounds": [],
+  "route": {},
+  "services": [],
+  "experimental": {}
+}

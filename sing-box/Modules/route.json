@@ -1,0 +1,788 @@
+{
+  "log": {},
+  "dns": {},
+  "ntp": {},
+  "certificate": {},
+  "endpoints": [],
+  "inbounds": [],
+  "outbounds": [],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff",
+        "inbound": "tun-in"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      },
+      {
+        "action": "route",
+        "network": "icmp",
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "clash_mode": "direct",
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "clash_mode": "global",
+        "outbound": "Selector"
+      },
+      {
+        "action": "route",
+        "protocol": "quic",
+        "outbound": "Block-QUIC"
+      },
+      {
+        "action": "resolve",
+        "domain_suffix": "xsaym.com",
+        "server": "Ali-QUIC"
+      },
+      {
+        "action": "resolve",
+        "domain_suffix": "wxhby2.com",
+        "server": "Ali-QUIC"
+      },
+      {
+        "action": "resolve",
+        "domain_suffix": "wxhby1.com",
+        "server": "Ali-QUIC"
+      },
+      {
+        "action": "resolve",
+        "domain_suffix": "wxhby.com",
+        "server": "Ali-QUIC"
+      },
+      {
+        "action": "reject",
+        "rule_set": ["reject_non_ip"],
+        "method": "default"
+      },
+      {
+        "action": "reject",
+        "rule_set": ["reject_domainset"],
+        "method": "default"
+      },
+      {
+        "action": "reject",
+        "rule_set": ["reject_non_ip_drop"],
+        "method": "drop"
+      },
+      {
+        "action": "reject",
+        "rule_set": ["reject_non_ip_no_drop"],
+        "method": "default"
+      },
+      {
+        "action": "reject",
+        "rule_set": ["reject_ip"],
+        "method": "default"
+      },
+      {
+        "action": "route",
+        "rule_set": ["cdn_domainset"],
+        "outbound": "CDN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["cdn_non_ip"],
+        "outbound": "CDN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["CDNSupplements"],
+        "outbound": "CDN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ProxyDownload"],
+        "outbound": "CDN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["apple_cdn"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["microsoft_cdn_non_ip"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["download_domainset"],
+        "outbound": "Download"
+      },
+      {
+        "action": "route",
+        "rule_set": ["download_non_ip"],
+        "outbound": "Download"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ProxyForum"],
+        "outbound": "🇭🇰HK"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ProxyHK"],
+        "outbound": "🇭🇰HK"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ProxyJP"],
+        "outbound": "🇯🇵JP"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ForceDirect"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["cf_preferred"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["apple_cn_non_ip"],
+        "outbound": "Apple"
+      },
+      {
+        "action": "route",
+        "rule_set": ["apple_services"],
+        "outbound": "Apple"
+      },
+      {
+        "action": "route",
+        "rule_set": ["biliintl-geosite.srs"],
+        "outbound": "AsiaBilibili"
+      },
+      {
+        "action": "route",
+        "rule_set": ["bilibili-geosite.srs"],
+        "outbound": "Bilibili"
+      },
+      {
+        "action": "route",
+        "rule_set": ["github-geosite.srs"],
+        "outbound": "GitHub"
+      },
+      {
+        "action": "route",
+        "rule_set": ["onedrive-geosite.srs"],
+        "outbound": "OneDrive"
+      },
+      {
+        "action": "route",
+        "rule_set": ["microsoft_non_ip"],
+        "outbound": "Microsoft"
+      },
+      {
+        "action": "route",
+        "rule_set": ["youtube-geosite.srs"],
+        "outbound": "YouTube"
+      },
+      {
+        "action": "route",
+        "rule_set": ["google-geosite.srs"],
+        "outbound": "Google"
+      },
+      {
+        "action": "route",
+        "rule_set": ["telegram-geosite.srs"],
+        "outbound": "Telegram"
+      },
+      {
+        "action": "route",
+        "rule_set": ["telegram-geoip.srs"],
+        "outbound": "Telegram"
+      },
+      {
+        "action": "route",
+        "rule_set": ["discord-geosite.srs"],
+        "outbound": "Discord"
+      },
+      {
+        "action": "route",
+        "rule_set": ["AI"],
+        "outbound": "AI"
+      },
+      {
+        "action": "route",
+        "rule_set": ["twitter-geosite.srs"],
+        "outbound": "Twitter"
+      },
+      {
+        "action": "route",
+        "rule_set": ["twitter-geoip.srs"],
+        "outbound": "Twitter"
+      },
+      {
+        "action": "route",
+        "domain_keyword": "emby",
+        "outbound": "Emby"
+      },
+      {
+        "action": "route",
+        "rule_set": ["bahamut-geosite.srs"],
+        "outbound": "Bahamut"
+      },
+      {
+        "action": "route",
+        "rule_set": ["spotify-geosite.srs"],
+        "outbound": "Spotify"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ProxyMusic"],
+        "outbound": "Music"
+      },
+      {
+        "action": "route",
+        "rule_set": ["facebook-geosite.srs"],
+        "outbound": "Meta"
+      },
+      {
+        "action": "route",
+        "rule_set": ["facebook-geoip.srs"],
+        "outbound": "Meta"
+      },
+      {
+        "action": "route",
+        "rule_set": ["steam-geosite.srs"],
+        "outbound": "Game"
+      },
+      {
+        "action": "route",
+        "rule_set": ["epicgames-geosite.srs"],
+        "outbound": "Game"
+      },
+      {
+        "action": "route",
+        "rule_set": ["xbox-geosite.srs"],
+        "outbound": "Game"
+      },
+      {
+        "action": "route",
+        "rule_set": ["stream_non_ip"],
+        "outbound": "Media"
+      },
+      {
+        "action": "route",
+        "rule_set": ["stream_ip"],
+        "outbound": "Media"
+      },
+      {
+        "action": "route",
+        "rule_set": ["cloudflare-geosite.srs"],
+        "outbound": "Cloudflare"
+      },
+      {
+        "action": "route",
+        "rule_set": ["amazon-geosite.srs"],
+        "outbound": "Amazon"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ProxyUS"],
+        "outbound": "🇺🇸US"
+      },
+      {
+        "action": "route",
+        "rule_set": ["global_non_ip"],
+        "outbound": "International"
+      },
+      {
+        "action": "route",
+        "rule_set": ["cn-geosite.srs"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["cn-geoip.srs"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["private-geosite.srs"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["private-geoip.srs"],
+        "outbound": "🇨🇳CN"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "reject_non_ip",
+        "type": "remote",
+        "path": "./ruleset/non_ip/reject.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "reject_domainset",
+        "type": "remote",
+        "path": "./ruleset/domainset/reject.json",
+        "url": "https://ruleset.skk.moe/sing-box/domainset/reject.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "reject_non_ip_drop",
+        "type": "remote",
+        "path": "./ruleset/non_ip/reject-drop.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-drop.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "reject_non_ip_no_drop",
+        "type": "remote",
+        "path": "./ruleset/non_ip/reject-no-drop.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-no-drop.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "reject_ip",
+        "type": "remote",
+        "path": "./ruleset/ip/reject.json",
+        "url": "https://ruleset.skk.moe/sing-box/ip/reject.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "cdn_domainset",
+        "type": "remote",
+        "path": "./ruleset/domainset/cdn.json",
+        "url": "https://ruleset.skk.moe/sing-box/domainset/cdn.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "cdn_non_ip",
+        "type": "remote",
+        "path": "./ruleset/non_ip/cdn.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/cdn.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "ProxyDownload",
+        "type": "remote",
+        "path": "./ruleset/ProxyDownload.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyDownload.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "CDNSupplements",
+        "type": "remote",
+        "path": "./ruleset/CDNSupplements.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/CDNSupplements.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "apple_cdn",
+        "type": "remote",
+        "path": "./ruleset/domainset/apple_cdn.json",
+        "url": "https://ruleset.skk.moe/sing-box/domainset/apple_cdn.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "microsoft_cdn_non_ip",
+        "type": "remote",
+        "path": "./ruleset/non_ip/microsoft_cdn.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/microsoft_cdn.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "download_domainset",
+        "type": "remote",
+        "path": "./ruleset/domainset/download.json",
+        "url": "https://ruleset.skk.moe/sing-box/domainset/download.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "download_non_ip",
+        "type": "remote",
+        "path": "./ruleset/non_ip/download.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/download.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "ProxyForum",
+        "type": "remote",
+        "path": "./ruleset/ProxyForum.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyForum.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "ProxyHK",
+        "type": "remote",
+        "path": "./ruleset/ProxyHK.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyHK.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "ProxyJP",
+        "type": "remote",
+        "path": "./ruleset/ProxyJP.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyJP.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "ForceDirect",
+        "type": "remote",
+        "path": "./ruleset/ForceDirect.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ForceDirect.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "cf_preferred",
+        "type": "remote",
+        "path": "./ruleset/cf_preferred.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/cf_preferred.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "apple_cn_non_ip",
+        "type": "remote",
+        "path": "./ruleset/non_ip/apple_cn.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/apple_cn.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "apple_services",
+        "type": "remote",
+        "path": "./ruleset/non_ip/apple_services.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/apple_services.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "biliintl-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/biliintl.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/biliintl.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "bilibili-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/bilibili.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bilibili.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "github-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/github.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "onedrive-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/onedrive.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/onedrive.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "microsoft_non_ip",
+        "type": "remote",
+        "path": "./ruleset/microsoft.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/microsoft.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "youtube-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/youtube.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/youtube.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "google-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/google.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "telegram-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/telegram.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/telegram.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "telegram-geoip.srs",
+        "type": "remote",
+        "path": "./ruleset/geoip/telegram.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/telegram.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "discord-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/discord.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/discord.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "twitter-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/twitter.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/twitter.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "twitter-geoip.srs",
+        "type": "remote",
+        "path": "./ruleset/geoip/twitter.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/twitter.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "AI",
+        "type": "remote",
+        "path": "./ruleset/non_ip/ai.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/ai.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "facebook-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/facebook.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/facebook.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "facebook-geoip.srs",
+        "type": "remote",
+        "path": "./ruleset/geoip/facebook.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/facebook.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "spotify-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/spotify.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "ProxyMusic",
+        "type": "remote",
+        "path": "./ruleset/ProxyMusic.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyMusic.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "bahamut-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/bahamut.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bahamut.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "steam-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/steam.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/steam.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "epicgames-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/epicgames.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/epicgames.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "xbox-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/xbox.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/xbox.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "stream_non_ip",
+        "type": "remote",
+        "path": "./ruleset/non_ip/stream.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/stream.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "stream_ip",
+        "type": "remote",
+        "path": "./ruleset/ip/stream.json",
+        "url": "https://ruleset.skk.moe/sing-box/ip/stream.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "cloudflare-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/cloudflare.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cloudflare.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "amazon-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/amazon.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/amazon.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "global_non_ip",
+        "type": "remote",
+        "path": "./ruleset/non_ip/global.json",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/global.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "ProxyUS",
+        "type": "remote",
+        "path": "./ruleset/ProxyUS.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyUS.json",
+        "format": "source",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "cn-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/cn.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "cn-geoip.srs",
+        "type": "remote",
+        "path": "./ruleset/geoip/cn.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "private-geosite.srs",
+        "type": "remote",
+        "path": "./ruleset/geosite/private.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
+        "format": "binary",
+        "download_detour": "CDN"
+      },
+      {
+        "tag": "private-geoip.srs",
+        "type": "remote",
+        "path": "./ruleset/geoip/private.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "FINAL",
+    "default_domain_resolver": {
+      "server": "Ali-QUIC"
+    }
+  },
+  "services": [],
+  "experimental": {}
+}

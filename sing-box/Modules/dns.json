@@ -1,0 +1,89 @@
+{
+  "log": {},
+  "dns": {
+    "servers": [
+      {
+        "tag": "Fake-IP",
+        "type": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      },
+      {
+        "tag": "Ali-UDP",
+        "type": "udp",
+        "server_port": 53,
+        "server": "223.5.5.5"
+      },
+      {
+        "tag": "Ali-QUIC",
+        "type": "quic",
+        "server_port": 853,
+        "server": "223.5.5.5"
+      },
+      {
+        "tag": "Ali-DNS",
+        "type": "https",
+        "server_port": 443,
+        "server": "223.5.5.5",
+        "path": "/dns-query"
+      },
+      {
+        "tag": "Google-DNS",
+        "type": "https",
+        "detour": "🇭🇰HK",
+        "server_port": 443,
+        "server": "8.8.8.8",
+        "path": "/dns-query"
+      },
+      {
+        "tag": "Cloudflare-DNS",
+        "type": "https",
+        "detour": "🇭🇰HK",
+        "server_port": 443,
+        "server": "1.1.1.1",
+        "path": "/dns-query"
+      }
+    ],
+    "rules": [
+      {
+        "action": "route",
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "domain_suffix": [
+              ".lan",
+              ".localdomain",
+              ".example",
+              ".invalid",
+              ".localhost",
+              ".test",
+              ".local",
+              ".home.arpa",
+              ".msftconnecttest.com",
+              ".msftncsi.com"
+            ],
+            "invert": true
+          },
+          {
+            "query_type": ["A", "AAAA"]
+          }
+        ],
+        "server": "Fake-IP",
+        "strategy": "ipv4_only"
+      }
+    ],
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "final": "Cloudflare-DNS"
+  },
+  "ntp": {},
+  "certificate": {},
+  "endpoints": [],
+  "inbounds": [],
+  "outbounds": [],
+  "route": {},
+  "services": [],
+  "experimental": {}
+}
