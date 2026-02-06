@@ -157,16 +157,7 @@
       "type": "selector",
       "tag": "Selector",
       "interrupt_exist_connections": true,
-      "outbounds": [
-        "🇭🇰HK",
-        "🇹🇼TW",
-        "🇯🇵JP",
-        "🇸🇬SG",
-        "🇺🇸US",
-        "🇰🇷KR",
-        "🇨🇳CN",
-        "All"
-      ]
+      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇰🇷KR", "🇨🇳CN"]
     },
     {
       "type": "selector",
@@ -433,12 +424,6 @@
       "url": "http://latency-test.skk.moe/endpoint",
       "interval": "5m",
       "tolerance": 10,
-      "interrupt_exist_connections": true,
-      "outbounds": []
-    },
-    {
-      "type": "selector",
-      "tag": "All",
       "interrupt_exist_connections": true,
       "outbounds": []
     },
