@@ -2,7 +2,7 @@
   "log": {},
   "dns": {},
   "ntp": {},
-  "certificate": {},
+  "certificate": { "store": "mozilla" },
   "endpoints": [],
   "inbounds": [],
   "outbounds": [],
