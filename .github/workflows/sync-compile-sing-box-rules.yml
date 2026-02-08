@@ -1,0 +1,169 @@
+name: Sync and Compile Sukka Rules (Scheduled)
+
+on:
+  schedule:
+    - cron: "0 13 * * *" # 每天 UTC 13:00 (北京时间 21:00)
+  workflow_dispatch: # 支持手动触发
+  push:
+    paths:
+      - ".github/workflows/sync-compile-sing-box-rules.yml"
+
+permissions:
+  contents: write
+
+env:
+  SING_BOX_VERSION: 1.12.20
+  SUKKA_DIR: rules/sing-box/sukka
+
+jobs:
+  sync_sukka:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Install sing-box
+        uses: actions/cache@v3
+        id: cache-singbox
+        with:
+          path: /usr/local/bin/sing-box
+          key: sing-box-${{ env.SING_BOX_VERSION }}
+
+      - name: Download sing-box
+        if: steps.cache-singbox.outputs.cache-hit != 'true'
+        run: |
+          curl -Lo sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz
+          tar -xzf sing-box.tar.gz
+          chmod +x sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box
+          sudo mv sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box /usr/local/bin/sing-box
+
+      - name: Verify sing-box installation
+        run: sing-box version
+
+      - name: Prepare Sukka directory
+        run: |
+          mkdir -p ${SUKKA_DIR}
+          rm -rf ${SUKKA_DIR}/*
+          echo "✅ Sukka directory prepared"
+
+      - name: Fetch Sukka ruleset
+        run: |
+          TEMP_DIR=$(mktemp -d)
+          cd ${TEMP_DIR}
+
+          echo "📥 Cloning SukkaLab ruleset..."
+          git clone --depth 1 --branch master https://github.com/SukkaLab/ruleset.skk.moe.git
+
+          if [ -d "ruleset.skk.moe/sing-box" ]; then
+            cp -r ruleset.skk.moe/sing-box/* ${GITHUB_WORKSPACE}/${SUKKA_DIR}/
+            echo "✅ Sukka rules copied successfully"
+          else
+            echo "❌ Error: sing-box directory not found"
+            exit 1
+          fi
+
+          cd ${GITHUB_WORKSPACE}
+          rm -rf ${TEMP_DIR}
+
+      - name: Compile Sukka rules
+        run: |
+          cd ${SUKKA_DIR}
+
+          JSON_COUNT=$(find . -type f -name "*.json" | wc -l)
+          echo "📝 Found ${JSON_COUNT} Sukka JSON files"
+
+          # 删除旧的 .srs 文件
+          find . -type f -name "*.srs" -delete
+
+          # 编译所有 JSON 文件
+          COMPILED=0
+          FAILED=0
+
+          find . -type f -name "*.json" | while read -r json_file; do
+            echo "Compiling: ${json_file}"
+            if sing-box rule-set compile "${json_file}"; then
+              COMPILED=$((COMPILED + 1))
+            else
+              echo "⚠️  Failed: ${json_file}"
+              FAILED=$((FAILED + 1))
+            fi
+          done
+
+          SRS_COUNT=$(find . -type f -name "*.srs" | wc -l)
+          echo "✅ Sukka compilation completed: ${SRS_COUNT}/${JSON_COUNT}"
+
+      # ========== 简化版 README（仅基本信息） ==========
+      - name: Generate Sukka README
+        run: |
+          cat > ${SUKKA_DIR}/README.md << 'EOF'
+          # Sukka Sing-Box Rules
+
+          > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe)
+          EOF
+
+          # 添加时间戳
+          echo "> Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> ${SUKKA_DIR}/README.md
+          echo "> Compiled with: sing-box v${SING_BOX_VERSION}" >> ${SUKKA_DIR}/README.md
+          echo "" >> ${SUKKA_DIR}/README.md
+
+          # 统计规则数量
+          TOTAL_SRS=$(find . -name "*.srs" -type f | wc -l)
+          echo "**Total: ${TOTAL_SRS} rules**" >> ${SUKKA_DIR}/README.md
+          echo "" >> ${SUKKA_DIR}/README.md
+
+          # 简单列出所有规则（不分类）
+          echo "## Available Rules" >> ${SUKKA_DIR}/README.md
+          find ${SUKKA_DIR} -name "*.srs" -type f | sort | sed 's|^.*/||' | sed 's|\.srs$||' | awk '{print "- `" $0 "`"}' >> ${SUKKA_DIR}/README.md
+
+      # ========== 🔥 关键步骤：提交和推送 ==========
+      - name: Commit and push Sukka rules
+        run: |
+          git add ${SUKKA_DIR}
+
+          if git diff-index --quiet HEAD --; then
+            echo "✅ No changes in Sukka rules"
+            exit 0
+          fi
+
+          # 统计变更
+          CHANGED_FILES=$(git diff --cached --name-only | wc -l)
+
+          git commit -m "chore(sukka): daily sync [${CHANGED_FILES} files]" \
+                     -m "Compiled with sing-box v${SING_BOX_VERSION}"
+
+          # 推送（带重试）
+          for i in {1..3}; do
+            if git push; then
+              echo "✅ Push successful"
+              exit 0
+            else
+              echo "⚠️  Push failed, retrying ($i/3)..."
+              sleep 2
+              git pull --rebase
+            fi
+          done
+
+          echo "❌ Push failed after 3 attempts"
+          exit 1
+
+      # ========== 可选：生成执行摘要 ==========
+      - name: Generate summary
+        if: always()
+        run: |
+          echo "## 📊 Sukka Rules Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Time**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "- **Compiler**: sing-box v${SING_BOX_VERSION}" >> $GITHUB_STEP_SUMMARY
+
+          if [ -d "${SUKKA_DIR}" ]; then
+            SRS_COUNT=$(find ${SUKKA_DIR} -name "*.srs" | wc -l)
+            echo "- **Total Rules**: ${SRS_COUNT}" >> $GITHUB_STEP_SUMMARY
+          fi
