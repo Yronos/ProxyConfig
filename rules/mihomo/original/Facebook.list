@@ -1,14 +1,12 @@
 # NAME: Facebook
-<<<<<<< Updated upstream
-# UPDATED: 2026-02-15 04:09:39
-=======
-# UPDATED: 2026-02-15 12:03:31
->>>>>>> Stashed changes
+# AUTHOR: blackmatrix7
+# REPO: https://github.com/blackmatrix7/ios_rule_script
+# UPDATED: 2025-06-06 09:16:55
 # DOMAIN-KEYWORD: 2
-# DOMAIN-SUFFIX: 537
+# DOMAIN-SUFFIX: 544
 # IP-ASN: 1
 # IP-CIDR: 23
-# TOTAL: 563
+# TOTAL: 570
 DOMAIN-SUFFIX,aboutfacebook.com
 DOMAIN-SUFFIX,accessfacebookfromschool.com
 DOMAIN-SUFFIX,accountkit.com
@@ -118,13 +116,20 @@ DOMAIN-SUFFIX,facebook-studio.com
 DOMAIN-SUFFIX,facebook-support.org
 DOMAIN-SUFFIX,facebook-texas-holdem.com
 DOMAIN-SUFFIX,facebook-texas-holdem.net
+DOMAIN-SUFFIX,facebook.br
+DOMAIN-SUFFIX,facebook.ca
 DOMAIN-SUFFIX,facebook.cc
 DOMAIN-SUFFIX,facebook.com
 DOMAIN-SUFFIX,facebook.design
+DOMAIN-SUFFIX,facebook.hu
+DOMAIN-SUFFIX,facebook.in
 DOMAIN-SUFFIX,facebook.net
+DOMAIN-SUFFIX,facebook.nl
 DOMAIN-SUFFIX,facebook.org
+DOMAIN-SUFFIX,facebook.se
 DOMAIN-SUFFIX,facebook.shop
 DOMAIN-SUFFIX,facebook.tv
+DOMAIN-SUFFIX,facebook.us
 DOMAIN-SUFFIX,facebook.wang
 DOMAIN-SUFFIX,facebook123.org
 DOMAIN-SUFFIX,facebook30.com

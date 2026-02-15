@@ -1,16 +1,12 @@
 # NAME: Google
-<<<<<<< Updated upstream
-# UPDATED: 2026-02-15 04:09:39
-=======
-# UPDATED: 2026-02-15 12:03:30
->>>>>>> Stashed changes
+# UPDATED: 2026-02-15 12:27:40
 # DOMAIN: 1
 # DOMAIN-KEYWORD: 5
 # DOMAIN-SUFFIX: 439
 # IP-CIDR: 4
 # IP-CIDR6: 1
-# PROCESS-NAME: 6
-# TOTAL: 456
+# USER-AGENT: 3
+# TOTAL: 453
 DOMAIN,voice.telephony.goog
 DOMAIN-SUFFIX,0emm.com
 DOMAIN-SUFFIX,1e100.net
@@ -456,14 +452,11 @@ DOMAIN-KEYWORD,blogspot
 DOMAIN-KEYWORD,gmail
 DOMAIN-KEYWORD,google
 DOMAIN-KEYWORD,recaptcha
+USER-AGENT,%E4%BA%91%E7%AB%AF%E7%A1%AC%E7%9B%98*
+USER-AGENT,*com.google.Drive*
+USER-AGENT,Google.Drive*
 IP-CIDR,172.110.32.0/21,no-resolve
 IP-CIDR,173.194.0.0/16,no-resolve
 IP-CIDR,216.73.80.0/20,no-resolve
 IP-CIDR,74.125.0.0/16,no-resolve
 IP-CIDR6,2620:120:e000::/40,no-resolve
-PROCESS-NAME,GoogleDriveFS.exe
-PROCESS-NAME,com.android.vending
-PROCESS-NAME,com.google.android.gms
-PROCESS-NAME,com.google.android.gsf
-PROCESS-NAME,com.google.android.play.games
-PROCESS-NAME,BackupandSync

@@ -1,16 +1,10 @@
 # NAME: Amazon
-<<<<<<< Updated upstream
-# UPDATED: 2026-02-15 04:09:40
-=======
-# UPDATED: 2026-02-15 12:03:36
->>>>>>> Stashed changes
+# UPDATED: 2026-02-15 12:27:33
 # DOMAIN-KEYWORD: 1
 # DOMAIN-SUFFIX: 148
 # IP-CIDR: 15
 # PROCESS-NAME: 1
-# URL-REGEX: 1
-# USER-AGENT: 2
-# TOTAL: 168
+# TOTAL: 165
 DOMAIN-SUFFIX,a2z.com
 DOMAIN-SUFFIX,aboutamazon.com
 DOMAIN-SUFFIX,aboutamazon.eu
@@ -175,7 +169,4 @@ IP-CIDR,54.156.0.0/14,no-resolve
 IP-CIDR,54.226.0.0/15,no-resolve
 IP-CIDR,54.230.156.0/22,no-resolve
 IP-CIDR,54.93.0.0/16,no-resolve
-USER-AGENT,InstantVideo.US*
-USER-AGENT,Prime%20Video*
-URL-REGEX,^https?:\/\/www\.amazon\.com\/(Amazon-Video|gp\/video)\/
 PROCESS-NAME,com.amazon.avod.thirdpartyclient
