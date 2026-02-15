@@ -75,11 +75,12 @@
         "clash_mode": "global",
         "server": "Cloudflare-DNS"
       },
-      //{ "action": "reject", "query_type": "HTTPS" },
+      { "action": "reject", "query_type": ["HTTPS", "SVCB"] },
       {
         "action": "route",
         "rule_set": [
-          "cn-geosite.srs",
+          "domestic_non_ip",
+          "direct_non_ip",
           "private-geosite.srs",
           "connectivity-check-geosite.srs"
         ],
@@ -119,11 +120,12 @@
       "tag": "tun-in",
       "interface_name": "utun",
       "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
-      "mtu": 9000,
+      // 苹果系（NE）4064，安卓9000，其它65535
+      "mtu": 65535,
       "auto_route": true,
       "iproute2_table_index": 2022,
       "iproute2_rule_index": 9000,
-      //"auto_redirect": true,
+      "auto_redirect": true,
       "strict_route": true,
       "route_exclude_address": [
         "127.0.0.0/8",
@@ -138,16 +140,6 @@
         "fe80::/10",
         "ff00::/8"
       ],
-      // 在无特权的 Android 和 iOS 上工作，请改用 tun.platform.http_proxy，否则可以直接使用 set_system_proxy
-      //      "platform": {
-      //        "http_proxy": {
-      //          "enabled": false,
-      //          "server": "127.0.0.1",
-      //          "server_port": 7890,
-      //          "bypass_domain": [],
-      //          "match_domain": []
-      //        }
-      //      },
       "endpoint_independent_nat": false,
       "stack": "mixed"
     }
@@ -181,7 +173,7 @@
       "type": "selector",
       "tag": "AsiaBilibili",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇸🇬SG"]
+      "outbounds": ["🇸🇬SG", "Selector"]
     },
     {
       "type": "selector",
@@ -367,7 +359,7 @@
       "type": "selector",
       "tag": "Block-QUIC",
       "interrupt_exist_connections": true,
-      "outbounds": ["block", "direct"]
+      "outbounds": ["block"]
     },
     {
       "type": "direct",
@@ -428,10 +420,6 @@
       "outbounds": []
     },
     {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
       "type": "block",
       "tag": "block"
     }
@@ -452,9 +440,9 @@
         "outbound": "🇨🇳CN"
       },
       {
-        "action": "route",
+        "action": "reject",
         "network": "icmp",
-        "outbound": "🇨🇳CN"
+        "outbound": "reply"
       },
       {
         "action": "route",
@@ -480,6 +468,26 @@
         "action": "route",
         "outbound": "Block-QUIC"
       },
+      //      {
+      //        "action": "reject",
+      //        "rule_set": ["reject_non_ip"],
+      //        "method": "default"
+      //      },
+      //      {
+      //        "action": "reject",
+      //        "rule_set": ["reject_domainset"],
+      //        "method": "default"
+      //      },
+      //      {
+      //        "action": "reject",
+      //        "rule_set": ["reject_non_ip_drop"],
+      //        "method": "drop"
+      //      },
+      //      {
+      //        "action": "reject",
+      //        "rule_set": ["reject_non_ip_no_drop"],
+      //        "method": "default"
+      //      },
       //      {
       //        "action": "reject",
       //        "rule_set": ["reject_ip"],
@@ -562,7 +570,7 @@
       },
       {
         "action": "route",
-        "rule_set": ["biliintl-geosite.srs"],
+        "rule_set": ["stream_biliintl"],
         "outbound": "AsiaBilibili"
       },
       {
@@ -597,12 +605,12 @@
       },
       {
         "action": "route",
-        "rule_set": ["telegram-geosite.srs"],
+        "rule_set": ["telegram_non_ip"],
         "outbound": "Telegram"
       },
       {
         "action": "route",
-        "rule_set": ["telegram-geoip.srs"],
+        "rule_set": ["telegram_ip"],
         "outbound": "Telegram"
       },
       {
@@ -618,11 +626,6 @@
       {
         "action": "route",
         "rule_set": ["twitter-geosite.srs"],
-        "outbound": "Twitter"
-      },
-      {
-        "action": "route",
-        "rule_set": ["twitter-geoip.srs"],
         "outbound": "Twitter"
       },
       {
@@ -652,11 +655,6 @@
       },
       {
         "action": "route",
-        "rule_set": ["facebook-geoip.srs"],
-        "outbound": "Meta"
-      },
-      {
-        "action": "route",
         "rule_set": ["steam-geosite.srs"],
         "outbound": "Game"
       },
@@ -673,11 +671,6 @@
       {
         "action": "route",
         "rule_set": ["stream_non_ip"],
-        "outbound": "Media"
-      },
-      {
-        "action": "route",
-        "rule_set": ["stream_ip"],
         "outbound": "Media"
       },
       {
@@ -702,17 +695,52 @@
       },
       {
         "action": "route",
-        "rule_set": ["cn-geosite.srs"],
+        "rule_set": ["domestic_non_ip"],
         "outbound": "🇨🇳CN"
       },
       {
         "action": "route",
-        "rule_set": ["cn-geoip.srs"],
+        "rule_set": ["direct_non_ip"],
         "outbound": "🇨🇳CN"
       },
       {
         "action": "route",
         "rule_set": ["private-geosite.srs"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "resolve"
+        //"server": "UDP",
+        //"server": "Pollution-DNS",
+      },
+      //{
+      //  "action": "route",
+      //  "rule_set": ["twitter-geoip.srs"],
+      //  "outbound": "Twitter"
+      //},
+      //{
+      //  "action": "route",
+      //  "rule_set": ["facebook-geoip.srs"],
+      //  "outbound": "Meta"
+      //},
+      //{
+      //  "action": "route",
+      //  "rule_set": ["stream_ip"],
+      //  "outbound": "Media"
+      //},
+      {
+        "action": "route",
+        "rule_set": ["domestic_ip"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["china_ip"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["china_ip_ipv6"],
         "outbound": "🇨🇳CN"
       }
     ],
@@ -720,63 +748,63 @@
       {
         "tag": "reject_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/reject.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/reject.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "reject_domainset",
         "type": "remote",
-        "path": "./ruleset/domainset/reject.json",
-        "url": "https://ruleset.skk.moe/sing-box/domainset/reject.json",
-        "format": "source",
+        "path": "./ruleset/domainset/reject.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/reject.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "reject_non_ip_drop",
         "type": "remote",
-        "path": "./ruleset/non_ip/reject-drop.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-drop.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/reject-drop.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject-drop.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "reject_non_ip_no_drop",
         "type": "remote",
-        "path": "./ruleset/non_ip/reject-no-drop.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-no-drop.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/reject-no-drop.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject-no-drop.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "reject_ip",
         "type": "remote",
-        "path": "./ruleset/ip/reject.json",
-        "url": "https://ruleset.skk.moe/sing-box/ip/reject.json",
-        "format": "source",
+        "path": "./ruleset/ip/reject.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/reject.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "cdn_domainset",
         "type": "remote",
-        "path": "./ruleset/domainset/cdn.json",
-        "url": "https://ruleset.skk.moe/sing-box/domainset/cdn.json",
-        "format": "source",
+        "path": "./ruleset/domainset/cdn.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/cdn.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "cdn_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/cdn.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/cdn.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/cdn.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/cdn.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -801,36 +829,36 @@
       {
         "tag": "apple_cdn",
         "type": "remote",
-        "path": "./ruleset/domainset/apple_cdn.json",
-        "url": "https://ruleset.skk.moe/sing-box/domainset/apple_cdn.json",
-        "format": "source",
+        "path": "./ruleset/domainset/apple_cdn.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/apple_cdn.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "microsoft_cdn_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/microsoft_cdn.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/microsoft_cdn.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/microsoft_cdn.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/microsoft_cdn.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "download_domainset",
         "type": "remote",
-        "path": "./ruleset/domainset/download.json",
-        "url": "https://ruleset.skk.moe/sing-box/domainset/download.json",
-        "format": "source",
+        "path": "./ruleset/domainset/download.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/download.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "download_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/download.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/download.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/download.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/download.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -882,26 +910,26 @@
       {
         "tag": "apple_cn_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/apple_cn.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/apple_cn.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/apple_cn.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/apple_cn.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "apple_services",
         "type": "remote",
-        "path": "./ruleset/non_ip/apple_services.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/apple_services.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/apple_services.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/apple_services.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
-        "tag": "biliintl-geosite.srs",
+        "tag": "stream_biliintl",
         "type": "remote",
-        "path": "./ruleset/geosite/biliintl.srs",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/biliintl.srs",
+        "path": "./ruleset/non_ip/stream_biliintl.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/stream_biliintl.srs",
         "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
@@ -936,9 +964,9 @@
       {
         "tag": "microsoft_non_ip",
         "type": "remote",
-        "path": "./ruleset/microsoft.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/microsoft.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/microsoft.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/microsoft.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -961,19 +989,19 @@
         "update_interval": "1d"
       },
       {
-        "tag": "telegram-geosite.srs",
+        "tag": "telegram_non_ip",
         "type": "remote",
-        "path": "./ruleset/geosite/telegram.srs",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/telegram.srs",
+        "path": "./ruleset/non_ip/telegram.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/telegram.srs",
         "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
-        "tag": "telegram-geoip.srs",
+        "tag": "telegram_ip",
         "type": "remote",
-        "path": "./ruleset/geoip/telegram.srs",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/telegram.srs",
+        "path": "./ruleset/ip/telegram.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/telegram.srs",
         "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
@@ -996,21 +1024,21 @@
         "download_detour": "CDN",
         "update_interval": "1d"
       },
-      {
-        "tag": "twitter-geoip.srs",
-        "type": "remote",
-        "path": "./ruleset/geoip/twitter.srs",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/twitter.srs",
-        "format": "binary",
-        "download_detour": "CDN",
-        "update_interval": "1d"
-      },
+      //{
+      //  "tag": "twitter-geoip.srs",
+      //  "type": "remote",
+      //  "path": "./ruleset/geoip/twitter.srs",
+      //  "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/twitter.srs",
+      //  "format": "binary",
+      //  "download_detour": "CDN",
+      //  "update_interval": "1d"
+      //},
       {
         "tag": "AI",
         "type": "remote",
-        "path": "./ruleset/non_ip/ai.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/ai.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/ai.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/ai.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -1023,15 +1051,15 @@
         "download_detour": "CDN",
         "update_interval": "1d"
       },
-      {
-        "tag": "facebook-geoip.srs",
-        "type": "remote",
-        "path": "./ruleset/geoip/facebook.srs",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/facebook.srs",
-        "format": "binary",
-        "download_detour": "CDN",
-        "update_interval": "1d"
-      },
+      //{
+      //  "tag": "facebook-geoip.srs",
+      //  "type": "remote",
+      //  "path": "./ruleset/geoip/facebook.srs",
+      //  "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/facebook.srs",
+      //  "format": "binary",
+      //  "download_detour": "CDN",
+      //  "update_interval": "1d"
+      //},
       {
         "tag": "spotify-geosite.srs",
         "type": "remote",
@@ -1089,21 +1117,21 @@
       {
         "tag": "stream_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/stream.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/stream.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/stream.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/stream.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
-      {
-        "tag": "stream_ip",
-        "type": "remote",
-        "path": "./ruleset/ip/stream.json",
-        "url": "https://ruleset.skk.moe/sing-box/ip/stream.json",
-        "format": "source",
-        "download_detour": "CDN",
-        "update_interval": "1d"
-      },
+      //{
+      //  "tag": "stream_ip",
+      //  "type": "remote",
+      //  "path": "./ruleset/ip/stream.srs",
+      //  "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/stream.srs",
+      //  "format": "binary",
+      //  "download_detour": "CDN",
+      //  "update_interval": "1d"
+      //},
       {
         "tag": "cloudflare-geosite.srs",
         "type": "remote",
@@ -1125,9 +1153,9 @@
       {
         "tag": "global_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/global.json",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/global.json",
-        "format": "source",
+        "path": "./ruleset/non_ip/global.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/global.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -1141,19 +1169,46 @@
         "update_interval": "1d"
       },
       {
-        "tag": "cn-geosite.srs",
+        "tag": "domestic_non_ip",
         "type": "remote",
-        "path": "./ruleset/geosite/cn.srs",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
+        "path": "./ruleset/non_ip/domestic.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/domestic.srs",
         "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
-        "tag": "cn-geoip.srs",
+        "tag": "direct_non_ip",
         "type": "remote",
-        "path": "./ruleset/geoip/cn.srs",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
+        "path": "./ruleset/non_ip/direct.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/direct.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "domestic_ip",
+        "type": "remote",
+        "path": "./ruleset/ip/domestic.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/domestic.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "china_ip",
+        "type": "remote",
+        "path": "./ruleset/ip/china_ip.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip.srs",
+        "format": "binary",
+        "download_detour": "CDN",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "china_ip_ipv6",
+        "type": "remote",
+        "path": "./ruleset/ip/china_ip_ipv6.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip_ipv6.srs",
         "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
@@ -1179,7 +1234,7 @@
     "auto_detect_interface": true,
     "final": "FINAL",
     "default_domain_resolver": {
-      "server": "Ali-QUIC"
+      "server": "Pollution-DNS"
     }
   },
   "services": [],
