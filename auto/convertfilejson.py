@@ -28,8 +28,8 @@ CONFIG = {
         ("./rules/ProxyMusic.list", "./rules/sing-box/ProxyMusic.json"),
         ("./rules/ProxyUS.list", "./rules/sing-box/ProxyUS.json"),
         ("./rules/SupplementDirect.list", "./rules/sing-box/SupplementDirect.json"),
-        ("./auto/new/mihomo/Google.list", "./rules/sing-box/Google.json"),
-        ("./auto/new/mihomo/YouTube.list", "./rules/sing-box/YouTube.json"),
+        ("./rules/mihomo/Google.list", "./rules/sing-box/Google.json"),
+        ("./rules/mihomo/YouTube.list", "./rules/sing-box/YouTube.json"),
     ],
     # 批量模式配置（可选）
     "batch": {
