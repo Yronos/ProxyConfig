@@ -20,13 +20,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0 # 获取完整历史（如果需要）
+          fetch-depth: 0
 
       - name: 🐍 Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip" # 缓存pip依赖
+          cache: "pip"
 
       - name: 📦 Install dependencies
         run: |
@@ -35,10 +35,9 @@ jobs:
 
       - name: 🗂️ Ensure base directories exist
         run: |
-          mkdir -p auto/new
-          mkdir -p auto/original
-          echo "✅ Base directories created"
-          ls -la auto/
+          mkdir -p rules
+          echo "✅ Base directory created"
+          ls -la
 
       - name: 🚀 Run filter_countries.py
         id: run_script
@@ -55,26 +54,37 @@ jobs:
       - name: ✅ Verify output
         id: verify
         run: |
-          if [ ! -d "auto/new" ]; then
-            echo "❌ Directory auto/new not found"
+          if [ ! -d "rules" ]; then
+            echo "❌ Directory rules/ not found"
             exit 1
           fi
 
-          # 递归查找所有.list文件
-          file_count=$(find auto/new -name "*.list" -type f | wc -l)
+          # 递归查找所有.list文件（排除 original 子目录）
+          file_count=$(find rules -name "*.list" -type f ! -path "*/original/*" | wc -l)
 
           if [ "$file_count" -eq 0 ]; then
             echo "❌ No .list files generated"
             echo "📂 Directory structure:"
-            tree auto/ || ls -lR auto/
+            tree rules/ || ls -lR rules/
             exit 1
           fi
 
           echo "✅ Generated $file_count rule files"
           echo "file_count=$file_count" >> $GITHUB_OUTPUT
 
+          # 统计各类型规则数量
+          mihomo_count=$(find rules/mihomo -name "*.list" -type f ! -path "*/original/*" 2>/dev/null | wc -l)
+          surge_count=$(find rules/surge -name "*.list" -type f ! -path "*/original/*" 2>/dev/null | wc -l)
+          loon_count=$(find rules/loon -name "*.list" -type f ! -path "*/original/*" 2>/dev/null | wc -l)
+          non_ip_count=$(find rules/non_ip -name "*.list" -type f 2>/dev/null | wc -l)
+
+          echo "mihomo_count=$mihomo_count" >> $GITHUB_OUTPUT
+          echo "surge_count=$surge_count" >> $GITHUB_OUTPUT
+          echo "loon_count=$loon_count" >> $GITHUB_OUTPUT
+          echo "non_ip_count=$non_ip_count" >> $GITHUB_OUTPUT
+
           # 计算总大小
-          total_size=$(du -sh auto/new | cut -f1)
+          total_size=$(du -sh rules | cut -f1)
           echo "total_size=$total_size" >> $GITHUB_OUTPUT
 
       - name: 📊 Show detailed file structure
@@ -82,16 +92,26 @@ jobs:
           echo "📋 Complete directory structure:"
           echo "-----------------------------------"
 
-          # 显示目录树（如果有tree命令）或使用find
           if command -v tree &> /dev/null; then
-            tree -h auto/
+            tree -h rules/
           else
-            echo "📂 auto/new/"
-            find auto/new -type f -name "*.list" -exec sh -c 'echo "  ├─ {} ($(wc -l < {} | tr -d " ") lines, $(du -h {} | cut -f1))"' \;
+            echo "📂 rules/"
+            for rule_type in mihomo surge loon non_ip; do
+              if [ -d "rules/$rule_type" ]; then
+                echo ""
+                echo "  📂 $rule_type/"
 
-            echo ""
-            echo "📂 auto/original/"
-            find auto/original -type f -name "*.list" -exec sh -c 'echo "  ├─ {} ($(wc -l < {} | tr -d " ") lines, $(du -h {} | cut -f1))"' \;
+                # 显示 original 目录（non_ip 除外）
+                if [ "$rule_type" != "non_ip" ] && [ -d "rules/$rule_type/original" ]; then
+                  echo "    📂 original/"
+                  find "rules/$rule_type/original" -type f -name "*.list" -exec sh -c 'echo "      ├─ $(basename {}) ($(wc -l < {} | tr -d " ") lines)"' \;
+                fi
+
+                # 显示处理后的文件
+                echo "    📄 Processed files:"
+                find "rules/$rule_type" -maxdepth 1 -type f -name "*.list" -exec sh -c 'echo "      ├─ $(basename {}) ($(wc -l < {} | tr -d " ") lines, $(du -h {} | cut -f1))"' \;
+              fi
+            done
           fi
 
       - name: 💾 Commit and push changes
@@ -104,9 +124,8 @@ jobs:
           echo "📂 Git status before adding files:"
           git status
 
-          # ✅ 修复：递归添加所有子目录中的文件
-          git add -f auto/new/
-          git add -f auto/original/
+          # 添加 rules 目录下的所有文件
+          git add -f rules/
 
           # 检查是否有文件被添加
           echo ""
@@ -119,12 +138,16 @@ jobs:
             changed_files=$(git diff --cached --name-only | wc -l)
 
             # 创建提交信息
-            cat > /tmp/commit_msg.txt << 'EOF'
+            cat > /tmp/commit_msg.txt << EOF
           🤖 Auto-update: Filter domain rules
 
           📅 Generated: $(date +'%Y-%m-%d %H:%M:%S UTC')
           📊 Statistics:
-             • Rule files: ${{ steps.verify.outputs.file_count }}
+             • Total files: ${{ steps.verify.outputs.file_count }}
+             • Mihomo: ${{ steps.verify.outputs.mihomo_count }}
+             • Surge: ${{ steps.verify.outputs.surge_count }}
+             • Loon: ${{ steps.verify.outputs.loon_count }}
+             • Non-IP: ${{ steps.verify.outputs.non_ip_count }}
              • Total size: ${{ steps.verify.outputs.total_size }}
              • Changed files: ${changed_files}
 
@@ -150,8 +173,7 @@ jobs:
         with:
           name: filtered-rules-${{ github.run_number }}
           path: |
-            auto/new/**/*.list
-            auto/original/**/*.list
+            rules/**/*.list
           retention-days: 30
           if-no-files-found: warn
 
@@ -164,14 +186,35 @@ jobs:
             echo "### 📊 Statistics"
             echo "| Metric | Value |"
             echo "|--------|-------|"
-            echo "| Files Generated | **${{ steps.verify.outputs.file_count }}** |"
+            echo "| Total Files | **${{ steps.verify.outputs.file_count }}** |"
+            echo "| Mihomo Rules | **${{ steps.verify.outputs.mihomo_count }}** |"
+            echo "| Surge Rules | **${{ steps.verify.outputs.surge_count }}** |"
+            echo "| Loon Rules | **${{ steps.verify.outputs.loon_count }}** |"
+            echo "| Non-IP Rules | **${{ steps.verify.outputs.non_ip_count }}** |"
             echo "| Total Size | **${{ steps.verify.outputs.total_size }}** |"
             echo "| Execution Time | $(date +'%Y-%m-%d %H:%M:%S UTC') |"
             echo "| Workflow Run | [#${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |"
             echo ""
             echo "### 📁 File Structure"
+            echo ""
+            echo "#### Mihomo Rules"
             echo "\`\`\`"
-            find auto/new -name "*.list" -type f -exec sh -c 'echo "📄 {} - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files found"
+            find rules/mihomo -maxdepth 1 -name "*.list" -type f -exec sh -c 'echo "📄 $(basename {}) - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files"
+            echo "\`\`\`"
+            echo ""
+            echo "#### Surge Rules"
+            echo "\`\`\`"
+            find rules/surge -maxdepth 1 -name "*.list" -type f -exec sh -c 'echo "📄 $(basename {}) - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files"
+            echo "\`\`\`"
+            echo ""
+            echo "#### Loon Rules"
+            echo "\`\`\`"
+            find rules/loon -maxdepth 1 -name "*.list" -type f -exec sh -c 'echo "📄 $(basename {}) - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files"
+            echo "\`\`\`"
+            echo ""
+            echo "#### Non-IP Rules (Surge)"
+            echo "\`\`\`"
+            find rules/non_ip -name "*.list" -type f -exec sh -c 'echo "📄 $(basename {}) - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files"
             echo "\`\`\`"
             echo ""
             echo "### 🔗 Artifacts"
@@ -184,6 +227,6 @@ jobs:
           echo "❌ Workflow failed!"
           echo "📋 Debug information:"
           echo "---"
-          ls -lR auto/ 2>/dev/null || echo "auto/ directory not found"
+          ls -lR rules/ 2>/dev/null || echo "rules/ directory not found"
           echo "---"
           echo "Check the logs above for details."
