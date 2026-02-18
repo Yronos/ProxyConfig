@@ -44,6 +44,11 @@ DOMAIN-SUFFIX,v2ex.co
 DOMAIN-SUFFIX,v2ex.com
 DOMAIN-SUFFIX,bsky.social
 DOMAIN-SUFFIX,bsky.app
+DOMAIN-SUFFIX,wikimedia.org
+DOMAIN-SUFFIX,gravatar.com
+DOMAIN-SUFFIX,esm.sh
+DOMAIN-SUFFIX,111666.best
+DOMAIN-SUFFIX,adtidy.org
 """
 
 # 输出文件名 (留空则自动生成)
