@@ -1,14 +1,17 @@
 # 规则合并与提取结果
 # 前者文件: https://ruleset.skk.moe/List/domainset/cdn.conf
 # 后者文件: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Apple/Apple_All.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Twitter/Twitter.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Discord/Discord.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Cloudflare/Cloudflare.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Akamai/Akamai.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list
-# 自定义规则数: 10
+# 自定义规则数: 15
 # 前者规则总数: 4351
-# 筛选后规则数: 332
-# 覆盖率: 7.63%
+# 筛选后规则数: 338
+# 覆盖率: 7.77%
 #
 DOMAIN,cdn.bsky.social
 DOMAIN,images.github.media
 DOMAIN,c.pki.goog
+DOMAIN,i.111666.best
+DOMAIN,intake-logging.wikimedia.org
+DOMAIN,upload.wikimedia.org
 DOMAIN,godoc.org
 DOMAIN,vscode-sync-insiders.trafficmanager.net
 DOMAIN,vscode-sync.trafficmanager.net
@@ -237,6 +240,7 @@ DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,safebrowsing.apple
 DOMAIN-SUFFIX,ampproject.org
 DOMAIN-SUFFIX,reactjs.org
+DOMAIN-SUFFIX,adtidy.org
 DOMAIN-SUFFIX,lencr.org
 DOMAIN-SUFFIX,msftauthimages.net
 DOMAIN-SUFFIX,videodelivery.net
@@ -305,6 +309,7 @@ DOMAIN-SUFFIX,awsstatic.com
 DOMAIN-SUFFIX,aspnetcdn.com
 DOMAIN-SUFFIX,assets.as2.amazonaws.com
 DOMAIN-SUFFIX,sway-cdn.com
+DOMAIN-SUFFIX,gravatar.com
 DOMAIN-SUFFIX,bp.blogspot.com
 DOMAIN-SUFFIX,blogblog.com
 DOMAIN-SUFFIX,teo-rum.com
@@ -328,6 +333,7 @@ DOMAIN-SUFFIX,monitor.azure.com
 DOMAIN-SUFFIX,assets.brightspot.abebooks.a2z.com
 DOMAIN-SUFFIX,cdn.bsky.app
 DOMAIN-SUFFIX,web.app
+DOMAIN-SUFFIX,esm.sh
 DOMAIN-SUFFIX,in.appcenter.ms
 DOMAIN-SUFFIX,redd.it
 DOMAIN-SUFFIX,cdn.applicationinsights.io
