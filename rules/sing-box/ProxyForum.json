@@ -2,6 +2,9 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "fog.22112211.xyz"
+      ],
       "domain_suffix": [
         "linux.do",
         "v2ex.com",

@@ -2,19 +2,21 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "apm-misaka.biliapi.net",
+        "upos-bstar-mirrorakam.akamaized.net",
+        "upos-bstar1-mirrorakam.akamaized.net",
+        "upos-sz-mirrorcosbstar1.bilivideo.com",
+        "upos-sz-mirroralibstar1.bilivideo.com"
+      ],
       "domain_suffix": [
         "biliintl.co",
         "biliintl.com",
         "bilibili.tv",
         "api.global.bilibili.com",
         "app.global.bilibili.com",
-        "apm-misaka.biliapi.net",
         "bstarstatic.com",
-        "p-bstarstatic.akamaized.net",
-        "upos-bstar-mirrorakam.akamaized.net",
-        "upos-bstar1-mirrorakam.akamaized.net",
-        "upos-sz-mirrorcosbstar1.bilivideo.com",
-        "upos-sz-mirroralibstar1.bilivideo.com"
+        "p-bstarstatic.akamaized.net"
       ]
     }
   ]

@@ -17,6 +17,7 @@ CONFIG = {
         # 格式: (输入文件, 输出文件)
         # 输出文件可以为 None，会自动生成同名 .json 文件
         ("./rules/bilibili.list", "./rules/sing-box/bilibili.json"),
+        ("./rules/lite/bilibili.list", "./rules/sing-box/lite/bilibili.json"),
         ("./rules/biliintl.list", "./rules/sing-box/biliintl.json"),
         ("./rules/CDNSupplements.list", "./rules/sing-box/CDNSupplements.json"),
         ("./rules/cf_preferred.list", "./rules/sing-box/cf_preferred.json"),
@@ -30,6 +31,7 @@ CONFIG = {
         ("./rules/SupplementDirect.list", "./rules/sing-box/SupplementDirect.json"),
         ("./rules/mihomo/Google.list", "./rules/sing-box/Google.json"),
         ("./rules/mihomo/YouTube.list", "./rules/sing-box/YouTube.json"),
+        ("./rules/lite/YouTube.list", "./rules/sing-box/lite/YouTube.json"),
     ],
     # 批量模式配置（可选）
     "batch": {
