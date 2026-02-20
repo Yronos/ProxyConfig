@@ -8,7 +8,7 @@ on:
 
   push:
     paths:
-      - "auto/filter_reject.py"
+      - "auto/filter_reject_white.py"
       - ".github/workflows/filter-reject-domainset.yml"
 
 jobs:
