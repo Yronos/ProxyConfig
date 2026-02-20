@@ -6,7 +6,6 @@
 # 抖音系列
 DOMAIN-SUFFIX,amemv.com
 DOMAIN-SUFFIX,ndcpp.com
-#DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,qishui.com
 
 # 抖音火山引擎
@@ -20,15 +19,10 @@ DOMAIN-SUFFIX,cdnbuild.net
 DOMAIN-SUFFIX,applogcdn.com
 
 DOMAIN-SUFFIX,bytegslb.com
-#DOMAIN-SUFFIX,bytetos.com
-#DOMAIN-SUFFIX,bytescm.com
 DOMAIN-SUFFIX,bytefcdnrd.com
-#DOMAIN-SUFFIX,byteeffecttos.com
 DOMAIN-SUFFIX,bytegecko.com
-#DOMAIN-SUFFIX,bytegoofy.com
 
 # 字节系产品静态资源CDN域名
-#DOMAIN-SUFFIX,pstatp.com
 DOMAIN-SUFFIX,searchpstatp.com
 DOMAIN-SUFFIX,bdxiguaimg.com
 DOMAIN-SUFFIX,huoshanimg.com
@@ -47,7 +41,6 @@ DOMAIN-SUFFIX,bytelb.net
 DOMAIN-SUFFIX,bsgslb.com
 DOMAIN-SUFFIX,vegslb.com
 
-# 抖音CDN相关
 # 金山云
 #DOMAIN-SUFFIX,zjcdn.com
 DOMAIN-SUFFIX,ksyuncdn.com
@@ -56,29 +49,13 @@ DOMAIN-SUFFIX,qnqcdn.net
 
 # 抖音阿里云全局负载均衡
 DOMAIN-KEYWORD,queniu
-# DOMAIN-SUFFIX,queniubg.com
-# DOMAIN-SUFFIX,queniuuf.com
-# DOMAIN-SUFFIX,queniuso.com
-# DOMAIN-SUFFIX,queniusy.com
-# DOMAIN-SUFFIX,queniusz.com
-# DOMAIN-SUFFIX,queniuyk.com
-# DOMAIN-SUFFIX,queniuiq.com
 
 # 关键词补充兜底
 DOMAIN-SUFFIX,idouyinvod.com
-# DOMAIN-KEYWORD,douyinpic
-# DOMAIN-KEYWORD,douyincdn
-# DOMAIN-KEYWORD,douyinliving
-#DOMAIN-KEYWORD,douyin
-#DOMAIN-KEYWORD,bytedance
-#DOMAIN-KEYWORD,zijieapi
-#DOMAIN-KEYWORD,dy-vod
 
-DOMAIN-KEYWORD,feelgood
 DOMAIN-SUFFIX,picshack.net
 DOMAIN-SUFFIX,travel-eye.org
 
-# 流媒体共用CDN资源
 # 华为CDN
 DOMAIN-KEYWORD,cdnhwc
 DOMAIN-SUFFIX,hwcdn.net
@@ -88,19 +65,6 @@ DOMAIN-KEYWORD,kunlun
 
 # 腾讯云CDN
 DOMAIN-SUFFIX,smallfighter.com
-#DOMAIN-SUFFIX,myqcloud.com
-#DOMAIN-SUFFIX,smtcdns.com
-DOMAIN-SUFFIX,dnsv1.com
-DOMAIN-SUFFIX,dnsv2.com
-DOMAIN-SUFFIX,dnsv3.com
-DOMAIN-SUFFIX,dnsv4.com
-DOMAIN-SUFFIX,dnsv5.com
-DOMAIN-SUFFIX,tdnsv1.com
-DOMAIN-SUFFIX,tdnsv2.com
-DOMAIN-SUFFIX,tdnsv3.com
-DOMAIN-SUFFIX,tdnsv4.com
-DOMAIN-SUFFIX,tdnsv5.com
-DOMAIN-SUFFIX,tdnsv6.com
 
 # 百度
 DOMAIN-SUFFIX,eastecloud.com
