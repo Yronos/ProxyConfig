@@ -265,85 +265,78 @@ const flags = new Map([
   ["ZW", "🇿🇼"],
 ]);
 
-// 下标数字映射
-const sub = {
-  0: "₀",
-  1: "₁",
-  2: "₂",
-  3: "₃",
-  4: "₄",
-  5: "₅",
-  6: "₆",
-  7: "₇",
-  8: "₈",
-  9: "₉",
-  ".": ".",
-};
-
-// 辅助函数：获取多语言名称
-function getName(obj) {
-  if (!obj || !obj.names) return null;
-  return (
-    obj.names["zh-CN"] ||
-    obj.names["en"] ||
-    obj.names[Object.keys(obj.names)[0]] ||
-    null
-  );
-}
-
-// 辅助函数：IP 转下标
-function toSub(str) {
-  if (!str) return "";
-  return str.indexOf(":") !== -1
-    ? str
-    : str
-        .toString()
-        .split("")
-        .map((c) => sub[c] || c)
-        .join("");
-}
-
-// 解析数据
 var body = $response.body;
 var obj = JSON.parse(body);
 
-// 国家代码降级：country -> registered_country
+// 辅助函数
+function getName(obj) {
+  if (!obj || !obj.names) return null;
+  var names = obj.names;
+  return names["zh-CN"] || names["en"] || names[Object.keys(names)[0]] || null;
+}
+
+function toSub(str) {
+  if (!str) return "";
+  if (str.indexOf(":") !== -1) return str;
+  var map = {
+    0: "₀",
+    1: "₁",
+    2: "₂",
+    3: "₃",
+    4: "₄",
+    5: "₅",
+    6: "₆",
+    7: "₇",
+    8: "₈",
+    9: "₉",
+    ".": ".",
+  };
+  return str
+    .toString()
+    .split("")
+    .map(function (c) {
+      return map[c] || c;
+    })
+    .join("");
+}
+
+// 提取字段
 var countryCode = "";
 if (obj.country && obj.country.iso_code) {
   countryCode = obj.country.iso_code;
 } else if (obj.registered_country && obj.registered_country.iso_code) {
   countryCode = obj.registered_country.iso_code;
 }
+
 var flag = flags.get(countryCode) || "🏳️";
 
-// 位置降级：城市 -> 州/省 -> 国家
 var cityName = getName(obj.city);
 var regionName =
   obj.subdivisions && obj.subdivisions[0] ? getName(obj.subdivisions[0]) : null;
 var countryName = getName(obj.country) || getName(obj.registered_country);
 var location = cityName || regionName || countryName || "Unknown";
 
-// IP 地址
 var ip =
   obj.traits && obj.traits.ip_address ? obj.traits.ip_address : "0.0.0.0";
 
-// ISP 降级：isp -> organization -> asn_org -> network
-var isp = "";
+var isp = "Unknown ISP";
 var asn = "";
 if (obj.traits) {
-  isp =
-    obj.traits.isp ||
-    obj.traits.organization ||
-    obj.traits.autonomous_system_organization ||
-    obj.traits.network ||
-    "Unknown ISP";
+  if (obj.traits.isp) {
+    isp = obj.traits.isp;
+  } else if (obj.traits.organization) {
+    isp = obj.traits.organization;
+  } else if (obj.traits.autonomous_system_organization) {
+    isp = obj.traits.autonomous_system_organization;
+  } else if (obj.traits.network) {
+    isp = obj.traits.network;
+  }
+
   if (obj.traits.autonomous_system_number) {
     asn = "AS" + obj.traits.autonomous_system_number;
   }
 }
-if (!isp) isp = "Unknown ISP";
 
-// 时区
 var timezone =
   obj.location && obj.location.time_zone ? obj.location.time_zone : "Unknown";
 
@@ -354,4 +347,4 @@ subtitle = subtitle + " | " + timezone;
 var description =
   (countryName || "Unknown") + "\n" + location + "\n" + isp + "\n" + timezone;
 
-$done({ title, subtitle, ip, description });
+$done({ title: title, subtitle: subtitle, ip: ip, description: description });
