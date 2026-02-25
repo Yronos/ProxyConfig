@@ -16,9 +16,9 @@ CONFIG = {
     "files": [
         # 格式: (输入文件, 输出文件)
         # 输出文件可以为 None，会自动生成同名 .json 文件
-        ("./rules/bilibili.list", "./rules/sing-box/bilibili.json"),
-        ("./rules/lite/bilibili.list", "./rules/sing-box/lite/bilibili.json"),
-        ("./rules/biliintl.list", "./rules/sing-box/biliintl.json"),
+        ("./rules/Bilibili.list", "./rules/sing-box/Bilibili.json"),
+        ("./rules/lite/Bilibili.list", "./rules/sing-box/lite/Bilibili.json"),
+        ("./rules/Biliintl.list", "./rules/sing-box/Biliintl.json"),
         ("./rules/CDNSupplements.list", "./rules/sing-box/CDNSupplements.json"),
         ("./rules/cf_preferred.list", "./rules/sing-box/cf_preferred.json"),
         ("./rules/ForceDirect.list", "./rules/sing-box/ForceDirect.json"),
@@ -32,6 +32,10 @@ CONFIG = {
         ("./rules/mihomo/Google.list", "./rules/sing-box/Google.json"),
         ("./rules/mihomo/YouTube.list", "./rules/sing-box/YouTube.json"),
         ("./rules/lite/YouTube.list", "./rules/sing-box/lite/YouTube.json"),
+        ("./rules/lite/Meta.list", "./rules/sing-box/lite/Meta.json"),
+        ("./rules/lite/Reddit.list", "./rules/sing-box/lite/Reddit.json"),
+        ("./rules/lite/Streaming.list", "./rules/sing-box/lite/Streaming.json"),
+        ("./rules/lite/reject.list", "./rules/sing-box/lite/reject.json"),
     ],
     # 批量模式配置（可选）
     "batch": {
