@@ -684,7 +684,7 @@
       {
         "tag": "reject_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/reject.srs",
+        //"path": "./ruleset/non_ip/reject.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -693,7 +693,7 @@
       {
         "tag": "reject_domainset",
         "type": "remote",
-        "path": "./ruleset/domainset/reject.srs",
+        //"path": "./ruleset/domainset/reject.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/reject.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -702,7 +702,7 @@
       {
         "tag": "reject_non_ip_drop",
         "type": "remote",
-        "path": "./ruleset/non_ip/reject-drop.srs",
+        //"path": "./ruleset/non_ip/reject-drop.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject-drop.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -711,7 +711,7 @@
       {
         "tag": "reject_non_ip_no_drop",
         "type": "remote",
-        "path": "./ruleset/non_ip/reject-no-drop.srs",
+        //"path": "./ruleset/non_ip/reject-no-drop.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject-no-drop.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -720,7 +720,7 @@
       {
         "tag": "cdn_domainset",
         "type": "remote",
-        "path": "./ruleset/domainset/cdn.srs",
+        //"path": "./ruleset/domainset/cdn.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/cdn.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -729,7 +729,7 @@
       {
         "tag": "cdn_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/cdn.srs",
+        //"path": "./ruleset/non_ip/cdn.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/cdn.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -738,7 +738,7 @@
       {
         "tag": "ProxyDownload",
         "type": "remote",
-        "path": "./ruleset/ProxyDownload.json",
+        //"path": "./ruleset/ProxyDownload.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyDownload.json",
         "format": "source",
         "download_detour": "CDN",
@@ -747,7 +747,7 @@
       {
         "tag": "CDNSupplements",
         "type": "remote",
-        "path": "./ruleset/CDNSupplements.json",
+        //"path": "./ruleset/CDNSupplements.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/CDNSupplements.json",
         "format": "source",
         "download_detour": "CDN",
@@ -756,7 +756,7 @@
       {
         "tag": "apple_cdn",
         "type": "remote",
-        "path": "./ruleset/domainset/apple_cdn.srs",
+        //"path": "./ruleset/domainset/apple_cdn.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/apple_cdn.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -765,7 +765,7 @@
       {
         "tag": "microsoft_cdn_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/microsoft_cdn.srs",
+        //"path": "./ruleset/non_ip/microsoft_cdn.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/microsoft_cdn.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -774,7 +774,7 @@
       {
         "tag": "download_domainset",
         "type": "remote",
-        "path": "./ruleset/domainset/download.srs",
+        //"path": "./ruleset/domainset/download.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/download.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -783,7 +783,7 @@
       {
         "tag": "download_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/download.srs",
+        //"path": "./ruleset/non_ip/download.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/download.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -792,7 +792,7 @@
       {
         "tag": "ProxyForum",
         "type": "remote",
-        "path": "./ruleset/ProxyForum.json",
+        //"path": "./ruleset/ProxyForum.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyForum.json",
         "format": "source",
         "download_detour": "CDN",
@@ -801,7 +801,7 @@
       {
         "tag": "ProxyHK",
         "type": "remote",
-        "path": "./ruleset/ProxyHK.json",
+        //"path": "./ruleset/ProxyHK.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyHK.json",
         "format": "source",
         "download_detour": "CDN",
@@ -810,7 +810,7 @@
       {
         "tag": "ProxyJP",
         "type": "remote",
-        "path": "./ruleset/ProxyJP.json",
+        //"path": "./ruleset/ProxyJP.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyJP.json",
         "format": "source",
         "download_detour": "CDN",
@@ -819,7 +819,7 @@
       {
         "tag": "ForceDirect",
         "type": "remote",
-        "path": "./ruleset/ForceDirect.json",
+        //"path": "./ruleset/ForceDirect.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ForceDirect.json",
         "format": "source",
         "download_detour": "CDN",
@@ -828,7 +828,7 @@
       {
         "tag": "cf_preferred",
         "type": "remote",
-        "path": "./ruleset/cf_preferred.json",
+        //"path": "./ruleset/cf_preferred.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/cf_preferred.json",
         "format": "source",
         "download_detour": "CDN",
@@ -837,7 +837,7 @@
       {
         "tag": "apple_cn_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/apple_cn.srs",
+        //"path": "./ruleset/non_ip/apple_cn.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/apple_cn.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -846,7 +846,7 @@
       {
         "tag": "apple_services",
         "type": "remote",
-        "path": "./ruleset/non_ip/apple_services.srs",
+        //"path": "./ruleset/non_ip/apple_services.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/apple_services.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -855,7 +855,7 @@
       {
         "tag": "stream_biliintl",
         "type": "remote",
-        "path": "./ruleset/non_ip/stream_biliintl.srs",
+        //"path": "./ruleset/non_ip/stream_biliintl.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/stream_biliintl.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -864,7 +864,7 @@
       {
         "tag": "bilibili",
         "type": "remote",
-        "path": "./ruleset/Bilibili.json",
+        //"path": "./ruleset/Bilibili.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Bilibili.json",
         "format": "source",
         "download_detour": "CDN",
@@ -873,7 +873,7 @@
       {
         "tag": "github-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/github.srs",
+        //"path": "./ruleset/geosite/github.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -882,7 +882,7 @@
       {
         "tag": "onedrive-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/onedrive.srs",
+        //"path": "./ruleset/geosite/onedrive.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/onedrive.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -891,7 +891,7 @@
       {
         "tag": "microsoft_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/microsoft.srs",
+        //"path": "./ruleset/non_ip/microsoft.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/microsoft.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -900,7 +900,7 @@
       {
         "tag": "YouTube",
         "type": "remote",
-        "path": "./ruleset/YouTube.json",
+        //"path": "./ruleset/YouTube.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/YouTube.json",
         "format": "source",
         "download_detour": "CDN",
@@ -909,7 +909,7 @@
       {
         "tag": "Google",
         "type": "remote",
-        "path": "./ruleset/Google.json",
+        //"path": "./ruleset/Google.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/Google.json",
         "format": "source",
         "download_detour": "CDN",
@@ -918,7 +918,7 @@
       {
         "tag": "telegram_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/telegram.srs",
+        //"path": "./ruleset/non_ip/telegram.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/telegram.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -927,7 +927,7 @@
       {
         "tag": "telegram_ip",
         "type": "remote",
-        "path": "./ruleset/ip/telegram.srs",
+        //"path": "./ruleset/ip/telegram.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/telegram.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -936,7 +936,7 @@
       {
         "tag": "discord-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/discord.srs",
+        //"path": "./ruleset/geosite/discord.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/discord.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -945,7 +945,7 @@
       {
         "tag": "twitter-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/twitter.srs",
+        //"path": "./ruleset/geosite/twitter.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/twitter.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -963,7 +963,7 @@
       {
         "tag": "AI",
         "type": "remote",
-        "path": "./ruleset/non_ip/ai.srs",
+        //"path": "./ruleset/non_ip/ai.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/ai.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -972,7 +972,7 @@
       {
         "tag": "Meta",
         "type": "remote",
-        "path": "./ruleset/Meta.json",
+        //"path": "./ruleset/Meta.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Meta.json",
         "format": "source",
         "download_detour": "CDN",
@@ -981,7 +981,7 @@
       {
         "tag": "spotify-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/spotify.srs",
+        //"path": "./ruleset/geosite/spotify.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -990,7 +990,7 @@
       {
         "tag": "ProxyMusic",
         "type": "remote",
-        "path": "./ruleset/ProxyMusic.json",
+        //"path": "./ruleset/ProxyMusic.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyMusic.json",
         "format": "source",
         "download_detour": "CDN",
@@ -999,7 +999,7 @@
       {
         "tag": "bahamut-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/bahamut.srs",
+        //"path": "./ruleset/geosite/bahamut.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bahamut.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1008,7 +1008,7 @@
       {
         "tag": "steam-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/steam.srs",
+        //"path": "./ruleset/geosite/steam.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/steam.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1017,7 +1017,7 @@
       {
         "tag": "epicgames-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/epicgames.srs",
+        //"path": "./ruleset/geosite/epicgames.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/epicgames.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1026,7 +1026,7 @@
       {
         "tag": "xbox-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/xbox.srs",
+        //"path": "./ruleset/geosite/xbox.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/xbox.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1035,7 +1035,7 @@
       {
         "tag": "stream_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/stream.srs",
+        //"path": "./ruleset/non_ip/stream.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/stream.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1053,7 +1053,7 @@
       {
         "tag": "cloudflare-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/cloudflare.srs",
+        //"path": "./ruleset/geosite/cloudflare.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cloudflare.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1062,7 +1062,7 @@
       {
         "tag": "amazon-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/amazon.srs",
+        //"path": "./ruleset/geosite/amazon.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/amazon.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1071,7 +1071,7 @@
       {
         "tag": "global_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/global.srs",
+        //"path": "./ruleset/non_ip/global.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/global.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1080,7 +1080,7 @@
       {
         "tag": "ProxyUS",
         "type": "remote",
-        "path": "./ruleset/ProxyUS.json",
+        //"path": "./ruleset/ProxyUS.json",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyUS.json",
         "format": "source",
         "download_detour": "CDN",
@@ -1089,7 +1089,7 @@
       {
         "tag": "domestic_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/domestic.srs",
+        //"path": "./ruleset/non_ip/domestic.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/domestic.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1098,7 +1098,7 @@
       {
         "tag": "direct_non_ip",
         "type": "remote",
-        "path": "./ruleset/non_ip/direct.srs",
+        //"path": "./ruleset/non_ip/direct.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/direct.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1107,7 +1107,7 @@
       {
         "tag": "domestic_ip",
         "type": "remote",
-        "path": "./ruleset/ip/domestic.srs",
+        //"path": "./ruleset/ip/domestic.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/domestic.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1116,7 +1116,7 @@
       {
         "tag": "china_ip",
         "type": "remote",
-        "path": "./ruleset/ip/china_ip.srs",
+        //"path": "./ruleset/ip/china_ip.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1125,7 +1125,7 @@
       {
         "tag": "china_ip_ipv6",
         "type": "remote",
-        "path": "./ruleset/ip/china_ip_ipv6.srs",
+        //"path": "./ruleset/ip/china_ip_ipv6.srs",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip_ipv6.srs",
         "format": "binary",
         "download_detour": "CDN",
@@ -1134,7 +1134,7 @@
       {
         "tag": "private-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/private.srs",
+        //"path": "./ruleset/geosite/private.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
         "format": "binary",
         "download_detour": "CDN"
@@ -1142,7 +1142,7 @@
       {
         "tag": "connectivity-check-geosite",
         "type": "remote",
-        "path": "./ruleset/geosite/connectivity-check.srs",
+        //"path": "./ruleset/geosite/connectivity-check.srs",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/connectivity-check.srs",
         "format": "binary",
         "download_detour": "CDN",
