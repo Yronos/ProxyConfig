@@ -79,11 +79,11 @@
       {
         "action": "route",
         "rule_set": [
-          "domestic_non_ip",
-          "direct_non_ip",
           "private-geosite",
           "connectivity-check-geosite",
           "ForceDirect",
+          "domestic_non_ip",
+          "direct_non_ip",
           "SupplementDirect"
         ],
         "server": "UDP",
