@@ -2,9 +2,9 @@
 # 前者文件: https://ruleset.skk.moe/List/domainset/cdn.conf
 # 后者文件: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Apple/Apple_All.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Twitter/Twitter.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Discord/Discord.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Cloudflare/Cloudflare.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Akamai/Akamai.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list
 # 自定义规则数: 15
-# 前者规则总数: 4352
-# 筛选后规则数: 338
-# 覆盖率: 7.77%
+# 前者规则总数: 4385
+# 筛选后规则数: 339
+# 覆盖率: 7.73%
 #
 DOMAIN,cdn.bsky.social
 DOMAIN,images.github.media
@@ -57,6 +57,7 @@ DOMAIN,steamvideo-a.akamaihd.net
 DOMAIN,lolstatic-a.akamaihd.net
 DOMAIN,steamcdn-a.akamaihd.net
 DOMAIN,eaassets-a.akamaihd.net
+DOMAIN,bitmovin-a.akamaihd.net
 DOMAIN,spoprod-a.akamaihd.net
 DOMAIN,lumiere-a.akamaihd.net
 DOMAIN,consentdeliveryfd.azurefd.net
