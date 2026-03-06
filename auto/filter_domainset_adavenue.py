@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-从混合格式的规则文件中筛选出未被 rule-set 格式规则覆盖的规则
-支持前者文件同时包含 domainset 和 rule-set 格式
+从 domainset 格式的规则文件中筛选出未被 rule-set 格式规则覆盖的规则
 输出为 rule-set 格式（.list）
 """
 
@@ -10,8 +9,8 @@
 # 📝 配置区域 - 在这里填入你的文件链接
 # ============================================================
 
-# 前者文件 (支持 domainset 和 rule-set 混合格式) - 填入一个 URL 或本地路径
-DOMAINSET_URL = "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list"
+# 前者文件 (domainset 格式) - 填入一个 URL 或本地路径
+DOMAINSET_URL = "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge.list"
 
 # 后者文件列表 (rule-set 格式) - 可以填入多个 URL 或本地路径
 RULESET_URLS = [
@@ -117,48 +116,25 @@ def get_content(path: str) -> Optional[str]:
         return read_local_file(path)
 
 
-def parse_mixed_format(content: str) -> Tuple[List[Tuple[str, str]], Dict[str, int]]:
+def parse_domainset(content: str) -> Tuple[List[str], List[str]]:
     """
-    解析混合格式的规则文件（支持 domainset 和 rule-set 格式）
-
-    返回:
-        - 规则列表: [(规则值, 规则类型), ...]
-        - 格式统计: {"domainset": count, "rule-set": count}
+    解析 domainset 格式的规则
+    返回: (精确匹配规则列表, 后缀匹配规则列表)
     """
-    rules = []
-    format_stats = {"domainset": 0, "rule-set": 0, "unknown": 0}
+    exact_rules = []
+    suffix_rules = []
 
     for line in content.strip().split("\n"):
         line = line.strip()
         if not line or line.startswith("#") or line.startswith("//"):
             continue
 
-        # 尝试解析 rule-set 格式 (DOMAIN,xxx 或 DOMAIN-SUFFIX,xxx 等)
-        if "," in line:
-            parts = line.split(",", 1)  # 只分割第一个逗号
-            if len(parts) >= 2:
-                rule_type = parts[0].strip().upper()
-                value = parts[1].strip().lower()
-
-                # 只处理域名相关规则
-                if rule_type in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
-                    rules.append((value, rule_type))
-                    format_stats["rule-set"] += 1
-                    continue
-
-        # 解析 domainset 格式
         if line.startswith("."):
-            # .domain 格式 -> DOMAIN-SUFFIX
-            rules.append((line[1:].lower(), "DOMAIN-SUFFIX"))
-            format_stats["domainset"] += 1
-        elif line:
-            # domain 格式 -> DOMAIN
-            rules.append((line.lower(), "DOMAIN"))
-            format_stats["domainset"] += 1
+            suffix_rules.append(line[1:])
         else:
-            format_stats["unknown"] += 1
+            exact_rules.append(line)
 
-    return rules, format_stats
+    return exact_rules, suffix_rules
 
 
 def parse_custom_rules(custom_rules_text: str) -> Tuple[Set[str], Set[str], Set[str]]:
@@ -241,47 +217,49 @@ def check_keyword_match(domain: str, keywords: Set[str]) -> bool:
 
 
 def check_coverage_batch(
-    source_rules: List[Tuple[str, str]],
+    exact_rules: List[str],
+    suffix_rules: List[str],
     domains: Set[str],
     suffix_matcher: SuffixTrie,
     keywords: Set[str],
-) -> List[Tuple[str, str]]:
+) -> Tuple[List[Tuple[str, str]], List[Tuple[str, str]]]:
     """
     批量检查规则覆盖情况，返回未被覆盖的规则
-
-    参数:
-        source_rules: 源规则列表 [(规则值, 规则类型), ...]
-        domains: DOMAIN 规则集合
-        suffix_matcher: DOMAIN-SUFFIX 匹配器
-        keywords: DOMAIN-KEYWORD 规则集合
-
-    返回: 未被覆盖的规则列表 [(规则值, 规则类型), ...]
+    返回: (未被覆盖的精确规则列表, 未被覆盖的后缀规则列表)
+    每个元素为 (原始规则, 规则类型) 元组
     """
-    not_covered = []
+    not_covered_exact = []
+    not_covered_suffix = []
 
-    for rule_value, rule_type in source_rules:
-        is_covered = False
+    # 处理精确匹配规则
+    for rule in exact_rules:
+        rule_lower = rule.lower()
 
-        if rule_type == "DOMAIN":
-            # DOMAIN 规则的覆盖检查
-            is_covered = (
-                rule_value in domains
-                or suffix_matcher.match(rule_value)
-                or check_keyword_match(rule_value, keywords)
-            )
-        elif rule_type == "DOMAIN-SUFFIX":
-            # DOMAIN-SUFFIX 规则的覆盖检查
-            is_covered = suffix_matcher.match(rule_value) or check_keyword_match(
-                rule_value, keywords
-            )
-        elif rule_type == "DOMAIN-KEYWORD":
-            # DOMAIN-KEYWORD 规则的覆盖检查
-            is_covered = rule_value in keywords
+        # 检查是否被任何规则覆盖
+        is_covered = (
+            rule_lower in domains
+            or suffix_matcher.match(rule_lower)
+            or check_keyword_match(rule_lower, keywords)
+        )
 
+        # 如果未被覆盖，则添加到结果
         if not is_covered:
-            not_covered.append((rule_value, rule_type))
+            not_covered_exact.append((rule, "DOMAIN"))
 
-    return not_covered
+    # 处理后缀匹配规则
+    for rule in suffix_rules:
+        rule_lower = rule.lower()
+
+        # 检查是否被任何规则覆盖
+        is_covered = suffix_matcher.match(rule_lower) or check_keyword_match(
+            rule_lower, keywords
+        )
+
+        # 如果未被覆盖，则添加到结果
+        if not is_covered:
+            not_covered_suffix.append((rule, "DOMAIN-SUFFIX"))
+
+    return not_covered_exact, not_covered_suffix
 
 
 def get_filename_from_path(path: str) -> str:
@@ -314,36 +292,24 @@ def ensure_output_dir():
 
 def main():
     print("=" * 60)
-    print("规则差异提取脚本（支持混合格式）")
+    print("规则差异提取脚本（输出未被覆盖的规则）")
     print("=" * 60)
 
     start_time = time.time()
 
-    # 获取并解析前者文件（混合格式）
-    print(f"\n[1] 获取前者文件 (支持 domainset 和 rule-set 混合格式):")
+    # 获取并解析前者文件（domainset）
+    print(f"\n[1] 获取前者文件 (domainset):")
     print(f"    {DOMAINSET_URL}")
-    source_content = get_content(DOMAINSET_URL)
-    if source_content is None:
+    domainset_content = get_content(DOMAINSET_URL)
+    if domainset_content is None:
         print("[错误] 无法获取前者文件，退出")
         sys.exit(1)
 
-    source_rules, format_stats = parse_mixed_format(source_content)
-    total_rules = len(source_rules)
-
+    exact_rules, suffix_rules = parse_domainset(domainset_content)
+    total_rules = len(exact_rules) + len(suffix_rules)
     print(f"    解析到 {total_rules} 条规则")
-    print(f"      - domainset 格式: {format_stats['domainset']} 条")
-    print(f"      - rule-set 格式: {format_stats['rule-set']} 条")
-    if format_stats["unknown"] > 0:
-        print(f"      - 未识别格式: {format_stats['unknown']} 条")
-
-    # 统计规则类型
-    rule_type_stats = {}
-    for _, rule_type in source_rules:
-        rule_type_stats[rule_type] = rule_type_stats.get(rule_type, 0) + 1
-
-    print(f"    规则类型分布:")
-    for rule_type, count in sorted(rule_type_stats.items()):
-        print(f"      - {rule_type}: {count} 条")
+    print(f"      - 精确匹配: {len(exact_rules)} 条")
+    print(f"      - 后缀匹配: {len(suffix_rules)} 条")
 
     if total_rules == 0:
         print("[错误] 前者文件中没有有效规则，退出")
@@ -401,27 +367,19 @@ def main():
 
     # 批量检查覆盖情况
     print(f"\n[6] 开始批量筛选...")
-    not_covered = check_coverage_batch(
-        source_rules, all_domains, suffix_matcher, all_domain_keywords
+    not_covered_exact, not_covered_suffix = check_coverage_batch(
+        exact_rules, suffix_rules, all_domains, suffix_matcher, all_domain_keywords
     )
 
-    total_not_covered = len(not_covered)
+    total_not_covered = len(not_covered_exact) + len(not_covered_suffix)
     coverage_rate = (
         (total_rules - total_not_covered) / total_rules * 100 if total_rules > 0 else 0
     )
 
     print(f"    筛选完成: {total_not_covered}/{total_rules} 条规则未被覆盖")
-
-    # 统计未覆盖规则的类型分布
-    not_covered_stats = {}
-    for _, rule_type in not_covered:
-        not_covered_stats[rule_type] = not_covered_stats.get(rule_type, 0) + 1
-
-    print(f"    未覆盖规则类型分布:")
-    for rule_type, count in sorted(not_covered_stats.items()):
-        print(f"      - {rule_type}: {count} 条")
-
-    print(f"    覆盖率: {coverage_rate:.2f}%")
+    print(f"      - 精确匹配: {len(not_covered_exact)}/{len(exact_rules)}")
+    print(f"      - 后缀匹配: {len(not_covered_suffix)}/{len(suffix_rules)}")
+    print(f"      - 覆盖率: {coverage_rate:.2f}%")
 
     # 确保输出目录存在
     output_dir = ensure_output_dir()
@@ -444,15 +402,17 @@ def main():
             f.write(f"# 后者文件: {', '.join(RULESET_URLS)}\n")
             f.write(f"# 自定义规则数: {custom_total}\n")
             f.write(f"# 前者规则总数: {total_rules}\n")
-            f.write(f"#   - domainset 格式: {format_stats['domainset']} 条\n")
-            f.write(f"#   - rule-set 格式: {format_stats['rule-set']} 条\n")
             f.write(f"# 未被覆盖规则数: {total_not_covered}\n")
             f.write(f"# 覆盖率: {coverage_rate:.2f}%\n")
             f.write(f"#\n")
 
-            # 写入所有未覆盖的规则
-            for rule_value, rule_type in not_covered:
-                f.write(f"{rule_type},{rule_value}\n")
+            # 写入精确匹配规则
+            for rule, rule_type in not_covered_exact:
+                f.write(f"{rule_type},{rule}\n")
+
+            # 写入后缀匹配规则
+            for rule, rule_type in not_covered_suffix:
+                f.write(f"{rule_type},{rule}\n")
 
         print(f"    成功写入 {total_not_covered} 条未被覆盖的规则")
     except IOError as e:
@@ -467,8 +427,6 @@ def main():
 
     print(f"\n统计信息:")
     print(f"  前者规则总数: {total_rules}")
-    print(f"    - domainset 格式: {format_stats['domainset']} 条")
-    print(f"    - rule-set 格式: {format_stats['rule-set']} 条")
     print(f"  自定义规则数: {custom_total}")
     print(f"  未被覆盖规则数: {total_not_covered}")
     print(f"  覆盖率: {coverage_rate:.2f}%")
