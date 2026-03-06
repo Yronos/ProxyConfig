@@ -1,3 +1,4 @@
+DOMAIN-KEYWORD,adstrategy
 DOMAIN,lf-ad-ies.bytecdn.cn
 DOMAIN,dig.bdurl.net
 DOMAIN,extlog.snssdk.com
@@ -106,7 +107,7 @@ DOMAIN-SUFFIX,gdt.qq.com
 DOMAIN-SUFFIX,l.qq.com
 DOMAIN-SUFFIX,imtmp.net
 DOMAIN-SUFFIX,ugdtimg.com
-IP-CIDR,47.110.187.87/32
+IP-CIDR,47.110.187.87/32,no-resolve
 DOMAIN-SUFFIX,opadlink.com
 DOMAIN-SUFFIX,staevent.work
 DOMAIN-SUFFIX,openinstall.online
@@ -239,14 +240,15 @@ DOMAIN,ad-evods.tianya.tv
 DOMAIN-SUFFIX,tuia.cn
 DOMAIN-SUFFIX,66mobi.com
 DOMAIN-SUFFIX,xdplt.com
+DOMAIN,ads.cup.com.cn
 DOMAIN-SUFFIX,adjust.com
 DOMAIN-SUFFIX,adjust.net.in
 DOMAIN,app-analytics-services.com
 DOMAIN,odm.app-ads-services.com
 DOMAIN,firebaselogging-pa.googleapis.com
 DOMAIN,firebaseinappmessaging.googleapis.com
-DOMAIN,firebaseremoteconfig.googleapis.com
 DOMAIN,fundingchoicesmessages.google.com
+DOMAIN-SUFFIX,doubleclick.net
 DOMAIN-SUFFIX,doubleclick-cn.net
 DOMAIN-SUFFIX,googlesyndication-cn.com
 DOMAIN-SUFFIX,xinduoad.com
@@ -277,6 +279,8 @@ DOMAIN-SUFFIX,etoolads.cn
 DOMAIN,ad.aggrxinc.com
 DOMAIN-SUFFIX,mentamob.com
 DOMAIN-SUFFIX,advlion.com
+DOMAIN-SUFFIX,shanghailingye.cn
+DOMAIN-SUFFIX,shenshiads.com
 DOMAIN-SUFFIX,tradplusad.com
 DOMAIN-SUFFIX,fancyapi.com
 DOMAIN-SUFFIX,medproad.com
@@ -296,3 +300,4 @@ DOMAIN-SUFFIX,applvn.com
 DOMAIN-SUFFIX,moloco.com
 DOMAIN-SUFFIX,rayjump.com
 DOMAIN-SUFFIX,rixengine.com
+DOMAIN-SUFFIX,amazon-adsystem.com
