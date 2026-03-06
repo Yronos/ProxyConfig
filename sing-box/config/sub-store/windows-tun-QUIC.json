@@ -84,7 +84,7 @@
           "ForceDirect",
           "domestic_non_ip",
           "direct_non_ip",
-          "SupplementDirect"
+          "DirectSupplements"
         ],
         "server": "UDP",
         "disable_cache": false
@@ -587,7 +587,7 @@
       },
       {
         "action": "route",
-        "rule_set": ["SupplementDirect"],
+        "rule_set": ["DirectSupplements"],
         "outbound": "🇨🇳CN"
       },
       {
@@ -986,9 +986,9 @@
         "update_interval": "1d"
       },
       {
-        "tag": "SupplementDirect",
+        "tag": "DirectSupplements",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/SupplementDirect.json",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/DirectSupplements.json",
         "format": "source",
         "download_detour": "CDN",
         "update_interval": "1d"
