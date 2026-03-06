@@ -28,7 +28,7 @@ CONFIG = {
         ("./rules/ProxyJP.list", "./rules/sing-box/ProxyJP.json"),
         ("./rules/ProxyMusic.list", "./rules/sing-box/ProxyMusic.json"),
         ("./rules/ProxyUS.list", "./rules/sing-box/ProxyUS.json"),
-        ("./rules/SupplementDirect.list", "./rules/sing-box/SupplementDirect.json"),
+        ("./rules/DirectSupplements.list", "./rules/sing-box/DirectSupplements.json"),
         ("./rules/mihomo/Google.list", "./rules/sing-box/Google.json"),
         ("./rules/mihomo/YouTube.list", "./rules/sing-box/YouTube.json"),
         ("./rules/lite/YouTube.list", "./rules/sing-box/lite/YouTube.json"),
