@@ -186,7 +186,7 @@ def main():
             "https://ruleset.skk.moe/List/domainset/apple_cdn.conf",
             "https://ruleset.skk.moe/List/domainset/cdn.conf",
             "https://ruleset.skk.moe/List/domainset/download.conf",
-            "https://ruleset.skk.moe/List/domainset/reject.conf",
+            # "https://ruleset.skk.moe/List/domainset/reject.conf",
         ]
         print("[提示] 未指定 URL，使用默认示例 URL")
 
