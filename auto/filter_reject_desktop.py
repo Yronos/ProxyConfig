@@ -29,6 +29,7 @@ RULESET_URLS = [
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list",
     # "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list",
     # "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list",
+    "https://ruleset.skk.moe/List/non_ip/domestic.conf",
 ]
 
 # 自定义规则 - 手动添加没有规则集的服务
@@ -36,7 +37,6 @@ RULESET_URLS = [
 CUSTOM_RULES = """
 DOMAIN-SUFFIX,epicgames.com
 DOMAIN-SUFFIX,nvidia.com
-DOMAIN-SUFFIX,qq.com
 """
 
 # 输出文件名 (留空则自动生成)
