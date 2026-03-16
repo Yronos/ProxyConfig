@@ -387,11 +387,6 @@
       },
       {
         "action": "route",
-        "rule_set": ["CDNSupplements"],
-        "outbound": "CDN"
-      },
-      {
-        "action": "route",
         "rule_set": ["ProxyDownload"],
         "outbound": "CDN"
       },
@@ -432,6 +427,11 @@
       },
       {
         "action": "route",
+        "rule_set": ["local_rules"],
+        "outbound": "Selector"
+      },
+      {
+        "action": "route",
         "rule_set": ["ForceDirect"],
         "outbound": "🇨🇳CN"
       },
@@ -439,16 +439,6 @@
         "action": "route",
         "rule_set": ["cf_preferred"],
         "outbound": "🇨🇳CN"
-      },
-      {
-        "action": "route",
-        "rule_set": ["apple_cn_non_ip"],
-        "outbound": "Apple"
-      },
-      {
-        "action": "route",
-        "rule_set": ["apple_services"],
-        "outbound": "Apple"
       },
       {
         "action": "route",
@@ -497,6 +487,11 @@
       },
       {
         "action": "route",
+        "rule_set": ["domestic_non_ip"],
+        "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
         "rule_set": ["discord-geosite"],
         "outbound": "Discord"
       },
@@ -509,6 +504,21 @@
         "action": "route",
         "rule_set": ["twitter-geosite"],
         "outbound": "Twitter"
+      },
+      {
+        "action": "route",
+        "rule_set": ["steam-geosite"],
+        "outbound": "Game"
+      },
+      {
+        "action": "route",
+        "rule_set": ["epicgames-geosite"],
+        "outbound": "Game"
+      },
+      {
+        "action": "route",
+        "rule_set": ["xbox-geosite"],
+        "outbound": "Game"
       },
       {
         "action": "route",
@@ -532,33 +542,18 @@
       },
       {
         "action": "route",
-        "rule_set": ["Meta"],
-        "outbound": "Meta"
-      },
-      {
-        "action": "route",
-        "rule_set": ["steam-geosite"],
-        "outbound": "Game"
-      },
-      {
-        "action": "route",
-        "rule_set": ["epicgames-geosite"],
-        "outbound": "Game"
-      },
-      {
-        "action": "route",
-        "rule_set": ["xbox-geosite"],
-        "outbound": "Game"
-      },
-      {
-        "action": "route",
-        "rule_set": ["stream_non_ip"],
-        "outbound": "Media"
-      },
-      {
-        "action": "route",
         "rule_set": ["cloudflare-geosite"],
         "outbound": "Cloudflare"
+      },
+      {
+        "action": "route",
+        "rule_set": ["apple_cn_non_ip"],
+        "outbound": "Apple"
+      },
+      {
+        "action": "route",
+        "rule_set": ["apple_services"],
+        "outbound": "Apple"
       },
       {
         "action": "route",
@@ -567,18 +562,18 @@
       },
       {
         "action": "route",
-        "rule_set": ["ProxyUS"],
-        "outbound": "🇺🇸US"
+        "rule_set": ["Meta"],
+        "outbound": "Meta"
+      },
+      {
+        "action": "route",
+        "rule_set": ["stream_non_ip"],
+        "outbound": "Media"
       },
       {
         "action": "route",
         "rule_set": ["global_non_ip"],
         "outbound": "International"
-      },
-      {
-        "action": "route",
-        "rule_set": ["domestic_non_ip"],
-        "outbound": "🇨🇳CN"
       },
       {
         "action": "route",
@@ -589,6 +584,11 @@
         "action": "route",
         "rule_set": ["DirectSupplements"],
         "outbound": "🇨🇳CN"
+      },
+      {
+        "action": "route",
+        "rule_set": ["ProxyUS"],
+        "outbound": "🇺🇸US"
       },
       {
         "action": "route",
@@ -677,14 +677,6 @@
         "tag": "ProxyDownload",
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyDownload.json",
-        "format": "source",
-        "download_detour": "CDN",
-        "update_interval": "1d"
-      },
-      {
-        "tag": "CDNSupplements",
-        "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/CDNSupplements.json",
         "format": "source",
         "download_detour": "CDN",
         "update_interval": "1d"
@@ -1047,6 +1039,12 @@
         "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
+      },
+      {
+        "tag": "local_rules",
+        "type": "local",
+        "format": "source",
+        "path": "./local_rules.json"
       }
     ],
     "auto_detect_interface": true,
