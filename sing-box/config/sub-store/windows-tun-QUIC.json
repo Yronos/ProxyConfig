@@ -51,19 +51,14 @@
     ],
     "rules": [
       {
-        "action": "reject",
-        "rule_set": ["reject_non_ip", "reject_domainset"],
-        "method": "default"
-      },
-      {
-        "action": "reject",
-        "rule_set": ["reject_non_ip_drop"],
-        "method": "drop"
-      },
-      {
-        "action": "reject",
-        "rule_set": ["reject_non_ip_no_drop"],
-        "method": "default"
+        "action": "predefined",
+        "rule_set": [
+          "reject_non_ip",
+          "reject_domainset",
+          "reject_non_ip_drop",
+          "reject_non_ip_no_drop"
+        ],
+        "rcode": "NOERROR"
       },
       {
         "action": "route",
