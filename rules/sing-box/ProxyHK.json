@@ -2,6 +2,9 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "www.boxjs.com"
+      ],
       "domain_suffix": [
         "tampermonkey.net",
         "greasyfork.org",
@@ -19,10 +22,6 @@
         "mirrorz.org",
         "busiyi.world",
         "foobar2000.org",
-        "rentry.org",
-        "lrclib.net",
-        "musixmatch.com",
-        "azlyrics.com",
         "rime.im",
         "ilovepdf.com",
         "iloveimg.com",
@@ -69,16 +68,19 @@
         "darkreader.org",
         "sadidc.com",
         "atlucky.me",
-        "x666.me",
-        "b4u.qzz.io",
-        "wzw.pp.ua",
-        "duckcoding.com",
         "qingr.moe",
         "ddgksf2013.top",
         "whatshub.top",
         "haitunt.org",
         "peekabo.io",
-        "hero-sms.com"
+        "hero-sms.com",
+        "oplist.org",
+        "x666.me",
+        "b4u.qzz.io",
+        "wzw.pp.ua",
+        "duckcoding.com",
+        "215.im",
+        "zhenhaoji.qzz.io"
       ],
       "domain_keyword": [
         "hacker-news"
