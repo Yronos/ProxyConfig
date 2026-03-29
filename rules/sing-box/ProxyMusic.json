@@ -3,6 +3,8 @@
   "rules": [
     {
       "domain": [
+        "s.go-mpulse.net",
+        "qobuz-qobuz-prod.web.arc-cdn.net",
         "streaming-qobuz-std.akamaized.net"
       ],
       "domain_suffix": [
