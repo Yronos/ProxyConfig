@@ -671,8 +671,8 @@
       {
         "tag": "ProxyDownload",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyDownload.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyDownload.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -711,40 +711,40 @@
       {
         "tag": "ProxyForum",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyForum.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyForum.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "ProxyHK",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyHK.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyHK.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "ProxyJP",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyJP.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyJP.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "ForceDirect",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ForceDirect.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ForceDirect.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "cf_preferred",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/cf_preferred.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/cf_preferred.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -775,8 +775,8 @@
       {
         "tag": "bilibili",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Bilibili.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Bilibili.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -807,16 +807,16 @@
       {
         "tag": "YouTube",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/YouTube.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/YouTube.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "Google",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/Google.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/Google.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -871,8 +871,8 @@
       {
         "tag": "Meta",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Meta.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Meta.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -887,8 +887,8 @@
       {
         "tag": "ProxyMusic",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyMusic.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyMusic.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
@@ -967,16 +967,16 @@
       {
         "tag": "ProxyUS",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyUS.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyUS.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
       {
         "tag": "DirectSupplements",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/DirectSupplements.json",
-        "format": "source",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/DirectSupplements.srs",
+        "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"
       },
