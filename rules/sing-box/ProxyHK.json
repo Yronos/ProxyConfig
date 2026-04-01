@@ -2,15 +2,13 @@
   "version": 2,
   "rules": [
     {
-      "domain": [
-        "www.boxjs.com"
-      ],
       "domain_suffix": [
         "tampermonkey.net",
         "greasyfork.org",
         "userscript.zone",
         "openuserjs.org",
         "scriptcat.org",
+        "boxjs.com",
         "translate-pa.googleapis.com",
         "immersivetranslate.com",
         "follow.is",
