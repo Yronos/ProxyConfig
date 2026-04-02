@@ -3,7 +3,7 @@ name: Sync and Compile Sukka Rules (Scheduled)
 on:
   schedule:
     - cron: "0 13 * * *" # 每天 UTC 13:00 (北京时间 21:00)
-  workflow_dispatch: # 支持手动触发
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -13,6 +13,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: sing-box-rules-main
+  cancel-in-progress: false
+
 env:
   SING_BOX_VERSION: 1.13.5
   SUKKA_DIR: rules/sing-box/sukka
@@ -20,153 +24,197 @@ env:
 jobs:
   sync_sukka:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: main
 
-      - name: Set up Git user
+      - name: ⚙️ Set up Git user
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Install sing-box
-        uses: actions/cache@v3
+      - name: ⚙️ Install sing-box (cache)
+        uses: actions/cache@v4
         id: cache-singbox
         with:
           path: /usr/local/bin/sing-box
           key: sing-box-${{ env.SING_BOX_VERSION }}
 
-      - name: Download sing-box
+      - name: ⬇️ Download sing-box
         if: steps.cache-singbox.outputs.cache-hit != 'true'
         run: |
-          curl -Lo sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz
-          tar -xzf sing-box.tar.gz
-          chmod +x sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box
-          sudo mv sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box /usr/local/bin/sing-box
+          set -euo pipefail
 
-      - name: Verify sing-box installation
+          curl -Lo sing-box.tar.gz \
+            "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
+
+          tar -xzf sing-box.tar.gz
+          chmod +x "sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box"
+          sudo mv "sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box" /usr/local/bin/sing-box
+
+      - name: ✅ Verify sing-box installation
         run: sing-box version
 
-      - name: Prepare Sukka directory
+      - name: 🧹 Prepare Sukka directory
         run: |
-          mkdir -p ${SUKKA_DIR}
-          rm -rf ${SUKKA_DIR}/*
-          echo "✅ Sukka directory prepared"
+          set -euo pipefail
 
-      - name: Fetch Sukka ruleset
+          mkdir -p "${SUKKA_DIR}"
+
+          # 仅清空 Sukka 目录自身内容，不影响其他目录
+          find "${SUKKA_DIR}" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+
+          echo "✅ Sukka directory prepared: ${SUKKA_DIR}"
+
+      - name: 📥 Fetch Sukka ruleset
         run: |
-          TEMP_DIR=$(mktemp -d)
-          cd ${TEMP_DIR}
+          set -euo pipefail
+
+          TEMP_DIR="$(mktemp -d)"
+          trap 'rm -rf "${TEMP_DIR}"' EXIT
+
+          cd "${TEMP_DIR}"
 
           echo "📥 Cloning SukkaLab ruleset..."
           git clone --depth 1 --branch master https://github.com/SukkaLab/ruleset.skk.moe.git
 
           if [ -d "ruleset.skk.moe/sing-box" ]; then
-            cp -r ruleset.skk.moe/sing-box/* ${GITHUB_WORKSPACE}/${SUKKA_DIR}/
+            cp -a "ruleset.skk.moe/sing-box/." "${GITHUB_WORKSPACE}/${SUKKA_DIR}/"
             echo "✅ Sukka rules copied successfully"
           else
-            echo "❌ Error: sing-box directory not found"
+            echo "❌ Error: sing-box directory not found in Sukka repository"
             exit 1
           fi
 
-          cd ${GITHUB_WORKSPACE}
-          rm -rf ${TEMP_DIR}
-
-      - name: Compile Sukka rules
+      - name: 🔨 Compile Sukka rules
         run: |
-          cd ${SUKKA_DIR}
+          set -euo pipefail
 
-          JSON_COUNT=$(find . -type f -name "*.json" | wc -l)
+          cd "${SUKKA_DIR}"
+
+          mapfile -t json_files < <(find . -type f -name "*.json" | sort)
+
+          JSON_COUNT="${#json_files[@]}"
           echo "📝 Found ${JSON_COUNT} Sukka JSON files"
+
+          if [ "${JSON_COUNT}" -eq 0 ]; then
+            echo "❌ No Sukka JSON files found"
+            exit 1
+          fi
 
           # 删除旧的 .srs 文件
           find . -type f -name "*.srs" -delete
 
-          # 编译所有 JSON 文件
           COMPILED=0
           FAILED=0
 
-          find . -type f -name "*.json" | while read -r json_file; do
-            echo "Compiling: ${json_file}"
-            if sing-box rule-set compile "${json_file}"; then
+          for json_file in "${json_files[@]}"; do
+            srs_file="${json_file%.json}.srs"
+            echo "Compiling: ${json_file} -> ${srs_file}"
+
+            if sing-box rule-set compile --output "${srs_file}" "${json_file}"; then
               COMPILED=$((COMPILED + 1))
             else
-              echo "⚠️  Failed: ${json_file}"
+              echo "⚠️ Failed: ${json_file}"
               FAILED=$((FAILED + 1))
             fi
           done
 
           SRS_COUNT=$(find . -type f -name "*.srs" | wc -l)
-          echo "✅ Sukka compilation completed: ${SRS_COUNT}/${JSON_COUNT}"
+          echo "✅ Sukka compilation completed: ${COMPILED}/${JSON_COUNT} succeeded, ${FAILED} failed"
+          echo "📦 Generated SRS files: ${SRS_COUNT}"
 
-      # ========== 简化版 README（仅基本信息） ==========
-      - name: Generate Sukka README
+          if [ "${FAILED}" -gt 0 ]; then
+            echo "❌ Some Sukka JSON files failed to compile"
+            exit 1
+          fi
+
+      - name: 📝 Generate Sukka README
         run: |
-          cat > ${SUKKA_DIR}/README.md << 'EOF'
+          set -euo pipefail
+
+          cat > "${SUKKA_DIR}/README.md" << EOF
           # Sukka Sing-Box Rules
 
           > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe)
+          > Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          > Compiled with: sing-box v${SING_BOX_VERSION}
+
           EOF
 
-          # 添加时间戳
-          echo "> Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> ${SUKKA_DIR}/README.md
-          echo "> Compiled with: sing-box v${SING_BOX_VERSION}" >> ${SUKKA_DIR}/README.md
-          echo "" >> ${SUKKA_DIR}/README.md
+          TOTAL_SRS=$(find "${SUKKA_DIR}" -type f -name "*.srs" | wc -l)
+          echo "**Total: ${TOTAL_SRS} rules**" >> "${SUKKA_DIR}/README.md"
+          echo "" >> "${SUKKA_DIR}/README.md"
 
-          # 统计规则数量
-          TOTAL_SRS=$(find . -name "*.srs" -type f | wc -l)
-          echo "**Total: ${TOTAL_SRS} rules**" >> ${SUKKA_DIR}/README.md
-          echo "" >> ${SUKKA_DIR}/README.md
+          echo "## Available Rules" >> "${SUKKA_DIR}/README.md"
+          find "${SUKKA_DIR}" -type f -name "*.srs" | sort | sed 's|^.*/||' | sed 's|\.srs$||' | awk '{print "- `" $0 "`"}' >> "${SUKKA_DIR}/README.md"
 
-          # 简单列出所有规则（不分类）
-          echo "## Available Rules" >> ${SUKKA_DIR}/README.md
-          find ${SUKKA_DIR} -name "*.srs" -type f | sort | sed 's|^.*/||' | sed 's|\.srs$||' | awk '{print "- `" $0 "`"}' >> ${SUKKA_DIR}/README.md
-
-      # ========== 🔥 关键步骤：提交和推送 ==========
-      - name: Commit and push Sukka rules
+      - name: 📊 Show generated Sukka files
         run: |
-          git add ${SUKKA_DIR}
+          echo "📁 Sukka JSON files:"
+          find "${SUKKA_DIR}" -type f -name "*.json" | sort || true
+          echo ""
+          echo "📁 Sukka SRS files:"
+          find "${SUKKA_DIR}" -type f -name "*.srs" | sort || true
+          echo ""
+          echo "📄 README:"
+          ls -l "${SUKKA_DIR}/README.md" || true
 
-          if git diff-index --quiet HEAD --; then
+      - name: 💾 Commit and push Sukka rules
+        run: |
+          set -euo pipefail
+
+          git add "${SUKKA_DIR}"
+
+          if git diff --cached --quiet; then
             echo "✅ No changes in Sukka rules"
             exit 0
           fi
 
-          # 统计变更
           CHANGED_FILES=$(git diff --cached --name-only | wc -l)
 
-          git commit -m "chore(sukka): daily sync [${CHANGED_FILES} files]" \
-                     -m "Compiled with sing-box v${SING_BOX_VERSION}"
+          cat > /tmp/commit_msg.txt << EOF
+          chore(sukka): daily sync [${CHANGED_FILES} files]
 
-          # 推送（带重试）
-          for i in {1..3}; do
+          Auto-synced from SukkaLab/ruleset.skk.moe
+          - Compiled with sing-box v${SING_BOX_VERSION}
+          - Time: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          EOF
+
+          git commit -F /tmp/commit_msg.txt
+
+          for i in 1 2 3; do
             if git push origin HEAD:main; then
               echo "✅ Push successful"
               exit 0
-            else
-              echo "⚠️  Push failed, retrying ($i/3)..."
-              sleep 2
-              git pull --rebase origin main
             fi
+
+            echo "⚠️ Push failed, retrying (${i}/3)..."
+            git pull --rebase origin main
+            sleep 2
           done
 
           echo "❌ Push failed after 3 attempts"
           exit 1
 
-      # ========== 可选：生成执行摘要 ==========
-      - name: Generate summary
+      - name: 📝 Generate summary
         if: always()
         run: |
-          echo "## 📊 Sukka Rules Sync Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Time**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
-          echo "- **Compiler**: sing-box v${SING_BOX_VERSION}" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## 📊 Sukka Rules Sync Summary"
+            echo ""
+            echo "- **Time**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            echo "- **Compiler**: sing-box v${SING_BOX_VERSION}"
 
-          if [ -d "${SUKKA_DIR}" ]; then
-            SRS_COUNT=$(find ${SUKKA_DIR} -name "*.srs" | wc -l)
-            echo "- **Total Rules**: ${SRS_COUNT}" >> $GITHUB_STEP_SUMMARY
-          fi
+            if [ -d "${SUKKA_DIR}" ]; then
+              JSON_COUNT=$(find "${SUKKA_DIR}" -type f -name "*.json" | wc -l)
+              SRS_COUNT=$(find "${SUKKA_DIR}" -type f -name "*.srs" | wc -l)
+              echo "- **JSON Files**: ${JSON_COUNT}"
+              echo "- **SRS Files**: ${SRS_COUNT}"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
