@@ -70,7 +70,6 @@
         "clash_mode": "global",
         "server": "Cloudflare-DNS"
       },
-      //{ "action": "reject", "query_type": ["HTTPS", "SVCB"] },
       {
         "action": "route",
         "rule_set": [
@@ -79,11 +78,15 @@
           "ForceDirect",
           "domestic_non_ip",
           "direct_non_ip",
-          "DirectSupplements"
+          "DirectSupplements",
+          "download_domainset",
+          "download_non_ip"
         ],
         "server": "UDP",
         "disable_cache": false
       },
+      //{ "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
+      { "action": "reject", "query_type": ["SVCB", "HTTPS"] },
       {
         "action": "route",
         "query_type": ["A", "AAAA"],
