@@ -156,9 +156,9 @@
     },
     {
       "type": "selector",
-      "tag": "AsiaBilibili",
+      "tag": "Forum&HK",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇸🇬SG", "Selector"]
+      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇸🇬SG", "Selector"]
     },
     {
       "type": "selector",
@@ -408,12 +408,12 @@
       {
         "action": "route",
         "rule_set": ["ProxyForum"],
-        "outbound": "🇭🇰HK"
+        "outbound": "Forum&HK"
       },
       {
         "action": "route",
         "rule_set": ["ProxyHK"],
-        "outbound": "🇭🇰HK"
+        "outbound": "Forum&HK"
       },
       {
         "action": "route",
@@ -438,7 +438,7 @@
       {
         "action": "route",
         "rule_set": ["stream_biliintl"],
-        "outbound": "AsiaBilibili"
+        "outbound": "🇸🇬SG"
       },
       {
         "action": "route",
@@ -631,7 +631,7 @@
       {
         "tag": "reject_domainset",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/reject.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/reject.srs",
         "format": "binary",
         "download_detour": "CDN",
         "update_interval": "1d"

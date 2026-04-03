@@ -3,11 +3,6 @@
 # NVIDIA
 DOMAIN-SUFFIX,nvidia.com
 DOMAIN-SUFFIX,geforce.com
-DOMAIN-SUFFIX,gputechconf.com
-DOMAIN-SUFFIX,nvidiaforhp.com
-DOMAIN-SUFFIX,nvidiagrid.net
-DOMAIN-SUFFIX,shotwithgeforce.com
-DOMAIN-SUFFIX,tegrazone.com
 
 # JetBrains
 DOMAIN-SUFFIX,intellij.com
@@ -18,10 +13,6 @@ DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,jetbrains.io
 DOMAIN-SUFFIX,jetbrains.net
 DOMAIN-SUFFIX,jetbrains.org
-DOMAIN-SUFFIX,jetbrains.space
-DOMAIN-SUFFIX,jetbrains.team
-DOMAIN-SUFFIX,kotlinconf.com
-DOMAIN-SUFFIX,kotlinlang.org
 
 # notion
 DOMAIN-SUFFIX,notion.com
@@ -49,14 +40,14 @@ DOMAIN-SUFFIX,opencode.net
 DOMAIN-SUFFIX,kernel.org
 DOMAIN-SUFFIX,archlinux.org
 
-# 论坛
-DOMAIN-SUFFIX,sportscult.org
-
 # DeepSeek intercom
 DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,intercom.com
 
 # others
+DOMAIN-SUFFIX,bitwarden.com
+DOMAIN-SUFFIX,bitwarden.net
+DOMAIN-SUFFIX,standardnotes.com
 DOMAIN-SUFFIX,ente.io
 DOMAIN-SUFFIX,ssl.com
 DOMAIN-SUFFIX,entrust.net
@@ -79,8 +70,6 @@ DOMAIN-SUFFIX,cardinaltrusted.com
 DOMAIN-SUFFIX,mediamonkey.com
 DOMAIN-SUFFIX,ocsp-certum.com
 DOMAIN-SUFFIX,firehawk52.com
-DOMAIN-SUFFIX,mcp.so
-DOMAIN-SUFFIX,pulsemcp.com
 DOMAIN-SUFFIX,zed.dev
 DOMAIN-SUFFIX,roxybrowser.net
 DOMAIN-SUFFIX,livechatinc.com

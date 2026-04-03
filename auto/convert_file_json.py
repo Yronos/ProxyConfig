@@ -16,10 +16,8 @@ CONFIG = {
     "files": [
         # 格式: (输入文件, 输出文件)
         # 输出文件可以为 None，会自动生成同名 .json 文件
-        ("./rules/Bilibili.list", "./rules/sing-box/Bilibili.json"),
         ("./rules/lite/Bilibili.list", "./rules/sing-box/lite/Bilibili.json"),
         ("./rules/Biliintl.list", "./rules/sing-box/Biliintl.json"),
-        ("./rules/CDNSupplements.list", "./rules/sing-box/CDNSupplements.json"),
         ("./rules/cf_preferred.list", "./rules/sing-box/cf_preferred.json"),
         ("./rules/ForceDirect.list", "./rules/sing-box/ForceDirect.json"),
         ("./rules/ProxyDownload.list", "./rules/sing-box/ProxyDownload.json"),
