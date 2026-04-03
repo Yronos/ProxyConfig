@@ -2,9 +2,6 @@
   "version": 2,
   "rules": [
     {
-      "domain": [
-        "ice.v.ua"
-      ],
       "domain_suffix": [
         "tampermonkey.net",
         "greasyfork.org",
@@ -14,19 +11,13 @@
         "boxjs.com",
         "translate-pa.googleapis.com",
         "immersivetranslate.com",
-        "follow.is",
         "folo.is",
         "qireader.com",
         "rssreaderone.com",
         "buzzing.cc",
         "apphot.cc",
-        "mirrorz.org",
-        "busiyi.world",
         "foobar2000.org",
         "rime.im",
-        "ilovepdf.com",
-        "iloveimg.com",
-        "pdf24.org",
         "yyets.click",
         "btbtl.com",
         "bt4gprx.com",
@@ -38,9 +29,6 @@
         "opensubtitles.com",
         "olevod.com",
         "aria2e.com",
-        "bitwarden.com",
-        "bitwarden.net",
-        "standardnotes.com",
         "quantumult.app",
         "iturrit.com",
         "zotero.org",
@@ -77,15 +65,13 @@
         "peekabo.io",
         "hero-sms.com",
         "oplist.org",
-        "glados.work",
-        "glados.cloud",
-        "glados.vip",
         "x666.me",
         "b4u.qzz.io",
         "wzw.pp.ua",
         "duckcoding.com",
         "215.im",
-        "zhenhaoji.qzz.io"
+        "zhenhaoji.qzz.io",
+        "ice.v.ua"
       ],
       "domain_keyword": [
         "hacker-news"
