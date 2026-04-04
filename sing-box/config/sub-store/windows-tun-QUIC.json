@@ -2,7 +2,7 @@
   "log": {
     "disabled": false,
     "level": "warn",
-    "output": "./log/sing-box.log",
+    //"output": "./log/sing-box.log",
     "timestamp": true
   },
   "dns": {
