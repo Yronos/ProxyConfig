@@ -14,11 +14,15 @@
         "inet6_range": "fc00::/18"
       },
       {
-        "tag": "UDP",
-        "type": "udp",
-        "server_port": 53,
-        "server": "192.168.1.1"
+        "tag": "Local",
+        "type": "local"
       },
+      //{
+      //  "tag": "UDP",
+      //  "type": "udp",
+      //  "server_port": 53,
+      //  "server": "192.168.1.1"
+      //},
       {
         "tag": "Ali-QUIC",
         "type": "quic",
@@ -39,15 +43,15 @@
         "server_port": 443,
         "server": "filter.yylx.win",
         "path": "/apt-get"
-      },
-      {
-        "tag": "Cloudflare-DNS",
-        "type": "https",
-        "detour": "🇭🇰HK",
-        "server_port": 443,
-        "server": "1.1.1.1",
-        "path": "/dns-query"
       }
+      //{
+      //  "tag": "Cloudflare-DNS",
+      //  "type": "https",
+      //  "detour": "🇭🇰HK",
+      //  "server_port": 443,
+      //  "server": "1.1.1.1",
+      //  "path": "/dns-query"
+      //}
     ],
     "rules": [
       {
@@ -68,7 +72,7 @@
       {
         "action": "route",
         "clash_mode": "global",
-        "server": "Cloudflare-DNS"
+        "server": "Fake-IP"
       },
       {
         "action": "route",
@@ -82,7 +86,7 @@
           "download_domainset",
           "download_non_ip"
         ],
-        "server": "UDP",
+        "server": "Local",
         "disable_cache": false
       },
       //{ "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
@@ -349,14 +353,16 @@
         "action": "hijack-dns",
         "port": 53
       },
-      {
-        "action": "sniff",
-        "inbound": "tun-in"
-      },
-      {
-        "action": "hijack-dns",
-        "protocol": "dns"
-      },
+      //{
+      //  "action": "sniff",
+      //  "domain_suffix": ["push.apple.com"],
+      //  "rule_set": ["telegram_ip"],
+      //  "invert": true
+      //},
+      //{
+      //  "action": "hijack-dns",
+      //  "protocol": "dns"
+      //},
       {
         "action": "route",
         "ip_is_private": true,
