@@ -353,16 +353,21 @@
         "action": "hijack-dns",
         "port": 53
       },
-      //{
-      //  "action": "sniff",
-      //  "domain_suffix": ["push.apple.com"],
-      //  "rule_set": ["telegram_ip"],
-      //  "invert": true
-      //},
-      //{
-      //  "action": "hijack-dns",
-      //  "protocol": "dns"
-      //},
+      {
+        "action": "sniff",
+        "domain": [
+          "mtalk.google.com",
+          "alt1-mtalk.google.com",
+          "alt8-mtalk.google.com"
+        ],
+        "domain_suffix": ["push.apple.com"],
+        "rule_set": ["telegram_ip"],
+        "invert": true
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      },
       {
         "action": "route",
         "ip_is_private": true,
