@@ -113,7 +113,7 @@
       "tag": "tun-in",
       "interface_name": "utun",
       "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
-      "mtu": 65535,
+      //"mtu": 65535,
       "auto_route": true,
       "iproute2_table_index": 2022,
       "iproute2_rule_index": 9000,
