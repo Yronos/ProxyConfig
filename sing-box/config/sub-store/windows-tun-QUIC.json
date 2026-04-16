@@ -341,11 +341,11 @@
       "tolerance": 10,
       "interrupt_exist_connections": true,
       "outbounds": []
-    },
-    {
-      "type": "block",
-      "tag": "block"
     }
+    //{
+    //  "type": "block",
+    //  "tag": "block"
+    //}
   ],
   "route": {
     "rules": [
@@ -355,11 +355,7 @@
       },
       {
         "action": "sniff",
-        "domain": [
-          "mtalk.google.com",
-          "alt1-mtalk.google.com",
-          "alt8-mtalk.google.com"
-        ],
+        "domain": ["mtalk.google.com"],
         "domain_suffix": ["push.apple.com"],
         "rule_set": ["telegram_ip"],
         "invert": true
@@ -406,7 +402,7 @@
       {
         "action": "route",
         "rule_set": ["apple_cdn"],
-        "outbound": "🇨🇳CN"
+        "outbound": "Apple"
       },
       {
         "action": "route",
