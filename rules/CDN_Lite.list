@@ -2,9 +2,9 @@
 # 前者文件: https://ruleset.skk.moe/List/domainset/cdn.conf
 # 后者文件: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Apple/Apple_All.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Twitter/Twitter.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Discord/Discord.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Cloudflare/Cloudflare.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Akamai/Akamai.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list
 # 自定义规则数: 15
-# 前者规则总数: 4443
-# 筛选后规则数: 338
-# 覆盖率: 7.61%
+# 前者规则总数: 4451
+# 筛选后规则数: 337
+# 覆盖率: 7.57%
 #
 DOMAIN,cdn.bsky.social
 DOMAIN,images.github.media
@@ -42,7 +42,6 @@ DOMAIN,pic-bstarstatic.akamaized.net
 DOMAIN,img-s-msn-com.akamaized.net
 DOMAIN,mwf-service.akamaized.net
 DOMAIN,viu-static.akamaized.net
-DOMAIN,mycommerce.akamaized.net
 DOMAIN,melonbooks.akamaized.net
 DOMAIN,amp.akamaized.net
 DOMAIN,scontent.whatsapp.net
@@ -65,7 +64,6 @@ DOMAIN,edgestorewebpme-d2hnhfgbgnfmfuha.z01.azurefd.net
 DOMAIN,edgecdn-embza6g8cacagcbn.z01.azurefd.net
 DOMAIN,attachments.office.net
 DOMAIN,support.content.office.net
-DOMAIN,cdn.graph.office.net
 DOMAIN,cdn.forms.office.net
 DOMAIN,cdn.designerapp.osi.office.net
 DOMAIN,res-geo.cdn.office.net
@@ -155,6 +153,7 @@ DOMAIN,talon-website-prod.ecosec.on.epicgames.com
 DOMAIN,epic-social-social-modules-prod.ol.epicgames.com
 DOMAIN,sequoia.cdn-apple.com
 DOMAIN,ip-ranges.amazonaws.com
+DOMAIN,sdk.amazonaws.com
 DOMAIN,images-eds-ssl.xboxlive.com
 DOMAIN,dlassets-ssl.xboxlive.com
 DOMAIN,graph.facebook.com
