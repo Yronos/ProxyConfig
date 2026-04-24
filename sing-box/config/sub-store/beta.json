@@ -89,21 +89,39 @@
         "server": "Local",
         "disable_cache": false
       },
-      //{ "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
-      { "action": "reject", "query_type": ["SVCB", "HTTPS"] },
+      { "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
+      {
+        "action": "predefined",
+        "query_type": ["SVCB", "HTTPS"],
+        "rcode": "NOERROR"
+      },
       {
         "action": "route",
         "query_type": ["A", "AAAA"],
         "server": "Fake-IP",
-        "rewrite_ttl": 1
+        "rewrite_ttl": 300
       }
     ],
-    "disable_cache": false,
-    "disable_expire": false,
-    "final": "Pollution-DNS"
+    "final": "Pollution-DNS",
+    //"strategy": "prefer_ipv6",
+    //"client_subnet": "1.1.1.0/24",
+    //"disable_cache": false,
+    //"disable_expire": false,
+    "optimistic": {
+      "enabled": true,
+      "timeout": "3d"
+    },
+    "reverse_mapping": true
   },
   "ntp": {},
   "certificate": { "store": "mozilla" },
+  "certificate_providers": [],
+  "http_clients": [
+    {
+      "tag": "download-rule_set",
+      "detour": "CDN"
+    }
+  ],
   "endpoints": [],
   "inbounds": [
     {
@@ -637,7 +655,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -645,7 +663,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/reject.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -653,7 +671,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject-drop.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -661,7 +679,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/reject-no-drop.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -669,7 +687,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/cdn.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -677,7 +695,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/cdn.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -685,7 +703,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyDownload.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -693,7 +711,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/apple_cdn.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -701,7 +719,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/microsoft_cdn.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -709,7 +727,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/domainset/download.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -717,7 +735,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/download.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -725,7 +743,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyForum.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -733,7 +751,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyHK.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -741,7 +759,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyJP.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -749,7 +767,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ForceDirect.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -757,7 +775,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/cf_preferred.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -765,7 +783,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/apple_cn.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -773,7 +791,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/apple_services.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -781,7 +799,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/stream_biliintl.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -789,7 +807,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Bilibili.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -797,7 +815,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -805,7 +823,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/onedrive.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -813,7 +831,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/microsoft.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -821,7 +839,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/YouTube.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -829,7 +847,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/Google.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -837,7 +855,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/telegram.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -845,7 +863,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/telegram.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -853,7 +871,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/discord.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -861,7 +879,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/twitter.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       //{
@@ -869,7 +887,7 @@
       //  "type": "remote",
       //  "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/twitter.srs",
       //  "format": "binary",
-      //  "http_client": "CDN",
+      //  "http_client": "download-rule_set",
       //  "update_interval": "1d"
       //},
       {
@@ -877,7 +895,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/ai.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -885,7 +903,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Meta.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -893,7 +911,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -901,7 +919,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyMusic.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -909,7 +927,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bahamut.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -917,7 +935,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/steam.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -925,7 +943,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/epicgames.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -933,7 +951,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/xbox.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -941,7 +959,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/stream.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       //{
@@ -949,7 +967,7 @@
       //  "type": "remote",
       //  "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/stream.srs",
       //  "format": "binary",
-      //  "http_client": "CDN",
+      //  "http_client": "download-rule_set",
       //  "update_interval": "1d"
       //},
       {
@@ -957,7 +975,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cloudflare.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -965,7 +983,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/amazon.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -973,7 +991,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/global.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -981,7 +999,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/ProxyUS.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -989,7 +1007,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/DirectSupplements.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -997,7 +1015,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/domestic.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -1005,7 +1023,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/direct.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -1013,7 +1031,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/domestic.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -1021,7 +1039,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -1029,7 +1047,7 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip_ipv6.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -1044,7 +1062,7 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/connectivity-check.srs",
         "format": "binary",
-        "http_client": "CDN",
+        "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
@@ -1058,7 +1076,8 @@
     "final": "FINAL",
     "default_domain_resolver": {
       "server": "Pollution-DNS"
-    }
+    },
+    "default_http_client": "download-rule_set"
   },
   "services": [],
   "experimental": {
