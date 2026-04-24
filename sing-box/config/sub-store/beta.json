@@ -1055,7 +1055,8 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
         "format": "binary",
-        "http_client": "CDN"
+        "http_client": "download-rule_set",
+        "update_interval": "1d"
       },
       {
         "tag": "connectivity-check-geosite",
