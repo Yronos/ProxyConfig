@@ -17,6 +17,12 @@
         "tag": "Local",
         "type": "local"
       },
+      //{
+      //  "tag": "UDP",
+      //  "type": "udp",
+      //  "server_port": 53,
+      //  "server": "192.168.1.1"
+      //},
       {
         "tag": "Ali-QUIC",
         "type": "quic",
@@ -37,15 +43,15 @@
         "server_port": 443,
         "server": "filter.yylx.win",
         "path": "/apt-get"
-      },
-      {
-        "tag": "Cloudflare-DNS",
-        "type": "https",
-        "detour": "🇭🇰HK",
-        "server_port": 443,
-        "server": "1.1.1.1",
-        "path": "/dns-query"
       }
+      //{
+      //  "tag": "Cloudflare-DNS",
+      //  "type": "https",
+      //  "detour": "🇭🇰HK",
+      //  "server_port": 443,
+      //  "server": "1.1.1.1",
+      //  "path": "/dns-query"
+      //}
     ],
     "rules": [
       {
@@ -66,7 +72,7 @@
       {
         "action": "route",
         "clash_mode": "global",
-        "server": "Cloudflare-DNS"
+        "server": "Fake-IP"
       },
       {
         "action": "route",
@@ -83,14 +89,17 @@
         "server": "Local",
         "disable_cache": false
       },
-      //{ "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
-      { "action": "reject", "query_type": ["SVCB", "HTTPS"] },
+      { "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
+      {
+        "action": "predefined",
+        "query_type": ["SVCB", "HTTPS"],
+        "rcode": "NOERROR"
+      },
       {
         "action": "route",
         "query_type": ["A", "AAAA"],
         "server": "Fake-IP",
-        "rewrite_ttl": 1
-        //"strategy": "ipv4_only"
+        "rewrite_ttl": 300
       }
     ],
     "disable_cache": false,
@@ -98,7 +107,13 @@
     "independent_cache": false,
     "final": "Pollution-DNS"
   },
-  "ntp": {},
+  "ntp": {
+    "enabled": false,
+    "server": "ntp.aliyun.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "🇨🇳CN"
+  },
   "certificate": { "store": "mozilla" },
   "endpoints": [],
   "inbounds": [
@@ -107,25 +122,25 @@
       "tag": "tun-in",
       "interface_name": "utun",
       "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
-      "mtu": 65535,
+      //"mtu": 65535,
       "auto_route": true,
       "iproute2_table_index": 2022,
       "iproute2_rule_index": 9000,
       //"auto_redirect": true,
       "strict_route": true,
-      "route_exclude_address": [
-        "127.0.0.0/8",
-        "10.0.0.0/8",
-        "172.16.0.0/12",
-        //"192.168.0.0/16",
-        "169.254.0.0/16",
-        "224.0.0.0/4",
-        "255.255.255.255/32",
-        "::1/128",
-        "fc00::/7",
-        //"fe80::/10",
-        "ff00::/8"
-      ],
+      //"route_exclude_address": [
+      //  "127.0.0.0/8",
+      //  "10.0.0.0/8",
+      //  "172.16.0.0/12",
+      //  "192.168.0.0/16",
+      //  "169.254.0.0/16",
+      //  "224.0.0.0/4",
+      //  "255.255.255.255/32",
+      //  "::1/128",
+      //  "fc00::/7",
+      //  "fe80::/10",
+      //  "ff00::/8"
+      //],
       "endpoint_independent_nat": false,
       "stack": "mixed"
     }
@@ -335,17 +350,22 @@
       "tolerance": 10,
       "interrupt_exist_connections": true,
       "outbounds": []
-    },
-    {
-      "type": "block",
-      "tag": "block"
     }
+    //{
+    //  "type": "block",
+    //  "tag": "block"
+    //}
   ],
   "route": {
     "rules": [
       {
+        "action": "hijack-dns",
+        "port": 53
+      },
+      {
         "action": "sniff",
-        "inbound": "tun-in"
+        "rule_set": ["telegram_ip"],
+        "invert": true
       },
       {
         "action": "hijack-dns",
@@ -353,14 +373,20 @@
       },
       {
         "action": "route",
-        "ip_is_private": true,
+        "network": "udp",
+        "port": [123],
         "outbound": "🇨🇳CN"
       },
       {
-        "action": "reject",
-        "network": "icmp",
-        "outbound": "reply"
+        "action": "route",
+        "ip_is_private": true,
+        "outbound": "🇨🇳CN"
       },
+      //{
+      //  "action": "reject",
+      //  "network": "icmp",
+      //  "outbound": "reply"
+      //},
       {
         "action": "route",
         "clash_mode": "direct",
@@ -389,7 +415,7 @@
       {
         "action": "route",
         "rule_set": ["apple_cdn"],
-        "outbound": "🇨🇳CN"
+        "outbound": "Apple"
       },
       {
         "action": "route",
@@ -1026,7 +1052,8 @@
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
         "format": "binary",
-        "download_detour": "CDN"
+        "download_detour": "CDN",
+        "update_interval": "1d"
       },
       {
         "tag": "connectivity-check-geosite",

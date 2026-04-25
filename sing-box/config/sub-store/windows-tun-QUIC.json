@@ -89,14 +89,17 @@
         "server": "Local",
         "disable_cache": false
       },
-      //{ "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
-      { "action": "reject", "query_type": ["SVCB", "HTTPS"] },
+      { "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
+      {
+        "action": "predefined",
+        "query_type": ["SVCB", "HTTPS"],
+        "rcode": "NOERROR"
+      },
       {
         "action": "route",
         "query_type": ["A", "AAAA"],
         "server": "Fake-IP",
-        "rewrite_ttl": 1
-        //"strategy": "ipv4_only"
+        "rewrite_ttl": 300
       }
     ],
     "disable_cache": false,
@@ -104,7 +107,13 @@
     "independent_cache": false,
     "final": "Pollution-DNS"
   },
-  "ntp": {},
+  "ntp": {
+    "enabled": false,
+    "server": "ntp.aliyun.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "🇨🇳CN"
+  },
   "certificate": { "store": "mozilla" },
   "endpoints": [],
   "inbounds": [
@@ -355,8 +364,6 @@
       },
       {
         "action": "sniff",
-        "domain": ["mtalk.google.com"],
-        "domain_suffix": ["push.apple.com"],
         "rule_set": ["telegram_ip"],
         "invert": true
       },
@@ -366,14 +373,20 @@
       },
       {
         "action": "route",
-        "ip_is_private": true,
+        "network": "udp",
+        "port": [123],
         "outbound": "🇨🇳CN"
       },
       {
-        "action": "reject",
-        "network": "icmp",
-        "outbound": "reply"
+        "action": "route",
+        "ip_is_private": true,
+        "outbound": "🇨🇳CN"
       },
+      //{
+      //  "action": "reject",
+      //  "network": "icmp",
+      //  "outbound": "reply"
+      //},
       {
         "action": "route",
         "clash_mode": "direct",
