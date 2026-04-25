@@ -113,7 +113,13 @@
     },
     "reverse_mapping": true
   },
-  "ntp": {},
+  "ntp": {
+    "enabled": false,
+    "server": "ntp.aliyun.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "🇨🇳CN"
+  },
   "certificate": { "store": "mozilla" },
   "certificate_providers": [],
   "http_clients": [
@@ -371,8 +377,6 @@
       },
       {
         "action": "sniff",
-        "domain": ["mtalk.google.com"],
-        "domain_suffix": ["push.apple.com"],
         "rule_set": ["telegram_ip"],
         "invert": true
       },
@@ -382,14 +386,20 @@
       },
       {
         "action": "route",
-        "ip_is_private": true,
+        "network": "udp",
+        "port": [123],
         "outbound": "🇨🇳CN"
       },
       {
-        "action": "reject",
-        "network": "icmp",
-        "outbound": "reply"
+        "action": "route",
+        "ip_is_private": true,
+        "outbound": "🇨🇳CN"
       },
+      //{
+      //  "action": "reject",
+      //  "network": "icmp",
+      //  "outbound": "reply"
+      //},
       {
         "action": "route",
         "clash_mode": "direct",
