@@ -2,6 +2,9 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "translate-pa.googleapis.com"
+      ],
       "domain_suffix": [
         "tampermonkey.net",
         "greasyfork.org",
@@ -9,7 +12,6 @@
         "openuserjs.org",
         "scriptcat.org",
         "boxjs.com",
-        "translate-pa.googleapis.com",
         "immersivetranslate.com",
         "folo.is",
         "qireader.com",
@@ -53,10 +55,8 @@
         "asus.im",
         "jsdelivr.fyi",
         "youxiaohou.com",
-        "lxc.wiki",
         "tacool.com",
         "darkreader.org",
-        "sadidc.com",
         "atlucky.me",
         "qingr.moe",
         "ddgksf2013.top",
