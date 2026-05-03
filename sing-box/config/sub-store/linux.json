@@ -126,7 +126,7 @@
       "auto_route": true,
       "iproute2_table_index": 2022,
       "iproute2_rule_index": 9000,
-      //"auto_redirect": true,
+      "auto_redirect": true,
       "strict_route": true,
       //"route_exclude_address": [
       //  "127.0.0.0/8",
