@@ -54,7 +54,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git add rules/
+          git add rules/lite/CDN.list
           if git diff --cached --quiet; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
             echo "No changes detected"
@@ -86,7 +86,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cdn-rules-${{ github.run_number }}
-          path: rules/lite/*.list
+          path: rules/lite/CDN.list
           retention-days: 30
           if-no-files-found: warn
 
@@ -97,7 +97,7 @@ jobs:
           echo "## 📊 执行摘要" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          if [ -f rules/lite/*.list ]; then
+          if [ -f rules/lite/CDN.list ]; then
             echo "✅ 规则文件已生成" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### 生成的文件" >> $GITHUB_STEP_SUMMARY
