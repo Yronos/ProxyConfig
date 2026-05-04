@@ -86,7 +86,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cdn-rules-${{ github.run_number }}
-          path: rules/*.list
+          path: rules/lite/*.list
           retention-days: 30
           if-no-files-found: warn
 
@@ -97,11 +97,11 @@ jobs:
           echo "## 📊 执行摘要" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          if [ -f rules/*.list ]; then
+          if [ -f rules/lite/*.list ]; then
             echo "✅ 规则文件已生成" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### 生成的文件" >> $GITHUB_STEP_SUMMARY
-            ls -lh rules/*.list | awk '{print "- " $9 " (" $5 ")"}' >> $GITHUB_STEP_SUMMARY
+            ls -lh rules/lite/*.list | awk '{print "- " $9 " (" $5 ")"}' >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ 未找到生成的规则文件" >> $GITHUB_STEP_SUMMARY
           fi

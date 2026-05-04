@@ -52,7 +52,12 @@ DOMAIN-SUFFIX,adtidy.org
 """
 
 # 输出文件名 (留空则自动生成)
-OUTPUT_FILE = "CDN_Lite.list"
+# OUTPUT_FILE = "CDN_Lite.list"
+# 输出目录
+OUTPUT_DIR = "./rules/lite"
+
+# 输出文件名 (留空则自动生成)
+OUTPUT_FILE = "CDN.list"
 
 # 是否显示详细匹配信息
 VERBOSE = False
@@ -299,10 +304,24 @@ def generate_output_filename(ruleset_names: List[str], domainset_name: str) -> s
     return "-".join(ruleset_names) + "-" + domainset_name + ".list"
 
 
+# def ensure_output_dir():
+#    """确保输出目录存在"""
+#    script_dir = os.path.dirname(os.path.abspath(__file__))
+#    output_dir = os.path.join(os.path.dirname(script_dir), "rules")
+#
+#    if not os.path.exists(output_dir):
+#        os.makedirs(output_dir)
+#        print(f"[信息] 创建输出目录: {output_dir}")
+#
+#    return output_dir
+
+
 def ensure_output_dir():
     """确保输出目录存在"""
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_dir = os.path.join(os.path.dirname(script_dir), "rules")
+    output_dir = OUTPUT_DIR
+
+    if not os.path.isabs(output_dir):
+        output_dir = os.path.abspath(output_dir)
 
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
