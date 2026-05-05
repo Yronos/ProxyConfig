@@ -38,7 +38,7 @@ jobs:
 
           if [[ -n $(git status --porcelain) ]]; then
             git add .github/workflows
-            git commit -m "Sync workflows from main"
+            git commit -m "Sync workflows"
             git push origin rm
           else
             echo "No changes to sync."
