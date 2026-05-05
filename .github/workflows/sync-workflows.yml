@@ -1,0 +1,45 @@
+name: Sync workflows
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/**"
+
+jobs:
+  sync-to-rm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-repo # 检出到子目录
+
+      - name: Checkout rm branch
+        uses: actions/checkout@v4
+        with:
+          ref: rm
+          path: rm-repo
+
+      - name: Sync workflow files
+        run: |
+          # 用 main 的 workflows 目录覆盖 rm 的对应目录
+          rsync -av --delete main-repo/.github/workflows/ rm-repo/.github/workflows/
+
+      - name: Commit and push if changed
+        run: |
+          cd rm-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [[ -n $(git status --porcelain) ]]; then
+            git add .github/workflows
+            git commit -m "Sync workflows from main"
+            git push origin rm
+          else
+            echo "No changes to sync."
+          fi
