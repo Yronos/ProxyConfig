@@ -523,7 +523,7 @@
       },
       {
         "action": "route",
-        "rule_set": ["discord-geosite"],
+        "rule_set": ["Discord"],
         "outbound": "Discord"
       },
       {
@@ -533,7 +533,7 @@
       },
       {
         "action": "route",
-        "rule_set": ["twitter-geosite"],
+        "rule_set": ["twitter_non_ip"],
         "outbound": "Twitter"
       },
       {
@@ -573,11 +573,6 @@
       },
       {
         "action": "route",
-        "rule_set": ["cloudflare-geosite"],
-        "outbound": "Cloudflare"
-      },
-      {
-        "action": "route",
         "rule_set": ["apple_cn_non_ip"],
         "outbound": "Apple"
       },
@@ -588,11 +583,6 @@
       },
       {
         "action": "route",
-        "rule_set": ["amazon-geosite"],
-        "outbound": "Amazon"
-      },
-      {
-        "action": "route",
         "rule_set": ["Meta"],
         "outbound": "Meta"
       },
@@ -600,6 +590,16 @@
         "action": "route",
         "rule_set": ["stream_non_ip"],
         "outbound": "Media"
+      },
+      {
+        "action": "route",
+        "rule_set": ["cloudflare_non_ip"],
+        "outbound": "Cloudflare"
+      },
+      {
+        "action": "route",
+        "rule_set": ["amazon_non_ip"],
+        "outbound": "Amazon"
       },
       {
         "action": "route",
@@ -873,17 +873,17 @@
         "update_interval": "1d"
       },
       {
-        "tag": "discord-geosite",
+        "tag": "Discord",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/discord.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Discord.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
-        "tag": "twitter-geosite",
+        "tag": "twitter_non_ip",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/twitter.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Twitter.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
@@ -977,17 +977,17 @@
       //  "update_interval": "1d"
       //},
       {
-        "tag": "cloudflare-geosite",
+        "tag": "cloudflare_non_ip",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cloudflare.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Cloudflare.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
       },
       {
-        "tag": "amazon-geosite",
+        "tag": "amazon_non_ip",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/amazon.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Amazon.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
@@ -995,7 +995,7 @@
       {
         "tag": "global_non_ip",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/global.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Global.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
