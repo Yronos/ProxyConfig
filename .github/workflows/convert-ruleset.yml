@@ -41,9 +41,9 @@ jobs:
 
       - name: 🗂️ Ensure directories exist
         run: |
-          mkdir -p auto/rule-set
+          mkdir -p rules/rule-set
           echo "✅ Directories created"
-          ls -la auto/
+          ls -la rules/
 
       - name: 🔄 Run convert_ruleset.py
         id: run_convert
@@ -60,13 +60,13 @@ jobs:
       - name: ✅ Verify output
         id: verify
         run: |
-          if [ ! -d "auto/rule-set" ]; then
-            echo "❌ Directory auto/rule-set not found"
+          if [ ! -d "rules/rule-set" ]; then
+            echo "❌ Directory rules/rule-set not found"
             exit 1
           fi
 
           # 查找所有转换后的文件
-          file_count=$(find auto/rule-set -type f \( -name "*.list" -o -name "*.conf" \) | wc -l)
+          file_count=$(find rules/rule-set -type f \( -name "*.list" -o -name "*.conf" \) | wc -l)
 
           if [ "$file_count" -eq 0 ]; then
             echo "⚠️ No rule files generated"
@@ -77,7 +77,7 @@ jobs:
           fi
 
           # 计算总大小
-          total_size=$(du -sh auto/rule-set 2>/dev/null | cut -f1 || echo "0")
+          total_size=$(du -sh rules/rule-set 2>/dev/null | cut -f1 || echo "0")
           echo "total_size=$total_size" >> $GITHUB_OUTPUT
 
       - name: 📊 Show file structure
@@ -85,9 +85,9 @@ jobs:
           echo "📋 Rule-Set directory structure:"
           echo "-----------------------------------"
           if command -v tree &> /dev/null; then
-            tree -h auto/rule-set/ 2>/dev/null || echo "Directory empty or not found"
+            tree -h rules/rule-set/ 2>/dev/null || echo "Directory empty or not found"
           else
-            find auto/rule-set -type f -exec sh -c 'echo "  📄 {} ($(wc -l < {} | tr -d " ") lines)"' \; 2>/dev/null || echo "No files found"
+            find rules/rule-set -type f -exec sh -c 'echo "  📄 {} ($(wc -l < {} | tr -d " ") lines)"' \; 2>/dev/null || echo "No files found"
           fi
 
       - name: 💾 Commit and push changes
@@ -99,7 +99,7 @@ jobs:
           git status
 
           # 添加文件
-          git add -f auto/rule-set/ 2>/dev/null || true
+          git add -f rules/rule-set/ 2>/dev/null || true
 
           echo ""
           echo "📂 Files to be committed:"
@@ -130,7 +130,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: converted-rules-${{ github.run_number }}
-          path: auto/rule-set/**
+          path: rules/rule-set/**
           retention-days: 30
           if-no-files-found: warn
 
@@ -149,6 +149,6 @@ jobs:
             echo ""
             echo "### 📁 Generated Files"
             echo "\`\`\`"
-            find auto/rule-set -type f -exec sh -c 'echo "📄 {} - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files found"
+            find rules/rule-set -type f -exec sh -c 'echo "📄 {} - $(wc -l < {}) lines"' \; 2>/dev/null || echo "No files found"
             echo "\`\`\`"
           } >> $GITHUB_STEP_SUMMARY
