@@ -29,8 +29,10 @@ CONFIG = {
         ("./rules/mihomo/Google.list", "./rules/sing-box/Google.json"),
         ("./rules/mihomo/YouTube.list", "./rules/sing-box/YouTube.json"),
         # lite 部分
+        ("./rules/lite/Amazon.list", "./rules/sing-box/lite/Amazon.json"),
         ("./rules/lite/Bilibili.list", "./rules/sing-box/lite/Bilibili.json"),
         ("./rules/lite/CDN.list", "./rules/sing-box/lite/CDN.json"),
+        ("./rules/lite/Cloudflare.list", "./rules/sing-box/lite/Cloudflare.json"),
         ("./rules/lite/Discord.list", "./rules/sing-box/lite/Discord.json"),
         ("./rules/lite/GitHub.list", "./rules/sing-box/lite/GitHub.json"),
         ("./rules/lite/Global.list", "./rules/sing-box/lite/Global.json"),
