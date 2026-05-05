@@ -31,6 +31,7 @@ REQUEST_RETRIES = 3  # 重试次数
 
 # ---------- 删除规则列表 ----------
 RULES_TO_REMOVE = [
+    # YouTube
     "DOMAIN-SUFFIX,youtube.com",
     "DOMAIN-SUFFIX,googlevideo.com",
     "DOMAIN,youtubei.googleapis.com",
@@ -40,6 +41,7 @@ RULES_TO_REMOVE = [
     "DOMAIN-SUFFIX,youtubegaming.com",
     "DOMAIN-SUFFIX,youtubeeducation.com",
     "DOMAIN-SUFFIX,youtube-nocookie.com",
+    # Spotify
     "DOMAIN-SUFFIX,spotify.com",
     "DOMAIN-SUFFIX,spotify.design",
     "DOMAIN-SUFFIX,spotifycdn.net",
@@ -57,6 +59,7 @@ RULES_TO_REMOVE = [
     "DOMAIN-SUFFIX,spoti.fi",
     "DOMAIN-SUFFIX,pscdn.co",
     "DOMAIN-SUFFIX,scdn.co",
+    # 客户端匹配
     "USER-AGENT,AbemaTV*",
     "USER-AGENT,InstantVideo.US*",
     "USER-AGENT,Prime Video*",
