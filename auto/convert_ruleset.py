@@ -12,10 +12,17 @@ from urllib.parse import urlparse
 
 import requests
 
-# 获取脚本所在目录
+## 获取脚本所在目录
+# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+## 默认输出目录为脚本同级的 rule-set 文件夹
+# DEFAULT_OUTPUT_DIR = os.path.join(SCRIPT_DIR, "rule-set")
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# 默认输出目录为脚本同级的 rule-set 文件夹
-DEFAULT_OUTPUT_DIR = os.path.join(SCRIPT_DIR, "rule-set")
+# 推荐：显式定义父目录，方便后续维护
+PARENT_DIR = os.path.dirname(SCRIPT_DIR)
+DEFAULT_OUTPUT_DIR = os.path.join(PARENT_DIR, "rules", "rule-set")
+# 可选：确保目录存在
+os.makedirs(DEFAULT_OUTPUT_DIR, exist_ok=True)
 
 
 def download_content(url: str, timeout: int = 30) -> str:
