@@ -13,6 +13,10 @@ on:
       - "auto/filter_reject_white.py"
       - ".github/workflows/filter-reject-domainset.yml"
 
+concurrency:
+  group: filter-reject-domainset-rules
+  cancel-in-progress: false
+
 jobs:
   filter-rules:
     runs-on: ubuntu-latest

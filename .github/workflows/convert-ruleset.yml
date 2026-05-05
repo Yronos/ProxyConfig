@@ -11,6 +11,10 @@ on:
     paths:
       - "auto/convert_ruleset.py"
 
+concurrency:
+  group: convert-domainset-rules
+  cancel-in-progress: false
+
 jobs:
   convert-rules:
     runs-on: ubuntu-latest

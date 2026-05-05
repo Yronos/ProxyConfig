@@ -16,7 +16,7 @@ on:
 
 concurrency:
   group: filter-cdn-rules
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   filter-rules:
