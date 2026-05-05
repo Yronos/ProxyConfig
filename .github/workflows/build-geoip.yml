@@ -1,0 +1,298 @@
+name: Build GeoIP Rules
+
+on:
+  schedule:
+    - cron: "55 0 */3 * *"
+  workflow_dispatch:
+    inputs:
+      geoip_codes:
+        description: "GeoIP codes to export, separated by spaces."
+        required: false
+        default: "cloudflare cloudfront google twitter facebook private netflix telegram"
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: build-geoip-rules
+  cancel-in-progress: false
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    env:
+      TZ: "Asia/Shanghai"
+
+      # 默认导出的 GeoIP 分类
+      # 可按需修改，例如：
+      # cn private cloudflare cloudfront facebook google netflix telegram twitter
+      GEOIP_CODES: "cloudflare cloudfront google twitter facebook private netflix telegram"
+
+      GEOIP_DIR: "rules/GeoIP"
+      TXT_DIR: "rules/GeoIP/txt"
+      SRS_DIR: "rules/GeoIP/srs"
+      JSON_DIR: "rules/GeoIP/json"
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set GeoIP Codes
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.geoip_codes }}" ]; then
+            echo "GEOIP_CODES=${{ github.event.inputs.geoip_codes }}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Checkout v2dat
+        uses: actions/checkout@v4
+        with:
+          repository: urlesistiana/v2dat
+          path: _v2dat
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+
+      - name: Build v2dat
+        run: |
+          cd _v2dat
+          go mod tidy
+          go build -o "$RUNNER_TEMP/v2dat" .
+
+      - name: Install sing-box
+        run: |
+          set -e
+
+          SING_BOX_VERSION="$(curl -fsSL https://api.github.com/repos/SagerNet/sing-box/releases/latest | jq -r '.tag_name')"
+          echo "Latest sing-box version: ${SING_BOX_VERSION}"
+
+          DOWNLOAD_URL="https://github.com/SagerNet/sing-box/releases/download/${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION#v}-linux-amd64.tar.gz"
+
+          curl -L -o "$RUNNER_TEMP/sing-box.tar.gz" "$DOWNLOAD_URL"
+          tar -xzf "$RUNNER_TEMP/sing-box.tar.gz" -C "$RUNNER_TEMP"
+
+          find "$RUNNER_TEMP" -type f -name sing-box -exec chmod +x {} \;
+          SING_BOX_BIN="$(find "$RUNNER_TEMP" -type f -name sing-box | head -n 1)"
+
+          echo "SING_BOX_BIN=${SING_BOX_BIN}" >> "$GITHUB_ENV"
+
+          "${SING_BOX_BIN}" version
+
+      - name: Prepare Directories
+        run: |
+          rm -rf "$GEOIP_DIR"
+          mkdir -p "$GEOIP_DIR"
+          mkdir -p "$TXT_DIR"
+          mkdir -p "$SRS_DIR"
+          mkdir -p "$JSON_DIR"
+          mkdir -p "$RUNNER_TEMP/geoip-unpacked"
+
+      - name: Download GeoIP Files
+        run: |
+          echo "Downloading CN_Country.mmdb..."
+          curl -L --retry 3 -o "$GEOIP_DIR/CN_Country.mmdb" \
+            "https://raw.githubusercontent.com/Masaiki/GeoIP2-CN/release/Country.mmdb"
+
+          echo "Downloading Global_Country.mmdb..."
+          curl -L --retry 3 -o "$GEOIP_DIR/Global_Country.mmdb" \
+            "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-without-asn.mmdb"
+
+          echo "Downloading geoip.dat..."
+          curl -L --retry 3 -o "$GEOIP_DIR/geoip.dat" \
+            "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
+
+      - name: Unpack geoip.dat
+        run: |
+          set -e
+
+          echo "Unpacking geoip.dat..."
+          "$RUNNER_TEMP/v2dat" unpack geoip \
+            -o "$RUNNER_TEMP/geoip-unpacked" \
+            "$GEOIP_DIR/geoip.dat"
+
+          echo "Unpacked files:"
+          find "$RUNNER_TEMP/geoip-unpacked" -type f | sort
+
+      - name: Export Selected GeoIP TXT
+        run: |
+          set -e
+
+          echo "Selected GEOIP_CODES: $GEOIP_CODES"
+
+          for code in $GEOIP_CODES; do
+            code_lower="$(echo "$code" | tr '[:upper:]' '[:lower:]')"
+
+            src1="$RUNNER_TEMP/geoip-unpacked/geoip_${code_lower}.txt"
+            src2="$RUNNER_TEMP/geoip-unpacked/${code_lower}.txt"
+
+            if [ -f "$src1" ]; then
+              src="$src1"
+            elif [ -f "$src2" ]; then
+              src="$src2"
+            else
+              echo "::warning::GeoIP code not found: ${code_lower}"
+              continue
+            fi
+
+            dst="$TXT_DIR/${code_lower}.txt"
+
+            # 清洗：
+            # 1. 移除空行
+            # 2. 移除注释
+            # 3. 只保留 IPv4 / IPv6 CIDR 或单 IP
+            # 4. 排序去重
+            grep -E '^[0-9a-fA-F:.]+(/[0-9]+)?$' "$src" \
+              | sort -u > "$dst"
+
+            echo "Exported: $dst"
+
+            # 分离 IPv4
+            grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(/[0-9]+)?$' "$dst" \
+              | sort -u > "$TXT_DIR/${code_lower}_ipv4.txt" || true
+
+            # 分离 IPv6
+            grep -E ':' "$dst" \
+              | sort -u > "$TXT_DIR/${code_lower}_ipv6.txt" || true
+          done
+
+      - name: Convert TXT to sing-box Source JSON
+        run: |
+          set -e
+
+          python3 << 'PY'
+          import json
+          import ipaddress
+          from pathlib import Path
+
+          txt_dir = Path("rules/GeoIP/txt")
+          json_dir = Path("rules/GeoIP/json")
+          json_dir.mkdir(parents=True, exist_ok=True)
+
+          for txt_file in sorted(txt_dir.glob("*.txt")):
+              cidrs = []
+
+              for line in txt_file.read_text(encoding="utf-8").splitlines():
+                  line = line.strip()
+                  if not line or line.startswith("#"):
+                      continue
+
+                  try:
+                      # 如果是单 IP，则转换为 /32 或 /128
+                      if "/" not in line:
+                          ip = ipaddress.ip_address(line)
+                          if ip.version == 4:
+                              line = f"{line}/32"
+                          else:
+                              line = f"{line}/128"
+                      else:
+                          ipaddress.ip_network(line, strict=False)
+
+                      cidrs.append(line)
+                  except ValueError:
+                      print(f"Skip invalid CIDR: {line}")
+
+              cidrs = sorted(set(cidrs))
+
+              rule_set = {
+                  "version": 1,
+                  "rules": [
+                      {
+                          "ip_cidr": cidrs
+                      }
+                  ]
+              }
+
+              out_file = json_dir / f"{txt_file.stem}.json"
+              out_file.write_text(
+                  json.dumps(rule_set, ensure_ascii=False, indent=2),
+                  encoding="utf-8"
+              )
+
+              print(f"Generated sing-box source JSON: {out_file} ({len(cidrs)} CIDRs)")
+          PY
+
+      - name: Compile sing-box SRS
+        run: |
+          set -e
+
+          for json_file in "$JSON_DIR"/*.json; do
+            [ -f "$json_file" ] || continue
+
+            name="$(basename "$json_file" .json)"
+            srs_file="$SRS_DIR/${name}.srs"
+
+            echo "Compiling $json_file -> $srs_file"
+
+            "$SING_BOX_BIN" rule-set compile \
+              --output "$srs_file" \
+              "$json_file"
+          done
+
+      - name: Create README Navigation
+        run: |
+          cat > "$GEOIP_DIR/README.md" << EOF
+          # GeoIP Rules
+
+          最后更新: $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')
+
+          ## 目录说明
+
+          | 目录 | 说明 |
+          | --- | --- |
+          | \`txt\` | 纯文本 CIDR 列表 |
+          | \`json\` | sing-box rule-set 源格式 |
+          | \`srs\` | sing-box 编译后的二进制 rule-set |
+
+          ## 已选择的 GeoIP 分类
+
+          \`\`\`text
+          $GEOIP_CODES
+          \`\`\`
+
+          ## TXT 文件
+
+          EOF
+
+          for file in $(find "$TXT_DIR" -type f -name "*.txt" | sort); do
+            name="$(basename "$file")"
+            rel="${file#${GEOIP_DIR}/}"
+            echo "- [$name]($rel)" >> "$GEOIP_DIR/README.md"
+          done
+
+          cat >> "$GEOIP_DIR/README.md" << EOF
+
+          ## SRS 文件
+
+          EOF
+
+          for file in $(find "$SRS_DIR" -type f -name "*.srs" | sort); do
+            name="$(basename "$file")"
+            rel="${file#${GEOIP_DIR}/}"
+            echo "- [$name]($rel)" >> "$GEOIP_DIR/README.md"
+          done
+
+      - name: Show Output Tree
+        run: |
+          echo "Generated files:"
+          find "$GEOIP_DIR" -type f | sort
+
+      - name: Push Update
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+            git config --local user.name "${{ github.actor }}"
+
+            git add "$GEOIP_DIR"
+            git commit -m "Update(GeoIP): $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')"
+            git push origin main
+          else
+            echo "No changes to commit."
+          fi
