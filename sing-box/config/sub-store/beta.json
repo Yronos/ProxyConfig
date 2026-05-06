@@ -478,7 +478,7 @@
       },
       {
         "action": "route",
-        "rule_set": ["bilibili"],
+        "rule_set": ["Bilibili"],
         "outbound": "Bilibili"
       },
       {
@@ -809,7 +809,7 @@
         "update_interval": "1d"
       },
       {
-        "tag": "bilibili",
+        "tag": "Bilibili",
         "type": "remote",
         "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Bilibili.srs",
         "format": "binary",
