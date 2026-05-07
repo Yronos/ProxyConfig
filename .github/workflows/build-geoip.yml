@@ -9,9 +9,9 @@ on:
         description: "GeoIP codes to export, separated by spaces."
         required: false
         default: "cloudflare cloudfront google twitter facebook private netflix telegram"
-  push:
-    branches:
-      - main
+  #push:
+  #  branches:
+  #    - main
 
 concurrency:
   group: build-geoip-rules
