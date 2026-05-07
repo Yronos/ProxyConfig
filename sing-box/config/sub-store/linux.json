@@ -295,7 +295,7 @@
     {
       "type": "urltest",
       "tag": "🇭🇰HK",
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 10,
       "interrupt_exist_connections": true,
@@ -304,7 +304,7 @@
     {
       "type": "urltest",
       "tag": "🇹🇼TW",
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 10,
       "interrupt_exist_connections": true,
@@ -313,7 +313,7 @@
     {
       "type": "urltest",
       "tag": "🇯🇵JP",
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 10,
       "interrupt_exist_connections": true,
@@ -322,7 +322,7 @@
     {
       "type": "urltest",
       "tag": "🇸🇬SG",
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 10,
       "interrupt_exist_connections": true,
@@ -331,7 +331,7 @@
     {
       "type": "urltest",
       "tag": "🇺🇸US",
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 10,
       "interrupt_exist_connections": true,
