@@ -1,21 +1,28 @@
-# 全部图标来自于以下贡献者
+# All icons are provided by the following contributors.
 
-作者：[GitHub lige47](https://github.com/lige47)
+Author：[GitHub lige47](https://github.com/lige47)
 
-仓库：[lige47 icon](https://github.com/lige47/lige_icon)
+Repository：[lige47‘s icon](https://github.com/lige47/lige_icon)
 
-作者：[GitHub Koolson](https://github.com/Koolson)
+Author：[GitHub Koolson](https://github.com/Koolson)
 
-仓库：[Koolson icon](https://github.com/Koolson/Qure)
+Repository：[Koolson's icon](https://github.com/Koolson/Qure)
 
-作者：[GitHub Orz-3](https://github.com/Orz-3)
+Author：[GitHub Orz-3](https://github.com/Orz-3)
 
-仓库：[Orz-3 icon](https://github.com/Orz-3/mini)
+Repository：[Orz-3's icon](https://github.com/Orz-3/mini)
 
-简单引用：
-https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/apps/xxx.png
-https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/areas/xxx.png
-https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/countries/xxx.png
-https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/function/xxx.png
-https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/lines/xxx.png
-未创建图标集 icon-gallery.json
+
+### Samples：
+
+apps icons：https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/apps/xxx.png
+
+some areas icons：https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/areas/xxx.png
+
+countries or areas icons：https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/countries/xxx.png
+
+function icons：https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/function/xxx.png
+
+network lines icons：https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/icons/lines/xxx.png
+
+#### Icon set not created，such as icon-gallery.json
