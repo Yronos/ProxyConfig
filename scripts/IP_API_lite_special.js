@@ -1,6 +1,4 @@
-// ip-api.com for Quantumult X（动态国旗版）
-// 稳定 HTTP 接口 + 动态国旗 + 精简健壮
-
+// ip-api.com for Quantumult X
 if ($response.statusCode != 200) {
   $done(null);
 }
@@ -27,7 +25,7 @@ const SUBSCRIPT_MAP = {
   ".": ".",
 };
 
-// 动态生成国旗 Emoji
+// 动态生成国旗 Emoji + TW 强制显示 CN 国旗
 function getFlagEmoji(countryCode) {
   if (
     !countryCode ||
@@ -36,10 +34,17 @@ function getFlagEmoji(countryCode) {
   ) {
     return "🏳️";
   }
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt(0));
+
+  const code = countryCode.toUpperCase();
+
+  // 特殊处理：TW 返回 CN 国旗
+  if (code === "TW") {
+    return "🇨🇳";
+  }
+
+  // 动态 Unicode 生成国旗
+  const codePoints = code.split("").map((char) => 127397 + char.charCodeAt(0));
+
   return String.fromCodePoint(...codePoints);
 }
 
@@ -66,7 +71,7 @@ var ip = obj.query || "N/A";
 var isp = obj.isp || obj.org || obj.as || DEFAULTS.isp;
 var timezone = obj.timezone || DEFAULTS.timezone;
 
-// 动态国旗
+// 动态国旗（已包含 TW→CN 逻辑）
 var flag = getFlagEmoji(countryCode);
 
 // 格式化输出
@@ -74,5 +79,5 @@ var title = flag + " " + city + " " + toSubscript(ip);
 var subtitle = isp + " | " + timezone;
 var description = country + "\n" + city + "\n" + isp + "\n" + timezone;
 
-// 严格遵循官方格式返回
+// 严格遵循官方格式
 $done({ title, subtitle, ip, description });
