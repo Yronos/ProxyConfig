@@ -1,17 +1,18 @@
-// 1. 状态码检查
+// ip-api.com for Quantumult X（动态国旗优化版）
+// 稳定 HTTP 接口 + 动态国旗 + 精简健壮
+
 if ($response.statusCode != 200) {
   $done(null);
 }
 
-// 2. 默认值配置
+// 默认值
 const DEFAULTS = {
-  city: "Unknown",
-  isp: "Unknown ISP",
-  timezone: "Unknown",
-  flag: "🏳️",
+  city: "未知位置",
+  isp: "未知 ISP",
+  timezone: "未知时区",
 };
 
-// 3. 下标数字映射（字符串键）
+// IPv4 下标数字映射
 const SUBSCRIPT_MAP = {
   0: "₀",
   1: "₁",
@@ -26,235 +27,26 @@ const SUBSCRIPT_MAP = {
   ".": ".",
 };
 
-// 4. 国旗映射表
-const flags = new Map([
-  ["AE", "🇦🇪"],
-  ["AF", "🇦🇫"],
-  ["AI", "🇦🇮"],
-  ["AL", "🇦🇱"],
-  ["AQ", "🇦🇶"],
-  ["AR", "🇦🇷"],
-  ["AT", "🇦🇹"],
-  ["AU", "🇦🇺"],
-  ["AZ", "🇦🇿"],
-  ["BD", "🇧🇩"],
-  ["BE", "🇧🇪"],
-  ["BG", "🇧🇬"],
-  ["BW", "🇧🇼"],
-  ["BY", "🇧🇾"],
-  ["CA", "🇨🇦"],
-  ["CF", "🇨🇫"],
-  ["CH", "🇨🇭"],
-  ["CK", "🇨🇰"],
-  ["CL", "🇨🇱"],
-  ["CM", "🇨🇲"],
-  ["CN", "🇨🇳"],
-  ["CO", "🇨🇴"],
-  ["CP", "🇨🇵"],
-  ["CR", "🇨🇷"],
-  ["CU", "🇨🇺"],
-  ["CV", "🇨🇻"],
-  ["CW", "🇨🇼"],
-  ["CX", "🇨🇽"],
-  ["CY", "🇨🇾"],
-  ["CZ", "🇨🇿"],
-  ["DE", "🇩🇪"],
-  ["DG", "🇩🇬"],
-  ["DJ", "🇩🇯"],
-  ["DK", "🇩🇰"],
-  ["DM", "🇩🇲"],
-  ["DO", "🇩🇴"],
-  ["DZ", "🇩🇿"],
-  ["EA", "🇪🇦"],
-  ["EC", "🇪🇨"],
-  ["EE", "🇪🇪"],
-  ["EG", "🇪🇬"],
-  ["EH", "🇪🇭"],
-  ["ER", "🇪🇷"],
-  ["ES", "🇪🇸"],
-  ["ET", "🇪🇹"],
-  ["EU", "🇪🇺"],
-  ["FI", "🇫🇮"],
-  ["FJ", "🇫🇯"],
-  ["FK", "🇫🇰"],
-  ["FM", "🇫🇲"],
-  ["FO", "🇫🇴"],
-  ["FR", "🇫🇷"],
-  ["GA", "🇬🇦"],
-  ["GB", "🇬🇧"],
-  ["GD", "🇬🇩"],
-  ["GE", "🇬🇪"],
-  ["GF", "🇬🇫"],
-  ["GG", "🇬🇬"],
-  ["GH", "🇬🇭"],
-  ["GI", "🇬🇮"],
-  ["GL", "🇬🇱"],
-  ["GM", "🇬🇲"],
-  ["GN", "🇬🇳"],
-  ["GP", "🇬🇵"],
-  ["GQ", "🇬🇶"],
-  ["GR", "🇬🇷"],
-  ["GT", "🇬🇹"],
-  ["GU", "🇬🇺"],
-  ["GW", "🇬🇼"],
-  ["GY", "🇬🇾"],
-  ["HK", "🇭🇰"],
-  ["HN", "🇭🇳"],
-  ["HR", "🇭🇷"],
-  ["HT", "🇭🇹"],
-  ["HU", "🇭🇺"],
-  ["ID", "🇮🇩"],
-  ["IE", "🇮🇪"],
-  ["IL", "🇮🇱"],
-  ["IM", "🇮🇲"],
-  ["IN", "🇮🇳"],
-  ["IQ", "🇮🇶"],
-  ["IR", "🇮🇷"],
-  ["IS", "🇮🇸"],
-  ["IT", "🇮🇹"],
-  ["JE", "🇯🇪"],
-  ["JM", "🇯🇲"],
-  ["JO", "🇯🇴"],
-  ["JP", "🇯🇵"],
-  ["KE", "🇰🇪"],
-  ["KG", "🇰🇬"],
-  ["KH", "🇰🇭"],
-  ["KI", "🇰🇮"],
-  ["KM", "🇰🇲"],
-  ["KN", "🇰🇳"],
-  ["KP", "🇰🇵"],
-  ["KR", "🇰🇷"],
-  ["KW", "🇰🇼"],
-  ["KY", "🇰🇾"],
-  ["KZ", "🇰🇿"],
-  ["LA", "🇱🇦"],
-  ["LB", "🇱🇧"],
-  ["LC", "🇱🇨"],
-  ["LI", "🇱🇮"],
-  ["LK", "🇱🇰"],
-  ["LR", "🇱🇷"],
-  ["LS", "🇱🇸"],
-  ["LT", "🇱🇹"],
-  ["LU", "🇱🇺"],
-  ["LV", "🇱🇻"],
-  ["LY", "🇱🇾"],
-  ["MA", "🇲🇦"],
-  ["MC", "🇲🇨"],
-  ["MD", "🇲🇩"],
-  ["ME", "🇲🇪"],
-  ["MG", "🇲🇬"],
-  ["MH", "🇲🇭"],
-  ["MK", "🇲🇰"],
-  ["ML", "🇲🇱"],
-  ["MM", "🇲🇲"],
-  ["MN", "🇲🇳"],
-  ["MO", "🇲🇴"],
-  ["MP", "🇲🇵"],
-  ["MQ", "🇲🇶"],
-  ["MR", "🇲🇷"],
-  ["MS", "🇲🇸"],
-  ["MT", "🇲🇹"],
-  ["MU", "🇲🇺"],
-  ["MV", "🇲🇻"],
-  ["MW", "🇲🇼"],
-  ["MX", "🇲🇽"],
-  ["MY", "🇲🇾"],
-  ["MZ", "🇲🇿"],
-  ["NA", "🇳🇦"],
-  ["NC", "🇳🇨"],
-  ["NE", "🇳🇪"],
-  ["NF", "🇳🇫"],
-  ["NG", "🇳🇬"],
-  ["NI", "🇳🇮"],
-  ["NL", "🇳🇱"],
-  ["NO", "🇳🇴"],
-  ["NP", "🇳🇵"],
-  ["NR", "🇳🇷"],
-  ["NU", "🇳🇺"],
-  ["NZ", "🇳🇿"],
-  ["OM", "🇴🇲"],
-  ["PA", "🇵🇦"],
-  ["PE", "🇵🇪"],
-  ["PF", "🇵🇫"],
-  ["PG", "🇵🇬"],
-  ["PH", "🇵🇭"],
-  ["PK", "🇵🇰"],
-  ["PL", "🇵🇱"],
-  ["PM", "🇵🇲"],
-  ["PN", "🇵🇳"],
-  ["PR", "🇵🇷"],
-  ["PS", "🇵🇸"],
-  ["PT", "🇵🇹"],
-  ["PW", "🇵🇼"],
-  ["PY", "🇵🇾"],
-  ["QA", "🇶🇦"],
-  ["RE", "🇷🇪"],
-  ["RO", "🇷🇴"],
-  ["RS", "🇷🇸"],
-  ["RU", "🇷🇺"],
-  ["RW", "🇷🇼"],
-  ["SA", "🇸🇦"],
-  ["SB", "🇸🇧"],
-  ["SC", "🇸🇨"],
-  ["SD", "🇸🇩"],
-  ["SE", "🇸🇪"],
-  ["SG", "🇸🇬"],
-  ["SH", "🇸🇭"],
-  ["SI", "🇸🇮"],
-  ["SK", "🇸🇰"],
-  ["SL", "🇸🇱"],
-  ["SM", "🇸🇲"],
-  ["SN", "🇸🇳"],
-  ["SO", "🇸🇴"],
-  ["SR", "🇸🇷"],
-  ["SS", "🇸🇸"],
-  ["ST", "🇸🇹"],
-  ["SV", "🇸🇻"],
-  ["SX", "🇸🇽"],
-  ["SY", "🇸🇾"],
-  ["SZ", "🇸🇿"],
-  ["TC", "🇹🇨"],
-  ["TD", "🇹🇩"],
-  ["TF", "🇹🇫"],
-  ["TG", "🇹🇬"],
-  ["TH", "🇹🇭"],
-  ["TJ", "🇹🇯"],
-  ["TK", "🇹🇰"],
-  ["TL", "🇹🇱"],
-  ["TM", "🇹🇲"],
-  ["TN", "🇹🇳"],
-  ["TO", "🇹🇴"],
-  ["TR", "🇹🇷"],
-  ["TT", "🇹🇹"],
-  ["TV", "🇹🇻"],
-  ["TW", "🇨🇳"],
-  ["TZ", "🇹🇿"],
-  ["UA", "🇺🇦"],
-  ["UG", "🇺🇬"],
-  ["UK", "🇬🇧"],
-  ["UM", "🇺🇲"],
-  ["US", "🇺🇸"],
-  ["UY", "🇺🇾"],
-  ["UZ", "🇺🇿"],
-  ["VA", "🇻🇦"],
-  ["VC", "🇻🇨"],
-  ["VE", "🇻🇪"],
-  ["VG", "🇻🇬"],
-  ["VI", "🇻🇮"],
-  ["VN", "🇻🇳"],
-  ["VU", "🇻🇺"],
-  ["WF", "🇼🇫"],
-  ["WS", "🇼🇸"],
-  ["YE", "🇾🇪"],
-  ["YT", "🇾🇹"],
-  ["ZA", "🇿🇦"],
-  ["ZM", "🇿🇲"],
-  ["ZW", "🇿🇼"],
-]);
+// 动态生成国旗 Emoji
+function getFlagEmoji(countryCode) {
+  if (
+    !countryCode ||
+    typeof countryCode !== "string" ||
+    countryCode.length !== 2
+  ) {
+    return "🏳️";
+  }
+  const codePoints = countryCode
+    .toUpperCase()
+    .split("")
+    .map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
 
-// 5. 工具函数：IP 转下标数字
+// IP 转下标（IPv4 美化，IPv6 保持原样）
 function toSubscript(str) {
-  if (!str) return "";
+  if (!str) return "N/A";
+  if (str.indexOf(":") !== -1) return str; // IPv6
   return str
     .toString()
     .split("")
@@ -262,26 +54,25 @@ function toSubscript(str) {
     .join("");
 }
 
-// 6. 解析响应数据
+// ==================== 主逻辑 ====================
 var body = $response.body;
 var obj = JSON.parse(body);
 
-// 7. 提取数据
+// 提取数据（适配 ip-api.com 结构）
 var country = obj.country || "Unknown";
 var countryCode = obj.countryCode || "";
 var city = obj.city || DEFAULTS.city;
-var query = obj.query || "0.0.0.0";
-var isp = obj.org || obj.as || obj.isp || DEFAULTS.isp;
+var ip = obj.query || "N/A";
+var isp = obj.isp || obj.org || obj.as || DEFAULTS.isp;
 var timezone = obj.timezone || DEFAULTS.timezone;
 
-// 8. 获取国旗
-var flag = flags.get(countryCode) || DEFAULTS.flag;
+// 动态国旗
+var flag = getFlagEmoji(countryCode);
 
-// 9. 格式化输出
-var title = flag + " " + city + " " + toSubscript(query);
+// 格式化输出
+var title = flag + " " + city + " " + toSubscript(ip);
 var subtitle = isp + " | " + timezone;
-var ip = query;
 var description = country + "\n" + city + "\n" + isp + "\n" + timezone;
 
-// 10. 返回结果（必须包含 title, subtitle, ip, description）
+// 严格遵循官方格式返回
 $done({ title, subtitle, ip, description });
