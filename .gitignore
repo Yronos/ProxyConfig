@@ -5,9 +5,8 @@ __pycache__/
 *.so
 .Python
 
-# 原始下载文件（可选：如果不想提交）
-auto/rule-set/
-
+# nodejs
+node_modules/
 
 # 环境
 .env

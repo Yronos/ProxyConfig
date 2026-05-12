@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "fast-cidr-tools": "^1.2.0"
+    "fast-cidr-tools": "^0.3.4"
   },
   "scripts": {
     "filter": "node auto/filter_cloudip.js"
