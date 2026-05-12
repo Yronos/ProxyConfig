@@ -1,4 +1,4 @@
-// auto/filter-cloudip.js
+// auto/filter_cloudip.js
 import fs from "fs";
 import https from "https";
 import { exclude, merge } from "fast-cidr-tools";
@@ -79,8 +79,10 @@ async function main() {
     );
 
     // 剔除中国 IP 部分
-    let filteredIPv4 = exclude(chinaIPv4, ipv4List);
-    let filteredIPv6 = exclude(chinaIPv6, ipv6List);
+    //let filteredIPv4 = exclude(chinaIPv4, ipv4List);
+    //let filteredIPv6 = exclude(chinaIPv6, ipv6List);
+    let filteredIPv4 = exclude(ipv4List, chinaIPv4);
+    let filteredIPv6 = exclude(ipv6List, chinaIPv6);
 
     // 合并优化（推荐用于代理规则）
     filteredIPv4 = merge(filteredIPv4);
