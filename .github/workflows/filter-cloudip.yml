@@ -1,0 +1,42 @@
+name: Filter CloudIP Non-CN Lists
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 每天北京时间 11:00 执行（UTC+8）
+  workflow_dispatch: # 支持手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run IP filter script
+        run: node auto/filter_cloudip.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add rules/CloudIP/
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update CloudIP non-cn lists (auto)"
+            git push
+          fi

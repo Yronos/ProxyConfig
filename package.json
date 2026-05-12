@@ -1,0 +1,11 @@
+{
+  "name": "cloudip-non-cn-filter",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "fast-cidr-tools": "^1.2.0"
+  },
+  "scripts": {
+    "filter": "node auto/filter_cloudip.js"
+  }
+}
