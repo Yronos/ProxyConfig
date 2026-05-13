@@ -21,15 +21,19 @@ DOMAIN-SUFFIX,intercom.com
 DOMAIN-SUFFIX,trakt.tv
 DOMAIN-SUFFIX,tmdb.org
 
+# 证书
+DOMAIN-SUFFIX,ssl.com
+DOMAIN-SUFFIX,entrust.net
+DOMAIN-SUFFIX,digicert.com
+DOMAIN-SUFFIX,usertrust.com
+DOMAIN-SUFFIX,swisssign.net
+DOMAIN-SUFFIX,swisssign.com
+
 # others
 DOMAIN-SUFFIX,bitwarden.com
 DOMAIN-SUFFIX,bitwarden.net
 DOMAIN-SUFFIX,standardnotes.com
 DOMAIN-SUFFIX,ente.io
-DOMAIN-SUFFIX,ssl.com
-DOMAIN-SUFFIX,entrust.net
-DOMAIN-SUFFIX,digicert.com
-DOMAIN-SUFFIX,usertrust.com
 DOMAIN-SUFFIX,branch.io
 DOMAIN-SUFFIX,awswaf.com
 DOMAIN-SUFFIX,hcaptcha.com
