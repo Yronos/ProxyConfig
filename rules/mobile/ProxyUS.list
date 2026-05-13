@@ -1,0 +1,39 @@
+# This website list recommends using a US node proxy
+# 基于 https://ruleset.skk.moe/List/non_ip/global.conf 内容补充，已覆盖部分规则被注释
+# notion
+DOMAIN-SUFFIX,notion.com
+DOMAIN-SUFFIX,notion.site
+DOMAIN-SUFFIX,sprig.com
+DOMAIN-SUFFIX,gist.build
+DOMAIN-SUFFIX,customer.io
+
+# ProtonMail
+DOMAIN-SUFFIX,protonmail.ch
+DOMAIN-SUFFIX,protonmail.com
+DOMAIN-SUFFIX,protonstatus.com
+DOMAIN-SUFFIX,pm.me
+
+# DeepSeek intercom
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercom.com
+
+# TV
+DOMAIN-SUFFIX,trakt.tv
+DOMAIN-SUFFIX,tmdb.org
+
+# others
+DOMAIN-SUFFIX,bitwarden.com
+DOMAIN-SUFFIX,bitwarden.net
+DOMAIN-SUFFIX,standardnotes.com
+DOMAIN-SUFFIX,ente.io
+DOMAIN-SUFFIX,ssl.com
+DOMAIN-SUFFIX,entrust.net
+DOMAIN-SUFFIX,digicert.com
+DOMAIN-SUFFIX,usertrust.com
+DOMAIN-SUFFIX,branch.io
+DOMAIN-SUFFIX,awswaf.com
+DOMAIN-SUFFIX,hcaptcha.com
+DOMAIN-SUFFIX,jscrambler.com
+DOMAIN-SUFFIX,stripe.com
+DOMAIN-SUFFIX,cardinaltrusted.com
+DOMAIN-SUFFIX,firehawk52.com

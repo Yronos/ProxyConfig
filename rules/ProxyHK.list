@@ -36,10 +36,7 @@ DOMAIN-SUFFIX,opensubtitles.com
 DOMAIN-SUFFIX,olevod.com
 #其他
 DOMAIN-SUFFIX,aria2e.com
-DOMAIN-SUFFIX,quantumult.app
-DOMAIN-SUFFIX,iturrit.com
 DOMAIN-SUFFIX,zotero.org
-DOMAIN-SUFFIX,fileball.app
 DOMAIN-SUFFIX,ca.eu.org
 DOMAIN-SUFFIX,us.eu.org
 DOMAIN-SUFFIX,now61.com
@@ -81,3 +78,7 @@ DOMAIN-SUFFIX,muyuan.do
 # VPS
 DOMAIN-SUFFIX,sadidc.com
 DOMAIN-SUFFIX,lxc.neko.mo.cn
+# drop
+#DOMAIN-SUFFIX,quantumult.app
+#DOMAIN-SUFFIX,iturrit.com
+#DOMAIN-SUFFIX,fileball.app
