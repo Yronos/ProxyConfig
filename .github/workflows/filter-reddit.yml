@@ -1,7 +1,7 @@
 name: Filter Reddit Rules
 
 on:
-  # UTC 时间每月1号和15号的上午9:00 (下午5:00 CST) 运行
+  # UTC 时间每月11号的上午9:00 (下午5:00 CST) 运行
   schedule:
     - cron: "0 9 11 * *"
 
