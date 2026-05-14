@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SING_BOX_VERSION: 1.13.5
+  SING_BOX_VERSION: 1.13.11
   SUKKA_DIR: rules/sing-box/sukka
 
 jobs:
