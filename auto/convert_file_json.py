@@ -36,6 +36,7 @@ CONFIG = {
         ("./rules/lite/Discord.list", "./rules/sing-box/lite/Discord.json"),
         ("./rules/lite/GitHub.list", "./rules/sing-box/lite/GitHub.json"),
         ("./rules/lite/Global.list", "./rules/sing-box/lite/Global.json"),
+        ("./rules/lite/Google.list", "./rules/sing-box/lite/Google.json"),
         ("./rules/lite/Meta.list", "./rules/sing-box/lite/Meta.json"),
         ("./rules/lite/Reddit.list", "./rules/sing-box/lite/Reddit.json"),
         ("./rules/lite/reject.list", "./rules/sing-box/lite/reject.json"),
