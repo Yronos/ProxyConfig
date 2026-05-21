@@ -102,7 +102,7 @@
     ],
     "final": "Pollution-DNS",
     //"strategy": "prefer_ipv6",
-    //"client_subnet": "222.222.222.222/32",
+    //"client_subnet": "1.1.1.1/32",
     //"disable_cache": false,
     //"disable_expire": false,
     "optimistic": {
@@ -627,8 +627,8 @@
         "outbound": "🇨🇳CN"
       },
       {
-        "action": "resolve",
-        "client_subnet": "222.222.222.222/32"
+        "action": "resolve"
+        //"client_subnet": "1.1.1.1/32"
       },
       //{
       //  "action": "route",
