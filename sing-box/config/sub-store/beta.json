@@ -558,7 +558,7 @@
       },
       {
         "action": "route",
-        "rule_set": ["bahamut-geosite"],
+        "rule_set": ["Bahamut"],
         "outbound": "Bahamut"
       },
       {
@@ -930,9 +930,9 @@
         "update_interval": "1d"
       },
       {
-        "tag": "bahamut-geosite",
+        "tag": "Bahamut",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bahamut.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/Bahamut.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
@@ -1020,7 +1020,7 @@
       {
         "tag": "domestic_non_ip",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/non_ip/domestic.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/domestic.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
