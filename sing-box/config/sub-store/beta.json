@@ -1020,7 +1020,7 @@
       {
         "tag": "domestic_non_ip",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/domestic.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Domestic.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
