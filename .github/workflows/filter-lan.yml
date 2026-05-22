@@ -4,7 +4,7 @@ on:
   # 定时执行：每 7 天的 UTC 00:18
   # 北京时间：每周一 08:18
   schedule:
-    - cron: "18 0 * * 1"
+    - cron: "25 0 * * 1"
 
   # 支持手动触发
   workflow_dispatch:
