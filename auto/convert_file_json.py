@@ -16,6 +16,7 @@ CONFIG = {
     "files": [
         # 格式: (输入文件, 输出文件)
         # 输出文件可以为 None，会自动生成同名 .json 文件
+        ("./rules/Bahamut.list", "./rules/sing-box/Bahamut.json"),
         ("./rules/Biliintl.list", "./rules/sing-box/Biliintl.json"),
         ("./rules/cf_preferred.list", "./rules/sing-box/cf_preferred.json"),
         ("./rules/ForceDirect.list", "./rules/sing-box/ForceDirect.json"),
