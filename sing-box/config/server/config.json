@@ -1,0 +1,208 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "Local",
+        "type": "local"
+      }
+      //{
+      //  "tag": "UDP",
+      //  "type": "udp",
+      //  "server_port": 53,
+      //  "server": "192.168.1.1"
+      //},
+      //{
+      //  "tag": "Cloudflare-DNS",
+      //  "type": "https",
+      //  "detour": "🇭🇰HK",
+      //  "server_port": 443,
+      //  "server": "1.1.1.1",
+      //  "path": "/dns-query"
+      //}
+    ],
+    "rules": [],
+    "final": "Local",
+    //"strategy": "prefer_ipv6",
+    //"client_subnet": "1.1.1.1/32",
+    //"disable_cache": false,
+    //"disable_expire": false,
+    "optimistic": {
+      "enabled": true,
+      "timeout": "3d"
+    },
+    "reverse_mapping": true
+  },
+  "ntp": {
+    "enabled": false,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "direct"
+  },
+  "certificate": { "store": "mozilla" },
+  "certificate_providers": [],
+  "http_clients": [
+    {
+      "tag": "download-rule_set",
+      "detour": "direct"
+    }
+  ],
+  "endpoints": [],
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-brutal-sb-in",
+      "listen": "::",
+      "listen_port": 1087, //可自定义修改
+      "sniff": true,
+      "sniff_override_destination": true,
+      "users": [
+        {
+          "uuid": "6bd95dcb-1499-482d-9741-70ac1cbc4710", //执行 sing-box generate uuid 生成
+          "flow": ""
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.cdn-apple.com", //可自定义修改，可以不改，但是推荐用https://bgp.tools/去扫你VPS或独服同IP网段里的网站延迟低
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "icloud.cdn-apple.com", //可自定义修改，可以不改，但是推荐用https://bgp.tools/去扫你VPS或独服同IP网段里的网站延迟低
+            "server_port": 443
+          },
+          "private_key": "ILlA7oqf6yP1nlx09ZB9cHGxoxQb1PB3OwyVcuVEhkU", // 执行 sing-box generate reality-keypair 生成
+          "short_id": [
+            "429cca4e7bbf30c4" // 0 到 f，长度为 2 的倍数，长度上限为 16，可留空，或执行 sing-box generate rand 8 --hex 生成
+          ]
+        }
+      },
+      "multiplex": {
+        "enabled": true,
+        "padding": false, //V2rayN自定义的sing-box内核中，VLESS-Vision-REALITY 不能启用 padding，会造成连接错误无法上网。单纯内核启动可以启用，暂时属于V2rayN的某个问题。
+        "brutal": {
+          "enabled": true,
+          "up_mbps": 600,
+          "down_mbps": 600
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "vless-sb-in",
+      "listen": "::",
+      "listen_port": 3729,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "users": [
+        {
+          "uuid": "f131ddb4-f69e-48a0-91ec-f7fede7050ce",
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.cdn-apple.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "icloud.cdn-apple.com",
+            "server_port": 443
+          },
+          "private_key": "AFUKzqiT5-0O75EgeepzoalIibIXrJBiSwXLfxFGW0Y",
+          "short_id": ["a81fba46b2c38bc7"]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "inbound": ["vless-brutal-sb-in"],
+        "outbound": "direct"
+      },
+      {
+        "inbound": ["vless-sb-in"],
+        "outbound": "direct"
+      },
+      {
+        "action": "resolve"
+        //"client_subnet": "1.1.1.1/32"
+      },
+      {
+        "action": "route",
+        "rule_set": ["domestic_ip"],
+        "outbound": "block"
+      },
+      {
+        "action": "route",
+        "rule_set": ["china_ip"],
+        "outbound": "block"
+      },
+      {
+        "action": "route",
+        "rule_set": ["china_ip_ipv6"],
+        "outbound": "block"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "domestic_ip",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/domestic.srs",
+        "format": "binary",
+        "http_client": "download-rule_set",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "china_ip",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip.srs",
+        "format": "binary",
+        "http_client": "download-rule_set",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "china_ip_ipv6",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/sukka/ip/china_ip_ipv6.srs",
+        "format": "binary",
+        "http_client": "download-rule_set",
+        "update_interval": "1d"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "direct",
+    "default_domain_resolver": {
+      "server": "Local"
+    },
+    "default_http_client": "download-rule_set"
+  },
+  "services": [],
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "cache_data",
+      "store_dns": true
+    }
+  }
+}
