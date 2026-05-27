@@ -29,6 +29,7 @@ RULESET_URLS = [
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list",
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list",
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list",
+    "https://ruleset.skk.moe/List/non_ip/ai.conf",
 ]
 
 # 自定义规则 - 手动添加没有规则集的服务
