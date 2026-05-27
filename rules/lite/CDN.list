@@ -1,11 +1,12 @@
 # 规则合并与提取结果
 # 前者文件: https://ruleset.skk.moe/List/domainset/cdn.conf
-# 后者文件: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Apple/Apple_All.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Twitter/Twitter.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Discord/Discord.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Cloudflare/Cloudflare.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Akamai/Akamai.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list
+# 后者文件: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Apple/Apple_All.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Twitter/Twitter.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Discord/Discord.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Cloudflare/Cloudflare.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Akamai/Akamai.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list, https://ruleset.skk.moe/List/non_ip/ai.conf
 # 自定义规则数: 15
-# 前者规则总数: 4477
-# 筛选后规则数: 338
-# 覆盖率: 7.55%
+# 前者规则总数: 4482
+# 筛选后规则数: 348
+# 覆盖率: 7.76%
 #
+DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN,cdn.bsky.social
 DOMAIN,images.github.media
 DOMAIN,c.pki.goog
@@ -153,6 +154,10 @@ DOMAIN,cdn1.epicgames.com
 DOMAIN,talon-website-prod.ecosec.on.epicgames.com
 DOMAIN,epic-social-social-modules-prod.ol.epicgames.com
 DOMAIN,sequoia.cdn-apple.com
+DOMAIN,assets-proxy.anthropic.com
+DOMAIN,www-cdn.anthropic.com
+DOMAIN,s-cdn.anthropic.com
+DOMAIN,a-cdn.anthropic.com
 DOMAIN,ip-ranges.amazonaws.com
 DOMAIN,sdk.amazonaws.com
 DOMAIN,images-eds-ssl.xboxlive.com
@@ -236,6 +241,11 @@ DOMAIN,video.bsky.app
 DOMAIN,cloudflare.tv
 DOMAIN,assets.onestore.ms
 DOMAIN,widget.intercom.io
+DOMAIN,pplx-next-static-public.perplexity.ai
+DOMAIN,frontend-cdn.perplexity.ai
+DOMAIN,r2cdn.perplexity.ai
+DOMAIN,assets-docs.dify.ai
+DOMAIN,assets.dify.ai
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,safebrowsing.apple
 DOMAIN-SUFFIX,ampproject.org
