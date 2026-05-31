@@ -4,7 +4,6 @@
     {
       "domain": [
         "mobile.hotspot",
-        "ntt.setup",
         "pi.hole",
         "homerouter.cpe"
       ],
@@ -12,7 +11,6 @@
         "localdomain",
         "internal",
         "router",
-        "ui.direct",
         "local",
         "home",
         "168.192.in-addr.arpa",
