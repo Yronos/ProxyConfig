@@ -76,11 +76,6 @@
       },
       {
         "action": "route",
-        "domain_suffix": ["taobao.com"],
-        "server": "Ali-QUIC"
-      },
-      {
-        "action": "route",
         "rule_set": [
           "private-geosite",
           "connectivity-check-geosite",
