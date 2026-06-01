@@ -77,8 +77,7 @@
       {
         "action": "route",
         "domain_suffix": ["taobao.com"],
-        "server": "Local",
-        "strategy": "prefer_ipv4"
+        "server": "Ali-QUIC"
       },
       {
         "action": "route",
