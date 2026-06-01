@@ -76,6 +76,12 @@
       },
       {
         "action": "route",
+        "domain_suffix": ["taobao.com"],
+        "server": "Local",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "action": "route",
         "rule_set": [
           "private-geosite",
           "connectivity-check-geosite",
