@@ -160,7 +160,7 @@
       "type": "selector",
       "tag": "Selector",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇨🇳CN"]
+      "outbounds": ["🇨🇳CN"]
     },
     {
       "type": "selector",
@@ -197,12 +197,10 @@
         "🇭🇰HK",
         "🇹🇼TW",
         "🇸🇬SG",
-        "Selector",
         "🇭🇰HK-M",
         "🇹🇼TW-M",
-        "🇯🇵JP-M",
         "🇸🇬SG-M",
-        "🇺🇸US-M"
+        "Selector"
       ]
     },
     {
@@ -317,7 +315,7 @@
       "type": "selector",
       "tag": "Bahamut",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇹🇼TW", "🇭🇰HK", "🇭🇰HK-M", "🇹🇼TW-M"]
+      "outbounds": ["🇹🇼TW", "🇭🇰HK", "🇹🇼TW-M", "🇭🇰HK-M"]
     },
     {
       "type": "selector",
@@ -371,13 +369,38 @@
       "type": "selector",
       "tag": "Game",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇨🇳CN"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇨🇳CN",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
       "tag": "Cloudflare",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
@@ -389,7 +412,19 @@
       "type": "selector",
       "tag": "Meta",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
