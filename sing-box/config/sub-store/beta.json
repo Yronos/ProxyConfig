@@ -360,11 +360,42 @@
       "tolerance": 10,
       "interrupt_exist_connections": true,
       "outbounds": []
-    }
+    },
     //{
     //  "type": "block",
     //  "tag": "block"
     //}
+    // manual mode
+    {
+      "type": "selector",
+      "tag": "🇭🇰HK-M",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "selector",
+      "tag": "🇹🇼TW-M",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "selector",
+      "tag": "🇯🇵JP-M",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "selector",
+      "tag": "🇸🇬SG-M",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "selector",
+      "tag": "🇺🇸US-M",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    }
   ],
   "route": {
     "rules": [
