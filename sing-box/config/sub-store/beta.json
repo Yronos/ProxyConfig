@@ -166,7 +166,16 @@
       "type": "selector",
       "tag": "CDN",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
+      "outbounds": [
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M"
+      ]
     },
     {
       "type": "selector",
@@ -178,19 +187,41 @@
       "type": "selector",
       "tag": "Bilibili",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇨🇳CN", "🇭🇰HK", "🇹🇼TW"]
+      "outbounds": ["🇨🇳CN", "🇭🇰HK", "🇹🇼TW", "🇭🇰HK-M", "🇹🇼TW-M"]
     },
     {
       "type": "selector",
       "tag": "Forum&HK",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇸🇬SG", "Selector"]
+      "outbounds": [
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇸🇬SG",
+        "Selector",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
       "tag": "GitHub",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
@@ -208,19 +239,55 @@
       "type": "selector",
       "tag": "YouTube",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
       "tag": "Google",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
       "tag": "Telegram",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
@@ -232,13 +299,25 @@
       "type": "selector",
       "tag": "Twitter",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
       "tag": "Bahamut",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇹🇼TW", "🇭🇰HK", "Selector"]
+      "outbounds": ["🇹🇼TW", "🇭🇰HK", "🇭🇰HK-M", "🇹🇼TW-M"]
     },
     {
       "type": "selector",
@@ -250,13 +329,37 @@
       "type": "selector",
       "tag": "AI",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US"
+      ]
     },
     {
       "type": "selector",
       "tag": "Spotify",
       "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US"]
+      "outbounds": [
+        "Selector",
+        "🇭🇰HK",
+        "🇹🇼TW",
+        "🇯🇵JP",
+        "🇸🇬SG",
+        "🇺🇸US",
+        "🇭🇰HK-M",
+        "🇹🇼TW-M",
+        "🇯🇵JP-M",
+        "🇸🇬SG-M",
+        "🇺🇸US-M"
+      ]
     },
     {
       "type": "selector",
