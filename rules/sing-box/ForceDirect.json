@@ -2,6 +2,9 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "gia.cc.cd"
+      ],
       "domain_suffix": [
         "hdslb.com",
         "bilivideo.com",
