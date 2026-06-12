@@ -440,6 +440,23 @@
         "gmail",
         "google",
         "recaptcha"
+      ],
+      "ip_cidr": [
+        "172.110.32.0/21",
+        "173.194.0.0/16",
+        "216.73.80.0/20",
+        "74.125.0.0/16",
+        "2620:120:e000::/40"
+      ]
+    },
+    {
+      "process_name": [
+        "GoogleDriveFS.exe",
+        "com.android.vending",
+        "com.google.android.gms",
+        "com.google.android.gsf",
+        "com.google.android.play.games",
+        "BackupandSync"
       ]
     }
   ]
