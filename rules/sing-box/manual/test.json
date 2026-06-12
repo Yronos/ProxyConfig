@@ -1,0 +1,11 @@
+{
+  "version": 4,
+  "rules": [
+    {
+      "network_interface_address": {
+        "wifi": ["2000::/3"]
+      },
+      "default_interface_address": ["2000::/3"]
+    }
+  ]
+}
