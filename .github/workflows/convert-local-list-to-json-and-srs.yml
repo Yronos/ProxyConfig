@@ -8,6 +8,7 @@ on:
     paths:
       - "rules/*.list"
       - "rules/lite/*.list"
+      - "rules/sing-box/manual/**"
       - "auto/convert_file_json.py"
       - ".github/workflows/convert-local-list-to-json-and-srs.yml"
 
@@ -19,9 +20,11 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SING_BOX_VERSION: 1.13.11
+  SING_BOX_VERSION: 1.13.13
   JSON_OUTPUT_DIR: rules/sing-box
   EXCLUDE_DIR: rules/sing-box/sukka
+  # 手写 sing-box 规则目录：清理时保留其 .json（不删），但仍参与编译/提交。
+  MANUAL_DIR: rules/sing-box/manual
 
 jobs:
   convert-and-compile:
@@ -63,16 +66,22 @@ jobs:
       - name: ✅ Verify sing-box installation
         run: sing-box version
 
-      - name: 🧹 Prepare output directory (exclude sukka)
+      - name: 🧹 Prepare output directory (exclude sukka, keep manual json)
         run: |
           mkdir -p "${JSON_OUTPUT_DIR}"
           mkdir -p "${EXCLUDE_DIR}"
+          mkdir -p "${MANUAL_DIR}"
 
+          # 清理上一轮产物，但：
+          #   - 完全跳过 sukka（由另一个工作流维护）
+          #   - 保留 manual 下手写的 .json（这是用户的源文件，不可删）
+          # manual 下旧的 .srs 仍会被删除，随后由编译步骤重新生成，避免删源后残留孤儿 srs。
           find "${JSON_OUTPUT_DIR}" \
             -path "${EXCLUDE_DIR}" -prune -o \
+            \( -path "${MANUAL_DIR}/*" -name "*.json" \) -prune -o \
             -type f \( -name "*.json" -o -name "*.srs" \) -exec rm -f {} +
 
-          echo "✅ Output directory prepared (excluded: ${EXCLUDE_DIR})"
+          echo "✅ Output directory prepared (excluded: ${EXCLUDE_DIR}, kept manual json: ${MANUAL_DIR})"
 
       - name: 🔄 Convert .list to .json
         run: |
