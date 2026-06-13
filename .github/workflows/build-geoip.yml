@@ -33,6 +33,8 @@ jobs:
       TXT_DIR: "rules/GeoIP/txt"
       SRS_DIR: "rules/GeoIP/srs"
       JSON_DIR: "rules/GeoIP/json"
+      YAML_DIR: "rules/GeoIP/yaml"
+      MRS_DIR: "rules/GeoIP/mrs"
 
     permissions:
       contents: write
@@ -86,6 +88,26 @@ jobs:
 
           "${SING_BOX_BIN}" version
 
+      - name: Install mihomo
+        run: |
+          set -e
+
+          # 获取最新稳定版本
+          MIHOMO_VERSION="$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | jq -r '.tag_name')"
+          echo "Latest mihomo stable version: ${MIHOMO_VERSION}"
+
+          DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
+
+          curl -L -o "$RUNNER_TEMP/mihomo.gz" "$DOWNLOAD_URL"
+          gzip -d "$RUNNER_TEMP/mihomo.gz"
+
+          chmod +x "$RUNNER_TEMP/mihomo"
+          MIHOMO_BIN="$RUNNER_TEMP/mihomo"
+
+          echo "MIHOMO_BIN=${MIHOMO_BIN}" >> "$GITHUB_ENV"
+
+          "${MIHOMO_BIN}" -v
+
       - name: Prepare Directories
         run: |
           rm -rf "$GEOIP_DIR"
@@ -93,6 +115,8 @@ jobs:
           mkdir -p "$TXT_DIR"
           mkdir -p "$SRS_DIR"
           mkdir -p "$JSON_DIR"
+          mkdir -p "$YAML_DIR"
+          mkdir -p "$MRS_DIR"
           mkdir -p "$RUNNER_TEMP/geoip-unpacked"
 
       - name: Download GeoIP Files
@@ -236,6 +260,55 @@ jobs:
               "$json_file"
           done
 
+      - name: Convert JSON to mihomo YAML
+        run: |
+          set -e
+
+          python3 << 'PY'
+          import json
+          from pathlib import Path
+
+          json_dir = Path("rules/GeoIP/json")
+          yaml_dir = Path("rules/GeoIP/yaml")
+          yaml_dir.mkdir(parents=True, exist_ok=True)
+
+          for json_file in sorted(json_dir.glob("*.json")):
+              data = json.loads(json_file.read_text(encoding="utf-8"))
+
+              # 从 sing-box 源格式中提取所有 ip_cidr，复用其已清洗/校验的结果
+              cidrs = []
+              for rule in data.get("rules", []):
+                  cidrs.extend(rule.get("ip_cidr", []))
+
+              cidrs = sorted(set(cidrs))
+
+              # mihomo ipcidr 规则集的 payload 格式
+              lines = ["payload:"]
+              lines += [f"  - '{cidr}'" for cidr in cidrs]
+
+              out_file = yaml_dir / f"{json_file.stem}.yaml"
+              out_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+              print(f"Generated mihomo YAML: {out_file} ({len(cidrs)} CIDRs)")
+          PY
+
+      - name: Compile mihomo MRS
+        run: |
+          set -e
+
+          for yaml_file in "$YAML_DIR"/*.yaml; do
+            [ -f "$yaml_file" ] || continue
+
+            name="$(basename "$yaml_file" .yaml)"
+            mrs_file="$MRS_DIR/${name}.mrs"
+
+            echo "Compiling $yaml_file -> $mrs_file"
+
+            # behavior=ipcidr, format=yaml；mrs 仅支持 domain/ipcidr
+            "$MIHOMO_BIN" convert-ruleset ipcidr yaml \
+              "$yaml_file" "$mrs_file"
+          done
+
       - name: Create README Navigation
         run: |
           cat > "$GEOIP_DIR/README.md" << EOF
@@ -250,6 +323,8 @@ jobs:
           | \`txt\` | 纯文本 CIDR 列表 |
           | \`json\` | sing-box rule-set 源格式 |
           | \`srs\` | sing-box 编译后的二进制 rule-set |
+          | \`yaml\` | mihomo rule-set 源格式（ipcidr payload） |
+          | \`mrs\` | mihomo 编译后的二进制 rule-set |
 
           ## 已选择的 GeoIP 分类
 
@@ -269,11 +344,47 @@ jobs:
 
           cat >> "$GEOIP_DIR/README.md" << EOF
 
+          ## JSON 文件
+
+          EOF
+
+          for file in $(find "$JSON_DIR" -type f -name "*.json" | sort); do
+            name="$(basename "$file")"
+            rel="${file#${GEOIP_DIR}/}"
+            echo "- [$name]($rel)" >> "$GEOIP_DIR/README.md"
+          done
+
+          cat >> "$GEOIP_DIR/README.md" << EOF
+
           ## SRS 文件
 
           EOF
 
           for file in $(find "$SRS_DIR" -type f -name "*.srs" | sort); do
+            name="$(basename "$file")"
+            rel="${file#${GEOIP_DIR}/}"
+            echo "- [$name]($rel)" >> "$GEOIP_DIR/README.md"
+          done
+
+          cat >> "$GEOIP_DIR/README.md" << EOF
+
+          ## YAML 文件
+
+          EOF
+
+          for file in $(find "$YAML_DIR" -type f -name "*.yaml" | sort); do
+            name="$(basename "$file")"
+            rel="${file#${GEOIP_DIR}/}"
+            echo "- [$name]($rel)" >> "$GEOIP_DIR/README.md"
+          done
+
+          cat >> "$GEOIP_DIR/README.md" << EOF
+
+          ## MRS 文件
+
+          EOF
+
+          for file in $(find "$MRS_DIR" -type f -name "*.mrs" | sort); do
             name="$(basename "$file")"
             rel="${file#${GEOIP_DIR}/}"
             echo "- [$name]($rel)" >> "$GEOIP_DIR/README.md"
