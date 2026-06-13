@@ -53,6 +53,7 @@ SUKKA_MARKERS = [
     "7h1s_rul35et_i5_mad3_by_5ukk4w",
     "this_ruleset_is_made_by_sukkaw",
     "thisrulesetismadebysukka",
+    "th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset",
 ]
 
 
