@@ -1261,7 +1261,7 @@
     {
       "type": "api",
       "listen": "{{SING_BOX_LISTEN}}",
-      "listen_port": {{SING_BOX_LISTEN_PORT}},
+      "listen_port": 8760,
       "secret": "{{SING_BOX_API_SECRET}}",
       "access_control_allow_origin": ["{{SING_BOX_API_CORS_ORIGINS}}"],
       "access_control_allow_private_network": false
