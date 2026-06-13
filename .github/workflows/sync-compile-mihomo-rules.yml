@@ -96,13 +96,20 @@ jobs:
           echo "📥 Cloning SukkaLab ruleset..."
           git clone --depth 1 --branch master https://github.com/SukkaLab/ruleset.skk.moe.git
 
-          if [ -d "ruleset.skk.moe/clash" ]; then
-            cp -a "ruleset.skk.moe/clash/." "${GITHUB_WORKSPACE}/${SUKKA_DIR}/"
-            echo "✅ Sukka Clash rules copied successfully"
+          # Sukka 目录名可能是 Clash 或 clash，使用大小写不敏感查找
+          if [ -d "ruleset.skk.moe/Clash" ]; then
+            CLASH_DIR="ruleset.skk.moe/Clash"
+          elif [ -d "ruleset.skk.moe/clash" ]; then
+            CLASH_DIR="ruleset.skk.moe/clash"
           else
-            echo "❌ Error: clash directory not found in Sukka repository"
+            echo "❌ Error: Clash directory not found in Sukka repository"
+            echo "Available directories:"
+            ls -la ruleset.skk.moe/ || true
             exit 1
           fi
+
+          cp -a "${CLASH_DIR}/." "${GITHUB_WORKSPACE}/${SUKKA_DIR}/"
+          echo "✅ Sukka Clash rules copied successfully from ${CLASH_DIR}"
 
       - name: 🔄 Convert Sukka TXT to YAML
         run: |
