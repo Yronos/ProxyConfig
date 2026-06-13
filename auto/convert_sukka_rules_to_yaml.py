@@ -90,9 +90,11 @@ def convert_txt_to_yaml(txt_file):
                 # 格式 1: domainset 格式 (+.example.com)
                 if original_line.startswith("+."):
                     domain = original_line[2:]
-                    if domain and domain not in seen:
-                        rules.append(domain)
-                        seen.add(domain)
+                    payload_value = f".{domain}"
+                    if payload_value not in seen:
+                        # domainset 的 +. 格式转为 mihomo 的 . 前缀
+                        rules.append(payload_value)
+                        seen.add(payload_value)
                     continue
 
                 # 格式 2: 标准 Clash 格式 (TYPE,value[,options])
@@ -105,17 +107,38 @@ def convert_txt_to_yaml(txt_file):
                         if not value:
                             continue
 
-                        # 支持的规则类型（domain 和 IP 都放在一起）
-                        if rule_type in SUPPORTED_TYPES:
-                            if value not in seen:
-                                rules.append(value)
-                                seen.add(value)
-                        # 不支持的规则类型
+                        # 根据规则类型转换为 mihomo payload 格式
+                        payload_value = None
+
+                        if rule_type in ["DOMAIN-SUFFIX", "HOST-SUFFIX"]:
+                            # DOMAIN-SUFFIX 转为 . 前缀（匹配域名及其所有子域名）
+                            payload_value = f".{value}"
+                        elif rule_type in ["DOMAIN", "HOST"]:
+                            # DOMAIN 保持原样（精确匹配）
+                            payload_value = value
+                        elif rule_type in ["DOMAIN-KEYWORD", "HOST-KEYWORD"]:
+                            # DOMAIN-KEYWORD 无法正确转换为 payload
+                            # payload 不支持 keyword 匹配，会导致功能丢失
+                            unsupported_line = f"{rule_type}: {value} (keyword matching not supported in payload)"
+                            if unsupported_line not in unsupported_seen:
+                                unsupported.append(unsupported_line)
+                                unsupported_seen.add(unsupported_line)
+                        elif rule_type in ["DOMAIN-WILDCARD"]:
+                            # DOMAIN-WILDCARD 保持原样（mihomo 支持通配符 *）
+                            payload_value = value
+                        elif rule_type in IPCIDR_TYPES:
+                            # IP CIDR 保持原样（去除 no-resolve 等参数）
+                            payload_value = value
                         elif rule_type in SKIP_TYPES:
+                            # 不支持的规则类型
                             unsupported_line = f"{rule_type}: {value}"
                             if unsupported_line not in unsupported_seen:
                                 unsupported.append(unsupported_line)
                                 unsupported_seen.add(unsupported_line)
+
+                        if payload_value and payload_value not in seen:
+                            rules.append(payload_value)
+                            seen.add(payload_value)
                     continue
 
                 # 格式 3: 纯域名或 IP CIDR（domainset 中的纯域名/IP）
