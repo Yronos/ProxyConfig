@@ -138,52 +138,105 @@ jobs:
               "IP-CIDR", "IP-CIDR6", "IP6-CIDR",
           }
 
+          # 不支持的规则类型（mihomo 无对应字段）
+          SKIP_TYPES = {
+              "PROCESS-NAME",
+              "PROCESS-PATH",
+              "NETWORK",
+              "DST-PORT",
+              "SRC-PORT",
+              "SRC-IP-CIDR",
+              "GEOSITE",
+              "GEOIP",
+              "SRC-GEOIP",
+              "IP-ASN",
+              "RULE-SET",
+              "AND", "OR", "NOT",
+              "MATCH",
+          }
+
           txt_files = sorted(Path(".").glob("*.txt"))
 
           converted = 0
           total_rules = 0
+          skipped = 0
 
           for txt_file in txt_files:
               rules = []
+              unsupported = []
               seen = set()
+              unsupported_seen = set()
 
               try:
                   with open(txt_file, "r", encoding="utf-8") as f:
                       for line in f:
-                          line = line.strip()
-                          if not line or line.startswith("#"):
+                          original_line = line.strip()
+                          if not original_line or original_line.startswith("#"):
                               continue
 
-                          parts = line.split(",", 1)
-                          if len(parts) < 2:
+                          # 格式 1: domainset 格式 (+.example.com)
+                          if original_line.startswith("+."):
+                              domain = original_line[2:]
+                              if domain and domain not in seen:
+                                  rules.append(domain)
+                                  seen.add(domain)
                               continue
 
-                          rule_type = parts[0].strip().upper()
-                          value = parts[1].strip().strip('"').strip("'")
+                          # 格式 2: 标准 Clash 格式 (TYPE,value[,options])
+                          parts = original_line.split(",")
+                          if len(parts) >= 2:
+                              rule_type = parts[0].strip().upper()
+                              value = parts[1].strip().strip('"').strip("'")
 
-                          if not value:
+                              if not value:
+                                  continue
+
+                              # 支持的规则类型
+                              if rule_type in SUPPORTED_TYPES:
+                                  if value not in seen:
+                                      rules.append(value)
+                                      seen.add(value)
+                              # 已知不支持的规则类型
+                              elif rule_type in SKIP_TYPES:
+                                  unsupported_line = f"{rule_type}: {value}"
+                                  if unsupported_line not in unsupported_seen:
+                                      unsupported.append(unsupported_line)
+                                      unsupported_seen.add(unsupported_line)
                               continue
 
-                          # 只保留支持的规则类型
-                          if rule_type in SUPPORTED_TYPES:
-                              if value not in seen:
-                                  rules.append(value)
-                                  seen.add(value)
+                          # 格式 3: 纯域名/IP 列表（兜底）
+                          if "." in original_line and " " not in original_line:
+                              if original_line not in seen:
+                                  rules.append(original_line)
+                                  seen.add(original_line)
 
-                  # 生成 YAML
-                  yaml_file = txt_file.with_suffix(".yaml")
-                  with open(yaml_file, "w", encoding="utf-8") as f:
-                      f.write("payload:\n")
-                      for rule in rules:
-                          f.write(f"  - '{rule}'\n")
+                  # 生成 YAML（仅当有规则时）
+                  if rules:
+                      yaml_file = txt_file.with_suffix(".yaml")
+                      with open(yaml_file, "w", encoding="utf-8") as f:
+                          # 添加不支持规则的注释
+                          if unsupported:
+                              f.write(f"# 不支持的规则 ({len(unsupported)}):\n")
+                              for u in unsupported:
+                                  f.write(f"# - {u}\n")
+                              f.write("\n")
 
-                  converted += 1
-                  total_rules += len(rules)
+                          f.write("payload:\n")
+                          for rule in rules:
+                              f.write(f"  - '{rule}'\n")
+
+                      converted += 1
+                      total_rules += len(rules)
+                  else:
+                      skipped += 1
 
               except Exception as e:
-                  print(f"⚠️ Failed to convert {txt_file.name}: {e}", file=sys.stderr)
+                  print(f"⚠️ Failed: {txt_file.name}: {e}", file=sys.stderr)
+                  skipped += 1
 
-          print(f"✅ Converted {converted} files ({total_rules} total rules)")
+          print(f"✅ Converted {converted}/{len(txt_files)} files ({total_rules} total rules)")
+          if skipped > 0:
+              print(f"⚠️ Skipped {skipped} files")
 
           if converted == 0:
               sys.exit(1)
