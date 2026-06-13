@@ -1,0 +1,5 @@
+# 不支持的规则 (1):
+# - PROCESS-NAME: nmap
+
+payload:
+  - 'engage.cloudflareclient.com'

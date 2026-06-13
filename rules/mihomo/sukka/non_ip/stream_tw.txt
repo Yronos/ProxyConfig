@@ -1,0 +1,53 @@
+#########################################
+# Sukka's Ruleset - Stream Services: Taiwan
+# Last Updated: 2026-03-10T14:56:40.271Z
+# Size: 35
+# License: AGPL 3.0
+# Homepage: https://ruleset.skk.moe
+# GitHub: https://github.com/SukkaW/Surge
+#
+# - KKTV
+# - LiTV
+# - 4gtv
+# - Line TV
+# - HBO Asia
+# - Bahamut
+# - Friday TW
+# - MangaFox
+#########################################
+DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
+DOMAIN-SUFFIX,kk.stream
+DOMAIN,d3c7rimkq79yfu.cloudfront.net
+DOMAIN,players.brightcove.net
+DOMAIN,manifest.prod.boltdns.net
+DOMAIN-SUFFIX,fanfox.net
+DOMAIN,litvfreemobile-hichannel.cdn.hinet.net
+DOMAIN,4gtvfreepcvod-cds.cdn.hinet.net
+DOMAIN,ntdfreepc-tgc.cdn.hinet.net
+DOMAIN,gamer2-cds.cdn.hinet.net
+DOMAIN,gamer-cds.cdn.hinet.net
+DOMAIN,hbolb.onwardsmg.com
+DOMAIN-SUFFIX,hbogoasia.com
+DOMAIN,44wilhpljf.execute-api.ap-southeast-1.amazonaws.com
+DOMAIN,hbounify-prod.evergent.com
+DOMAIN-SUFFIX,viblast.com
+DOMAIN-SUFFIX,hboasia.com
+DOMAIN,cdi.ofiii.com
+DOMAIN-SUFFIX,hbogoasia.tw
+DOMAIN-SUFFIX,linetv.tw
+DOMAIN,video.friday.tw
+DOMAIN,ana.video.friday.tw
+DOMAIN-SUFFIX,bahamut.com.tw
+DOMAIN-SUFFIX,api.gamer.com.tw
+DOMAIN-SUFFIX,ani.gamer.com.tw
+DOMAIN-SUFFIX,kktv.com.tw
+DOMAIN,www.litv.tv
+DOMAIN-SUFFIX,4gtv.tv
+DOMAIN-SUFFIX,hbogoasia.sg
+DOMAIN-SUFFIX,hbogoasia.ph
+DOMAIN-SUFFIX,mangafox.me
+DOMAIN-SUFFIX,kktv.me
+DOMAIN-SUFFIX,hbogoasia.id
+DOMAIN-SUFFIX,hbogoasia.hk
+PROCESS-NAME,com.linecorp.linetv
+################## EOF ##################

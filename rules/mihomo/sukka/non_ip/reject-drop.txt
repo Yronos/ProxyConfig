@@ -1,0 +1,38 @@
+#########################################
+# Sukka's Ruleset - Reject And Drop
+# Last Updated: 2026-05-01T15:47:51.838Z
+# Size: 27
+# License: AGPL 3.0
+# Homepage: https://ruleset.skk.moe
+# GitHub: https://github.com/SukkaW/Surge
+#
+# This file This file contains rules for domain should be used with REJECT-DROP policy.
+#########################################
+DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
+DOMAIN-SUFFIX,undefined
+DOMAIN-SUFFIX,null
+DOMAIN-SUFFIX,telemetry.mozilla.org
+DOMAIN,stats.grafana.org
+DOMAIN-SUFFIX,getui.net
+DOMAIN,nom.telemetrydeck.com
+DOMAIN-SUFFIX,easytomessage.com
+DOMAIN-SUFFIX,data.grammarly.com
+DOMAIN,dataflow.biliapi.com
+DOMAIN-SUFFIX,slackb.com
+DOMAIN-SUFFIX,gepush.com
+DOMAIN-SUFFIX,getui.com
+DOMAIN-SUFFIX,in.applicationinsights.azure.com
+DOMAIN-SUFFIX,geo2.adobe.com
+DOMAIN-SUFFIX,tracking.miui.com
+DOMAIN-SUFFIX,tracking.intl.miui.com
+DOMAIN-SUFFIX,beacon.qq.com
+DOMAIN-SUFFIX,trace.qq.com
+DOMAIN,stat.youpin.mi.com
+DOMAIN-SUFFIX,f-log-extension.grammarly.io
+DOMAIN-SUFFIX,f-log-assistant.grammarly.io
+DOMAIN-SUFFIX,femetrics.grammarly.io
+DOMAIN-SUFFIX,jpush.io
+DOMAIN-SUFFIX,femetrics.qagr.io
+DOMAIN-SUFFIX,jpush.cn
+DOMAIN-WILDCARD,f-log*.grammarly.io
+################## EOF ##################

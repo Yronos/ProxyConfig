@@ -1,0 +1,67 @@
+#########################################
+# Sukka's Ruleset - Stream Services: North America
+# Last Updated: 2026-03-10T14:56:40.271Z
+# Size: 44
+# License: AGPL 3.0
+# Homepage: https://ruleset.skk.moe
+# GitHub: https://github.com/SukkaW/Surge
+#
+# - Fox Now
+# - Fox+
+# - Hulu
+# - Hulu Japan
+# - Vudu
+# - Pluto TV
+# - SHOWTIME
+# - encoreTVB
+# - Discovery+
+# - Paramount+
+# - Peacock
+# - Crackle
+# - Tubi TV
+#########################################
+DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
+DOMAIN,staticasiafox.akamaized.net
+DOMAIN,dashasiafox.akamaized.net
+DOMAIN,bcbolt446c5271-a.akamaihd.net
+DOMAIN-SUFFIX,paramountplus.com
+DOMAIN-SUFFIX,discoveryplus.com
+DOMAIN-SUFFIX,theplatform.com
+DOMAIN-SUFFIX,hulustream.com
+DOMAIN-SUFFIX,cbsaavideo.com
+DOMAIN,edge.api.brightcove.com
+DOMAIN-SUFFIX,peacocktv.com
+DOMAIN-SUFFIX,encoretvb.com
+DOMAIN-SUFFIX,disco-api.com
+DOMAIN-SUFFIX,cbsivideo.com
+DOMAIN-SUFFIX,showtime.com
+DOMAIN,athome.fandango.com
+DOMAIN,cbsplaylistserver.aws.syncbak.com
+DOMAIN,cbsservice.aws.syncbak.com
+DOMAIN-SUFFIX,foxplus.com
+DOMAIN,prod-api.crackle.com
+DOMAIN-SUFFIX,uplynk.com
+DOMAIN,tubitv.com
+DOMAIN,www.tubitv.com
+DOMAIN,cbsi.live.ott.irdeto.com
+DOMAIN-SUFFIX,huluim.com
+DOMAIN-SUFFIX,foxdcg.com
+DOMAIN-SUFFIX,dnitv.com
+DOMAIN,vudu.com
+DOMAIN-SUFFIX,hulu.com
+DOMAIN-SUFFIX,cbsi.com
+DOMAIN-SUFFIX,sho.com
+DOMAIN-SUFFIX,fox.com
+DOMAIN-SUFFIX,hulu.us
+DOMAIN-SUFFIX,discoveryplus.co.uk
+DOMAIN-SUFFIX,pluto.tv
+DOMAIN,tubi.tv
+DOMAIN,www.tubi.tv
+DOMAIN-SUFFIX,hulu.tv
+DOMAIN-SUFFIX,hjholdings.jp
+DOMAIN-SUFFIX,happyon.jp
+DOMAIN-SUFFIX,hulu.jp
+DOMAIN-SUFFIX,production-public.tubi.io
+DOMAIN-SUFFIX,discoveryplus.in
+PROCESS-NAME,com.hulu.plus
+################## EOF ##################

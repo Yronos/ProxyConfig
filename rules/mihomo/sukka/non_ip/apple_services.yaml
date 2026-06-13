@@ -1,0 +1,28 @@
+# 不支持的规则 (8):
+# - PROCESS-NAME: com.apple.geod
+# - PROCESS-NAME: mapspushd
+# - PROCESS-NAME: com.apple.Maps
+# - PROCESS-NAME: apsd
+# - PROCESS-NAME: fmfd
+# - PROCESS-NAME: findmydevice-user-agent
+# - PROCESS-NAME: CoreLocationAgent
+# - PROCESS-NAME: WeatherWidget
+
+payload:
+  - 'apple.news'
+  - 'apple-dns.net'
+  - 'push-apple.com.akadns.net'
+  - 'organicfruitapps.com'
+  - 'icloud-content.com'
+  - 'apple-cloudkit.com'
+  - 'apple-mapkit.com'
+  - 'cdn-apple.com'
+  - 'appstore.com'
+  - 'aaplimg.com'
+  - 'itunes.com'
+  - 'icloud.com'
+  - 'apple.com'
+  - 'me.com'
+  - 'appsto.re'
+  - 'apple.co'
+  - '17.0.0.0/8'

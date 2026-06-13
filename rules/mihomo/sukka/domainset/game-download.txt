@@ -1,0 +1,65 @@
+#########################################
+# Sukka's Ruleset - Game Download
+# Last Updated: 2026-04-16T09:46:43.617Z
+# Size: 53
+# License: AGPL 3.0
+# Homepage: https://ruleset.skk.moe
+# GitHub: https://github.com/SukkaW/Surge
+#
+# This file contains domains for Gam download CDN domains for Steam, Epic, Blizzard, Gog, Ubisoft, EA, Xbox, PlayStation, Riot, Bethesda and more.
+# No China CDN domains are included. Those domains are included in non_ip/domestic
+#########################################
+7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
++.dl.playstation.net
+pf-cdn-content-prod.azureedge.net
+gamedownloads-rockstargames-com.akamaized.net
+epicgames-download1.akamaized.net
+steampipe-partner.akamaized.net
+steampipe-kr.akamaized.net
+steampipe.akamaized.net
++.wup.eshop.nintendo.net
++.wup.shop.nintendo.net
++.cdn.nintendo.net
++.download.cdp.bethesda.net
++.content.cdp.bethesda.net
+dlgarenanow-a.akamaihd.net
+blzddistkr1-a.akamaihd.net
+blzddist3-a.akamaihd.net
+blzddist2-a.akamaihd.net
+blzddist1-a.akamaihd.net
+origin-a.akamaihd.net
++.dyn.riotcdn.net
+edge.steam-dns.top.comcast.net
+content-origin.steampowered.com
++.content.steampowered.com
++.steamcontent.com
++.epicgamescdn.com
++.egdownload.fastly-edge.com
+fastly-download.epicgames.com
+download4.epicgames.com
+download3.epicgames.com
+download2.epicgames.com
++.download.epicgames.com
+packagespc.xboxlive.com
+assets2.xboxlive.com
+assets1.xboxlive.com
+xvcf2.xboxlive.com
+xvcf1.xboxlive.com
+level3.blizzard.com
+dist.blizzard.com
++.cdn.blizzard.com
+steam.naeu.qtlglb.com
+steam.apac.qtlglb.com
+steam.eca.qtlglb.com
+steam.ru.qtlglb.com
++.download.dm.origin.com
+cdn-patch.swtor.com
+download.xbox.com
++.cdn.ubi.com
+gog-cdn-fastly-cp77.gog.com
+gog-cdn-fastly.gog.com
++.cdn.ea.com
+blizzard.gcdn.cloudn.co.kr
+download.hikarifield.co.jp
+static.hikarifield.co.jp
+################## EOF ##################

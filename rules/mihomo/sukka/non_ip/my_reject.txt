@@ -1,0 +1,60 @@
+#########################################
+# Sukka's Ruleset - Reject (REJECT-DROP)
+# Last Updated: 2026-04-02T12:46:49.386Z
+# Size: 51
+# License: AGPL 3.0
+# Homepage: https://ruleset.skk.moe
+# GitHub: https://github.com/SukkaW/Surge
+#########################################
+DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
+DOMAIN-SUFFIX,0.0.198.in-addr.arpa
+DOMAIN-SUFFIX,jr.airstarfinance.net
+DOMAIN-SUFFIX,tongdun.net
+DOMAIN-SUFFIX,mtvod-ali.meituan.net
+DOMAIN-SUFFIX,mtvod.meituan.net
+DOMAIN-SUFFIX,unicompayment.com
+DOMAIN-SUFFIX,easytomessage.com
+DOMAIN,daisydiskapp.com
+DOMAIN,locationhistoryplacedetails-pa.googleapis.com
+DOMAIN,locationhistoryaggregates-pa.googleapis.com
+DOMAIN,locationhistory-pa.googleapis.com
+DOMAIN,userlocation.googleapis.com
+DOMAIN-SUFFIX,genuine.autodesk.com
+DOMAIN-SUFFIX,logan.sankuai.com
+DOMAIN-SUFFIX,expenses-fe.meituan.com
+DOMAIN,contents.meituan.com
+DOMAIN-SUFFIX,video.goofish.com
+DOMAIN-SUFFIX,hybrid.xiaomi.com
+DOMAIN-SUFFIX,mibi.xiaomi.com
+DOMAIN-SUFFIX,ulecdn.com
+DOMAIN-SUFFIX,video-zb.cloudvideocdn.taobao.com
+DOMAIN-SUFFIX,api.miwifi.com
+DOMAIN-SUFFIX,cool3c.com
+DOMAIN,fyb-2.cdn.bcebos.com
+DOMAIN,mpush-api.aliyun.com
+DOMAIN-SUFFIX,lmk.mipay.com
+DOMAIN,epay.10010.com
+DOMAIN-SUFFIX,ule.com
+DOMAIN-SUFFIX,look.163.com
+DOMAIN-SUFFIX,jr.mi.com
+DOMAIN-SUFFIX,microfin.ele.me
+DOMAIN-SUFFIX,httpizza.ele.me
+DOMAIN,loan-supermarket.faas.ele.me
+DOMAIN-SUFFIX,adobestats.io
+DOMAIN-SUFFIX,adobe.io
+DOMAIN-SUFFIX,newbuy.chinaunicom.cn
+DOMAIN,push.12306.cn
+DOMAIN,ad.12306.cn
+DOMAIN-SUFFIX,mall.10010.cn
+DOMAIN-SUFFIX,pipi.cn
+DOMAIN-KEYWORD,bahoom
+DOMAIN-KEYWORD,-flv.meituan.net
+DOMAIN-KEYWORD,-live.meituan.net
+DOMAIN-KEYWORD,-fin.meituan.com
+PROCESS-NAME,Tencent Lemon
+PROCESS-NAME,LemonMonitor
+PROCESS-NAME,LemonDaemon
+PROCESS-NAME,LemonAgent
+PROCESS-NAME,LemonService
+DST-PORT,7680
+################## EOF ##################
