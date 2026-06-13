@@ -128,6 +128,10 @@ jobs:
           python3 << 'PYTHON_SCRIPT'
           from pathlib import Path
           import sys
+          import os
+
+          # 确保在正确的目录
+          os.chdir(os.environ.get("SUKKA_DIR", "rules/mihomo/sukka"))
 
           # Sukka Clash 规则类型映射
           SUPPORTED_TYPES = {
@@ -155,7 +159,26 @@ jobs:
               "MATCH",
           }
 
+          # Sukka 标记（需要跳过）
+          SUKKA_MARKERS = [
+              "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe",
+              "thisrulesetismadebysukka",
+          ]
+
+          def is_sukka_marker(line):
+              """检测是否为 Sukka 标记行"""
+              line_lower = line.lower().replace("-", "").replace("_", "").replace(".", "")
+              for marker in SUKKA_MARKERS:
+                  marker_normalized = marker.lower().replace("-", "").replace("_", "").replace(".", "")
+                  if marker_normalized in line_lower:
+                      return True
+              return False
+
           txt_files = sorted(Path(".").glob("*.txt"))
+
+          if not txt_files:
+              print(f"ERROR: No TXT files found in {os.getcwd()}", file=sys.stderr)
+              sys.exit(1)
 
           converted = 0
           total_rules = 0
@@ -174,7 +197,11 @@ jobs:
                           if not original_line or original_line.startswith("#"):
                               continue
 
-                          # 格式 1: domainset 格式 (+.example.com)
+                          # 跳过 Sukka 标记
+                          if is_sukka_marker(original_line):
+                              continue
+
+                          # 格式 1: domainset 格式 (+.example.com 或 example.com)
                           if original_line.startswith("+."):
                               domain = original_line[2:]
                               if domain and domain not in seen:
@@ -183,28 +210,29 @@ jobs:
                               continue
 
                           # 格式 2: 标准 Clash 格式 (TYPE,value[,options])
-                          parts = original_line.split(",")
-                          if len(parts) >= 2:
-                              rule_type = parts[0].strip().upper()
-                              value = parts[1].strip().strip('"').strip("'")
+                          if "," in original_line:
+                              parts = original_line.split(",")
+                              if len(parts) >= 2:
+                                  rule_type = parts[0].strip().upper()
+                                  value = parts[1].strip().strip('"').strip("'")
 
-                              if not value:
+                                  if not value:
+                                      continue
+
+                                  # 支持的规则类型
+                                  if rule_type in SUPPORTED_TYPES:
+                                      if value not in seen:
+                                          rules.append(value)
+                                          seen.add(value)
+                                  # 已知不支持的规则类型
+                                  elif rule_type in SKIP_TYPES:
+                                      unsupported_line = f"{rule_type}: {value}"
+                                      if unsupported_line not in unsupported_seen:
+                                          unsupported.append(unsupported_line)
+                                          unsupported_seen.add(unsupported_line)
                                   continue
 
-                              # 支持的规则类型
-                              if rule_type in SUPPORTED_TYPES:
-                                  if value not in seen:
-                                      rules.append(value)
-                                      seen.add(value)
-                              # 已知不支持的规则类型
-                              elif rule_type in SKIP_TYPES:
-                                  unsupported_line = f"{rule_type}: {value}"
-                                  if unsupported_line not in unsupported_seen:
-                                      unsupported.append(unsupported_line)
-                                      unsupported_seen.add(unsupported_line)
-                              continue
-
-                          # 格式 3: 纯域名/IP 列表（兜底）
+                          # 格式 3: 纯域名/IP 列表（domainset 中的纯域名）
                           if "." in original_line and " " not in original_line:
                               if original_line not in seen:
                                   rules.append(original_line)
@@ -239,6 +267,7 @@ jobs:
               print(f"⚠️ Skipped {skipped} files")
 
           if converted == 0:
+              print("ERROR: No files were successfully converted!", file=sys.stderr)
               sys.exit(1)
 
           PYTHON_SCRIPT
