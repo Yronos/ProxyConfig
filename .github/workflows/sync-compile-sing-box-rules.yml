@@ -18,7 +18,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SING_BOX_VERSION: 1.13.11
   SUKKA_DIR: rules/sing-box/sukka
 
 jobs:
@@ -38,24 +37,34 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: ⚙️ Install sing-box (cache)
-        uses: actions/cache@v4
+      - name: ⚙️ Install sing-box
+        run: |
+          set -e
+
+          SING_BOX_VERSION="$(curl -fsSL https://api.github.com/repos/SagerNet/sing-box/releases/latest | jq -r '.tag_name')"
+          echo "Latest sing-box version: ${SING_BOX_VERSION}"
+          echo "SING_BOX_VERSION=${SING_BOX_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Cache sing-box
         id: cache-singbox
+        uses: actions/cache@v4
         with:
           path: /usr/local/bin/sing-box
-          key: sing-box-${{ env.SING_BOX_VERSION }}
+          key: sing-box-${{ env.SING_BOX_VERSION }}-linux-amd64
 
       - name: ⬇️ Download sing-box
         if: steps.cache-singbox.outputs.cache-hit != 'true'
         run: |
-          set -euo pipefail
+          set -e
 
-          curl -Lo sing-box.tar.gz \
-            "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
+          DOWNLOAD_URL="https://github.com/SagerNet/sing-box/releases/download/${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION#v}-linux-amd64.tar.gz"
 
+          curl -L -o sing-box.tar.gz "$DOWNLOAD_URL"
           tar -xzf sing-box.tar.gz
-          chmod +x "sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box"
-          sudo mv "sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box" /usr/local/bin/sing-box
+
+          find . -type f -name sing-box -exec chmod +x {} \;
+          SING_BOX_BIN="$(find . -type f -name sing-box | head -n 1)"
+          sudo mv "$SING_BOX_BIN" /usr/local/bin/sing-box
 
       - name: ✅ Verify sing-box installation
         run: sing-box version
