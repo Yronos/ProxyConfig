@@ -74,11 +74,11 @@ jobs:
 
           DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
 
-          curl -L -o mihomo.gz "$DOWNLOAD_URL"
-          gzip -d -f mihomo.gz
+          curl -L -o "$RUNNER_TEMP/mihomo.gz" "$DOWNLOAD_URL"
+          gzip -d -f "$RUNNER_TEMP/mihomo.gz"
 
-          chmod +x mihomo
-          sudo mv mihomo /usr/local/bin/mihomo
+          chmod +x "$RUNNER_TEMP/mihomo"
+          sudo mv "$RUNNER_TEMP/mihomo" /usr/local/bin/mihomo
 
       - name: ✅ Verify mihomo installation
         run: mihomo -v
