@@ -1,4 +1,6 @@
-# 不支持的规则 (5):
+# 不支持的规则 (7):
+# - DOMAIN-KEYWORD: nowtv100 (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: rthklive (keyword matching not supported in payload)
 # - PROCESS-NAME: com.viu.pad
 # - PROCESS-NAME: com.viu.phone
 # - PROCESS-NAME: com.vuclip.viu
@@ -15,23 +17,21 @@ payload:
   - 'manifest.prod.boltdns.net'
   - 'apm-misaka.biliapi.net'
   - 'hbolb.onwardsmg.com'
-  - 'mytvsuper.com'
-  - 'hbogoasia.com'
+  - '.mytvsuper.com'
+  - '.hbogoasia.com'
   - '44wilhpljf.execute-api.ap-southeast-1.amazonaws.com'
   - 'hbounify-prod.evergent.com'
-  - 'biliintl.com'
-  - 'hboasia.com'
-  - 'nowe.com'
-  - 'viu.com'
-  - 'tvb.com'
-  - 'viu.now.com'
-  - 'hbogoasia.tw'
-  - 'bilibili.tv'
-  - 'viu.tv'
-  - 'hbogoasia.sg'
-  - 'hbogoasia.ph'
-  - 'hbogoasia.id'
-  - 'hbogoasia.hk'
-  - 'psg.cdn.hgc.com.hk'
-  - 'nowtv100'
-  - 'rthklive'
+  - '.biliintl.com'
+  - '.hboasia.com'
+  - '.nowe.com'
+  - '.viu.com'
+  - '.tvb.com'
+  - '.viu.now.com'
+  - '.hbogoasia.tw'
+  - '.bilibili.tv'
+  - '.viu.tv'
+  - '.hbogoasia.sg'
+  - '.hbogoasia.ph'
+  - '.hbogoasia.id'
+  - '.hbogoasia.hk'
+  - '.psg.cdn.hgc.com.hk'

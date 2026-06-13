@@ -1,9 +1,11 @@
+# 不支持的规则 (2):
+# - DOMAIN-KEYWORD: bbcfmt (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: uk-live (keyword matching not supported in payload)
+
 payload:
   - 'itvpnpmobile-a.akamaihd.net'
   - 'bbc.mp-pxcdn.com'
-  - 'itv.com'
-  - 'tvlicensing.co.uk'
-  - 'bbci.co.uk'
-  - 'bbc.co.uk'
-  - 'bbcfmt'
-  - 'uk-live'
+  - '.itv.com'
+  - '.tvlicensing.co.uk'
+  - '.bbci.co.uk'
+  - '.bbc.co.uk'

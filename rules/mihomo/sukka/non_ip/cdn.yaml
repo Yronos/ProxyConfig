@@ -1,29 +1,21 @@
+# 不支持的规则 (21):
+# - DOMAIN-KEYWORD: -files.gitbook.io (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: vod-adaptive.akamaized.net (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: web-assets.zendesk (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: -res.cloudinary.com (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: dsn.algolia.net (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: -thumbs.pornhost.com (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: -cdn.eporner.com (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: cdn.adultempire.com (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: static.trustpilot.com (keyword matching not supported in payload)
+# - DOMAIN-KEYWORD: scripts.trustpilot.com (keyword matching not supported in payload)
+# ... 还有 11 条
+
 payload:
   - 'cdn-msp.18comic.vip'
   - 'cdn-msp.18comic.org'
   - 'cdn-msp.jmcomic-zzz.one'
   - 'cdn-msp.jmcomic.me'
-  - '-files.gitbook.io'
-  - 'vod-adaptive.akamaized.net'
-  - 'web-assets.zendesk'
-  - '-res.cloudinary.com'
-  - 'dsn.algolia.net'
-  - '-thumbs.pornhost.com'
-  - '-cdn.eporner.com'
-  - 'cdn.adultempire.com'
-  - 'static.trustpilot.com'
-  - 'scripts.trustpilot.com'
-  - 'images.trustpilot.com'
-  - 'cdn.trustpilot.net'
-  - 'assets.trustpilot.net'
-  - 'images.trustpilot.net'
-  - '-assets.worldsex.com'
-  - '-thumbs.worldsex.com'
-  - '99avcdn'
-  - '-images.disco-api.com'
-  - 'vdownload.hanime1'
-  - 'fonts.hanime1'
-  - 'static.grammarly.com'
   - 'cdn.*.office.net'
   - 'cdn.*.microsoft.com'
   - 'cdn-*.microsoft.com'
