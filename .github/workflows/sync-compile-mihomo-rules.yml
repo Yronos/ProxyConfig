@@ -144,54 +144,25 @@ jobs:
             exit 1
           fi
 
-          # 删除旧的 .mrs 和 .meta 文件
-          find . -type f \( -name "*.mrs" -o -name "*.meta" \) -delete
-
           COMPILED=0
           FAILED=0
 
           for yaml_file in "${yaml_files[@]}"; do
             # 移除路径中的 ./ 前缀
             yaml_file="${yaml_file#./}"
+            mrs_file="${yaml_file%.yaml}.mrs"
 
-            # 检查是否有对应的 .meta 文件指示类型
-            meta_file="${yaml_file}.meta"
-            behavior_type="domain"  # 默认为 domain
+            echo "Compiling: ${yaml_file} -> ${mrs_file}"
 
-            if [ -f "${meta_file}" ]; then
-              behavior_type=$(cat "${meta_file}" | tr -d '[:space:]')
-            fi
-
-            # 为 ipcidr 类型生成特殊的文件名
-            if [[ "${yaml_file}" == *.ipcidr.yaml ]]; then
-              mrs_file="${yaml_file%.ipcidr.yaml}.ipcidr.mrs"
-              behavior_type="ipcidr"
-            else
-              mrs_file="${yaml_file%.yaml}.mrs"
-            fi
-
-            echo "Compiling: ${yaml_file} (${behavior_type}) -> ${mrs_file}"
-
-            # 根据检测到的类型编译
-            if mihomo convert-ruleset "${behavior_type}" yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
+            # mihomo 会根据 YAML 内容自动识别规则类型
+            # 优先尝试 domain，失败则尝试 ipcidr
+            if mihomo convert-ruleset domain yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
+              COMPILED=$((COMPILED + 1))
+            elif mihomo convert-ruleset ipcidr yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
               COMPILED=$((COMPILED + 1))
             else
-              # 如果指定类型失败，尝试另一种类型
-              if [ "${behavior_type}" == "domain" ]; then
-                fallback_type="ipcidr"
-              else
-                fallback_type="domain"
-              fi
-
-              echo "  ⚠️ ${behavior_type} failed, trying ${fallback_type}..."
-
-              if mihomo convert-ruleset "${fallback_type}" yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
-                COMPILED=$((COMPILED + 1))
-                echo "  ✅ Succeeded with ${fallback_type}"
-              else
-                echo "  ❌ Failed with both types: ${yaml_file}"
-                FAILED=$((FAILED + 1))
-              fi
+              echo "  ⚠️ Failed: ${yaml_file}"
+              FAILED=$((FAILED + 1))
             fi
           done
 
@@ -228,13 +199,7 @@ jobs:
           echo "## Available Rules" >> "${SUKKA_DIR}/README.md"
           echo "" >> "${SUKKA_DIR}/README.md"
 
-          # 按规则类型分组显示
-          echo "### Domain Rules" >> "${SUKKA_DIR}/README.md"
-          find "${SUKKA_DIR}" -type f -name "*.mrs" ! -name "*.ipcidr.mrs" | sort | sed 's|^.*/||' | sed 's|\.mrs$||' | awk '{print "- `" $0 "`"}' >> "${SUKKA_DIR}/README.md"
-          echo "" >> "${SUKKA_DIR}/README.md"
-
-          echo "### IP CIDR Rules" >> "${SUKKA_DIR}/README.md"
-          find "${SUKKA_DIR}" -type f -name "*.ipcidr.mrs" | sort | sed 's|^.*/||' | sed 's|\.ipcidr\.mrs$||' | awk '{print "- `" $0 "`"}' >> "${SUKKA_DIR}/README.md"
+          find "${SUKKA_DIR}" -type f -name "*.mrs" | sort | sed 's|^.*/||' | sed 's|\.mrs$||' | awk '{print "- `" $0 "`"}' >> "${SUKKA_DIR}/README.md"
 
       - name: 📊 Show generated Sukka files
         run: |
