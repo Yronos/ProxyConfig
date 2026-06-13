@@ -1260,10 +1260,13 @@
   "services": [
     {
       "type": "api",
-      "listen": "{{SING_BOX_LISTEN}}",
+      "listen": "127.0.0.1",
       "listen_port": 8760,
-      "secret": "{{SING_BOX_API_SECRET}}",
-      "access_control_allow_origin": ["{{SING_BOX_API_CORS_ORIGINS}}"],
+      "secret": "aBQWVjQ!s3u^4&",
+      "access_control_allow_origin": [
+        "https://dash.sing-box.app",
+        "http://sing-box-dashboard.sagernet.org"
+      ],
       "access_control_allow_private_network": false
     }
   ],
@@ -1277,13 +1280,13 @@
       "rdrc_timeout": "7d"
     },
     "clash_api": {
-      "external_controller": "{{EXTERNAL_CONTROLLER}}",
+      "external_controller": "127.0.0.1:9090",
       "external_ui": "./zashboard",
       "external_ui_download_url": "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
       "external_ui_download_detour": "GitHub",
-      "secret": "{{CLASH_API_SECRET}}",
+      "secret": "miyao+123",
       "default_mode": "rule",
-      "access_control_allow_origin": ["{{CLASH_API_CORS_ORIGINS}}"],
+      "access_control_allow_origin": ["*"],
       "access_control_allow_private_network": false
     }
   }

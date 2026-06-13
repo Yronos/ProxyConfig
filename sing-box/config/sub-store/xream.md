@@ -30,3 +30,13 @@ https://raw.githubusercontent.com/xream/scripts/main/surge/modules/sub-store-scr
 
 原本参考：
 https://raw.githubusercontent.com/xream/scripts/main/surge/modules/sub-store-scripts/sing-box/template.js#type=组合订阅&name=机场&outbound=🕳ℹ️all|all-auto🕳ℹ️hk|hk-auto🏷ℹ️港|hk|hongkong|kong kong|🇭🇰🕳ℹ️tw|tw-auto🏷ℹ️台|tw|taiwan|🇹🇼🕳ℹ️jp|jp-auto🏷ℹ️日本|jp|japan|🇯🇵🕳ℹ️sg|sg-auto🏷ℹ️^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)🕳ℹ️us|us-auto🏷ℹ️美|us|unitedstates|united states|🇺🇸
+
+
+
+脚本操作：
+$content = $content.replaceAll("{{SING_BOX_LISTEN}}", "127.0.0.1");
+$content = $content.replaceAll("{{SING_BOX_API_SECRET}}", "abcdef");
+$content = $content.replaceAll("{{SING_BOX_API_CORS_ORIGINS}}", "http://sing-box-dashboard.sagernet.org");
+$content = $content.replaceAll("{{EXTERNAL_CONTROLLER}}", "127.0.0.1:9090");
+$content = $content.replaceAll("{{CLASH_API_SECRET}}", "abcdef");
+$content = $content.replaceAll("{{CLASH_API_CORS_ORIGINS}}", "http://127.0.0.1");
