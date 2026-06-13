@@ -117,9 +117,17 @@ jobs:
 
           cd "${SUKKA_DIR}"
 
+          TXT_COUNT=$(find . -type f -name "*.txt" | wc -l)
+          echo "📝 Found ${TXT_COUNT} Sukka TXT files"
+
+          if [ "${TXT_COUNT}" -eq 0 ]; then
+            echo "❌ No TXT files found"
+            exit 1
+          fi
+
           python3 << 'PYTHON_SCRIPT'
           from pathlib import Path
-          import re
+          import sys
 
           # Sukka Clash 规则类型映射
           SUPPORTED_TYPES = {
@@ -131,42 +139,54 @@ jobs:
           }
 
           txt_files = sorted(Path(".").glob("*.txt"))
-          print(f"Found {len(txt_files)} TXT files\n")
+
+          converted = 0
+          total_rules = 0
 
           for txt_file in txt_files:
               rules = []
               seen = set()
 
-              with open(txt_file, "r", encoding="utf-8") as f:
-                  for line in f:
-                      line = line.strip()
-                      if not line or line.startswith("#"):
-                          continue
+              try:
+                  with open(txt_file, "r", encoding="utf-8") as f:
+                      for line in f:
+                          line = line.strip()
+                          if not line or line.startswith("#"):
+                              continue
 
-                      parts = line.split(",", 1)
-                      if len(parts) < 2:
-                          continue
+                          parts = line.split(",", 1)
+                          if len(parts) < 2:
+                              continue
 
-                      rule_type = parts[0].strip().upper()
-                      value = parts[1].strip().strip('"').strip("'")
+                          rule_type = parts[0].strip().upper()
+                          value = parts[1].strip().strip('"').strip("'")
 
-                      if not value:
-                          continue
+                          if not value:
+                              continue
 
-                      # 只保留支持的规则类型
-                      if rule_type in SUPPORTED_TYPES:
-                          if value not in seen:
-                              rules.append(value)
-                              seen.add(value)
+                          # 只保留支持的规则类型
+                          if rule_type in SUPPORTED_TYPES:
+                              if value not in seen:
+                                  rules.append(value)
+                                  seen.add(value)
 
-              # 生成 YAML
-              yaml_file = txt_file.with_suffix(".yaml")
-              with open(yaml_file, "w", encoding="utf-8") as f:
-                  f.write("payload:\n")
-                  for rule in rules:
-                      f.write(f"  - '{rule}'\n")
+                  # 生成 YAML
+                  yaml_file = txt_file.with_suffix(".yaml")
+                  with open(yaml_file, "w", encoding="utf-8") as f:
+                      f.write("payload:\n")
+                      for rule in rules:
+                          f.write(f"  - '{rule}'\n")
 
-              print(f"✓ {txt_file.name} -> {yaml_file.name} ({len(rules)} rules)")
+                  converted += 1
+                  total_rules += len(rules)
+
+              except Exception as e:
+                  print(f"⚠️ Failed to convert {txt_file.name}: {e}", file=sys.stderr)
+
+          print(f"✅ Converted {converted} files ({total_rules} total rules)")
+
+          if converted == 0:
+              sys.exit(1)
 
           PYTHON_SCRIPT
 
