@@ -1,0 +1,248 @@
+name: Convert Local List Rules to YAML and MRS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "rules/*.list"
+      - "rules/lite/*.list"
+      - "rules/mihomo/manual/**"
+      - "auto/convert_file_yaml.py"
+      - ".github/workflows/convert-local-list-to-yaml-and-mrs.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mihomo-rules-main
+  cancel-in-progress: false
+
+env:
+  YAML_OUTPUT_DIR: rules/mihomo
+  EXCLUDE_DIR: rules/mihomo/sukka
+  # 手写 mihomo 规则目录：清理时保留其 .yaml（不删），但仍参与编译/提交。
+  MANUAL_DIR: rules/mihomo/manual
+
+jobs:
+  convert-and-compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: |
+            **/requirements*.txt
+            **/pyproject.toml
+            **/setup.py
+
+      - name: 📦 Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: ⚙️ Install mihomo
+        run: |
+          set -e
+
+          # 获取最新稳定版本
+          MIHOMO_VERSION="$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | jq -r '.tag_name')"
+          echo "Latest mihomo stable version: ${MIHOMO_VERSION}"
+          echo "MIHOMO_VERSION=${MIHOMO_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Cache mihomo
+        id: cache-mihomo
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/bin/mihomo
+          key: mihomo-${{ env.MIHOMO_VERSION }}-linux-amd64
+
+      - name: ⬇️ Download mihomo
+        if: steps.cache-mihomo.outputs.cache-hit != 'true'
+        run: |
+          set -e
+
+          DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
+
+          curl -L -o mihomo.gz "$DOWNLOAD_URL"
+          gzip -d mihomo.gz
+
+          chmod +x mihomo
+          sudo mv mihomo /usr/local/bin/mihomo
+
+      - name: ✅ Verify mihomo installation
+        run: mihomo -v
+
+      - name: 🧹 Prepare output directory (exclude sukka, keep manual yaml)
+        run: |
+          mkdir -p "${YAML_OUTPUT_DIR}"
+          mkdir -p "${EXCLUDE_DIR}"
+          mkdir -p "${MANUAL_DIR}"
+
+          # 清理上一轮产物，但：
+          #   - 完全跳过 sukka（由另一个工作流维护）
+          #   - 保留 manual 下手写的 .yaml（这是用户的源文件，不可删）
+          # manual 下旧的 .mrs 仍会被删除，随后由编译步骤重新生成，避免删源后残留孤儿 mrs。
+          find "${YAML_OUTPUT_DIR}" \
+            -path "${EXCLUDE_DIR}" -prune -o \
+            \( -path "${MANUAL_DIR}/*" -name "*.yaml" \) -prune -o \
+            -type f \( -name "*.yaml" -o -name "*.mrs" \) -exec rm -f {} +
+
+          echo "✅ Output directory prepared (excluded: ${EXCLUDE_DIR}, kept manual yaml: ${MANUAL_DIR})"
+
+      - name: 🔄 Convert .list to .yaml
+        run: |
+          python auto/convert_file_yaml.py
+
+      - name: 🧽 Remove generated files inside excluded directory from current run scope
+        run: |
+          # 防止 convert_file_yaml.py 意外写入 sukka 目录
+          find "${EXCLUDE_DIR}" -type f \( -name "*.yaml" -o -name "*.mrs" \) -print || true
+          git restore --source=HEAD --worktree --staged "${EXCLUDE_DIR}" 2>/dev/null || true
+
+      - name: 🔨 Compile .yaml to .mrs (exclude sukka)
+        run: |
+          mapfile -t yaml_files < <(
+            find "${YAML_OUTPUT_DIR}" \
+              -path "${EXCLUDE_DIR}" -prune -o \
+              -type f -name "*.yaml" -print | sort
+          )
+
+          YAML_COUNT="${#yaml_files[@]}"
+          echo "📝 Found ${YAML_COUNT} YAML files (excluding ${EXCLUDE_DIR})"
+
+          if [ "${YAML_COUNT}" -eq 0 ]; then
+            echo "❌ No YAML files generated"
+            exit 1
+          fi
+
+          COMPILED=0
+          FAILED=0
+
+          for yaml_file in "${yaml_files[@]}"; do
+            mrs_file="${yaml_file%.yaml}.mrs"
+            echo "Compiling: ${yaml_file} -> ${mrs_file}"
+
+            # mihomo 会根据 YAML 内容自动识别是 domain 还是 ipcidr
+            # 优先尝试 domain，失败则尝试 ipcidr
+            if mihomo convert-ruleset domain yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
+              COMPILED=$((COMPILED + 1))
+            elif mihomo convert-ruleset ipcidr yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
+              COMPILED=$((COMPILED + 1))
+            else
+              echo "⚠️ Failed: ${yaml_file}"
+              FAILED=$((FAILED + 1))
+            fi
+          done
+
+          echo "✅ Compiled: ${COMPILED}, Failed: ${FAILED}"
+
+          if [ "${FAILED}" -gt 0 ]; then
+            echo "⚠️ Warning: Some YAML files failed to compile"
+            echo "This may be normal if files contain unsupported rule types"
+          fi
+
+      - name: 📊 Show generated files (exclude sukka)
+        run: |
+          echo "📁 Generated YAML files:"
+          find "${YAML_OUTPUT_DIR}" \
+            -path "${EXCLUDE_DIR}" -prune -o \
+            -type f -name "*.yaml" -print | sort || true
+          echo ""
+          echo "📁 Generated MRS files:"
+          find "${YAML_OUTPUT_DIR}" \
+            -path "${EXCLUDE_DIR}" -prune -o \
+            -type f -name "*.mrs" -print | sort || true
+
+      - name: 💾 Commit and push changes (exclude sukka)
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 仅添加非 sukka 的 yaml/mrs 文件，避免误提交 sukka 目录
+          while IFS= read -r -d '' file; do
+            git add "$file"
+          done < <(
+            find "${YAML_OUTPUT_DIR}" \
+              -path "${EXCLUDE_DIR}" -prune -o \
+              -type f \( -name "*.yaml" -o -name "*.mrs" \) -print0
+          )
+
+          if git diff --cached --quiet; then
+            echo "✅ No changes detected"
+            exit 0
+          fi
+
+          CHANGED_FILES=$(git diff --cached --name-only | wc -l)
+
+          cat > /tmp/commit_msg.txt << EOF
+          chore(mihomo): update local rule-set outputs
+
+          Auto-generated by GitHub Actions
+          - YAML + MRS outputs updated
+          - Excluded directory: ${EXCLUDE_DIR}
+          - Changed files: ${CHANGED_FILES}
+          - Time: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          EOF
+
+          git commit -F /tmp/commit_msg.txt
+
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "✅ Push successful"
+              exit 0
+            fi
+
+            echo "⚠️ Push failed, retrying ($i/3)..."
+            git pull --rebase origin main
+            sleep 2
+          done
+
+          echo "❌ Push failed after 3 attempts"
+          exit 1
+
+      - name: 📤 Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-rule-outputs-${{ github.run_number }}
+          path: |
+            rules/mihomo/**/*.yaml
+            rules/mihomo/**/*.mrs
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: 📝 Generate summary
+        if: always()
+        run: |
+          {
+            echo "## 📦 Local Rule Conversion Summary (mihomo)"
+            echo ""
+            echo "- **Time**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            echo "- **mihomo version**: ${MIHOMO_VERSION}"
+            echo "- **Excluded directory**: ${EXCLUDE_DIR}"
+            echo ""
+            echo "### YAML Files"
+            echo "\`\`\`"
+            find "${YAML_OUTPUT_DIR}" \
+              -path "${EXCLUDE_DIR}" -prune -o \
+              -type f -name "*.yaml" -print | sort || true
+            echo "\`\`\`"
+            echo ""
+            echo "### MRS Files"
+            echo "\`\`\`"
+            find "${YAML_OUTPUT_DIR}" \
+              -path "${EXCLUDE_DIR}" -prune -o \
+              -type f -name "*.mrs" -print | sort || true
+            echo "\`\`\`"
+          } >> "$GITHUB_STEP_SUMMARY"
