@@ -1,0 +1,302 @@
+name: Sync and Compile Sukka Rules for mihomo (Scheduled)
+
+on:
+  schedule:
+    - cron: "30 13 * * *" # 每天 UTC 13:30 (北京时间 21:30)，错开 sing-box 工作流
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sync-compile-mihomo-rules.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mihomo-rules-sukka
+  cancel-in-progress: false
+
+env:
+  SUKKA_DIR: rules/mihomo/sukka
+
+jobs:
+  sync_sukka:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: ⚙️ Set up Git user
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: ⚙️ Install mihomo
+        run: |
+          set -e
+
+          MIHOMO_VERSION="$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | jq -r '.tag_name')"
+          echo "Latest mihomo version: ${MIHOMO_VERSION}"
+          echo "MIHOMO_VERSION=${MIHOMO_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Cache mihomo
+        id: cache-mihomo
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/bin/mihomo
+          key: mihomo-${{ env.MIHOMO_VERSION }}-linux-amd64
+
+      - name: ⬇️ Download mihomo
+        if: steps.cache-mihomo.outputs.cache-hit != 'true'
+        run: |
+          set -e
+
+          DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
+
+          curl -L -o "$RUNNER_TEMP/mihomo.gz" "$DOWNLOAD_URL"
+          gzip -d -f "$RUNNER_TEMP/mihomo.gz"
+
+          chmod +x "$RUNNER_TEMP/mihomo"
+          sudo mv "$RUNNER_TEMP/mihomo" /usr/local/bin/mihomo
+
+      - name: ✅ Verify mihomo installation
+        run: mihomo -v
+
+      - name: 🧹 Prepare Sukka directory
+        run: |
+          set -e
+
+          mkdir -p "${SUKKA_DIR}"
+
+          # 仅清空 Sukka 目录自身内容，不影响其他目录
+          find "${SUKKA_DIR}" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+
+          echo "✅ Sukka directory prepared: ${SUKKA_DIR}"
+
+      - name: 📥 Fetch Sukka ruleset
+        run: |
+          set -e
+
+          TEMP_DIR="$(mktemp -d)"
+          trap 'rm -rf "${TEMP_DIR}"' EXIT
+
+          cd "${TEMP_DIR}"
+
+          echo "📥 Cloning SukkaLab ruleset..."
+          git clone --depth 1 --branch master https://github.com/SukkaLab/ruleset.skk.moe.git
+
+          if [ -d "ruleset.skk.moe/clash" ]; then
+            cp -a "ruleset.skk.moe/clash/." "${GITHUB_WORKSPACE}/${SUKKA_DIR}/"
+            echo "✅ Sukka Clash rules copied successfully"
+          else
+            echo "❌ Error: clash directory not found in Sukka repository"
+            exit 1
+          fi
+
+      - name: 🔄 Convert Sukka TXT to YAML
+        run: |
+          set -e
+
+          cd "${SUKKA_DIR}"
+
+          python3 << 'PYTHON_SCRIPT'
+          from pathlib import Path
+          import re
+
+          # Sukka Clash 规则类型映射
+          SUPPORTED_TYPES = {
+              "DOMAIN", "HOST",
+              "DOMAIN-SUFFIX", "HOST-SUFFIX",
+              "DOMAIN-KEYWORD", "HOST-KEYWORD",
+              "DOMAIN-WILDCARD",
+              "IP-CIDR", "IP-CIDR6", "IP6-CIDR",
+          }
+
+          txt_files = sorted(Path(".").glob("*.txt"))
+          print(f"Found {len(txt_files)} TXT files\n")
+
+          for txt_file in txt_files:
+              rules = []
+              seen = set()
+
+              with open(txt_file, "r", encoding="utf-8") as f:
+                  for line in f:
+                      line = line.strip()
+                      if not line or line.startswith("#"):
+                          continue
+
+                      parts = line.split(",", 1)
+                      if len(parts) < 2:
+                          continue
+
+                      rule_type = parts[0].strip().upper()
+                      value = parts[1].strip().strip('"').strip("'")
+
+                      if not value:
+                          continue
+
+                      # 只保留支持的规则类型
+                      if rule_type in SUPPORTED_TYPES:
+                          if value not in seen:
+                              rules.append(value)
+                              seen.add(value)
+
+              # 生成 YAML
+              yaml_file = txt_file.with_suffix(".yaml")
+              with open(yaml_file, "w", encoding="utf-8") as f:
+                  f.write("payload:\n")
+                  for rule in rules:
+                      f.write(f"  - '{rule}'\n")
+
+              print(f"✓ {txt_file.name} -> {yaml_file.name} ({len(rules)} rules)")
+
+          PYTHON_SCRIPT
+
+      - name: 🔨 Compile Sukka YAML to MRS
+        run: |
+          set -e
+
+          cd "${SUKKA_DIR}"
+
+          mapfile -t yaml_files < <(find . -type f -name "*.yaml" | sort)
+
+          YAML_COUNT="${#yaml_files[@]}"
+          echo "📝 Found ${YAML_COUNT} Sukka YAML files"
+
+          if [ "${YAML_COUNT}" -eq 0 ]; then
+            echo "❌ No Sukka YAML files found"
+            exit 1
+          fi
+
+          # 删除旧的 .mrs 文件
+          find . -type f -name "*.mrs" -delete
+
+          COMPILED=0
+          FAILED=0
+
+          for yaml_file in "${yaml_files[@]}"; do
+            mrs_file="${yaml_file%.yaml}.mrs"
+            echo "Compiling: ${yaml_file} -> ${mrs_file}"
+
+            # 优先尝试 domain，失败则尝试 ipcidr
+            if mihomo convert-ruleset domain yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
+              COMPILED=$((COMPILED + 1))
+            elif mihomo convert-ruleset ipcidr yaml "${yaml_file}" "${mrs_file}" 2>/dev/null; then
+              COMPILED=$((COMPILED + 1))
+            else
+              echo "⚠️ Failed: ${yaml_file}"
+              FAILED=$((FAILED + 1))
+            fi
+          done
+
+          MRS_COUNT=$(find . -type f -name "*.mrs" | wc -l)
+          echo "✅ Sukka compilation completed: ${COMPILED}/${YAML_COUNT} succeeded, ${FAILED} failed"
+          echo "📦 Generated MRS files: ${MRS_COUNT}"
+
+          if [ "${FAILED}" -gt 0 ]; then
+            echo "⚠️ Warning: Some YAML files failed to compile"
+          fi
+
+      - name: 📝 Generate Sukka README
+        run: |
+          set -e
+
+          cat > "${SUKKA_DIR}/README.md" << EOF
+          # Sukka mihomo Rules
+
+          > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe) Clash format
+          > Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          > Compiled with: mihomo ${MIHOMO_VERSION}
+
+          EOF
+
+          TOTAL_TXT=$(find "${SUKKA_DIR}" -type f -name "*.txt" | wc -l)
+          TOTAL_YAML=$(find "${SUKKA_DIR}" -type f -name "*.yaml" | wc -l)
+          TOTAL_MRS=$(find "${SUKKA_DIR}" -type f -name "*.mrs" | wc -l)
+
+          echo "**Total: ${TOTAL_TXT} TXT | ${TOTAL_YAML} YAML | ${TOTAL_MRS} MRS**" >> "${SUKKA_DIR}/README.md"
+          echo "" >> "${SUKKA_DIR}/README.md"
+
+          echo "## Available Rules" >> "${SUKKA_DIR}/README.md"
+          find "${SUKKA_DIR}" -type f -name "*.mrs" | sort | sed 's|^.*/||' | sed 's|\.mrs$||' | awk '{print "- `" $0 "`"}' >> "${SUKKA_DIR}/README.md"
+
+      - name: 📊 Show generated Sukka files
+        run: |
+          echo "📁 Sukka TXT files:"
+          find "${SUKKA_DIR}" -type f -name "*.txt" | wc -l
+          echo ""
+          echo "📁 Sukka YAML files:"
+          find "${SUKKA_DIR}" -type f -name "*.yaml" | wc -l
+          echo ""
+          echo "📁 Sukka MRS files:"
+          find "${SUKKA_DIR}" -type f -name "*.mrs" | sort || true
+          echo ""
+          echo "📄 README:"
+          ls -l "${SUKKA_DIR}/README.md" || true
+
+      - name: 💾 Commit and push Sukka rules
+        run: |
+          set -e
+
+          git add "${SUKKA_DIR}"
+
+          if git diff --cached --quiet; then
+            echo "✅ No changes in Sukka mihomo rules"
+            exit 0
+          fi
+
+          CHANGED_FILES=$(git diff --cached --name-only | wc -l)
+
+          cat > /tmp/commit_msg.txt << EOF
+          chore(sukka-mihomo): daily sync [${CHANGED_FILES} files]
+
+          Auto-synced from SukkaLab/ruleset.skk.moe (Clash format)
+          - Compiled with mihomo ${MIHOMO_VERSION}
+          - Time: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          EOF
+
+          git commit -F /tmp/commit_msg.txt
+
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "✅ Push successful"
+              exit 0
+            fi
+
+            echo "⚠️ Push failed, retrying (${i}/3)..."
+            git pull --rebase origin main
+            sleep 2
+          done
+
+          echo "❌ Push failed after 3 attempts"
+          exit 1
+
+      - name: 📝 Generate summary
+        if: always()
+        run: |
+          {
+            echo "## 📊 Sukka mihomo Rules Sync Summary"
+            echo ""
+            echo "- **Time**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            echo "- **Compiler**: mihomo ${MIHOMO_VERSION}"
+
+            if [ -d "${SUKKA_DIR}" ]; then
+              TXT_COUNT=$(find "${SUKKA_DIR}" -type f -name "*.txt" | wc -l)
+              YAML_COUNT=$(find "${SUKKA_DIR}" -type f -name "*.yaml" | wc -l)
+              MRS_COUNT=$(find "${SUKKA_DIR}" -type f -name "*.mrs" | wc -l)
+              echo "- **TXT Files**: ${TXT_COUNT}"
+              echo "- **YAML Files**: ${YAML_COUNT}"
+              echo "- **MRS Files**: ${MRS_COUNT}"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
