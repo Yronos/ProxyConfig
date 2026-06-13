@@ -10,15 +10,20 @@ from pathlib import Path
 
 # 域名规则类型
 DOMAIN_TYPES = {
-    "DOMAIN", "HOST",
-    "DOMAIN-SUFFIX", "HOST-SUFFIX",
-    "DOMAIN-KEYWORD", "HOST-KEYWORD",
+    "DOMAIN",
+    "HOST",
+    "DOMAIN-SUFFIX",
+    "HOST-SUFFIX",
+    "DOMAIN-KEYWORD",
+    "HOST-KEYWORD",
     "DOMAIN-WILDCARD",
 }
 
 # IP 规则类型
 IPCIDR_TYPES = {
-    "IP-CIDR", "IP-CIDR6", "IP6-CIDR",
+    "IP-CIDR",
+    "IP-CIDR6",
+    "IP6-CIDR",
 }
 
 # 支持的规则类型（域名 + IP 可以混写在同一个 payload）
@@ -26,16 +31,27 @@ SUPPORTED_TYPES = DOMAIN_TYPES | IPCIDR_TYPES
 
 # 不支持的规则类型
 SKIP_TYPES = {
-    "PROCESS-NAME", "PROCESS-PATH", "NETWORK",
-    "DST-PORT", "SRC-PORT", "SRC-IP-CIDR",
-    "GEOSITE", "GEOIP", "SRC-GEOIP", "IP-ASN",
-    "RULE-SET", "AND", "OR", "NOT", "MATCH",
+    "PROCESS-NAME",
+    "PROCESS-PATH",
+    "NETWORK",
+    "DST-PORT",
+    "SRC-PORT",
+    "SRC-IP-CIDR",
+    "GEOSITE",
+    "GEOIP",
+    "SRC-GEOIP",
+    "IP-ASN",
+    "RULE-SET",
+    "AND",
+    "OR",
+    "NOT",
+    "MATCH",
 }
 
 # Sukka 标记（需要删除）
 SUKKA_MARKERS = [
     "7h1s_rul35et_i5_mad3_by_5ukk4w",
-    "ruleset.skk.moe",
+    "this_ruleset_is_made_by_sukkaw",
     "thisrulesetismadebysukka",
 ]
 
@@ -139,7 +155,10 @@ def main():
     txt_files = sorted(Path(".").rglob("*.txt"))
 
     if not txt_files:
-        print(f"ERROR: No TXT files found in {os.getcwd()} (including subdirectories)", file=sys.stderr)
+        print(
+            f"ERROR: No TXT files found in {os.getcwd()} (including subdirectories)",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     print(f"📝 Found {len(txt_files)} TXT files across all subdirectories")
@@ -159,7 +178,7 @@ def main():
         if converted == 0:
             skipped += 1
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"✅ Converted {total_converted} rule files ({total_rules} total rules)")
     if skipped > 0:
         print(f"⚠️ Skipped {skipped} files")
