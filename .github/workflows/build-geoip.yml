@@ -61,7 +61,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.25"
+          go-version: "stable"
           cache-dependency-path: _v2dat/go.sum
 
       - name: Build v2dat
@@ -299,6 +299,7 @@ jobs:
 
           python3 << 'PY'
           import json
+          import ipaddress
           from pathlib import Path
 
           json_dir = Path("rules/GeoIP/json")
@@ -316,8 +317,17 @@ jobs:
               cidrs = sorted(set(cidrs))
 
               # mihomo ipcidr 规则集的 payload 格式
+              # IPv4 使用 IP-CIDR，IPv6 使用 IP-CIDR6
               lines = ["payload:"]
-              lines += [f"  - '{cidr}'" for cidr in cidrs]
+              for cidr in cidrs:
+                  try:
+                      network = ipaddress.ip_network(cidr, strict=False)
+                      if network.version == 4:
+                          lines.append(f"  - IP-CIDR,{cidr}")
+                      else:
+                          lines.append(f"  - IP-CIDR6,{cidr}")
+                  except ValueError:
+                      print(f"Skip invalid CIDR: {cidr}")
 
               out_file = yaml_dir / f"{json_file.stem}.yaml"
               out_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
