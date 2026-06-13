@@ -8,6 +8,7 @@ on:
     branches:
       - main
     paths:
+      - "auto/convert_sukka_rules_to_yaml.py"
       - ".github/workflows/sync-compile-mihomo-rules.yml"
 
 permissions:
