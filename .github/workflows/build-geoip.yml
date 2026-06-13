@@ -130,7 +130,7 @@ jobs:
 
           mkdir -p ~/.cache/mihomo
           curl -L -o "$RUNNER_TEMP/mihomo.gz" "$DOWNLOAD_URL"
-          gzip -d "$RUNNER_TEMP/mihomo.gz"
+          gzip -d -f "$RUNNER_TEMP/mihomo.gz"
 
           mv "$RUNNER_TEMP/mihomo" ~/.cache/mihomo/mihomo
           chmod +x ~/.cache/mihomo/mihomo
