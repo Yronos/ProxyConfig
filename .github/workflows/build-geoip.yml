@@ -61,7 +61,8 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.22"
+          go-version: "1.25"
+          cache-dependency-path: _v2dat/go.sum
 
       - name: Build v2dat
         run: |
@@ -75,17 +76,33 @@ jobs:
 
           SING_BOX_VERSION="$(curl -fsSL https://api.github.com/repos/SagerNet/sing-box/releases/latest | jq -r '.tag_name')"
           echo "Latest sing-box version: ${SING_BOX_VERSION}"
+          echo "SING_BOX_VERSION=${SING_BOX_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Cache sing-box
+        id: cache-singbox
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/sing-box
+          key: sing-box-${{ env.SING_BOX_VERSION }}-linux-amd64
+
+      - name: Download sing-box
+        if: steps.cache-singbox.outputs.cache-hit != 'true'
+        run: |
+          set -e
 
           DOWNLOAD_URL="https://github.com/SagerNet/sing-box/releases/download/${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION#v}-linux-amd64.tar.gz"
 
+          mkdir -p ~/.cache/sing-box
           curl -L -o "$RUNNER_TEMP/sing-box.tar.gz" "$DOWNLOAD_URL"
           tar -xzf "$RUNNER_TEMP/sing-box.tar.gz" -C "$RUNNER_TEMP"
 
-          find "$RUNNER_TEMP" -type f -name sing-box -exec chmod +x {} \;
-          SING_BOX_BIN="$(find "$RUNNER_TEMP" -type f -name sing-box | head -n 1)"
+          find "$RUNNER_TEMP" -type f -name sing-box -exec cp {} ~/.cache/sing-box/sing-box \;
+          chmod +x ~/.cache/sing-box/sing-box
 
+      - name: Setup sing-box
+        run: |
+          SING_BOX_BIN="$HOME/.cache/sing-box/sing-box"
           echo "SING_BOX_BIN=${SING_BOX_BIN}" >> "$GITHUB_ENV"
-
           "${SING_BOX_BIN}" version
 
       - name: Install mihomo
@@ -95,17 +112,33 @@ jobs:
           # 获取最新稳定版本
           MIHOMO_VERSION="$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | jq -r '.tag_name')"
           echo "Latest mihomo stable version: ${MIHOMO_VERSION}"
+          echo "MIHOMO_VERSION=${MIHOMO_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Cache mihomo
+        id: cache-mihomo
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/mihomo
+          key: mihomo-${{ env.MIHOMO_VERSION }}-linux-amd64
+
+      - name: Download mihomo
+        if: steps.cache-mihomo.outputs.cache-hit != 'true'
+        run: |
+          set -e
 
           DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
 
+          mkdir -p ~/.cache/mihomo
           curl -L -o "$RUNNER_TEMP/mihomo.gz" "$DOWNLOAD_URL"
           gzip -d "$RUNNER_TEMP/mihomo.gz"
 
-          chmod +x "$RUNNER_TEMP/mihomo"
-          MIHOMO_BIN="$RUNNER_TEMP/mihomo"
+          mv "$RUNNER_TEMP/mihomo" ~/.cache/mihomo/mihomo
+          chmod +x ~/.cache/mihomo/mihomo
 
+      - name: Setup mihomo
+        run: |
+          MIHOMO_BIN="$HOME/.cache/mihomo/mihomo"
           echo "MIHOMO_BIN=${MIHOMO_BIN}" >> "$GITHUB_ENV"
-
           "${MIHOMO_BIN}" -v
 
       - name: Prepare Directories
