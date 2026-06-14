@@ -161,8 +161,8 @@ def parse_list_file(file_path: str, quiet: bool = False) -> tuple[List[str], Lis
                 payload_value = None
 
                 if type_name in ["DOMAIN-SUFFIX", "HOST-SUFFIX"]:
-                    # DOMAIN-SUFFIX 转为 . 前缀（匹配域名及其所有子域名）
-                    payload_value = f".{value}"
+                    # DOMAIN-SUFFIX 转为 +. 前缀（通配符匹配，可匹配域名及其所有子域名）
+                    payload_value = f"+.{value}"
                 elif type_name in ["DOMAIN", "HOST"]:
                     # DOMAIN 保持原样（精确匹配）
                     payload_value = value

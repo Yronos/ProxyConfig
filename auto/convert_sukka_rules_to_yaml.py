@@ -89,12 +89,10 @@ def convert_txt_to_yaml(txt_file):
 
                 # 格式 1: domainset 格式 (+.example.com)
                 if original_line.startswith("+."):
-                    domain = original_line[2:]
-                    payload_value = f".{domain}"
-                    if payload_value not in seen:
-                        # domainset 的 +. 格式转为 mihomo 的 . 前缀
-                        rules.append(payload_value)
-                        seen.add(payload_value)
+                    # domainset 的 +. 格式保持原样（通配符匹配）
+                    if original_line not in seen:
+                        rules.append(original_line)
+                        seen.add(original_line)
                     continue
 
                 # 格式 2: 标准 Clash 格式 (TYPE,value[,options])
@@ -111,8 +109,8 @@ def convert_txt_to_yaml(txt_file):
                         payload_value = None
 
                         if rule_type in ["DOMAIN-SUFFIX", "HOST-SUFFIX"]:
-                            # DOMAIN-SUFFIX 转为 . 前缀（匹配域名及其所有子域名）
-                            payload_value = f".{value}"
+                            # DOMAIN-SUFFIX 转为 +. 前缀（通配符匹配，可匹配域名及其所有子域名）
+                            payload_value = f"+.{value}"
                         elif rule_type in ["DOMAIN", "HOST"]:
                             # DOMAIN 保持原样（精确匹配）
                             payload_value = value
