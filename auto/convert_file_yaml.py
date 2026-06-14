@@ -19,7 +19,7 @@ payload:
 
 import sys
 from pathlib import Path
-from typing import List, Set, Dict
+from typing import Dict, List, Set
 
 # 确保在 Windows GBK 控制台等非 UTF-8 环境下也能正常输出 ✓ / ✗ 等字符。
 for _stream in (sys.stdout, sys.stderr):
@@ -37,6 +37,7 @@ CONFIG = {
         ("./rules/Bahamut.list", "./rules/mihomo/Bahamut.yaml"),
         ("./rules/Biliintl.list", "./rules/mihomo/Biliintl.yaml"),
         ("./rules/cf_preferred.list", "./rules/mihomo/cf_preferred.yaml"),
+        ("./rules/connectivity_check.list", "./rules/mihomo/connectivity_check.yaml"),
         ("./rules/ForceDirect.list", "./rules/mihomo/ForceDirect.yaml"),
         ("./rules/ProxyDownload.list", "./rules/mihomo/ProxyDownload.yaml"),
         ("./rules/ProxyForum.list", "./rules/mihomo/ProxyForum.yaml"),
@@ -45,8 +46,6 @@ CONFIG = {
         ("./rules/ProxyMusic.list", "./rules/mihomo/ProxyMusic.yaml"),
         ("./rules/ProxyUS.list", "./rules/mihomo/ProxyUS.yaml"),
         ("./rules/DirectSupplements.list", "./rules/mihomo/DirectSupplements.yaml"),
-        ("./rules/mihomo/Google.list", "./rules/mihomo/Google.yaml"),
-        ("./rules/mihomo/YouTube.list", "./rules/mihomo/YouTube.yaml"),
         # lite 部分
         ("./rules/lite/Amazon.list", "./rules/mihomo/lite/Amazon.yaml"),
         ("./rules/lite/Bilibili.list", "./rules/mihomo/lite/Bilibili.yaml"),
@@ -146,7 +145,9 @@ def parse_list_file(file_path: str, quiet: bool = False) -> tuple[List[str], Lis
             parts = line.split(",")
             if len(parts) < 2:
                 if not quiet:
-                    print(f"警告: 第 {line_num} 行格式无效，跳过: {line}", file=sys.stderr)
+                    print(
+                        f"警告: 第 {line_num} 行格式无效，跳过: {line}", file=sys.stderr
+                    )
                 continue
 
             type_name = parts[0].strip().upper()
@@ -204,11 +205,7 @@ def convert_to_yaml(rules: List[str], unsupported: List[str]) -> str:
     return "\n".join(lines)
 
 
-def convert_file(
-    input_path: str,
-    output_path: str = None,
-    quiet: bool = False
-) -> str:
+def convert_file(input_path: str, output_path: str = None, quiet: bool = False) -> str:
     """转换单个文件
 
     Args:
@@ -329,4 +326,3 @@ def run_cli():
 
 if __name__ == "__main__":
     run_with_config()
-
