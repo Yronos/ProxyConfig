@@ -2,10 +2,10 @@
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe) Clash format
 
-> Last updated: 2026-06-13 15:17:21 UTC
+> Last updated: 2026-06-14 04:06:07 UTC
 > Compiled with: mihomo v1.19.27
 
-**Total: 68 TXT | 54 YAML | 54 MRS**
+**Total: 68 TXT | 55 YAML | 55 MRS**
 
 ## Available Rules
 
@@ -22,6 +22,7 @@
 - `apple_services`
 - `cdn`
 - `china_ip`
+- `china_ip_ipv6`
 - `domestic`
 - `download`
 - `lan`
