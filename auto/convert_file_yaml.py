@@ -157,9 +157,32 @@ def parse_list_file(file_path: str, quiet: bool = False) -> tuple[List[str], Lis
                 continue
 
             if type_name in SUPPORTED_TYPES:
-                if value not in seen:
-                    rules.append(value)
-                    seen.add(value)
+                # 根据规则类型转换为 mihomo payload 格式
+                payload_value = None
+
+                if type_name in ["DOMAIN-SUFFIX", "HOST-SUFFIX"]:
+                    # DOMAIN-SUFFIX 转为 . 前缀（匹配域名及其所有子域名）
+                    payload_value = f".{value}"
+                elif type_name in ["DOMAIN", "HOST"]:
+                    # DOMAIN 保持原样（精确匹配）
+                    payload_value = value
+                elif type_name in ["DOMAIN-KEYWORD", "HOST-KEYWORD"]:
+                    # DOMAIN-KEYWORD 无法正确转换为 payload
+                    # payload 不支持 keyword 匹配，会导致功能丢失
+                    unsupported_line = f"{type_name}: {value} (keyword matching not supported in payload)"
+                    if unsupported_line not in unsupported_seen:
+                        unsupported.append(unsupported_line)
+                        unsupported_seen.add(unsupported_line)
+                elif type_name in ["DOMAIN-WILDCARD"]:
+                    # DOMAIN-WILDCARD 保持原样（mihomo 支持通配符 *）
+                    payload_value = value
+                elif type_name in ["IP-CIDR", "IP-CIDR6", "IP6-CIDR"]:
+                    # IP CIDR 保持原样（去除 no-resolve 等参数）
+                    payload_value = value
+
+                if payload_value and payload_value not in seen:
+                    rules.append(payload_value)
+                    seen.add(payload_value)
             elif type_name in SKIP_TYPES:
                 # 记录不支持的规则
                 unsupported_line = f"{type_name}: {value}"
