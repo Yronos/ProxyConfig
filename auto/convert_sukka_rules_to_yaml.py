@@ -142,7 +142,8 @@ def convert_txt_to_yaml(txt_file):
                     continue
 
                 # 格式 3: 纯域名或 IP CIDR（domainset 中的纯域名/IP）
-                if "." in original_line and " " not in original_line:
+                # 支持 IPv4（包含.）和 IPv6（包含:）
+                if ("." in original_line or ":" in original_line) and " " not in original_line:
                     if original_line not in seen:
                         rules.append(original_line)
                         seen.add(original_line)
