@@ -140,6 +140,7 @@
       "iproute2_rule_index": 9000,
       "auto_redirect": true,
       "strict_route": true,
+      "route_exclude_address_set": ["domestic_ip", "china_ip", "china_ip_ipv6"],
       "endpoint_independent_nat": false,
       "stack": "mixed"
     }
