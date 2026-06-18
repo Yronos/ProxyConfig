@@ -1263,7 +1263,10 @@
       "listen": "{{SING_BOX_LISTEN}}",
       "listen_port": 8760,
       "secret": "{{SING_BOX_API_SECRET}}",
-      "access_control_allow_origin": ["{{SING_BOX_API_CORS_ORIGINS}}"],
+      "access_control_allow_origin": [
+        "{{SING_BOX_API_CORS_ORIGINS01}}",
+        "{{SING_BOX_API_CORS_ORIGINS02}}"
+      ],
       "access_control_allow_private_network": false
     }
   ],
