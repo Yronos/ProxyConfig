@@ -89,15 +89,23 @@ CUSTOM_REMOVE_RULES = [
     "DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe",
     "DOMAIN-SUFFIX,pixiv.net",
     "DOMAIN-KEYWORD,browserleaks",
+    "DOMAIN-KEYWORD,whatsapp",
+    "DOMAIN-KEYWORD,blogspot",
+    "DOMAIN-KEYWORD,discord",
+    "DOMAIN-KEYWORD,sci-hub",
+    "DOMAIN-KEYWORD,dropbox",
+    "DOMAIN-KEYWORD,pinterest",
+    "USER-AGENT,Roam*",
 ]
 
 # 手动添加规则
 # 这些规则会追加到最终 Global.list
 CUSTOM_ADD_RULES = [
-    # "DOMAIN,example.com",
-    # "DOMAIN-SUFFIX,example.org",
-    "DOMAIN-KEYWORD,google",
-    "DOMAIN-KEYWORD,facebook",
+    # "DOMAIN-KEYWORD,google",
+    # "DOMAIN-KEYWORD,facebook",
+    "DOMAIN-SUFFIX,dropbox.com",
+    "DOMAIN-SUFFIX,pinterest.com",
+    "DOMAIN-SUFFIX,browserleaks.net",
 ]
 
 # 如果手动添加的规则同时存在于 EXCLUDE_RULESETS 中，是否仍然保留？
