@@ -1,13 +1,6 @@
-# 不支持的规则 (9):
+# 不支持的规则 (2):
 # - DOMAIN-KEYWORD: google (keyword matching not supported in payload)
-# - DOMAIN-KEYWORD: blogspot (keyword matching not supported in payload)
 # - DOMAIN-KEYWORD: facebook (keyword matching not supported in payload)
-# - DOMAIN-KEYWORD: whatsapp (keyword matching not supported in payload)
-# - DOMAIN-KEYWORD: discord (keyword matching not supported in payload)
-# - DOMAIN-KEYWORD: sci-hub (keyword matching not supported in payload)
-# - DOMAIN-KEYWORD: dropbox (keyword matching not supported in payload)
-# - DOMAIN-KEYWORD: pinterest (keyword matching not supported in payload)
-# - USER-AGENT: Roam*
 
 payload:
   - '+.community'
@@ -1106,6 +1099,7 @@ payload:
   - '+.cz'
   - '+.cy'
   - '+.cx'
+  - '+.cr'
   - '+.huggingface.co'
   - '+.convertio.co'
   - '+.snapkit.co'
@@ -1136,3 +1130,6 @@ payload:
   - '+.at'
   - '+.ai'
   - '+.ac'
+  - '+.dropbox.com'
+  - '+.pinterest.com'
+  - '+.browserleaks.net'
