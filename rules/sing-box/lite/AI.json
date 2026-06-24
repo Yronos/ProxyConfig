@@ -1,0 +1,58 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "antigravity.google",
+        "antigravity-unleash.goog",
+        "ai.google.dev",
+        "daily-cloudcode-pa.googleapis.com",
+        "robinfrontend-pa.googleapis.com",
+        "aisandbox-pa.googleapis.com",
+        "aida.googleapis.com",
+        "gateway.ai.cloudflare.com",
+        "alkalicore-pa.clients6.google.com",
+        "jules.google.com",
+        "api.github.com",
+        "openrouter.ai",
+        "api.jetbrains.ai"
+      ],
+      "domain_suffix": [
+        "generativeai.google",
+        "notebooklm.google",
+        "deepmind.google",
+        "gemini.google",
+        "proactivebackend-pa.googleapis.com",
+        "generativelanguage.googleapis.com",
+        "cloudcode-pa.googleapis.com",
+        "geller-pa.googleapis.com",
+        "oaistatic.com",
+        "anthropic.com",
+        "deepmind.com",
+        "chatgpt.com",
+        "notebooklm.google.com",
+        "makersuite.google.com",
+        "aistudio.google.com",
+        "gemini.google.com",
+        "bard.google.com",
+        "claude.com",
+        "sora.com",
+        "groq.com",
+        "grok.com",
+        "chat.com",
+        "poe.com",
+        "ai.com",
+        "clipdrop.co",
+        "perplexity.ai",
+        "openart.ai",
+        "jasper.ai",
+        "claude.ai",
+        "meta.ai",
+        "dify.ai",
+        "x.ai",
+        "g.ai",
+        "openai.com"
+      ]
+    }
+  ]
+}
