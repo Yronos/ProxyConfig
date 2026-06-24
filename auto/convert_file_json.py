@@ -57,6 +57,7 @@ CONFIG = {
         ("./rules/mihomo/Google.list", "./rules/sing-box/Google.json"),
         ("./rules/mihomo/YouTube.list", "./rules/sing-box/YouTube.json"),
         # lite 部分
+        ("./rules/lite/AI.list", "./rules/sing-box/lite/AI.json"),
         ("./rules/lite/Amazon.list", "./rules/sing-box/lite/Amazon.json"),
         ("./rules/lite/Bilibili.list", "./rules/sing-box/lite/Bilibili.json"),
         ("./rules/lite/CDN.list", "./rules/sing-box/lite/CDN.json"),
@@ -68,6 +69,7 @@ CONFIG = {
         ("./rules/lite/Google.list", "./rules/sing-box/lite/Google.json"),
         ("./rules/lite/Lan.list", "./rules/sing-box/lite/Lan.json"),
         ("./rules/lite/Meta.list", "./rules/sing-box/lite/Meta.json"),
+        ("./rules/lite/Microsoft.list", "./rules/sing-box/lite/Microsoft.json"),
         ("./rules/lite/Reddit.list", "./rules/sing-box/lite/Reddit.json"),
         ("./rules/lite/reject.list", "./rules/sing-box/lite/reject.json"),
         ("./rules/lite/Streaming.list", "./rules/sing-box/lite/Streaming.json"),
@@ -150,7 +152,13 @@ SKIP_TYPES = {
 }
 
 # 域名/IP 组：sing-box 单规则对象内这些字段相互“或”。它们合并进同一个规则对象。
-OR_GROUP_FIELDS = ["domain", "domain_suffix", "domain_keyword", "domain_regex", "ip_cidr"]
+OR_GROUP_FIELDS = [
+    "domain",
+    "domain_suffix",
+    "domain_keyword",
+    "domain_regex",
+    "ip_cidr",
+]
 
 # 其余字段：在单个规则对象内会与域名组“与”运算，因此各自独立成规则对象以保持顶层“或”语义。
 STANDALONE_FIELDS = [
