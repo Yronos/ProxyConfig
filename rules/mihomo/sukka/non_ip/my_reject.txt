@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Reject (REJECT-DROP)
-# Last Updated: 2026-04-02T12:46:49.386Z
-# Size: 51
+# Last Updated: 2026-06-24T05:48:35.373Z
+# Size: 52
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -14,6 +14,7 @@ DOMAIN-SUFFIX,mtvod-ali.meituan.net
 DOMAIN-SUFFIX,mtvod.meituan.net
 DOMAIN-SUFFIX,unicompayment.com
 DOMAIN-SUFFIX,easytomessage.com
+DOMAIN-SUFFIX,xiaomimobile.com
 DOMAIN,daisydiskapp.com
 DOMAIN,locationhistoryplacedetails-pa.googleapis.com
 DOMAIN,locationhistoryaggregates-pa.googleapis.com
