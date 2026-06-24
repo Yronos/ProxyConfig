@@ -47,6 +47,7 @@ CONFIG = {
         ("./rules/ProxyUS.list", "./rules/mihomo/ProxyUS.yaml"),
         ("./rules/DirectSupplements.list", "./rules/mihomo/DirectSupplements.yaml"),
         # lite 部分
+        ("./rules/lite/AI.list", "./rules/mihomo/lite/AI.yaml"),
         ("./rules/lite/Amazon.list", "./rules/mihomo/lite/Amazon.yaml"),
         ("./rules/lite/Bilibili.list", "./rules/mihomo/lite/Bilibili.yaml"),
         ("./rules/lite/CDN.list", "./rules/mihomo/lite/CDN.yaml"),
@@ -58,6 +59,7 @@ CONFIG = {
         ("./rules/lite/Google.list", "./rules/mihomo/lite/Google.yaml"),
         ("./rules/lite/Lan.list", "./rules/mihomo/lite/Lan.yaml"),
         ("./rules/lite/Meta.list", "./rules/mihomo/lite/Meta.yaml"),
+        ("./rules/lite/Microsoft.list", "./rules/mihomo/lite/Microsoft.yaml"),
         ("./rules/lite/Reddit.list", "./rules/mihomo/lite/Reddit.yaml"),
         ("./rules/lite/reject.list", "./rules/mihomo/lite/reject.yaml"),
         ("./rules/lite/Streaming.list", "./rules/mihomo/lite/Streaming.yaml"),
