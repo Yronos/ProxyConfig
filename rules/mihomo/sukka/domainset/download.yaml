@@ -1,6 +1,7 @@
 payload:
   - '+.fnbuilds.services'
   - 'ossmirror.mycloud.services'
+  - 'dl.orangefox.download'
   - '+.nitro.download'
   - '+.kali.download'
   - 'mirror.kumi.systems'
@@ -1483,6 +1484,7 @@ payload:
   - 'ubuntu.dts.mg'
   - 'mirror.klaus-uwe.me'
   - '+.mirrors.cicku.me'
+  - '+.dl.twrp.me'
   - 'releases.obsidian.md'
   - 'mirror.ihost.md'
   - 'mirror.marwan.ma'
