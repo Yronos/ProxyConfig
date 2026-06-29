@@ -1006,7 +1006,7 @@
       {
         "tag": "microsoft_non_ip",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/microsoft.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/Microsoft.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
@@ -1070,7 +1070,7 @@
       {
         "tag": "AI",
         "type": "remote",
-        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/ai.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/AI.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
