@@ -568,14 +568,14 @@
       },
       {
         "action": "route",
-        "rule_set": ["cdn_domainset"],
+        "rule_set": ["cdn_domainset", "cdn_non_ip"],
         "outbound": "CDN"
       },
-      {
-        "action": "route",
-        "rule_set": ["cdn_non_ip"],
-        "outbound": "CDN"
-      },
+      //{
+      //  "action": "route",
+      //  "rule_set": ["cdn_non_ip"],
+      //  "outbound": "CDN"
+      //},
       {
         "action": "route",
         "rule_set": ["ProxyDownload"],
@@ -593,14 +593,14 @@
       },
       {
         "action": "route",
-        "rule_set": ["download_domainset"],
+        "rule_set": ["download_domainset", "download_non_ip"],
         "outbound": "Download"
       },
-      {
-        "action": "route",
-        "rule_set": ["download_non_ip"],
-        "outbound": "Download"
-      },
+      //{
+      //  "action": "route",
+      //  "rule_set": ["download_non_ip"],
+      //  "outbound": "Download"
+      //},
       {
         "action": "route",
         "rule_set": ["ProxyForum"],
@@ -668,14 +668,14 @@
       },
       {
         "action": "route",
-        "rule_set": ["telegram_non_ip"],
+        "rule_set": ["telegram_non_ip", "telegram_ip"],
         "outbound": "Telegram"
       },
-      {
-        "action": "route",
-        "rule_set": ["telegram_ip"],
-        "outbound": "Telegram"
-      },
+      //{
+      //  "action": "route",
+      //  "rule_set": ["telegram_ip"],
+      //  "outbound": "Telegram"
+      //},
       {
         "action": "route",
         "rule_set": ["domestic_non_ip"],
@@ -802,19 +802,19 @@
       //},
       {
         "action": "route",
-        "rule_set": ["domestic_ip"],
-        "outbound": "🇨🇳CN"
-      },
-      {
-        "action": "route",
-        "rule_set": ["china_ip"],
-        "outbound": "🇨🇳CN"
-      },
-      {
-        "action": "route",
-        "rule_set": ["china_ip_ipv6"],
+        "rule_set": ["domestic_ip", "china_ip", "china_ip_ipv6"],
         "outbound": "🇨🇳CN"
       }
+      //{
+      //  "action": "route",
+      //  "rule_set": ["china_ip"],
+      //  "outbound": "🇨🇳CN"
+      //},
+      //{
+      //  "action": "route",
+      //  "rule_set": ["china_ip_ipv6"],
+      //  "outbound": "🇨🇳CN"
+      //}
     ],
     "rule_set": [
       {
@@ -1266,8 +1266,7 @@
       "path": "cache.db",
       "cache_id": "cache_data",
       "store_fakeip": true,
-      "store_dns": true,
-      "rdrc_timeout": "7d"
+      "store_dns": true
     },
     "clash_api": {
       "external_controller": "{{EXTERNAL_CONTROLLER}}",
