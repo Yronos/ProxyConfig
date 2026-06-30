@@ -1,4 +1,4 @@
-# 不支持的规则 (142):
+# 不支持的规则 (143):
 # - DOMAIN-KEYWORD: .estream. (keyword matching not supported in payload)
 # - DOMAIN-KEYWORD: jshosting (keyword matching not supported in payload)
 # - DOMAIN-KEYWORD: hostingcloud (keyword matching not supported in payload)
@@ -9,7 +9,7 @@
 # - DOMAIN-KEYWORD: nimiqpool (keyword matching not supported in payload)
 # - DOMAIN-KEYWORD: .freecontent. (keyword matching not supported in payload)
 # - DOMAIN-KEYWORD: sunnimiq (keyword matching not supported in payload)
-# ... 还有 132 条
+# ... 还有 133 条
 
 payload:
   - '+.data'
