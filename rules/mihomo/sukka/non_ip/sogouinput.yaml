@@ -4,12 +4,12 @@
 # - PROCESS-NAME: SogouServices
 
 payload:
-  - '+.account.sogou.com'
-  - '+.shouji.sogou.com'
-  - '+.pinyin.sogou.com'
-  - '+.macime.sogou.com'
-  - '+.ime.sogou.com'
-  - '+.get.sogou.com'
-  - '+.sginput.qq.com'
   - '+.beacon.qq.com'
+  - '+.get.sogou.com'
+  - '+.ime.sogou.com'
+  - '+.sginput.qq.com'
+  - '+.macime.sogou.com'
+  - '+.pinyin.sogou.com'
+  - '+.shouji.sogou.com'
+  - '+.account.sogou.com'
   - 'oth.str.mdt.qq.com'

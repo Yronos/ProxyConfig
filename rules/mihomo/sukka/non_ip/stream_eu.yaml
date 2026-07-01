@@ -3,9 +3,9 @@
 # - DOMAIN-KEYWORD: uk-live (keyword matching not supported in payload)
 
 payload:
-  - 'itvpnpmobile-a.akamaihd.net'
-  - 'bbc.mp-pxcdn.com'
   - '+.itv.com'
-  - '+.tvlicensing.co.uk'
-  - '+.bbci.co.uk'
   - '+.bbc.co.uk'
+  - '+.bbci.co.uk'
+  - 'bbc.mp-pxcdn.com'
+  - '+.tvlicensing.co.uk'
+  - 'itvpnpmobile-a.akamaihd.net'
