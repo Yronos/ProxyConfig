@@ -16,10 +16,10 @@ DOMAIN-SUFFIX,deezer.com
 DOMAIN-SUFFIX,dzcdn.net
 
 # 7digital
-DOMAIN-SUFFIX,7static.com
-DOMAIN-SUFFIX,7digital.com
+#DOMAIN-SUFFIX,7static.com
+#DOMAIN-SUFFIX,7digital.com
 
-# 7digital
+# discogs
 DOMAIN-SUFFIX,discogs.com
 
 # lyrics
@@ -45,3 +45,5 @@ DOMAIN-SUFFIX,allmusic.com
 DOMAIN-SUFFIX,songmeanings.com
 DOMAIN-SUFFIX,letras.com
 DOMAIN-SUFFIX,lyrical-nonsense.com
+DOMAIN,api.lyrics.ovh
+DOMAIN,www.letras.mus.br
