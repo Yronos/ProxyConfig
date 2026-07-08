@@ -5,7 +5,9 @@
       "domain": [
         "s.go-mpulse.net",
         "qobuz-qobuz-prod.web.arc-cdn.net",
-        "streaming-qobuz-std.akamaized.net"
+        "streaming-qobuz-std.akamaized.net",
+        "api.lyrics.ovh",
+        "www.letras.mus.br"
       ],
       "domain_suffix": [
         "qobuz.com",
@@ -16,8 +18,6 @@
         "wimpmusic.com",
         "deezer.com",
         "dzcdn.net",
-        "7static.com",
-        "7digital.com",
         "discogs.com",
         "lrclib.net",
         "stlyrics.org",
