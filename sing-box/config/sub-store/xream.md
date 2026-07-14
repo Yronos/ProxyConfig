@@ -25,7 +25,7 @@ https://raw.githubusercontent.com/xream/scripts/main/surge/modules/sub-store-scr
 🕳ℹ️^🇸🇬SG-M$🏷ℹ️🇸🇬|新加坡|狮城|(\b(Singapore|SG|Sing|新|狮)\d{0,2}\b)
 🕳ℹ️^🇺🇸US$🏷ℹ️^(?!.*\bPagesUS-\d+\b).*(🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|阿什本|西雅图|芝加哥|(\b(United States|US|USA|Portland|Dallas|Oregon|Phoenix|Fremont|Silicon Valley|Las Vegas|Los Angeles|San Jose|Santa Clara|Ashburn|Seattle|Chicago|美)\d{0,2}\b))
 🕳ℹ️^🇺🇸US-M$🏷ℹ️🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|阿什本|西雅图|芝加哥|(\b(United States|US|USA|Portland|Dallas|Oregon|Phoenix|Fremont|Silicon Valley|Las Vegas|Los Angeles|San Jose|Santa Clara|Ashburn|Seattle|Chicago|美)\d{0,2}\b)
-
+🕳ℹ️BGP🏷ℹ️saas|tencentapp|nexusmods|ubi|shopify
 
 
 原本参考：

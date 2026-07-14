@@ -171,8 +171,7 @@
         "🇹🇼TW",
         "🇯🇵JP",
         "🇸🇬SG",
-        "🇭🇰HK-M",
-        "🇹🇼TW-M",
+        "BGP",
         "🇯🇵JP-M",
         "🇸🇬SG-M"
       ]
@@ -181,7 +180,7 @@
       "type": "selector",
       "tag": "Download",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇨🇳CN", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
+      "outbounds": ["🇨🇳CN","BGP", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
     },
     {
       "type": "selector",
@@ -493,6 +492,15 @@
     {
       "type": "urltest",
       "tag": "🇺🇸US",
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "5m",
+      "tolerance": 10,
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "urltest",
+      "tag": "BGP",
       "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 10,
