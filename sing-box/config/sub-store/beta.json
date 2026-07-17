@@ -135,6 +135,7 @@
       "interface_name": "utun",
       "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
       //"mtu": 65535,
+      "dns_mode": "hijack",
       "auto_route": true,
       "iproute2_table_index": 2022,
       "iproute2_rule_index": 9000,
@@ -152,6 +153,10 @@
         "ff00::/8"
       ],
       "endpoint_independent_nat": false,
+      "udp_timeout": "5m",
+      "udp_mapping": "endpoint_independent",
+      "udp_filtering": "endpoint_independent",
+      "udp_nat_max": 0,
       "stack": "mixed"
     }
   ],
