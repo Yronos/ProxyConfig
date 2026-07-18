@@ -15,6 +15,12 @@ DOMAIN-SUFFIX,wimpmusic.com
 DOMAIN-SUFFIX,deezer.com
 DOMAIN-SUFFIX,dzcdn.net
 
+# NAME: Beatport
+DOMAIN-SUFFIX,beatport.com
+
+# NAME: Beatsource
+DOMAIN-SUFFIX,beatsource.com
+
 # 7digital
 #DOMAIN-SUFFIX,7static.com
 #DOMAIN-SUFFIX,7digital.com
@@ -45,6 +51,7 @@ DOMAIN-SUFFIX,discogs.com
 #DOMAIN-SUFFIX,songmeanings.com
 #DOMAIN-SUFFIX,letras.com
 #DOMAIN-SUFFIX,lyrical-nonsense.com
+DOMAIN-SUFFIX,utatime.com
 
 # lyrics domain
 DOMAIN,api.chartlyrics.com
