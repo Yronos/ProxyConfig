@@ -541,10 +541,6 @@
   "route": {
     "rules": [
       {
-        "action": "hijack-dns",
-        "port": 53
-      },
-      {
         "action": "sniff",
         "rule_set": ["telegram_ip"],
         "invert": true
