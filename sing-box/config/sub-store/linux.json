@@ -137,8 +137,6 @@
       //"mtu": 65535,
       "dns_mode": "hijack",
       "auto_route": true,
-      "iproute2_table_index": 2022,
-      "iproute2_rule_index": 9000,
       "auto_redirect": true,
       "strict_route": true,
       "route_exclude_address_set": ["domestic_ip", "china_ip", "china_ip_ipv6"],
