@@ -539,14 +539,20 @@
   "route": {
     "rules": [
       {
+        "action": "hijack-dns",
+        "inbound": "tun-in",
+        "network": ["tcp", "udp"],
+        "port": 53
+      },
+      {
         "action": "sniff",
         "rule_set": ["telegram_ip"],
         "invert": true
       },
-      {
-        "action": "hijack-dns",
-        "protocol": "dns"
-      },
+      //{
+      //  "action": "hijack-dns",
+      //  "protocol": "dns"
+      //},
       {
         "action": "route",
         "network": "udp",
