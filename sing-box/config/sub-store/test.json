@@ -586,18 +586,18 @@
         "preferred_by": "bridge-out",
         "outbound": "bridge-out"
       },
-      {
-        "action": "route",
-        "inbound": "tun-in",
-        "rule_set": [
-          "ForceDirect",
-          "domestic_non_ip",
-          "direct_non_ip",
-          "DirectSupplements"
-        ],
-        "preferred_by": "bridge-out",
-        "outbound": "bridge-out"
-      },
+      //{
+      //  "action": "route",
+      //  "inbound": "tun-in",
+      //  "rule_set": [
+      //    "ForceDirect",
+      //    "domestic_non_ip",
+      //    "direct_non_ip",
+      //    "DirectSupplements"
+      //  ],
+      //  "preferred_by": "bridge-out",
+      //  "outbound": "bridge-out"
+      //},
       {
         "action": "route",
         "inbound": "tun-in",
@@ -613,10 +613,6 @@
         "action": "sniff",
         "rule_set": ["telegram_ip"],
         "invert": true
-      },
-      {
-        "action": "hijack-dns",
-        "protocol": "dns"
       },
       {
         "action": "route",
