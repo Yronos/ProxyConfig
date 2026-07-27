@@ -2,11 +2,11 @@
 # 前者文件: https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list
 # 后者文件: https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/iOSreject.list
 # 自定义规则数: 0
-# 前者规则总数: 909
+# 前者规则总数: 903
 #   - domainset 格式: 0 条
-#   - rule-set 格式: 909 条
-# 未被覆盖规则数: 697
-# 覆盖率: 23.32%
+#   - rule-set 格式: 903 条
+# 未被覆盖规则数: 689
+# 覆盖率: 23.70%
 #
 DOMAIN,1500020991.vodplayer.wxamedia.com
 DOMAIN,1500022744.vodplayer.wxamedia.com
@@ -110,6 +110,7 @@ DOMAIN,adsfile.qq.com
 DOMAIN,adsfilebssdlbig.ali.kugou.com
 DOMAIN,adsfileretry.service.kugou.com
 DOMAIN,adsfs-sdkconfig.heytapimage.com
+DOMAIN,adsfs.heytapimage.com
 DOMAIN,adsfs.oppomobile.com
 DOMAIN,adslvfile.qq.com
 DOMAIN,adsmart.konka.com
@@ -270,7 +271,6 @@ DOMAIN,dm.toutiao.com
 DOMAIN,domain.aishengji.com
 DOMAIN,download.changhong.upgrade2.huan.tv
 DOMAIN,downloadxml.changhong.upgrade2.huan.tv
-DOMAIN,drcn-weather.cloud.huawei.com
 DOMAIN,dsp.fcbox.com
 DOMAIN,dualstack-logs.amap.com
 DOMAIN,dxp.baidu.com
@@ -339,7 +339,6 @@ DOMAIN,ifs.tanx.com
 DOMAIN,image-ad.sm.cn
 DOMAIN,image.hpplay.cn
 DOMAIN,images.outbrainimg.com
-DOMAIN,images.pinduoduo.com
 DOMAIN,imdns.hpplay.cn
 DOMAIN,img-c.heytapimage.com
 DOMAIN,img-x.jd.com
@@ -420,7 +419,6 @@ DOMAIN,mapi.m.jd.com
 DOMAIN,masdkv6.3g.qq.com
 DOMAIN,mazu.m.qq.com
 DOMAIN,mbdlog.iqiyi.com
-DOMAIN,mcs.zijieapi.com
 DOMAIN,metrics.data.hicloud.com
 DOMAIN,metrics.icloud.com
 DOMAIN,metrics.mzstatic.com
@@ -436,6 +434,7 @@ DOMAIN,mnqlog.ldmnq.com
 DOMAIN,moatads.com
 DOMAIN,mobaliyun.res.mgtv.com
 DOMAIN,mobile.da.mgtv.com
+DOMAIN,mobile.events.data.microsoft.com
 DOMAIN,mobilead.kuwo.cn
 DOMAIN,mobilelog.kugou.com
 DOMAIN,mobilelog.upqzfile.com
@@ -585,23 +584,17 @@ DOMAIN,tmfmazu-wangka.m.qq.com
 DOMAIN,tmfmazu.m.qq.com
 DOMAIN,tmfsdk.m.qq.com
 DOMAIN,tmfsdktcpv4.m.qq.com
-DOMAIN,tnc0-aliec2.zijieapi.com
-DOMAIN,tnc0-alisc1.zijieapi.com
 DOMAIN,tnc0-bjlgy.zijieapi.com
 DOMAIN,tnc3-aliec1.toutiaoapi.com
 DOMAIN,tnc3-aliec2.bytedance.com
 DOMAIN,tnc3-aliec2.snssdk.com
 DOMAIN,tnc3-aliec2.toutiaoapi.com
-DOMAIN,tnc3-aliec2.zijieapi.com
 DOMAIN,tnc3-alisc1.bytedance.com
 DOMAIN,tnc3-alisc1.snssdk.com
 DOMAIN,tnc3-alisc1.toutiaoapi.com
-DOMAIN,tnc3-alisc1.zijieapi.com
-DOMAIN,tnc3-alisc2.zijieapi.com
 DOMAIN,tnc3-bjlgy.bytedance.com
 DOMAIN,tnc3-bjlgy.snssdk.com
 DOMAIN,tnc3-bjlgy.toutiaoapi.com
-DOMAIN,tnc3-bjlgy.zijieapi.com
 DOMAIN,tpa-hcdn.iqiyi.com
 DOMAIN,tpc.googlesyndication.com
 DOMAIN,trace.aqyad.com
@@ -688,7 +681,6 @@ DOMAIN,yk-ssp.ad.youku.com
 DOMAIN,ykad-data.cp31.ott.cibntv.net
 DOMAIN,ykad-data.youku.com
 DOMAIN,ykad-gateway.youku.com
-DOMAIN,youku-acs.m.taobao.com
 DOMAIN,ytx-file.110route.cn
 DOMAIN,zhihu-web-analytics.zhihu.com
 DOMAIN,zjres-ad.kajicam.com
