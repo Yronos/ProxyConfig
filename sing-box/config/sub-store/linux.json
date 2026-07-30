@@ -546,9 +546,14 @@
         "port": 53
       },
       {
-        "action": "sniff",
+        "action": "route",
         "rule_set": ["telegram_ip"],
-        "invert": true
+        "outbound": "Telegram"
+      },
+      {
+        "action": "sniff"
+        //"rule_set": ["telegram_ip"],
+        //"invert": true
       },
       //{
       //  "action": "hijack-dns",
@@ -682,7 +687,7 @@
       },
       {
         "action": "route",
-        "rule_set": ["telegram_non_ip", "telegram_ip"],
+        "rule_set": ["telegram_non_ip"],
         "outbound": "Telegram"
       },
       //{
