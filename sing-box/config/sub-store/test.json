@@ -1297,7 +1297,7 @@
       {
         "tag": "connectivity-check-geosite",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/connectivity-check.srs",
+        "url": "https://raw.githubusercontent.com/Yronos/ProxyConfig/refs/heads/main/rules/sing-box/lite/connectivity_check.srs",
         "format": "binary",
         "http_client": "download-rule_set",
         "update_interval": "1d"
