@@ -62,6 +62,7 @@ CONFIG = {
         ("./rules/lite/Bilibili.list", "./rules/sing-box/lite/Bilibili.json"),
         ("./rules/lite/CDN.list", "./rules/sing-box/lite/CDN.json"),
         ("./rules/lite/Cloudflare.list", "./rules/sing-box/lite/Cloudflare.json"),
+        ("./rules/lite/connectivity_check.list", "./rules/sing-box/lite/connectivity_check.json"),
         ("./rules/lite/Discord.list", "./rules/sing-box/lite/Discord.json"),
         ("./rules/lite/Domestic.list", "./rules/sing-box/lite/Domestic.json"),
         ("./rules/lite/GitHub.list", "./rules/sing-box/lite/GitHub.json"),
