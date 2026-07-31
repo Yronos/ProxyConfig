@@ -73,7 +73,9 @@
       {
         "action": "route",
         "clash_mode": "global",
-        "server": "Fake-IP"
+        "query_type": ["A", "AAAA"],
+        "server": "Fake-IP",
+        "rewrite_ttl": 300
       },
       {
         "action": "route",
@@ -141,7 +143,6 @@
       "auto_redirect": true,
       "strict_route": true,
       "route_exclude_address_set": ["domestic_ip", "china_ip", "china_ip_ipv6"],
-      "endpoint_independent_nat": false,
       "udp_timeout": "5m",
       "udp_mapping": "endpoint_independent",
       "udp_filtering": "endpoint_independent",

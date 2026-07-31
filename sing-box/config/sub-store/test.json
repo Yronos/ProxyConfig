@@ -73,7 +73,9 @@
       {
         "action": "route",
         "clash_mode": "global",
-        "server": "Fake-IP"
+        "query_type": ["A", "AAAA"],
+        "server": "Fake-IP",
+        "rewrite_ttl": 300
       },
       {
         "action": "route",
@@ -148,7 +150,6 @@
         "fe80::/10",
         "ff00::/8"
       ],
-      "endpoint_independent_nat": false,
       "udp_timeout": "5m",
       "udp_mapping": "endpoint_independent",
       "udp_filtering": "endpoint_independent",
