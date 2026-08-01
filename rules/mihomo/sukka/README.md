@@ -2,10 +2,10 @@
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe) Clash format
 
-> Last updated: 2026-07-31 15:37:26 UTC
+> Last updated: 2026-08-01 14:44:55 UTC
 > Compiled with: mihomo v1.19.29
 
-**Total: 68 TXT | 55 YAML | 55 MRS**
+**Total: 68 TXT | 64 YAML | 64 MRS**
 
 ## Available Rules
 
@@ -29,12 +29,20 @@
 - `neteasemusic`
 - `reject`
 - `stream`
+- `stream_eu`
+- `stream_hk`
+- `stream_jp`
+- `stream_kr`
+- `stream_tw`
+- `stream_us`
 - `telegram`
+- `telegram_asn`
 - `ai`
 - `apple_cn`
 - `apple_intelligence`
 - `apple_services`
 - `cdn`
+- `cloudmounter`
 - `direct`
 - `domestic`
 - `download`
@@ -53,6 +61,7 @@
 - `neteasemusic`
 - `reject-drop`
 - `reject-no-drop`
+- `reject-url-regex`
 - `reject`
 - `sogouinput`
 - `stream`
