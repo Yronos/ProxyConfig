@@ -2,10 +2,10 @@
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe) Clash format
 
-> Last updated: 2026-08-01 14:44:55 UTC
+> Last updated: 2026-08-02 14:47:27 UTC
 > Compiled with: mihomo v1.19.29
 
-**Total: 68 TXT | 64 YAML | 64 MRS**
+**Total: 69 TXT | 65 YAML | 65 MRS**
 
 ## Available Rules
 
@@ -19,6 +19,7 @@
 - `reject_extra`
 - `reject_phishing`
 - `speedtest`
+- `ai`
 - `apple_services`
 - `cdn`
 - `china_ip`
