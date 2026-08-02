@@ -1,10 +1,10 @@
 # Sukka Sing-Box Rules
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe)
-> Last updated: 2026-08-01 14:25:55 UTC
+> Last updated: 2026-08-02 14:28:27 UTC
 > Compiled with: sing-box vv1.13.15
 
-**Total: 65 rules**
+**Total: 66 rules**
 
 ## Available Rules
 - `apple_cdn`
@@ -16,6 +16,7 @@
 - `reject_extra`
 - `reject_phishing`
 - `speedtest`
+- `ai`
 - `apple_services`
 - `cdn`
 - `china_ip`
