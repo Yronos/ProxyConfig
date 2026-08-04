@@ -54,6 +54,7 @@ CUSTOM_REMOVE_RULES = [
     # "DOMAIN-SUFFIX,t.co",
     # "DOMAIN-SUFFIX,twimg.com",
     "DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe",
+    "DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe",
     "DOMAIN-SUFFIX,ui.direct",
     "DOMAIN,ntt.setup",
     "DOMAIN-SUFFIX,plex.direct",

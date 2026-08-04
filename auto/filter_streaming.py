@@ -145,6 +145,7 @@ RULES_TO_REMOVE = [
     "PROCESS-NAME,com.vuclip.viu",
     "PROCESS-NAME,com.hktve.viutv",
     "DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe",
+    "DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe",
 ]
 
 # ---------- 添加规则列表 ----------
