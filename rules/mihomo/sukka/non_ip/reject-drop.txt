@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Reject And Drop
-# Last Updated: 2026-08-04T11:53:15.649Z
+# Last Updated: 2026-08-05T12:33:04.421Z
 # Size: 28
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
@@ -8,9 +8,9 @@
 #
 # This file This file contains rules for domain should be used with REJECT-DROP policy.
 #
-# $content-hash-v1$:HTU-D_MidMumadqtzkczf8RlsJdb3h_PmwUw-IRjHv4$
+# $content-hash-v1$:ThUctphCm3VyD-btLUnI4q2F8o7Ty2MTqth8kZUGt0s$
 #########################################
-DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
+DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
 DOMAIN-SUFFIX,null
 DOMAIN-SUFFIX,jpush.cn
 DOMAIN-SUFFIX,jpush.io

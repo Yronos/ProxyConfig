@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Mainland China Supplement CIDR
-# Last Updated: 2026-07-31T17:36:02.294Z
+# Last Updated: 2026-08-05T12:33:04.393Z
 # Size: 3
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
@@ -8,9 +8,9 @@
 #
 # This file contains IPs broadcast inside Mainland China.
 #
-# $content-hash-v1$:ZjiHyMAcH6UM0pp20D2QnslF0h156Y9Dng2w3yx9e1M$
+# $content-hash-v1$:MtVGNUmHRxFWknlTrfbeedjKU1N8e17g1u26PWcFVAU$
 #########################################
-DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
+DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
 IP-CIDR,140.205.1.0/24,no-resolve
 IP-CIDR,162.14.0.0/18,no-resolve
 ################## EOF ##################
