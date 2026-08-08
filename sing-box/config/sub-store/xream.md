@@ -17,6 +17,7 @@ https://raw.githubusercontent.com/xream/scripts/main/surge/modules/sub-store-scr
 
 精细拆分：
 🕳ℹ️Selector
+🕳ℹ️AI
 🕳ℹ️🇭🇰HK|🇭🇰HK-M🏷ℹ️🇭🇰|香港|(\b(HK|Hong|HKG|港)\d{0,2}\b)
 🕳ℹ️🇹🇼TW|🇹🇼TW-M🏷ℹ️🇼🇸|🇹🇼|台湾|(\b(Tai|TW|Taiwan|台)\d{0,2}\b)
 🕳ℹ️^🇯🇵JP$🏷ℹ️^(?!.*\bPagesJP-\d+\b).*(🇯🇵|日本|东京|川日|大阪|泉日|埼玉|(\b(Japan|JP|Tokyo|Osaka|Saitama|日)\d{0,2}\b))
