@@ -168,21 +168,13 @@
       "type": "selector",
       "tag": "CDN",
       "interrupt_exist_connections": true,
-      "outbounds": [
-        "🇭🇰HK",
-        "🇹🇼TW",
-        "🇯🇵JP",
-        "🇸🇬SG",
-        "BGP",
-        "🇯🇵JP-M",
-        "🇸🇬SG-M"
-      ]
+      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "BGP", "🇯🇵JP-M", "🇸🇬SG-M"]
     },
     {
       "type": "selector",
       "tag": "Download",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇨🇳CN","BGP", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
+      "outbounds": ["🇨🇳CN", "BGP", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
     },
     {
       "type": "selector",
@@ -222,12 +214,12 @@
         "🇺🇸US-M"
       ]
     },
-    {
-      "type": "selector",
-      "tag": "OneDrive",
-      "interrupt_exist_connections": true,
-      "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇨🇳CN"]
-    },
+    //{
+    //  "type": "selector",
+    //  "tag": "OneDrive",
+    //  "interrupt_exist_connections": true,
+    //  "outbounds": ["Selector", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "🇺🇸US", "🇨🇳CN"]
+    //},
     {
       "type": "selector",
       "tag": "Microsoft",
@@ -328,19 +320,7 @@
       "type": "selector",
       "tag": "AI",
       "interrupt_exist_connections": true,
-      "outbounds": [
-        "Selector",
-        "🇭🇰HK-M",
-        "🇹🇼TW-M",
-        "🇯🇵JP-M",
-        "🇸🇬SG-M",
-        "🇺🇸US-M",
-        "🇭🇰HK",
-        "🇹🇼TW",
-        "🇯🇵JP",
-        "🇸🇬SG",
-        "🇺🇸US"
-      ]
+      "outbounds": []
     },
     {
       "type": "selector",
@@ -570,14 +550,14 @@
         "action": "route",
         "inbound": "tun-in",
         "ip_is_private": true,
-        "preferred_by":"bridge-out",
+        "preferred_by": "bridge-out",
         "outbound": "bridge-out"
       },
       {
         "action": "route",
         "inbound": "tun-in",
         "network": "icmp",
-        "preferred_by":"bridge-out",
+        "preferred_by": "bridge-out",
         "outbound": "bridge-out"
       },
       {
@@ -603,11 +583,7 @@
       {
         "action": "route",
         "inbound": "tun-in",
-        "rule_set": [
-          "domestic_ip",
-          "china_ip",
-          "china_ip_ipv6"
-        ],
+        "rule_set": ["domestic_ip", "china_ip", "china_ip_ipv6"],
         "preferred_by": "bridge-out",
         "outbound": "bridge-out"
       },
@@ -716,11 +692,11 @@
         "rule_set": ["GitHub"],
         "outbound": "GitHub"
       },
-      {
-        "action": "route",
-        "rule_set": ["onedrive-geosite"],
-        "outbound": "OneDrive"
-      },
+      //{
+      //  "action": "route",
+      //  "rule_set": ["onedrive-geosite"],
+      //  "outbound": "OneDrive"
+      //},
       {
         "action": "route",
         "rule_set": ["microsoft_non_ip"],
@@ -1055,14 +1031,14 @@
         "http_client": "download-rule_set",
         "update_interval": "1d"
       },
-      {
-        "tag": "onedrive-geosite",
-        "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/onedrive.srs",
-        "format": "binary",
-        "http_client": "download-rule_set",
-        "update_interval": "1d"
-      },
+      //{
+      //  "tag": "onedrive-geosite",
+      //  "type": "remote",
+      //  "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/onedrive.srs",
+      //  "format": "binary",
+      //  "http_client": "download-rule_set",
+      //  "update_interval": "1d"
+      //},
       {
         "tag": "microsoft_non_ip",
         "type": "remote",
