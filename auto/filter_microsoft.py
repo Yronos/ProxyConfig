@@ -62,7 +62,7 @@ CUSTOM_REMOVE_RULES = [
 CUSTOM_ADD_RULES = [
     # "DOMAIN,example.com",
     # "DOMAIN-SUFFIX,example.org",
-    "DOMAIN-SUFFIX,microsoftpernalcontent.com",
+    "DOMAIN-SUFFIX,microsoftpersonalcontent.com",
     "DOMAIN-SUFFIX,microsoftonline.com",
     "DOMAIN-SUFFIX,microsoft.com",
     "DOMAIN-SUFFIX,microsoftapp.net",
