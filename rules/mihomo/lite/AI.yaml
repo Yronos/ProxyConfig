@@ -2,7 +2,7 @@
 # - URL-REGEX: https://www\.google\.com/.*continue=https://gemini\.google\.com.+
 
 payload:
-  - '7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe'
+  - '7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe'
   - '+.g.ai'
   - '+.x.ai'
   - '+.ai.com'
@@ -19,6 +19,7 @@ payload:
   - '+.openart.ai'
   - '+.chatgpt.com'
   - '+.clipdrop.co'
+  - '+.chatgpt.site'
   - '+.deepmind.com'
   - 'ai.google.dev'
   - '+.anthropic.com'
