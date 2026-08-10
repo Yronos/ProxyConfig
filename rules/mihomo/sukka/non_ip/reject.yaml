@@ -13,6 +13,7 @@
 
 payload:
   - '+.data'
+  - '+.api.bz'
   - '+.bgp.co'
   - '+.hola.hk'
   - '+.hola.ph'
@@ -41,7 +42,6 @@ payload:
   - '+.lum-int.io'
   - '+.lum-sdk.io'
   - '+.moebgp.com'
-  - 'ntp.api.bz'
   - '+.omtrdc.net'
   - '+.shengen.ru'
   - '+.whoisit.co'
