@@ -1,0 +1,47 @@
+# Sectigo / Comodo / USERTrust
+DOMAIN,ocsp.sectigo.com
+DOMAIN,crl.sectigo.com
+DOMAIN,ocsp.usertrust.com
+DOMAIN,crl.usertrust.com
+DOMAIN,ocsp.comodoca.com
+DOMAIN,crl.comodoca.com
+
+# DigiCert
+DOMAIN,ocsp.digicert.com
+DOMAIN,crl3.digicert.com
+DOMAIN,crl4.digicert.com
+DOMAIN,ocsp.digicert.eu
+DOMAIN,crl.digicert.eu
+
+# DigiCert / GeoTrust / Thawte / RapidSSL
+DOMAIN,cdp.thawte.com
+DOMAIN,cdp.geotrust.com
+DOMAIN,cdp.rapidssl.com
+
+# Google Trust Services
+DOMAIN,ocsp.pki.goog
+DOMAIN,crl.pki.goog
+DOMAIN,crls.pki.goog
+DOMAIN,c.pki.goog
+
+# GlobalSign
+DOMAIN,ocsp.globalsign.com
+DOMAIN,ocsp2.globalsign.com
+DOMAIN,crl.globalsign.com
+DOMAIN,crl.globalsign.net
+DOMAIN,crl.alphassl.com
+DOMAIN,crl2.alphassl.com
+
+# Entrust
+DOMAIN,ocsp.entrust.net
+DOMAIN,crl.entrust.net
+
+# GoDaddy / Starfield
+DOMAIN,ocsp.godaddy.com
+DOMAIN,crl.godaddy.com
+DOMAIN,ocsp.starfieldtech.com
+DOMAIN,crl.starfieldtech.com
+
+# SwissSign
+DOMAIN,ocsp.swisssign.net
+DOMAIN,crl.swisssign.net
