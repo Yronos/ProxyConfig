@@ -2,9 +2,9 @@
 # 前者文件: https://ruleset.skk.moe/List/domainset/cdn.conf
 # 后者文件: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/YouTube/YouTube.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Apple/Apple_All.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Twitter/Twitter.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Discord/Discord.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Cloudflare/Cloudflare.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Akamai/Akamai.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Epic/Epic.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Claude/Claude.list, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Bahamut/Bahamut.list
 # 自定义规则数: 15
-# 前者规则总数: 4607
-# 筛选后规则数: 354
-# 覆盖率: 7.68%
+# 前者规则总数: 4627
+# 筛选后规则数: 357
+# 覆盖率: 7.72%
 #
 DOMAIN,godoc.org
 DOMAIN,c.pki.goog
@@ -64,6 +64,7 @@ DOMAIN,i2.bahamut.com.tw
 DOMAIN,ocsp.digicert.com
 DOMAIN,p2.bahamut.com.tw
 DOMAIN,sdk.amazonaws.com
+DOMAIN,status.openai.com
 DOMAIN,uhf.microsoft.com
 DOMAIN,ajax.microsoft.com
 DOMAIN,assets.onestore.ms
@@ -303,6 +304,7 @@ DOMAIN-SUFFIX,steamstatic.com
 DOMAIN-SUFFIX,webpkgcache.com
 DOMAIN-SUFFIX,cdninstagram.com
 DOMAIN-SUFFIX,githubassets.com
+DOMAIN-SUFFIX,githubstatus.com
 DOMAIN-SUFFIX,ingest.sentry.io
 DOMAIN-SUFFIX,media-amazon.com
 DOMAIN-SUFFIX,redditstatic.com
@@ -326,6 +328,7 @@ DOMAIN-SUFFIX,cloudflare-ipfs.com
 DOMAIN-SUFFIX,ingest.de.sentry.io
 DOMAIN-SUFFIX,ingest.us.sentry.io
 DOMAIN-SUFFIX,msftconnecttest.com
+DOMAIN-SUFFIX,cloudflarestatus.com
 DOMAIN-SUFFIX,cloudflarestream.com
 DOMAIN-SUFFIX,googleadservices.com
 DOMAIN-SUFFIX,githubusercontent.com
