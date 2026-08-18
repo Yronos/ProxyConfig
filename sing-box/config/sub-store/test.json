@@ -168,16 +168,7 @@
       "type": "selector",
       "tag": "CDN",
       "interrupt_exist_connections": true,
-      "outbounds": [
-        "🇭🇰HK",
-        "🇹🇼TW",
-        "🇯🇵JP",
-        "🇸🇬SG",
-        "BGP",
-        "🇯🇵JP-M",
-        "🇸🇬SG-M",
-        "Selector"
-      ]
+      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "BGP", "Selector"]
     },
     {
       "type": "selector",
