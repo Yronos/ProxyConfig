@@ -1,7 +1,7 @@
 # Sukka Sing-Box Rules
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe)
-> Last updated: 2026-08-17 13:38:53 UTC
+> Last updated: 2026-08-18 13:43:03 UTC
 > Compiled with: sing-box vv1.13.19
 
 **Total: 66 rules**
