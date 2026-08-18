@@ -161,13 +161,13 @@
       "type": "selector",
       "tag": "CDN",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "BGP", "🇯🇵JP-M", "🇸🇬SG-M"]
+      "outbounds": ["🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "🇸🇬SG", "BGP", "Selector"]
     },
     {
       "type": "selector",
       "tag": "Download",
       "interrupt_exist_connections": true,
-      "outbounds": ["🇨🇳CN", "BGP", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP"]
+      "outbounds": ["🇨🇳CN", "BGP", "🇭🇰HK", "🇹🇼TW", "🇯🇵JP", "Selector"]
     },
     {
       "type": "selector",
