@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Mainland China IPv6 CIDR
-# Last Updated: 2026-08-21T05:49:04.988Z
+# Last Updated: 2026-08-22T05:44:01.282Z
 # Size: 1236
 # License: CC BY-SA 2.0
 # Homepage: https://ruleset.skk.moe
@@ -12,7 +12,7 @@
 # This file contains data from:
 #   - https://github.com/gaoyifan/china-operator-ip
 #
-# $content-hash-v1$:_v_63C1J2Su_9eGY1b8guaeztskhfbhOUygtdY7E40I$
+# $content-hash-v1$:Pu5lpuPXdKlarnYZcf-Ylz7xMrpNyHkw10lxvyPtaEQ$
 #########################################
 2001:250::/30
 2001:254::/33
@@ -23,7 +23,6 @@
 2001:daa:1::/48
 2001:daa:2::/47
 2001:daa:4::/47
-2001:daa:6::/48
 2001:daa:9::/48
 2001:dc7::/45
 2001:dc7:9::/48
@@ -216,6 +215,7 @@
 2402:1440::/32
 2402:18a0::/32
 2402:2000::/32
+2402:2e60::/39
 2402:34e0::/32
 2402:36e0::/44
 2402:3f80:1400::/40
