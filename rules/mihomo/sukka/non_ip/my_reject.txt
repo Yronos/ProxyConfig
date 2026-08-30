@@ -1,12 +1,12 @@
 #########################################
 # Sukka's Ruleset - Reject (REJECT-DROP)
-# Last Updated: 2026-08-05T12:33:04.416Z
-# Size: 52
+# Last Updated: 2026-08-30T07:31:52.210Z
+# Size: 54
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
 #
-# $content-hash-v1$:eoR_xEbBS6JdeF6UHU_vIK2gaVctt7CiRffFW80EGAU$
+# $content-hash-v1$:nXJIU2khrnABzCLuW4-pSlaxGz_udeYjwiizypmxZBw$
 #########################################
 DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
 DOMAIN-SUFFIX,pipi.cn
@@ -28,6 +28,7 @@ DOMAIN-SUFFIX,httpizza.ele.me
 DOMAIN-SUFFIX,mibi.xiaomi.com
 DOMAIN-SUFFIX,microfin.ele.me
 DOMAIN,daisydiskapp.com
+DOMAIN-SUFFIX,game.meituan.com
 DOMAIN-SUFFIX,xiaomimobile.com
 DOMAIN-SUFFIX,easytomessage.com
 DOMAIN-SUFFIX,hybrid.xiaomi.com
@@ -36,13 +37,14 @@ DOMAIN-SUFFIX,mtvod.meituan.net
 DOMAIN-SUFFIX,unicompayment.com
 DOMAIN-SUFFIX,video.goofish.com
 DOMAIN-SUFFIX,0.0.198.in-addr.arpa
-DOMAIN,contents.meituan.com
+DOMAIN-SUFFIX,contents.meituan.com
 DOMAIN,fyb-2.cdn.bcebos.com
 DOMAIN-SUFFIX,genuine.autodesk.com
 DOMAIN,mpush-api.aliyun.com
 DOMAIN-SUFFIX,jr.airstarfinance.net
 DOMAIN-SUFFIX,mtvod-ali.meituan.net
 DOMAIN-SUFFIX,newbuy.chinaunicom.cn
+DOMAIN,app-download.fliggy.com
 DOMAIN-SUFFIX,expenses-fe.meituan.com
 DOMAIN,userlocation.googleapis.com
 DOMAIN,loan-supermarket.faas.ele.me
