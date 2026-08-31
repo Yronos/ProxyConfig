@@ -662,11 +662,11 @@
         "rule_set": ["ProxyJP"],
         "outbound": "🇯🇵JP"
       },
-      {
-        "action": "route",
-        "rule_set": ["local_rules"],
-        "outbound": "Selector"
-      },
+      //{
+      //  "action": "route",
+      //  "rule_set": ["local_rules"],
+      //  "outbound": "Selector"
+      //},
       {
         "action": "route",
         "rule_set": ["ForceDirect"],
@@ -1278,13 +1278,13 @@
         "format": "binary",
         "http_client": "download-http_clients",
         "update_interval": "1d"
-      },
-      {
-        "tag": "local_rules",
-        "type": "local",
-        "format": "source",
-        "path": "./local_rules.json"
       }
+      //{
+      //  "tag": "local_rules",
+      //  "type": "local",
+      //  "format": "source",
+      //  "path": "./local_rules.json"
+      //}
     ],
     "auto_detect_interface": true,
     "final": "FINAL",
