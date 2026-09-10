@@ -1,10 +1,10 @@
 # Sukka Sing-Box Rules
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe)
-> Last updated: 2026-09-09 17:03:06 UTC
+> Last updated: 2026-09-10 16:54:37 UTC
 > Compiled with: sing-box vv1.14.0
 
-**Total: 66 rules**
+**Total: 67 rules**
 
 ## Available Rules
 - `apple_cdn`
@@ -36,6 +36,7 @@
 - `stream_us`
 - `telegram`
 - `telegram_asn`
+- `teleproto`
 - `ai`
 - `apple_cdn`
 - `apple_cn`
