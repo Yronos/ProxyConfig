@@ -153,8 +153,7 @@
       "udp_timeout": "5m",
       "udp_mapping": "endpoint_independent",
       "udp_filtering": "endpoint_independent",
-      "udp_nat_max": 0,
-      "stack": "mixed"
+      "udp_nat_max": 0
     }
   ],
   "outbounds": [
