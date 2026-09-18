@@ -1,0 +1,76 @@
+name: Build Anywhere Rules
+
+on:
+  push:
+    paths:
+      - "auto/Anywhere/**"
+      #- "rules/**"
+      - ".github/workflows/convert-anywhere-rules.yml"
+
+  schedule:
+    # 每天 UTC 03:00 执行
+    # 北京时间 = 11:00
+    - cron: "0 3 * * *"
+
+  workflow_dispatch:
+    inputs:
+      include:
+        description: "仅构建指定规则集，留空则构建全部"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: anywhere-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install PyYAML
+
+      - name: Build Anywhere rules
+        shell: bash
+        run: |
+          if [[ -n "${{ inputs.include }}" ]]; then
+            python -m auto.Anywhere --include "${{ inputs.include }}"
+          else
+            python -m auto.Anywhere
+          fi
+
+      - name: Show generated files
+        run: |
+          echo "Generated Anywhere rules:"
+          find rules/Anywhere -maxdepth 1 -type f -print | sort
+
+      - name: Commit generated rules
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain -- rules/Anywhere)" ]]; then
+            echo "No changes."
+            exit 0
+          fi
+
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add rules/Anywhere
+          git commit -m "chore: update Anywhere rules"
+          git push
