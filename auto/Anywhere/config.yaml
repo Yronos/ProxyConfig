@@ -125,8 +125,6 @@ rulesets:
   - name: IP_Domestic
     description: 中国大陆 IPv4 / IPv6 地址
     routing: 1
-    icons:
-      light: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/CN.png
     sources:
       - type: remote
         url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/ip/china_ip.conf
