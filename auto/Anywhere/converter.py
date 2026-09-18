@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Convert common rule syntaxes into Anywhere routing rules."""
 
 from __future__ import annotations
@@ -7,7 +6,6 @@ import csv
 import ipaddress
 import re
 from typing import Iterable
-
 
 SUPPORTED_TYPES = {
     "DOMAIN": 2,
@@ -39,30 +37,16 @@ SOURCE_MARKER_DOMAINS = {
 def clean_line(raw: str) -> str | None:
     """Remove common comments, YAML prefixes and wrapping quotes."""
     line = raw.strip()
-
     if not line or line.startswith("#") or line.startswith(";"):
         return None
-
-    if line.lower() in {
-        "payload:",
-        "rules:",
-        "rule-providers:",
-    }:
+    if line.lower() in {"payload:", "rules:", "rule-providers:"}:
         return None
-
     if line.startswith("- "):
         line = line[2:].strip()
-
-    if (
-        len(line) >= 2
-        and line[0] == line[-1]
-        and line[0] in {"'", '"'}
-    ):
+    if len(line) >= 2 and line[0] == line[-1] and line[0] in {"'", '"'}:
         line = line[1:-1].strip()
-
     line = re.sub(r"\s+#.*$", "", line)
     line = re.sub(r"\s+//.*$", "", line)
-
     return line.strip() or None
 
 
@@ -71,10 +55,8 @@ def split_rule_line(line: str) -> list[str]:
     try:
         return [
             part.strip()
-            for part in next(
-                csv.reader([line], skipinitialspace=True)
-            )
-       ]
+            for part in next(csv.reader([line], skipinitialspace=True))
+        ]
     except (csv.Error, StopIteration):
         return []
 
@@ -82,7 +64,6 @@ def split_rule_line(line: str) -> list[str]:
 def infer_bare_rule(line: str) -> str | None:
     """Infer the type of a bare domain or CIDR rule."""
     bare = line.strip().strip("'\"")
-
     if not bare:
         return None
 
@@ -114,25 +95,18 @@ def infer_bare_rule(line: str) -> str | None:
 def normalize_rule_syntax(line: str) -> str | None:
     """Normalize aliases before converting to Anywhere syntax."""
     inferred = infer_bare_rule(line)
-
     if inferred is None:
         return None
 
     fields = split_rule_line(inferred)
-
     if not fields:
         return None
 
     if len(fields) < 2:
         return inferred
 
-    rule_type = ALIASES.get(
-        fields[0].upper(),
-        fields[0].upper(),
-    )
-
+    rule_type = ALIASES.get(fields[0].upper(), fields[0].upper())
     value = fields[1].strip()
-
     if not value:
         return None
 
@@ -152,10 +126,8 @@ def normalize_domain(value: str) -> str | None:
 
     if not domain:
         return None
-
     if "*" in domain or "?" in domain or "/" in domain:
         return None
-
     if any(char.isspace() for char in domain):
         return None
 
@@ -168,23 +140,16 @@ def normalize_keyword(value: str) -> str | None:
 
     if not keyword:
         return None
-
     if "*" in keyword or "?" in keyword or "/" in keyword:
         return None
 
     return keyword
 
 
-def normalize_cidr(
-    value: str,
-    expected_version: int,
-) -> str | None:
+def normalize_cidr(value: str, expected_version: int) -> str | None:
     """Validate and canonicalize an IPv4 or IPv6 network."""
     try:
-        network = ipaddress.ip_network(
-            value.strip(),
-            strict=False,
-        )
+        network = ipaddress.ip_network(value.strip(), strict=False)
     except ValueError:
         return None
 
@@ -194,21 +159,16 @@ def normalize_cidr(
     return str(network)
 
 
-def convert_domain_wildcard(
-    value: str,
-) -> tuple[int, str] | None:
+def convert_domain_wildcard(value: str) -> tuple[int, str] | None:
     """Convert a simple domain wildcard into suffix matching."""
     domain = normalize_domain(value)
-
     if domain is None:
         return None
 
     return 2, domain
 
 
-def convert_line(
-    line: str,
-) -> tuple[tuple[int, str] | None, str | None]:
+def convert_line(line: str) -> tuple[tuple[int, str] | None, str | None]:
     """
     Convert a source rule into an Anywhere rule.
 
@@ -218,17 +178,14 @@ def convert_line(
         (None, None) for ignored lines.
     """
     cleaned = clean_line(line)
-
     if cleaned is None:
         return None, None
 
     normalized = normalize_rule_syntax(cleaned)
-
     if normalized is None:
         return None, "UNKNOWN"
 
     fields = split_rule_line(normalized)
-
     if len(fields) < 2:
         return None, "UNKNOWN"
 
@@ -237,47 +194,36 @@ def convert_line(
 
     if rule_type == "DOMAIN-WILDCARD":
         converted = convert_domain_wildcard(value)
-
         if converted is None:
             return None, rule_type
-
         return converted, None
 
     anywhere_type = SUPPORTED_TYPES.get(rule_type)
-
     if anywhere_type is None:
         return None, rule_type or "UNKNOWN"
 
     if anywhere_type == 2:
         domain = normalize_domain(value)
-
         if domain is None:
             return None, rule_type
-
         return (2, domain), None
 
     if anywhere_type == 3:
         keyword = normalize_keyword(value)
-
         if keyword is None:
             return None, rule_type
-
         return (3, keyword), None
 
     if anywhere_type == 0:
         cidr = normalize_cidr(value, expected_version=4)
-
         if cidr is None:
             return None, rule_type
-
         return (0, cidr), None
 
     if anywhere_type == 1:
         cidr = normalize_cidr(value, expected_version=6)
-
         if cidr is None:
             return None, rule_type
-
         return (1, cidr), None
 
     return None, rule_type
@@ -307,8 +253,6 @@ def convert_lines(
             continue
 
         if skipped_type:
-            unsupported[skipped_type] = (
-                unsupported.get(skipped_type, 0) + 1
-            )
+            unsupported[skipped_type] = unsupported.get(skipped_type, 0) + 1
 
     return rules, unsupported

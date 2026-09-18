@@ -1,0 +1,24 @@
+rulesets:
+
+  - name: AI
+    description: 常见 AI 服务
+
+    routing: 2
+
+    excluded_values:
+      - example.com
+      - example.org
+
+    icons:
+      light: https://example.com/light.svg
+      dark: https://example.com/dark.svg
+
+    sources:
+      - type: local
+        path: abc.list
+
+      - type: local
+        path: lite/bcd.list
+
+      - type: remote
+        url: https://example.com/rules.list

@@ -1,0 +1,134 @@
+# Anywhere rule-set definitions.
+#
+# Local source paths are relative to the repository's rules/ directory.
+# You can therefore reference files directly, including nested paths:
+#
+#   rules/abc.list
+#   rules/lite/bcd.list
+#
+# routing: 1 Direct
+# routing: 2 Reject
+# routing: default Proxy
+# No source copy is required under auto/Anywhere/ or rules/Anywhere/.
+
+rulesets:
+
+  - name: AI
+    description: 常见 AI 服务
+    sources:
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/ai.conf
+
+  - name: Apple_CDN
+    description: This file contains Apple's domains using their China mainland CDN servers.
+    routing: 1
+    sources:
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/domainset/apple_cdn.conf
+
+  - name: Apple_CN
+    description: This file contains domains of Apple, Inc that have host service specific for the Mainland China.
+    routing: 1
+    sources:
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/apple_cn.conf
+
+  - name: Apple_Services
+    description: This file contains domains of Apple, Inc.
+    sources:
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/apple_services.conf
+
+
+  - name: Global
+    description: 常见海外代理及国际服务
+    sources:
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/global.conf
+
+  - name: ForceDirect
+    description: ForceDirect rules
+    routing: 1
+    sources:
+      - type: local
+        path: mobile/ForceDirect.list
+
+  - name: DirectSupplements
+    description: DirectSupplements rules
+    routing: 1
+    sources:
+      - type: local
+        path: mobile/DirectSupplements.list
+
+  - name: ProxyForum
+    description: ProxyForum rules
+    sources:
+      - type: local
+        path: mobile/ProxyForum.list
+
+  - name: ProxyHK
+    description: ProxyHK rules
+    sources:
+      - type: local
+        path: mobile/ProxyHK.list
+
+  - name: ProxyJP
+    description: ProxyJP rules
+    sources:
+      - type: local
+        path: mobile/ProxyJP.list
+
+  - name: ProxyUS
+    description: ProxyUS rules
+    sources:
+      - type: local
+        path: mobile/ProxyUS.list
+
+  - name: Bilibili_lite
+    description: lite Bilibili rules
+    routing: 1
+    sources:
+      - type: local
+        path: lite/Bilibili.list
+
+  - name: CDN_lite
+    description: lite CDN rules
+    sources:
+      - type: local
+        path: lite/CDN.list
+
+  - name: GitHub
+    description: lite GitHub rules
+    sources:
+      - type: local
+        path: lite/GitHub.list
+
+  - name: Bahamut
+    description: Bahamut rules
+    sources:
+      - type: local
+        path: Bahamut.list
+
+  - name: Discord
+    description: lite Discord rules
+    sources:
+      - type: local
+        path: lite/Discord.list
+
+  - name: WeChat
+    description: lite WeChat rules
+    routing: 1
+    sources:
+      - type: local
+        path: lite/WeChat.list
+
+  - name: IP_Domestic
+    description: 中国大陆 IPv4 / IPv6 地址
+    routing: 1
+    icons:
+      light: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/CN.png
+    sources:
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/ip/china_ip.conf
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/ip/china_ip_ipv6.conf
