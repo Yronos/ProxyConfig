@@ -1,0 +1,14 @@
+# NAME: Reddit
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: lite Reddit rules
+# RULES: 5
+# SKIPPED: 0
+# SOURCES:
+# - lite/Reddit.list
+
+name = Reddit
+2,reddit.com
+2,redditmail.com
+2,reddituploads.com
+2,reddituploads.com.cdn-cf.behance.net
+2,reddituploads.com.cdn-cf.dropbox.com
