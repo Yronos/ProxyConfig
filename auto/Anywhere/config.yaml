@@ -39,9 +39,8 @@ rulesets:
       - type: remote
         url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/apple_services.conf
 
-
   - name: Global
-    description: 常见海外代理及国际服务
+    description: 常见国际服务
     sources:
       - type: remote
         url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/global.conf
@@ -115,12 +114,49 @@ rulesets:
       - type: local
         path: lite/Discord.list
 
+  - name: Meta
+    description: lite Meta rules
+    sources:
+      - type: local
+        path: lite/Meta.list
+
+  - name: Cloudflare
+    description: lite Cloudflare rules
+    sources:
+      - type: local
+        path: lite/Cloudflare.list
+
+  - name: Amazon
+    description: lite Amazon rules
+    sources:
+      - type: local
+        path: lite/Amazon.list
+
+  - name: Reddit
+    description: lite Reddit rules
+    sources:
+      - type: local
+        path: lite/Reddit.list
+
+  - name: Streaming
+    description: lite Streaming rules
+    sources:
+      - type: local
+        path: lite/Streaming.list
+
   - name: WeChat
     description: lite WeChat rules
     routing: 1
     sources:
       - type: local
         path: lite/WeChat.list
+
+  - name: Domestic
+    description: 中国大陆常见域名
+    routing: 1
+    sources:
+      - type: remote
+        url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/domestic.conf
 
   - name: IP_Domestic
     description: 中国大陆 IPv4 / IPv6 地址
