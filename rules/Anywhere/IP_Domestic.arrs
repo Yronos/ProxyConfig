@@ -8,7 +8,6 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/ip/china_ip_ipv6.conf
 
 name = IP_Domestic
-icon-light=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/CN.png
 routing = 1
 0,1.1.8.0/24
 0,1.2.4.0/24
