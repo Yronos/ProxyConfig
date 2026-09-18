@@ -1,47 +1,55 @@
 {
-  "total_files": 3,
-  "total_rules": 1518,
+  "generated_for": "Anywhere Routing Rule Set",
+  "total_rule_sets": 4,
+  "total_rules": 8883,
   "total_skipped": 3,
-  "files": [
+  "rule_sets": [
     {
       "name": "AI",
       "description": "常见 AI 服务",
-      "output_path": "rules/Anywhere/AI.arrs",
-      "rule_count": 118,
-      "skipped_count": 1,
+      "rules": 116,
+      "skipped": 1,
       "unsupported_types": {
         "URL-REGEX": 1
       },
       "sources": [
-        "https://ruleset.skk.moe/List/non_ip/ai.conf",
-        "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Custom/AI.list",
-        "rules/ProxyHK.list"
-      ]
-    },
-    {
-      "name": "Direct",
-      "description": "常用直连规则",
-      "output_path": "rules/Anywhere/Direct.arrs",
-      "rule_count": 19,
-      "skipped_count": 0,
-      "unsupported_types": {},
-      "sources": [
-        "rules/ForceDirect.list"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/ai.conf",
+        "ProxyHK.list"
       ]
     },
     {
       "name": "Proxy",
-      "description": "常用代理域名集合",
-      "output_path": "rules/Anywhere/Proxy.arrs",
-      "rule_count": 1381,
-      "skipped_count": 2,
+      "description": "常见海外代理及国际服务",
+      "rules": 1380,
+      "skipped": 2,
       "unsupported_types": {
         "USER-AGENT": 1,
         "URL-REGEX": 1
       },
       "sources": [
-        "https://ruleset.skk.moe/List/non_ip/global.conf",
-        "rules/lite/Amazon.list"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/global.conf",
+        "lite/Amazon.list"
+      ]
+    },
+    {
+      "name": "ForceDirect",
+      "description": "强制直连规则",
+      "rules": 19,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "ForceDirect.list"
+      ]
+    },
+    {
+      "name": "IP_Domestic",
+      "description": "中国大陆 IPv4 / IPv6 地址",
+      "rules": 7368,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/ip/china_ip.conf",
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/ip/china_ip_ipv6.conf"
       ]
     }
   ]

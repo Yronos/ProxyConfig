@@ -1,0 +1,29 @@
+# NAME: ForceDirect
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: 强制直连规则
+# RULES: 19
+# SKIPPED: 0
+# SOURCES:
+# - ForceDirect.list
+
+name = ForceDirect
+routing = 1
+2,hdslb.com
+2,bilivideo.com
+2,deepseek.com
+2,qwen.ai
+2,fenbi.com
+2,huatu.com
+2,eoffcn.com
+2,offcn.com
+2,offcncloud.com
+2,recaptcha.google.cn
+2,leigod.com
+2,marmot-cloud.com
+2,ldmnq.com
+2,wtzw.com
+2,wasu.tv
+2,lizhi.io
+2,lizhi.shop
+2,yylx.win
+2,gia.cc.cd
