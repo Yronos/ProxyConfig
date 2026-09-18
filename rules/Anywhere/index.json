@@ -1,44 +1,183 @@
 {
   "generated_for": "Anywhere Routing Rule Set",
-  "total_rule_sets": 4,
-  "total_rules": 8883,
-  "total_skipped": 3,
+  "total_rule_sets": 18,
+  "total_rules": 9457,
+  "total_skipped": 10,
   "rule_sets": [
     {
       "name": "AI",
       "description": "常见 AI 服务",
-      "rules": 116,
+      "rules": 50,
       "skipped": 1,
       "unsupported_types": {
         "URL-REGEX": 1
       },
       "sources": [
-        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/ai.conf",
-        "ProxyHK.list"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/ai.conf"
       ]
     },
     {
-      "name": "Proxy",
-      "description": "常见海外代理及国际服务",
-      "rules": 1380,
-      "skipped": 2,
+      "name": "Apple_CDN",
+      "description": "This file contains Apple's domains using their China mainland CDN servers.",
+      "rules": 159,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/domainset/apple_cdn.conf"
+      ]
+    },
+    {
+      "name": "Apple_CN",
+      "description": "This file contains domains of Apple, Inc that have host service specific for the Mainland China.",
+      "rules": 9,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/apple_cn.conf"
+      ]
+    },
+    {
+      "name": "Apple_Services",
+      "description": "This file contains domains of Apple, Inc.",
+      "rules": 17,
+      "skipped": 8,
       "unsupported_types": {
-        "USER-AGENT": 1,
-        "URL-REGEX": 1
+        "PROCESS-NAME": 8
       },
       "sources": [
-        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/global.conf",
-        "lite/Amazon.list"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/apple_services.conf"
+      ]
+    },
+    {
+      "name": "Global",
+      "description": "常见海外代理及国际服务",
+      "rules": 1269,
+      "skipped": 1,
+      "unsupported_types": {
+        "USER-AGENT": 1
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/global.conf"
       ]
     },
     {
       "name": "ForceDirect",
-      "description": "强制直连规则",
-      "rules": 19,
+      "description": "ForceDirect rules",
+      "rules": 15,
       "skipped": 0,
       "unsupported_types": {},
       "sources": [
-        "ForceDirect.list"
+        "mobile/ForceDirect.list"
+      ]
+    },
+    {
+      "name": "DirectSupplements",
+      "description": "DirectSupplements rules",
+      "rules": 55,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "mobile/DirectSupplements.list"
+      ]
+    },
+    {
+      "name": "ProxyForum",
+      "description": "ProxyForum rules",
+      "rules": 14,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "mobile/ProxyForum.list"
+      ]
+    },
+    {
+      "name": "ProxyHK",
+      "description": "ProxyHK rules",
+      "rules": 34,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "mobile/ProxyHK.list"
+      ]
+    },
+    {
+      "name": "ProxyJP",
+      "description": "ProxyJP rules",
+      "rules": 9,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "mobile/ProxyJP.list"
+      ]
+    },
+    {
+      "name": "ProxyUS",
+      "description": "ProxyUS rules",
+      "rules": 31,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "mobile/ProxyUS.list"
+      ]
+    },
+    {
+      "name": "Bilibili_lite",
+      "description": "lite Bilibili rules",
+      "rules": 6,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/Bilibili.list"
+      ]
+    },
+    {
+      "name": "CDN_lite",
+      "description": "lite CDN rules",
+      "rules": 357,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/CDN.list"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "description": "lite GitHub rules",
+      "rules": 25,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/GitHub.list"
+      ]
+    },
+    {
+      "name": "Bahamut",
+      "description": "Bahamut rules",
+      "rules": 5,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "Bahamut.list"
+      ]
+    },
+    {
+      "name": "Discord",
+      "description": "lite Discord rules",
+      "rules": 25,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/Discord.list"
+      ]
+    },
+    {
+      "name": "WeChat",
+      "description": "lite WeChat rules",
+      "rules": 9,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/WeChat.list"
       ]
     },
     {

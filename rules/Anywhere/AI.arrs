@@ -1,12 +1,11 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: 常见 AI 服务
-# RULES: 116
+# RULES: 50
 # SKIPPED: 1
 # SKIPPED-TYPES: URL-REGEX=1
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/ai.conf
-# - ProxyHK.list
 
 name = AI
 2,g.ai
@@ -59,69 +58,3 @@ name = AI
 2,proactivebackend-pa.googleapis.com
 3,openai
 3,alkalimakersuite-pa.clients6.google.com
-2,tampermonkey.net
-2,greasyfork.org
-2,userscript.zone
-2,openuserjs.org
-2,scriptcat.org
-2,boxjs.com
-2,translate-pa.googleapis.com
-2,immersivetranslate.com
-2,folo.is
-2,qireader.com
-2,rssreaderone.com
-2,buzzing.cc
-3,hacker-news
-2,apphot.cc
-2,foobar2000.org
-2,rime.im
-2,yyets.click
-2,btbtl.com
-2,bt4gprx.com
-2,nyaa.si
-2,orzx.im
-2,dmhy.org
-2,subhd.tv
-2,assrt.net
-2,opensubtitles.com
-2,olevod.com
-2,aria2e.com
-2,zotero.org
-2,now61.com
-2,blomp.com
-2,hefamily.net
-2,koolcenter.com
-2,bsbsb.top
-2,imee.me
-2,isharepc.com
-2,tmioe.com
-2,devbirdshield.com
-2,bird-shield.com
-2,icekylin.online
-2,kelee.one
-2,xptvhelper.link
-2,infuseku.xyz
-2,v1.mk
-2,sanxingwushen.xyz
-2,asus.im
-2,jsdelivr.fyi
-2,youxiaohou.com
-2,tacool.com
-2,darkreader.org
-2,atlucky.me
-2,qingr.moe
-2,ddgksf2013.top
-2,whatshub.top
-2,haitunt.org
-2,peekabo.io
-2,hero-sms.com
-2,oplist.org
-2,hills.im
-2,x666.me
-2,wzw.pp.ua
-2,215.im
-2,zhenhaoji.qzz.io
-2,muyuan.do
-2,100xlabs.space
-2,sadidc.com
-2,lxc.neko.mo.cn

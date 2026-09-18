@@ -1,0 +1,14 @@
+# NAME: Bahamut
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: Bahamut rules
+# RULES: 5
+# SKIPPED: 0
+# SOURCES:
+# - Bahamut.list
+
+name = Bahamut
+2,bahamut.akamaized.net
+2,bahamut.com.tw
+2,gamer.com.tw
+2,hinet.net
+2,viblast.com

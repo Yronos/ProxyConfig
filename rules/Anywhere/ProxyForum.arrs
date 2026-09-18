@@ -1,0 +1,23 @@
+# NAME: ProxyForum
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: ProxyForum rules
+# RULES: 14
+# SKIPPED: 0
+# SOURCES:
+# - mobile/ProxyForum.list
+
+name = ProxyForum
+2,linux.do
+2,v2ex.com
+2,v2ex.pro
+2,nodeseek.com
+2,nodeseek.org
+2,idcflare.com
+2,deepflood.com
+2,nodeloc.com
+2,hostloc.com
+2,lowendtalk.com
+2,tvzb.com
+2,nodeimage.com
+2,archlinuxcn.org
+2,fog.22112211.xyz

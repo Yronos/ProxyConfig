@@ -1,0 +1,19 @@
+# NAME: WeChat
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: lite WeChat rules
+# RULES: 9
+# SKIPPED: 0
+# SOURCES:
+# - lite/WeChat.list
+
+name = WeChat
+routing = 1
+2,slife.xy-asia.com
+2,iot-tencent.com
+2,servicewechat.com
+2,tenpay.com
+2,wechat.com
+2,wechatlegal.net
+2,wechatos.net
+2,wechatpay.com
+2,weixinsxy.com

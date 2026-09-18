@@ -1,0 +1,19 @@
+# NAME: Apple_CN
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: This file contains domains of Apple, Inc that have host service specific for the Mainland China.
+# RULES: 9
+# SKIPPED: 0
+# SOURCES:
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/apple_cn.conf
+
+name = Apple_CN
+routing = 1
+2,apple.com.cn
+2,cn.apple.com
+2,icloud.com.cn
+2,cn.ls.apple.com
+2,api.smoot.apple.cn
+2,cn-ssl.ls.apple.com
+2,gs-loc-cn.apple.com
+2,gspe19-cn-ssl.ls.apple.com
+2,appleintelligencefeedback.care.apple.com
