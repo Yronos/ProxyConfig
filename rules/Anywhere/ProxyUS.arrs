@@ -1,0 +1,40 @@
+# NAME: ProxyUS
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: ProxyUS rules
+# RULES: 31
+# SKIPPED: 0
+# SOURCES:
+# - mobile/ProxyUS.list
+
+name = ProxyUS
+2,notion.com
+2,notion.site
+2,sprig.com
+2,gist.build
+2,customer.io
+2,protonmail.ch
+2,protonmail.com
+2,protonstatus.com
+2,pm.me
+2,intercom.io
+2,intercom.com
+2,ssl.com
+2,entrust.net
+2,digicert.com
+2,sectigo.com
+2,usertrust.com
+2,swisssign.net
+2,swisssign.com
+2,torproject.org
+2,bitwarden.com
+2,bitwarden.net
+2,standardnotes.com
+2,ente.io
+2,ente.com
+2,branch.io
+2,awswaf.com
+2,hcaptcha.com
+2,jscrambler.com
+2,stripe.com
+2,cardinaltrusted.com
+2,firehawk52.com

@@ -1,0 +1,18 @@
+# NAME: ProxyJP
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: ProxyJP rules
+# RULES: 9
+# SKIPPED: 0
+# SOURCES:
+# - mobile/ProxyJP.list
+
+name = ProxyJP
+2,booth.pm
+2,fanbox.cc
+2,pixiv.cat
+2,pixiv.co.jp
+2,pixiv.me
+2,pixiv.net
+2,pixiv.org
+2,favicon.im
+2,sotwe.com

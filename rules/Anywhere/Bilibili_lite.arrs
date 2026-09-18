@@ -1,0 +1,16 @@
+# NAME: Bilibili_lite
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: lite Bilibili rules
+# RULES: 6
+# SKIPPED: 0
+# SOURCES:
+# - lite/Bilibili.list
+
+name = Bilibili_lite
+routing = 1
+2,b23.tv
+2,bilibili.com
+2,biliapi.com
+2,biliapi.net
+2,biliimg.com
+2,upos-hz-mirrorakam.akamaized.net

@@ -1,0 +1,27 @@
+# NAME: Apple_Services
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: This file contains domains of Apple, Inc.
+# RULES: 17
+# SKIPPED: 8
+# SKIPPED-TYPES: PROCESS-NAME=8
+# SOURCES:
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/apple_services.conf
+
+name = Apple_Services
+2,me.com
+2,apple.co
+2,apple.com
+2,appsto.re
+2,apple.news
+2,icloud.com
+2,itunes.com
+2,aaplimg.com
+2,appstore.com
+2,apple-dns.net
+2,cdn-apple.com
+2,apple-mapkit.com
+2,apple-cloudkit.com
+2,icloud-content.com
+2,organicfruitapps.com
+2,push-apple.com.akadns.net
+0,17.0.0.0/8
