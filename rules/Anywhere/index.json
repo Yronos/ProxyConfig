@@ -1,8 +1,8 @@
 {
   "generated_for": "Anywhere Routing Rule Set",
-  "total_rule_sets": 18,
-  "total_rules": 9457,
-  "total_skipped": 10,
+  "total_rule_sets": 24,
+  "total_rules": 10752,
+  "total_skipped": 15,
   "rule_sets": [
     {
       "name": "AI",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Global",
-      "description": "常见海外代理及国际服务",
+      "description": "常见国际服务",
       "rules": 1269,
       "skipped": 1,
       "unsupported_types": {
@@ -171,6 +171,58 @@
       ]
     },
     {
+      "name": "Meta",
+      "description": "lite Meta rules",
+      "rules": 43,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/Meta.list"
+      ]
+    },
+    {
+      "name": "Cloudflare",
+      "description": "lite Cloudflare rules",
+      "rules": 38,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/Cloudflare.list"
+      ]
+    },
+    {
+      "name": "Amazon",
+      "description": "lite Amazon rules",
+      "rules": 118,
+      "skipped": 1,
+      "unsupported_types": {
+        "URL-REGEX": 1
+      },
+      "sources": [
+        "lite/Amazon.list"
+      ]
+    },
+    {
+      "name": "Reddit",
+      "description": "lite Reddit rules",
+      "rules": 5,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/Reddit.list"
+      ]
+    },
+    {
+      "name": "Streaming",
+      "description": "lite Streaming rules",
+      "rules": 227,
+      "skipped": 0,
+      "unsupported_types": {},
+      "sources": [
+        "lite/Streaming.list"
+      ]
+    },
+    {
       "name": "WeChat",
       "description": "lite WeChat rules",
       "rules": 9,
@@ -178,6 +230,19 @@
       "unsupported_types": {},
       "sources": [
         "lite/WeChat.list"
+      ]
+    },
+    {
+      "name": "Domestic",
+      "description": "中国大陆常见域名",
+      "rules": 864,
+      "skipped": 4,
+      "unsupported_types": {
+        "DOMAIN-WILDCARD": 1,
+        "USER-AGENT": 3
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/refs/heads/master/List/non_ip/domestic.conf"
       ]
     },
     {

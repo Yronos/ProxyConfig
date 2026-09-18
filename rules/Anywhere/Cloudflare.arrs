@@ -1,0 +1,47 @@
+# NAME: Cloudflare
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: lite Cloudflare rules
+# RULES: 38
+# SKIPPED: 0
+# SOURCES:
+# - lite/Cloudflare.list
+
+name = Cloudflare
+2,cf-ipfs.com
+2,cf-ns.com
+2,cf-ns.net
+2,cf-ns.site
+2,cf-ns.tech
+2,cftest7.com
+2,cftest8.com
+2,cloudflare-dns.com
+2,cloudflare-ipfs.com
+2,cloudflare-quic.com
+2,cloudflare.com
+2,cloudflare.net
+2,cloudflare.tv
+2,cloudflareaccess.com
+2,cloudflareapps.com
+2,cloudflarebolt.com
+2,cloudflareclient.com
+2,cloudflareinsights.com
+2,cloudflareok.com
+2,cloudflarepreview.com
+2,cloudflareprod.com
+2,cloudflareresolve.com
+2,cloudflaressl.com
+2,cloudflarestaging.com
+2,cloudflarestatus.com
+2,cloudflarestorage.com
+2,cloudflarestoragegw.com
+2,cloudflarestream.com
+2,cloudflaretest.com
+2,cloudflarewarp.com
+2,every1dns.net
+2,one.one.one
+2,pacloudflare.com
+2,pages.dev
+2,trycloudflare.com
+2,videodelivery.net
+2,warp.plus
+2,workers.dev
