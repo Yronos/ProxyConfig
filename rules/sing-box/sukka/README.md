@@ -1,10 +1,10 @@
 # Sukka Sing-Box Rules
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe)
-> Last updated: 2026-09-22 17:32:14 UTC
+> Last updated: 2026-09-23 17:44:18 UTC
 > Compiled with: sing-box vv1.14.1
 
-**Total: 67 rules**
+**Total: 68 rules**
 
 ## Available Rules
 - `apple_cdn`
@@ -46,6 +46,7 @@
 - `cloudmounter`
 - `direct`
 - `domestic`
+- `domestic_cdn`
 - `download`
 - `gitlab`
 - `global`
