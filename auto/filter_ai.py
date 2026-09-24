@@ -55,6 +55,7 @@ CUSTOM_REMOVE_RULES = [
     # "DOMAIN-SUFFIX,twimg.com",
     "DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe",
     "DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe",
+    "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe",
     "DOMAIN-KEYWORD,openai",
     "DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com",
 ]

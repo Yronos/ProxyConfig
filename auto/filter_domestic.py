@@ -64,6 +64,7 @@ CUSTOM_REMOVE_RULES = [
     # "DOMAIN-SUFFIX,twimg.com",
     "DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe",
     "DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe",
+    "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe",
     "USER-AGENT,%E4%BC%98%E9%85%B7*",
     "USER-AGENT,%E6%89%8B%E6%9C%BA%E6%B7%98%E5%AE%9D*",
     "USER-AGENT,TeslaMap",
