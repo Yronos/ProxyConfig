@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Reject Phishing
-# Last Updated: 2026-09-23T20:19:45.415Z
-# Size: 144271
+# Last Updated: 2026-09-24T10:03:58.001Z
+# Size: 144109
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -13,7 +13,7 @@
 #   - https://phishing.army/download/phishing_army_blocklist.txt
 #   - https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt
 #
-# $content-hash-v1$:-kOGttVqabWPVDaPRnB8YHwA9XyNg8CjOXVZX6PxTu4$
+# $content-hash-v1$:2sOqdYm_GHEL56jyp68fl6ZVkX5BzIkc10EE113REJ4$
 #########################################
 7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
 +.y.gy
@@ -28,6 +28,7 @@
 +.to.lk
 +.wa.pe
 +.wk.pl
++.zd.lc
 +.1sh.co
 +.2ur.jp
 +.2ww.me
@@ -86,6 +87,7 @@
 +.4556.de
 +.61ph.cn
 +.830p.cn
++.88fa.cn
 +.amz.run
 +.aple.cc
 +.az8.com
@@ -197,7 +199,6 @@
 +.1irc.com
 +.1l1s.org
 +.1pj0.com
-+.1pm4.com
 +.1spin.cc
 +.1w0v.cfd
 +.26gq.com
@@ -217,7 +218,6 @@
 +.3pm8.com
 +.3ps9.com
 +.4f00.com
-+.4ff1.com
 +.4fn2.com
 +.4lja.cfd
 +.4pc2.com
@@ -255,7 +255,6 @@
 +.bi-pa.co
 +.bitly.cx
 +.blinq.me
-+.blosk.io
 +.bncri.cc
 +.booly.kr
 +.boses.pl
@@ -297,6 +296,7 @@
 +.e186.com
 +.eaer.top
 +.ecert.am
++.ehgs.net
 +.epass.us
 +.equpa.us
 +.esda.mom
@@ -383,6 +383,7 @@
 +.lkdin.io
 +.lrv1.cfd
 +.ludex.cc
++.many.bio
 +.maxig.cl
 +.maxsi.cc
 +.metrr.ru
@@ -472,7 +473,6 @@
 +.shva.net
 +.sider.ai
 +.sitc.cam
-+.smswt.in
 +.snbt.fun
 +.sonen.us
 +.sors.mom
@@ -787,7 +787,6 @@
 +.bfgxe.com
 +.bflvr.com
 +.bgjhy.com
-+.bgjsj.com
 +.bgrqw.com
 +.bgsln.net
 +.bgunw.com
@@ -819,7 +818,6 @@
 +.bla-bl.de
 +.bldyz.com
 +.bljmg.com
-+.blosk.org
 +.blqla.com
 +.blsbz.com
 +.blsjt.com
@@ -913,7 +911,6 @@
 +.cdnbk.com
 +.cdrxx.com
 +.cdusp.com
-+.cdwlx.com
 +.cdyqj.com
 +.cenaw.com
 +.cerny.lat
@@ -941,7 +938,6 @@
 +.clctg.com
 +.clgff.com
 +.clozer.io
-+.cma88.vip
 +.cmdkt.com
 +.cmgjq.com
 +.cmhxt.com
@@ -1595,7 +1591,6 @@
 +.iaghx.com
 +.iaheo.com
 +.iamol.com
-+.iaobz.com
 +.icelt.org
 +.id3531.pl
 +.iddmg.com
@@ -1731,6 +1726,7 @@
 +.jnzzd.com
 +.jo-ij.net
 +.jotgz.com
++.jott.life
 +.jphlz.net
 +.jpkke.com
 +.jpkno.com
@@ -2330,10 +2326,10 @@
 +.pl768.lat
 +.pl78.shop
 +.pl847.lat
-+.pl867.cfd
 +.pl921.cfd
 +.pl958.cfd
 +.place.bio
++.plbrw.com
 +.plgov.cfd
 +.plgov.icu
 +.plgov.one
@@ -2609,7 +2605,6 @@
 +.shhzy.com
 +.shlxp.com
 +.shortu.be
-+.shqgb.com
 +.shsqf.com
 +.shuwm.com
 +.shxxz.com
@@ -3003,7 +2998,6 @@
 +.wbzgz.com
 +.wcagy.com
 +.wdjys.com
-+.wdslh.com
 +.we-bo.com
 +.webvod.pl
 +.wecsc.com
@@ -3053,7 +3047,6 @@
 +.wulcn.com
 +.ww-tv.com
 +.wwffg.com
-+.wwhgy.com
 +.wwpopi.de
 +.wxems.com
 +.wxhxk.com
@@ -3124,7 +3117,6 @@
 +.xhjzp.com
 +.xhymb.com
 +.xihuq.com
-+.xiqav.com
 +.xjcdm.com
 +.xjgrq.com
 +.xjhiq.com
@@ -3158,7 +3150,6 @@
 +.xpfwe.com
 +.xpmoq.com
 +.xpybk.com
-+.xqlsn.com
 +.xqpbq.com
 +.xqtpw.com
 +.xrlrd.com
@@ -3197,7 +3188,6 @@
 +.xxykz.com
 +.xyajw.com
 +.xyijw.com
-+.xyjcw.com
 +.xyjzs.com
 +.xylxy.com
 +.xymsk.com
@@ -3225,7 +3215,6 @@
 +.yayts.com
 +.yb028.com
 +.ybms.shop
-+.ybxzf.com
 +.ybyct.com
 +.ycdgb.com
 +.ycfdw.com
@@ -3302,7 +3291,6 @@
 +.ysuxz.com
 +.ysxlb.com
 +.ytkeg.cfd
-+.ytrzm.com
 +.ytskw.com
 +.ytxjz.com
 +.ytydf.com
@@ -3426,8 +3414,6 @@
 +.zsgjy.com
 +.zshkc.com
 +.zshlx.com
-+.zslwp.com
-+.zsxzx.com
 +.zsylx.com
 +.zszcz.com
 +.ztbjh.com
@@ -3512,6 +3498,7 @@
 +.1sdr2r.top
 +.1spade.top
 +.1tf23.hair
++.1v2vg.buzz
 +.1yg26g.sbs
 +.1yg2g2.top
 +.2345dq.com
@@ -3519,6 +3506,7 @@
 +.24d.online
 +.24gew3.top
 +.24wg63.top
++.25365b.net
 +.25h576.xyz
 +.265819.mom
 +.267736.xyz
@@ -3633,11 +3621,13 @@
 +.73jh8r.top
 +.73ywge.ink
 +.743204.lat
++.745923.top
 +.746362.lat
 +.746612.sbs
 +.747188.sbs
 +.747212.lol
 +.765520.cfd
++.766239.sbs
 +.774721.lat
 +.775345.lat
 +.7e6t4r.top
@@ -3693,7 +3683,6 @@
 +.8jwgt3.ink
 +.8jwm6e.top
 +.8nlk7f.top
-+.8w263e.cfd
 +.8w3ge.hair
 +.8wije6.top
 +.916437.lat
@@ -3776,7 +3765,6 @@
 +.aanane.com
 +.aaqaqk.com
 +.ab-cde.fit
-+.abavec.icu
 +.abcdjh.com
 +.abdevf.com
 +.abemi.shop
@@ -3787,7 +3775,6 @@
 +.absolog.ch
 +.abuit.info
 +.ac8955.com
-+.aceddl.com
 +.acg-hj.com
 +.acg-hj.net
 +.acjcji.com
@@ -3850,7 +3837,6 @@
 +.aiet.eu.cc
 +.aifo.eu.cc
 +.aimlix.com
-+.ainitm.com
 +.airform.ai
 +.airtz.info
 +.aisoti.com
@@ -4180,6 +4166,7 @@
 +.buyaapp.de
 +.buybl.shop
 +.buyimp.xyz
++.bvousc.com
 +.bwnzyl.com
 +.bxcjjt.com
 +.bxcxlr.com
@@ -4328,7 +4315,6 @@
 +.cethub.com
 +.cezuti.com
 +.cf686.site
-+.cfanac.com
 +.cfflrq.com
 +.cfh-jk.fit
 +.cfh-jk.net
@@ -4369,7 +4355,6 @@
 +.ckanbz.icu
 +.ckxyun.com
 +.claas.live
-+.clbxsy.com
 +.clckurl.eu
 +.climary.cl
 +.cljzsj.com
@@ -4472,6 +4457,7 @@
 +.d-p7am.ink
 +.d1cdej.top
 +.d1q7ls.lat
++.d2lrsn.cfd
 +.d2p6xr.fit
 +.d2p6xr.xin
 +.d2psmw.fit
@@ -4535,12 +4521,9 @@
 +.daykeo.com
 +.db-caz.fit
 +.dbsjng.com
-+.dbyteh.sbs
-+.dc7-jp.com
 +.dcsde.buzz
 +.dd9sey.cfd
 +.ddddqd.com
-+.ddjccn.com
 +.ddjdje.com
 +.ddnndn.com
 +.ddrdre.com
@@ -4592,7 +4575,6 @@
 +.dhriti.com
 +.dhwd.it.nf
 +.di-bcd.net
-+.di-tea.com
 +.dia-es.com
 +.diamax.fit
 +.diansq.com
@@ -4659,7 +4641,6 @@
 +.dpdwdn.vip
 +.dpfa91.com
 +.dpybwa.icu
-+.dqahxl.com
 +.dqxwst.com
 +.dr-ivy.xyz
 +.dr8lpx.cfd
@@ -4672,7 +4653,6 @@
 +.dshshd.com
 +.dskjem.net
 +.dsvash.lat
-+.dtasjc.com
 +.dtbtpd.com
 +.dtxsfj.com
 +.dubara.xyz
@@ -4798,7 +4778,6 @@
 +.es9xly.top
 +.eseged.com
 +.eset.co.il
-+.esitle.com
 +.eskibu.com
 +.eskroh.com
 +.essyco.com
@@ -4899,7 +4878,6 @@
 +.fchyls.com
 +.fclhjs.com
 +.fcm47.info
-+.fco-eu.com
 +.fco-jp.com
 +.fctsb.info
 +.fcwhlw.com
@@ -4928,7 +4906,6 @@
 +.fghdsj.com
 +.fhkalm.com
 +.fhktg.info
-+.fiange.com
 +.ficola.mom
 +.fihuvu.pro
 +.fikaju.com
@@ -5100,7 +5077,6 @@
 +.getiji.top
 +.getnut.cam
 +.gevsix.com
-+.gextr.best
 +.geztas.com
 +.gf1tru.top
 +.gfraeu.com
@@ -5121,7 +5097,6 @@
 +.gjiela.com
 +.gjptuv.com
 +.gjseep.com
-+.gkatxk.com
 +.gl9sqj.sbs
 +.glavior.ai
 +.glexo.shop
@@ -5132,7 +5107,6 @@
 +.gls-vi.top
 +.glsdtl.com
 +.glvszd.sbs
-+.glxxbl.com
 +.gmakez.cfd
 +.gmkpbf.com
 +.gnorths.de
@@ -5282,7 +5256,6 @@
 +.hazkat.com
 +.hazzel.vip
 +.hbcdkx.com
-+.hbjfjj.com
 +.hbmcnz.com
 +.hbmoss.com
 +.hbnuzk.com
@@ -5363,7 +5336,6 @@
 +.homla.help
 +.homla.tech
 +.homla.wiki
-+.homlas.top
 +.hommsa.com
 +.homspl.com
 +.hop-ta.com
@@ -5378,7 +5350,6 @@
 +.hrvnow.com
 +.hs9030.com
 +.hscptg.com
-+.hscxjb.com
 +.hsotsn.com
 +.hsyseo.com
 +.htjack.com
@@ -5539,7 +5510,6 @@
 +.jay-so.com
 +.jbbxax.com
 +.jblca.club
-+.jcttkf.com
 +.jdqqyj.com
 +.jelta.info
 +.jens.quest
@@ -5552,11 +5522,8 @@
 +.jgsudx.com
 +.jgutah.com
 +.jh83w9.cfd
-+.jhgjer.com
 +.jhlsly.com
-+.jhrltp.com
 +.jhsxgc.com
-+.jhtfzh.com
 +.jicela.pro
 +.jilomi.pro
 +.jinkq.cyou
@@ -5564,7 +5531,6 @@
 +.jiqidu.pro
 +.jiquzi.pro
 +.jixuet.com
-+.jiyisd.com
 +.jiyoni.com
 +.jjjsth.com
 +.jjldmz.com
@@ -5603,9 +5569,9 @@
 +.joystay.in
 +.jpsmbc.com
 +.jqgjtz.com
-+.jrcubw.com
 +.jrgwc.shop
 +.jrjxsb.com
++.jsale.shop
 +.jscxsy.com
 +.jsfgwv.top
 +.jsfxds.com
@@ -5613,19 +5579,15 @@
 +.jsjsgm.com
 +.jskadjs.uk
 +.jslhba.com
-+.jslphs.com
 +.jsooxo.com
 +.jssjny.com
 +.jstudy.mom
 +.jsvwkh.com
 +.jswxcs.com
 +.jsxggt.com
-+.jsxzzx.com
-+.jsyvip.com
 +.jt2oua.cfd
 +.jthxjb.com
 +.jtkpdk.com
-+.jtqptz.com
 +.juara8.org
 +.jubnix.top
 +.juezou.com
@@ -5640,10 +5602,8 @@
 +.jvixax.icu
 +.jxcyyl.com
 +.jximo.shop
-+.jxjftx.com
 +.jxjtjx.com
 +.jxkxjj.com
-+.jxrbtt.com
 +.jxylor.pro
 +.jxzdsp.com
 +.jyhhzs.com
@@ -5655,7 +5615,6 @@
 +.jyutsr.com
 +.jyzxcz.com
 +.jzlssn.com
-+.jzvvtx.com
 +.jzyd88.com
 +.k-8xda.fit
 +.k-witz.com
@@ -5689,6 +5648,7 @@
 +.k4x8m5.cfd
 +.k5a9dx.com
 +.k5kxhb.sbs
++.k5p9wd.lat
 +.k5qrmn.com
 +.k5wrnp.com
 +.k5x7y9.lat
@@ -5878,7 +5838,6 @@
 +.lcwyyc.com
 +.lcxhgg.net
 +.ld-eu.shop
-+.ldodse.sbs
 +.ldoeudi.uk
 +.ldsjsy.com
 +.lean07.com
@@ -5934,7 +5893,6 @@
 +.lidlry.com
 +.lidlx.shop
 +.lidnz.shop
-+.lidodp.com
 +.lie-fa.fit
 +.lif-fa.fit
 +.lifyxx.fit
@@ -5957,7 +5915,6 @@
 +.liveqq.com
 +.lkjhpg.com
 +.ll2gut.cfd
-+.lljmyf.com
 +.lllllb.com
 +.llsdkj.com
 +.lm2ixl.cfd
@@ -5998,7 +5955,6 @@
 +.lq0871.com
 +.lq7mla.cfd
 +.lqozaa.icu
-+.lrfjvd.com
 +.lsajla.top
 +.lsdbqm.com
 +.lsdpzx.com
@@ -6358,7 +6314,6 @@
 +.nnrxrb.com
 +.nnsmyj.com
 +.noarax.com
-+.nociku.pro
 +.noclue.vip
 +.nodev.shop
 +.noltra.pro
@@ -6393,7 +6348,6 @@
 +.nuqabi.pro
 +.nuqiqu.pro
 +.nurrve.com
-+.nutsta.com
 +.nuvora.top
 +.nuwoce.com
 +.nvavid.com
@@ -6443,7 +6397,6 @@
 +.oilzero.nl
 +.oineam.icu
 +.oioibuy.de
-+.oiqili.com
 +.oisdvb.com
 +.ojedix.com
 +.okainc.com
@@ -6452,7 +6405,6 @@
 +.oknahh.com
 +.oksqyq.com
 +.ol4qzr.top
-+.olaycn.com
 +.olbitx.com
 +.oldraw.com
 +.olenpl.xyz
@@ -6475,7 +6427,6 @@
 +.onyiho.com
 +.onyzen.pro
 +.ookjuu.com
-+.ooooao.com
 +.oopeii.com
 +.opane.bond
 +.operqo.net
@@ -6487,7 +6438,6 @@
 +.opwir.site
 +.oqofiq.icu
 +.or6ayz.cfd
-+.oraibz.com
 +.oraxa.live
 +.orehop.com
 +.orety.info
@@ -6659,7 +6609,6 @@
 +.pl-ccc.top
 +.pl-dhl.top
 +.pl-dpda.cc
-+.pl-ii4.cfd
 +.pl-m2.shop
 +.pl-pl1.cfd
 +.pl01.space
@@ -6789,6 +6738,7 @@
 +.q3p5id.ink
 +.q3t7wc.lat
 +.q3x8c2.lat
++.q4x8mn.lat
 +.q5a3h6.cfd
 +.q5dxwo.fit
 +.q5m8xr.lat
@@ -6826,7 +6776,6 @@
 +.qcarr.best
 +.qcgcuk.com
 +.qcoor.best
-+.qcsjxx.com
 +.qcvute.com
 +.qd-bea.fit
 +.qdhxhz.com
@@ -7016,6 +6965,7 @@
 +.rfvced.fit
 +.rfyqw.site
 +.rhaion.com
++.rhliey.com
 +.rhovdg.com
 +.rhpjkd.com
 +.ridyus.sbs
@@ -7070,7 +7020,6 @@
 +.rxa9wm.fun
 +.rxa9wm.ink
 +.rxbmcl.com
-+.ryiogo.com
 +.ryouco.com
 +.ryvox.info
 +.rzcpwl.com
@@ -7097,6 +7046,7 @@
 +.s8rddm.sbs
 +.s8t36.info
 +.s8yum.info
++.s9390.shop
 +.s9dwxd.ink
 +.s9n6c2.sbs
 +.s9qmed.fit
@@ -7109,7 +7059,6 @@
 +.sadlay.lat
 +.safeurl.pl
 +.safsol.xyz
-+.safstr.xyz
 +.samup.live
 +.saovax.com
 +.saplix.org
@@ -7334,7 +7283,6 @@
 +.sycxtd.com
 +.syjrfs.com
 +.syjxxt.com
-+.sylkwx.com
 +.sylydl.com
 +.symhtj.com
 +.symlmy.com
@@ -7399,7 +7347,7 @@
 +.t7p4xn.lat
 +.t7zs1k.cfd
 +.t8k5yd.lat
-+.t8npxm.top
++.t8n1vk.lat
 +.t8p3y5.cfd
 +.t8q2dn.lat
 +.t8wkxs.fit
@@ -7525,7 +7473,6 @@
 +.tryuds.com
 +.tsadra.com
 +.tsovet.mom
-+.tsrlzy.com
 +.tsskpk.com
 +.tsxygc.com
 +.tsygyd.com
@@ -7751,7 +7698,6 @@
 +.vixaro.pro
 +.vizmun.com
 +.vjryic.com
-+.vkvvvk.com
 +.vn5rme.sbs
 +.vnbcsa.fit
 +.vndbko.com
@@ -7854,7 +7800,6 @@
 +.wchuai.com
 +.wd2966.com
 +.wdbfh.shop
-+.wddiyi.com
 +.wdhjmx.com
 +.wdmgsq.com
 +.webozip.in
@@ -7938,7 +7883,6 @@
 +.wynavi.com
 +.wypqtf.com
 +.wyprz.shop
-+.wysjsj.com
 +.wywgcy.com
 +.wzbfpm.com
 +.wzg141.com
@@ -7996,13 +7940,11 @@
 +.x8xmho.cfd
 +.x8zbsq.top
 +.x9k5m2.lat
-+.x9r2wq.icu
 +.x9r2wq.ink
 +.x9r2wq.uno
 +.xa-pqr.fit
 +.xa-pqr.net
 +.xahffs.com
-+.xajscg.com
 +.xan9ri.top
 +.xaspm.site
 +.xasymc.com
@@ -8033,10 +7975,8 @@
 +.xhairx.com
 +.xhyzxy.com
 +.xiaojf.com
-+.xiboku.pro
 +.xibowi.pro
 +.xikejo.pro
-+.xilanx.com
 +.xiloho.pro
 +.xim3ra.lat
 +.xim3xo.lat
@@ -8055,7 +7995,6 @@
 +.xjodvb.com
 +.xjqqvz.com
 +.xjxmjg.com
-+.xjzvbj.com
 +.xk7bmx.sbs
 +.xl4veu.sbs
 +.xlgldg.com
@@ -8092,7 +8031,6 @@
 +.xrmytc.com
 +.xrows.cyou
 +.xsorex.com
-+.xsrxsr.com
 +.xswqay.fit
 +.xswqaz.fit
 +.xsxwee.com
@@ -8106,14 +8044,12 @@
 +.xuaoka.com
 +.xusejo.pro
 +.xusemo.com
-+.xvdtek.com
 +.xw4r7a.fun
 +.xw4r7a.xin
 +.xwtgvf.com
 +.xxcmdl.com
 +.xxdjjc.com
 +.xxhalo.com
-+.xxkjld.com
 +.xxpvzs.com
 +.xxsyhg.com
 +.xy7ani.top
@@ -8124,11 +8060,9 @@
 +.xykfyy.com
 +.xyntri.pro
 +.xysjls.com
-+.xytsjj.com
 +.xyuv.mj.am
 +.xyvuryy.de
 +.xz-jkl.net
-+.xzcfik.com
 +.xzfire.com
 +.xzscdc.com
 +.xzsfjy.com
@@ -8147,6 +8081,7 @@
 +.y3c8nh.lat
 +.y3d8ht.lat
 +.y3p2r1.lat
++.y4cfcc.sbs
 +.y4iwbj.top
 +.y4n6ks.lat
 +.y4p7r8.lat
@@ -8221,7 +8156,6 @@
 +.yov3ri.top
 +.yov7ri.lat
 +.ypmwd.site
-+.ypoppp.com
 +.yqkqcs.com
 +.yqmy2m.xin
 +.yr0575.com
@@ -8292,7 +8226,6 @@
 +.z6bkzs.cfd
 +.z6k-wr.fun
 +.z6k-wr.ink
-+.z6k-wr.top
 +.z6nmpf.fit
 +.z6p7x3.lat
 +.z6xqto.ink
@@ -8331,7 +8264,6 @@
 +.zdrei.info
 +.zdrowy.org
 +.zdw-7m.fit
-+.zdwi7m.top
 +.zealpc.mom
 +.zehidi.pro
 +.zelvi.info
@@ -8397,7 +8329,6 @@
 +.zoeedn.com
 +.zokys.shop
 +.zonixa.org
-+.zouxxs.com
 +.zoveto.pro
 +.zovra.live
 +.zpmesh.com
@@ -8428,7 +8359,6 @@
 +.zuzete.com
 +.zwidea.sbs
 +.zwinti.com
-+.zwwxku.com
 +.zx1317.com
 +.zx8rdi.top
 +.zxcvbn.fit
@@ -8451,7 +8381,6 @@
 +.zzhwbz.com
 +.zzlhsj.com
 +.zzqbfk.com
-+.zztwkj.com
 +.zzuzu.site
 +.zzxyxx.com
 +.zzzckj.com
@@ -8548,7 +8477,6 @@
 +.1pu5c9.info
 +.1qwr8vn.cfd
 +.1r2ff7.hair
-+.1rct2wt.sbs
 +.1rdd42e.top
 +.1rdq5f2.sbs
 +.1st-fix.com
@@ -8645,7 +8573,6 @@
 +.2minglr.com
 +.2mn4zka.cfd
 +.2n3uju.skin
-+.2nuhyw6.sbs
 +.2qgwtw.wiki
 +.2qr24rw.top
 +.2qrwde.hair
@@ -9122,6 +9049,7 @@
 +.9856354.cfd
 +.9856475.lat
 +.9857451.cfd
++.9865476.lat
 +.987265s.cfd
 +.987ks12.lat
 +.9888tec.com
@@ -9460,7 +9388,6 @@
 +.b7povm.shop
 +.b9knxd.asia
 +.b9nsqf.work
-+.b9xvkw.site
 +.baatoto.net
 +.babachai.us
 +.babaoso.com
@@ -9485,7 +9412,6 @@
 +.banpro.club
 +.bapugeu.com
 +.baquhix.com
-+.baqyviy.pro
 +.barluq.shop
 +.barmoro.xyz
 +.barowuo.pro
@@ -9549,7 +9475,6 @@
 +.bgtvfr.work
 +.bgygvlp.lol
 +.bhuuq.store
-+.bibydao.com
 +.bidaa.co.uk
 +.biedag.shop
 +.biedro.shop
@@ -9562,7 +9487,6 @@
 +.biggin.shop
 +.bigusau.com
 +.bigyqya.com
-+.bijinia.com
 +.bikano.shop
 +.bikaro.shop
 +.bikexa.shop
@@ -9616,6 +9540,7 @@
 +.bjqpst.site
 +.bjxtdqy.com
 +.bjzswlw.com
++.bk3yih.casa
 +.bksy666.com
 +.blackcat.pw
 +.blithub.top
@@ -9752,7 +9677,6 @@
 +.c9efbb.info
 +.c9kdzw.club
 +.c9kwsr.tech
-+.c9tshq.site
 +.cabshab.com
 +.cachiqo.vip
 +.cadcli.info
@@ -9783,12 +9707,9 @@
 +.cantrd.site
 +.capbit.shop
 +.capixia.com
-+.caplimo.com
 +.capnilo.com
 +.capsulux.ca
-+.capvaro.com
 +.capviro.com
-+.capvona.com
 +.caratt.live
 +.careza.shop
 +.carizon.biz
@@ -9843,7 +9764,6 @@
 +.cemurye.com
 +.cemypoi.com
 +.cendefi.net
-+.ceneopl.org
 +.ceneopl.sbs
 +.cenesia.pro
 +.cennovn.com
@@ -9918,6 +9838,7 @@
 +.corepay.cfd
 +.corlith.xyz
 +.coumaya.com
++.covosu.info
 +.cowugiy.com
 +.cozecoe.com
 +.cozyio.shop
@@ -9963,7 +9884,6 @@
 +.cwcatru.com
 +.cwpeuz.info
 +.cxcgzxz.com
-+.cyb-ref.org
 +.cybocat.com
 +.cycyqio.pro
 +.cydaree.com
@@ -10000,7 +9920,6 @@
 +.d5wzkk.hair
 +.d5wzku.site
 +.d7emdg.casa
-+.d7krmp.site
 +.d7kzwp.yoga
 +.d7xqme.site
 +.d8wkmc.qpon
@@ -10013,6 +9932,7 @@
 +.dalufou.com
 +.dalynix.com
 +.dammann.mom
++.damvero.com
 +.daniva.shop
 +.daomaker.at
 +.daothon.net
@@ -10200,7 +10120,6 @@
 +.dudkaro.com
 +.duelloo.com
 +.dugycay.com
-+.duhocey.com
 +.duiiioe.com
 +.dulhedo.com
 +.duniseu.com
@@ -10249,7 +10168,6 @@
 +.e7vnmq.help
 +.e9nawp.site
 +.e9udfb.info
-+.e9vnxt.site
 +.e9wtsr.site
 +.eaframe.com
 +.easl.com.ng
@@ -10431,12 +10349,10 @@
 +.f6mx2a.help
 +.f6mx2a.skin
 +.f7ield.info
-+.f7kcwr.site
 +.f7xorn.beer
 +.f7xqto.shop
 +.f9tpxo.tech
 +.f9tpxo.work
-+.f9tsxe.site
 +.f9tvsl.casa
 +.fa3rcq.info
 +.faalpay.net
@@ -10455,6 +10371,7 @@
 +.fakasyi.pro
 +.fall111.com
 +.falmek.shop
++.famirja.com
 +.famoury.com
 +.fanfenx.com
 +.fangush.com
@@ -10478,7 +10395,6 @@
 +.fazuboe.pro
 +.fb.ostok.mx
 +.fbuil.click
-+.fco-main.cc
 +.fd3sxn8w.eu
 +.fdjhiur.com
 +.fdurham.com
@@ -10534,14 +10450,10 @@
 +.fin-flix.me
 +.fin-pln.com
 +.finasya.com
-+.finazer.vip
 +.findexi.ink
-+.finervo.com
-+.finlena.com
 +.finnews.ink
 +.finory.cyou
 +.finoxio.com
-+.finravo.com
 +.finruta.com
 +.fintax.cyou
 +.finurie.com
@@ -10672,7 +10584,6 @@
 +.g0do4q.info
 +.g12f2tg.ink
 +.g1pstw.casa
-+.g1xqme.site
 +.ga.mjnbr.cc
 +.ga.yhbgu.cc
 +.gabipix.com
@@ -10923,6 +10834,7 @@
 +.harwits.com
 +.hasowin.com
 +.havebot.com
++.haveon.shop
 +.hawelka.mom
 +.haxisei.com
 +.hayavor.com
@@ -11080,7 +10992,6 @@
 +.i-obmen.net
 +.i0ikao.info
 +.i12bapa.com
-+.i1qjhr.site
 +.i3kx8b.hair
 +.i3siaw.qpon
 +.i4ydcj.info
@@ -11190,9 +11101,7 @@
 +.invapp.pics
 +.invasnb.net
 +.invfort.one
-+.involla.com
 +.invoryx.net
-+.invsys.live
 +.inzpack.com
 +.ionmonva.eu
 +.ionnoliv.eu
@@ -11411,7 +11320,6 @@
 +.k5a9dx.wiki
 +.k5a9dx.yoga
 +.k5br2x.hair
-+.k6dfxa.site
 +.k6iv2b.hair
 +.k6ptdw.skin
 +.k7cq3h.hair
@@ -11476,7 +11384,6 @@
 +.kb3dri.qpon
 +.kbrown.shop
 +.kckka.co.uk
-+.kcoas.click
 +.kd99i3.info
 +.kdedu.space
 +.kdoiery.com
@@ -11533,7 +11440,6 @@
 +.kimiluy.com
 +.kincena.com
 +.kindlane.eu
-+.kino-cda.pl
 +.kipeviy.com
 +.kir-ye.work
 +.kiravon.xyz
@@ -11563,7 +11469,6 @@
 +.kmct.edu.in
 +.kmspico.com
 +.kobawer.com
-+.kobawer.onl
 +.kobochi.xyz
 +.kod38a7.sbs
 +.kofedao.com
@@ -12083,7 +11988,6 @@
 +.mg1kqm.casa
 +.mg6vlp.qpon
 +.mg8233.info
-+.miaur.click
 +.mibohei.pro
 +.midasboy.in
 +.milinexz.eu
@@ -12244,7 +12148,6 @@
 +.newodd.best
 +.newpipe.app
 +.nexalto.xyz
-+.nexaro.live
 +.nexeora.top
 +.nexixv1.net
 +.nexixv6.net
@@ -12364,7 +12267,6 @@
 +.o3r6xa.wiki
 +.o3w7zm.help
 +.o3w7zm.skin
-+.o4lqyb.site
 +.o56jea.info
 +.o5kzvn.site
 +.o7byzi.qpon
@@ -12522,7 +12424,6 @@
 +.p3ns7b.hair
 +.p4m-rk.cyou
 +.p58d34.info
-+.p5lbtr.site
 +.p5ozwn.wiki
 +.p5va3n.hair
 +.p6thra.site
@@ -12584,7 +12485,6 @@
 +.peldum.shop
 +.pelikia.com
 +.penecho.xyz
-+.penfedc.com
 +.penzul.shop
 +.pepcopl.top
 +.peqojue.com
@@ -12801,7 +12701,6 @@
 +.primevod.pl
 +.primsoc.com
 +.print365.it
-+.pro1gg.info
 +.prof45k.sbs
 +.profdrc.com
 +.proline.mom
@@ -12856,7 +12755,6 @@
 +.pytqma.info
 +.pytudei.pro
 +.pyvlex.info
-+.pyzoxee.com
 +.q-2apm.shop
 +.q-3xwa.cyou
 +.q-3xwa.work
@@ -12999,7 +12897,6 @@
 +.qynx-ai.com
 +.qynx-ai.org
 +.qynxai.live
-+.qynywoy.com
 +.qyqimay.com
 +.qyronx.info
 +.qyt5qykw.cn
@@ -13073,7 +12970,6 @@
 +.rawixuo.pro
 +.raykyte.com
 +.razavip.top
-+.rbeatv.cyou
 +.rbfljek.sbs
 +.rbxtools.cc
 +.rcfbolt.com
@@ -13418,8 +13314,6 @@
 +.skaowdq.lol
 +.skelva.shop
 +.skip-go.com
-+.skipped.vip
-+.skkot.co.uk
 +.skonhed.net
 +.skonhed.pro
 +.skqkwox.cfd
@@ -13566,7 +13460,6 @@
 +.szrongt.com
 +.szybki.shop
 +.t1jqju.info
-+.t3cvrp.site
 +.t4azjv.casa
 +.t4ysk5.info
 +.t5zqpd.cyou
@@ -13928,6 +13821,7 @@
 +.uokrima.vip
 +.uotgamb.com
 +.uptoapp.com
++.uptopnc.top
 +.uqethca.icu
 +.ureashi.com
 +.urladda.com
@@ -13995,7 +13889,6 @@
 +.vartomir.co
 +.vastino.cfd
 +.vatrass.xyz
-+.vatupay.pro
 +.vaubefe.com
 +.vaudioz.cfd
 +.vaxdru.shop
@@ -14207,7 +14100,6 @@
 +.w72hrw4.lat
 +.w73mia.info
 +.w7psnm.yoga
-+.w7rpak.hair
 +.w7rpak.help
 +.w7rpak.luxe
 +.w7rpaz.site
@@ -14217,7 +14109,6 @@
 +.w7z3mf.help
 +.w7z3mf.shop
 +.w87wb6d.lol
-+.w8j26wt.lol
 +.w8yq-a.asia
 +.w8yq-a.beer
 +.w8yq-a.tech
@@ -14243,18 +14134,9 @@
 +.wavosie.com
 +.waxfield.eu
 +.waxpwos.cfd
-+.wb-cde.bond
-+.wealano.com
-+.wealero.com
 +.wealexa.com
-+.wealico.com
 +.wealino.com
-+.wealira.com
 +.wealiva.com
-+.wealivo.com
-+.weallio.com
-+.wealova.com
-+.wealuro.com
 +.weathly.com
 +.web-ster.us
 +.web4yoo.com
@@ -14287,7 +14169,6 @@
 +.wepufau.com
 +.wer3pu.shop
 +.werbagov.eu
-+.weriban.com
 +.weriko.info
 +.werikon.com
 +.werikon.onl
@@ -14419,7 +14300,6 @@
 +.x3f-5r.wiki
 +.x4dzmp.shop
 +.x4nqea.site
-+.x6kzja.site
 +.x7-rma.cyou
 +.x7-rma.shop
 +.x8jtrv.casa
@@ -14548,7 +14428,6 @@
 +.y3k-9d.site
 +.y3ku9d.hair
 +.y3ku9d.tech
-+.y3ku9d.wiki
 +.y4m6xk.club
 +.y4m6xk.hair
 +.y4m6xk.luxe
@@ -14559,7 +14438,6 @@
 +.y4uwmq.wiki
 +.y8m-wd.site
 +.y8mpwd.club
-+.y8mpwd.shop
 +.y8mpwd.tech
 +.y91x5l.info
 +.yafata.info
@@ -14643,7 +14521,6 @@
 +.z-r9kd.cyou
 +.z-r9kd.shop
 +.z-r9kd.site
-+.z1xqrf.site
 +.z2pfrw.wiki
 +.z2whjt.casa
 +.z364o1.info
@@ -14797,7 +14674,6 @@
 +.zorvela.net
 +.zorvonex.eu
 +.zoryqa.site
-+.zowunee.com
 +.zozaday.com
 +.zpm0k3.info
 +.zq0vat.info
@@ -14887,6 +14763,7 @@
 +.12gft23.skin
 +.12gvty23.sbs
 +.12ytgygv.cfd
++.13367722.com
 +.134083.click
 +.1394zxt.skin
 +.14092857.xyz
@@ -14929,7 +14806,6 @@
 +.1d2xfc26.lat
 +.1dxrrwt6.sbs
 +.1fc2rwq.work
-+.1fgc2ffw.sbs
 +.1gf2rt3.hair
 +.1hb2hg3.skin
 +.1hbb2yh.skin
@@ -14969,7 +14845,6 @@
 +.217651.8b.io
 +.21837465.xyz
 +.21840965.xyz
-+.21spacex.net
 +.2309849g.lol
 +.2319qvk.hair
 +.2365wet5.lat
@@ -15033,7 +14908,6 @@
 +.2qv8pkh.hair
 +.2qw5fwgt.lat
 +.2rk7wpz.skin
-+.2rtfwt55.lol
 +.2rv4pkn.hair
 +.2rv9wpz.qpon
 +.2rw4rw2e.icu
@@ -15192,6 +15066,7 @@
 +.4f9ie4k.skin
 +.4fiz-jo.shop
 +.4fizjol.shop
++.4fizjopl.top
 +.4fizjos.shop
 +.4frwfret.lol
 +.4fyxc9o3.xyz
@@ -15257,6 +15132,7 @@
 +.53tvf4ge.top
 +.54127844.cfd
 +.543874.click
++.545455ip.top
 +.5461xwp.skin
 +.547646dr.top
 +.5493834.shop
@@ -15515,7 +15391,6 @@
 +.86315924.xyz
 +.86421539.xyz
 +.86475021.xyz
-+.86479513.xyz
 +.86512734.xyz
 +.86520371.xyz
 +.8668912.club
@@ -15604,6 +15479,7 @@
 +.983j77ry.lat
 +.98474854.xyz
 +.9848jd1.shop
++.98517751.lat
 +.98547124.cfd
 +.98674235.top
 +.9878665h.sbs
@@ -15779,7 +15655,6 @@
 +.amli-web.com
 +.amopqqon.com
 +.amp1-btt.com
-+.ampalter.xyz
 +.amrelio.shop
 +.amthance.com
 +.amyhutt.shop
@@ -15996,7 +15871,6 @@
 +.belnoria.com
 +.belnova.shop
 +.belnuki.shop
-+.beloink.cyou
 +.beltbag.shop
 +.belurex.shop
 +.belvazo.shop
@@ -16014,6 +15888,7 @@
 +.berumak.shop
 +.bervonik.com
 +.bervonik.net
++.bestfond.net
 +.bestpicks.us
 +.bet.hkjc.com
 +.betaify.site
@@ -16076,7 +15951,6 @@
 +.bitoxa.world
 +.bitqtapp.org
 +.bitrivex.com
-+.bitturbo.net
 +.bizhive.buzz
 +.bizstart.net
 +.bizzpays.com
@@ -16285,7 +16159,6 @@
 +.casedena.com
 +.caseflo.rest
 +.casharo.shop
-+.cashbrom.com
 +.cashinio.com
 +.caslumea.com
 +.caspilo.site
@@ -16309,7 +16182,6 @@
 +.cd2r5y2.skin
 +.cddbwlgs.com
 +.cdmundaba.ru
-+.cdzyjxzl.com
 +.ce.ncarb.org
 +.cebulonx.pro
 +.cedarline.eu
@@ -16482,6 +16354,7 @@
 +.csandong.com
 +.csemizuho.fr
 +.cshrinky.cfd
++.cstarcom.com
 +.csxyzone.com
 +.cszxseal.com
 +.ctigorie.com
@@ -16623,6 +16496,7 @@
 +.disignix.com
 +.diskprato.pl
 +.disnvhdd.cfd
++.disocery.com
 +.dissfield.eu
 +.divepeds.com
 +.divlako.shop
@@ -16693,6 +16567,7 @@
 +.doventi.shop
 +.downmet.bond
 +.dpd-bdjfa.cc
++.dpd-ie.cloud
 +.dpd-lpobj.cc
 +.dpdco-uk.cfd
 +.dpdgroup.sbs
@@ -16793,7 +16668,6 @@
 +.eatfield.top
 +.eatubers.com
 +.eazvpark.cfd
-+.ebay-app.com
 +.ebay-dru.org
 +.ebro9eo.shop
 +.ecelood.site
@@ -17036,13 +16910,11 @@
 +.favornet.com
 +.fbgiver.site
 +.fcalaska.com
-+.fco-mains.cc
 +.fdekltpa.com
 +.fdrc-gov.org
 +.fdylkrdy.com
 +.fedpbam.info
 +.fedranet.com
-+.feelmark.cfd
 +.feesteer.xyz
 +.feidunxf.com
 +.feknulo.shop
@@ -17124,7 +16996,6 @@
 +.flashed.site
 +.fletaq.click
 +.flimtack.pro
-+.flkbes04.com
 +.flocker.life
 +.florex.click
 +.florixo.shop
@@ -17232,7 +17103,6 @@
 +.furestaq.com
 +.furnido.shop
 +.furnmuse.com
-+.furoink.cyou
 +.furoshop.com
 +.fusamton.com
 +.fuse-arc.com
@@ -17286,6 +17156,7 @@
 +.gear-flon.de
 +.gearora.shop
 +.gearpro.site
++.gearzone.top
 +.geblaku.shop
 +.gecab.wbb.it
 +.gediztur.com
@@ -17678,6 +17549,7 @@
 +.hongbozq.com
 +.honstbuy.net
 +.horelix.shop
++.horusian.com
 +.hostpoco.com
 +.hosttenx.net
 +.hotlilk.link
@@ -17695,6 +17567,8 @@
 +.hotshoe.shop
 +.housivo.shop
 +.hoverspin.cc
++.hoybrief.xyz
++.hoywire.site
 +.hsbaonut.com
 +.hsbc-sec.com
 +.hschool.shop
@@ -17742,7 +17616,6 @@
 +.ididedit.com
 +.idklub11.com
 +.ieapthre.com
-+.iehewsad.com
 +.iesakjed.com
 +.ignizap.site
 +.ignzap.click
@@ -18022,7 +17895,6 @@
 +.kaldreno.com
 +.kaliente.mom
 +.kalmet.click
-+.kaloink.cyou
 +.kalomkpw.com
 +.kaloqqon.com
 +.kalriths.pro
@@ -18067,6 +17939,7 @@
 +.kelpado.shop
 +.kelperai.com
 +.keluvia.shop
++.kelversrl.it
 +.kelvorio.com
 +.kelvorix.net
 +.kelzavo.shop
@@ -18075,7 +17948,6 @@
 +.kenzabet.com
 +.kerbol.click
 +.kernexa.site
-+.keroink.cyou
 +.kervanto.com
 +.kerveta.shop
 +.kesavora.com
@@ -18179,7 +18051,6 @@
 +.kpdeploy.com
 +.kpinmall.com
 +.kpukunch.com
-+.kquintv.club
 +.kqx01mv.skin
 +.kralfood.com
 +.kramtel.shop
@@ -18257,7 +18128,6 @@
 +.laviora.shop
 +.lavioro.shop
 +.lavmino.shop
-+.lavoink.cyou
 +.lawfiirm.com
 +.lazeer.click
 +.lazuraid.com
@@ -18349,6 +18219,7 @@
 +.lintrio.shop
 +.linvexo.shop
 +.linxecon.com
++.liorvia.shop
 +.lirymant.com
 +.liryszen.com
 +.lisaben.shop
@@ -18361,7 +18232,6 @@
 +.livexrs.shop
 +.livhome.shop
 +.livihavn.com
-+.liwoscia.com
 +.liwthana.net
 +.ljfebey.site
 +.ljksport.com
@@ -19081,6 +18951,7 @@
 +.olshoil.shop
 +.oltario.shop
 +.olumed.click
++.omegalul.top
 +.omenrise.org
 +.omibyte.site
 +.omistorm.com
@@ -19233,7 +19104,6 @@
 +.paoefesd.com
 +.papasela.com
 +.parawima.com
-+.parcelfw.com
 +.parimax.shop
 +.pariwor.cyou
 +.parking-v.cn
@@ -19273,7 +19143,6 @@
 +.pektaro.shop
 +.peldrum.shop
 +.pelmuri.shop
-+.peloink.cyou
 +.pelquo.click
 +.pelvanix.net
 +.pemqora.shop
@@ -19328,7 +19197,6 @@
 +.pipe2fix.com
 +.pishme.click
 +.pisserro.com
-+.pivotash.top
 +.pivzora.shop
 +.pixelroot.my
 +.pixocugo.pro
@@ -19340,7 +19208,6 @@
 +.pkologin.app
 +.pl-01284.sbs
 +.pl-01324.sbs
-+.pl-01827.sbs
 +.pl-02231.sbs
 +.pl-03819.sbs
 +.pl-05812.sbs
@@ -19557,6 +19424,7 @@
 +.portu-ai.com
 +.portu-pl.com
 +.posda-ba.cfd
++.post5255.org
 +.postxcom.cam
 +.potatotf.com
 +.potiaden.com
@@ -19583,7 +19451,6 @@
 +.primexal.net
 +.primeye.site
 +.primoweb.com
-+.privacio.com
 +.privacyd.com
 +.privenza.cfd
 +.proacinc.com
@@ -19611,6 +19478,7 @@
 +.pryzmal.live
 +.przyrost.com
 +.psanda.co.za
++.psyrusec.com
 +.ptarxel.shop
 +.ptbvlfx.shop
 +.ptqbxtqa.fit
@@ -19932,7 +19800,6 @@
 +.ronezaki.com
 +.ronezaro.com
 +.rongwooh.com
-+.ronoink.cyou
 +.ronviq.click
 +.rookholm.com
 +.rookholm.net
@@ -20170,7 +20037,6 @@
 +.signpify.com
 +.sihnpct.shop
 +.silenk.click
-+.silinc1s.cfd
 +.silodev.info
 +.silvaki.shop
 +.silvoko.shop
@@ -20197,6 +20063,7 @@
 +.sizeer.store
 +.sj-adorn.xyz
 +.sk-shop.site
++.skalalol.lol
 +.skandio.shop
 +.skantwel.pro
 +.skarven.shop
@@ -20228,6 +20095,7 @@
 +.smbc-ina.top
 +.smgaxbd.shop
 +.smhouse.club
++.smsteels.com
 +.smtpwire.com
 +.smvisa.co.il
 +.smykplz.shop
@@ -20432,7 +20300,6 @@
 +.tanmuri.shop
 +.taobuih.shop
 +.taormonmo.eu
-+.tapext.click
 +.tapruno.shop
 +.tapvex.click
 +.tarafsec.com
@@ -20556,7 +20423,6 @@
 +.tickweek.com
 +.tidebrook.eu
 +.tiesday.club
-+.tiger-id.com
 +.tiger-kr.com
 +.tigerdog.org
 +.tigrexa.site
@@ -20600,6 +20466,7 @@
 +.tmphoto.pics
 +.tmspolka.com
 +.tnoalqb.info
++.tntfinds.com
 +.toekcju.shop
 +.toeogmp.shop
 +.toibane.shop
@@ -20629,7 +20496,6 @@
 +.torlavi.shop
 +.torlinnex.eu
 +.tornvek.shop
-+.toroink.cyou
 +.torqani.shop
 +.torqanu.shop
 +.torqexo.shop
@@ -20845,7 +20711,6 @@
 +.urbatix.shop
 +.urbavio.shop
 +.urbnfarm.com
-+.urbvapes.com
 +.urielray.com
 +.urixen.click
 +.urlaosgb.com
@@ -21000,7 +20865,6 @@
 +.vinastia.com
 +.vindexkor.eu
 +.vingenu.info
-+.vinoink.cyou
 +.vintrexon.pl
 +.vioramt2.com
 +.vip-vpisz.pl
@@ -21288,7 +21152,6 @@
 +.xcartpro.com
 +.xecahsig.ink
 +.xelawor.cyou
-+.xeloink.cyou
 +.xelomira.top
 +.xempelix.top
 +.xencolor.com
@@ -21392,7 +21255,6 @@
 +.yopinant.net
 +.yopyopll.com
 +.yoresto.shop
-+.yoroink.cyou
 +.yorukuro.com
 +.yorukuro.net
 +.yottrun.site
@@ -21405,7 +21267,6 @@
 +.youutube.com
 +.youzanzi.com
 +.yozekari.com
-+.ypfifbzh.com
 +.ypfoawte.com
 +.ypftrade.com
 +.yqtm6py.skin
@@ -21478,7 +21339,6 @@
 +.zaremlak.com
 +.zarnelo.shop
 +.zarniqo.shop
-+.zaroink.cyou
 +.zasobost.com
 +.zaveine.shop
 +.zaviora.shop
@@ -21558,6 +21418,7 @@
 +.zjouying.com
 +.zjyouhua.com
 +.zkantonl.com
++.zksitel.shop
 +.zlapaoxy.lol
 +.zlataera.com
 +.zlknxzy.skin
@@ -21724,6 +21585,7 @@
 +.307082220.cfd
 +.340549j5.shop
 +.35.ev9wch.cfd
++.365756zxd.com
 +.365desire.com
 +.3986eryyd.lat
 +.3dcloud.co.uk
@@ -21761,7 +21623,6 @@
 +.4fizjoto.shop
 +.4fizsale.shop
 +.4fplstore.com
-+.4gak-6nvc.com
 +.4i0ydha68.top
 +.4k2r6yhw.skin
 +.4k3ij5hu.skin
@@ -22036,6 +21897,7 @@
 +.alderbrook.eu
 +.aldi-2026.com
 +.aldi-jonr.top
++.aldi-life.vip
 +.aldi-save.top
 +.aldi-shop.top
 +.aldi2026.shop
@@ -22149,7 +22011,6 @@
 +.apk-google.cn
 +.apoknuxy.shop
 +.apolit-ai.com
-+.app-blosk.com
 +.app.azurp.cfd
 +.app.formly.so
 +.app.jodoo.com
@@ -22911,7 +22772,6 @@
 +.clearporch.eu
 +.clearsche.top
 +.cleencgp.shop
-+.clickivo.site
 +.clickjhub.com
 +.clicpin.click
 +.client-my.cam
@@ -22936,6 +22796,7 @@
 +.cmtbuilds.com
 +.cmut-mobl.com
 +.cn-spotify.cn
++.cn.lnmxys.com
 +.cncinsure.com
 +.cncqkxiy.shop
 +.cnmlgccl.shop
@@ -23215,6 +23076,7 @@
 +.derwiggle.com
 +.desga2026.com
 +.desiupload.in
++.deskhoje.live
 +.detailer.site
 +.devakspvc.com
 +.devappweb.com
@@ -23368,7 +23230,6 @@
 +.dpd-ouwib.com
 +.dpd-padnu.com
 +.dpd.abnem.icu
-+.dpd.semyn.icu
 +.dpdbhf-pl.cfd
 +.dpdbhf-pl.icu
 +.dpdgroup.bond
@@ -23782,6 +23643,7 @@
 +.ertongcdz.com
 +.esashaber.com
 +.esdework.shop
++.esnuawnae.com
 +.esozlesme.net
 +.esteclass.com
 +.esteekay.info
@@ -23828,7 +23690,6 @@
 +.eurovela.shop
 +.eurovexis.com
 +.euroviaai.net
-+.eusalesas.com
 +.euxjkoes.shop
 +.evdetoksu.com
 +.evermarket.eu
@@ -23930,6 +23791,7 @@
 +.feyapyapi.com
 +.ffaddpar.shop
 +.ffcvjbyv.shop
++.fff-qatar.com
 +.ffrsnngy.shop
 +.fg-meble.club
 +.fggbuill.shop
@@ -24339,7 +24201,6 @@
 +.goknartur.com
 +.goldaimex.net
 +.goldenrest.eu
-+.goldexte.club
 +.goldvexon.net
 +.golfcoach.xyz
 +.golkiboli.com
@@ -24521,7 +24382,6 @@
 +.hearthmont.eu
 +.hearthview.eu
 +.hearthwick.eu
-+.heartpath.top
 +.heatherrow.eu
 +.hebafaqi.shop
 +.hebe-sale.com
@@ -24573,7 +24433,6 @@
 +.hiveworker.de
 +.hjg.tzsftw.cn
 +.hjoulijia.com
-+.hkefjdhfjk.de
 +.hlaerxai.live
 +.hljhbcyxh.com
 +.hmarkets.shop
@@ -24585,6 +24444,7 @@
 +.hodnotecs.net
 +.hodnotek.live
 +.hoganmeg.shop
++.hojeagora.top
 +.hokeaxbd.shop
 +.hokkaxbd.shop
 +.holiday07.com
@@ -24621,6 +24481,7 @@
 +.homlasale.com
 +.homlasale.top
 +.homlashop.com
++.homlaspl.shop
 +.homloshop.com
 +.homstore.shop
 +.homveraeu.com
@@ -24649,6 +24510,7 @@
 +.hovemode.site
 +.hoveokey.site
 +.hoveware.site
++.hoynews.click
 +.hpcostco.shop
 +.hpiyeskf.shop
 +.hpkaainer.biz
@@ -24656,7 +24518,6 @@
 +.hrenvam.click
 +.hrglobals.com
 +.hrtvfgmb.shop
-+.hsbcpress.com
 +.hshmining.com
 +.hsuoxmsr.shop
 +.htnyyejj.shop
@@ -24678,6 +24539,7 @@
 +.hushlists.com
 +.hushmarket.eu
 +.hvcqhatj.shop
++.hxqsrnnt.shop
 +.hydrogrup.com
 +.hydrpack.site
 +.hydrtron.site
@@ -24897,6 +24759,7 @@
 +.ironparlor.eu
 +.ironwilld.top
 +.irsgovtax.xyz
++.irxmllmz.shop
 +.iselahome.com
 +.isikaptin.com
 +.isoptxs.eu.cc
@@ -24934,6 +24797,7 @@
 +.jako2026.live
 +.jamatulli.com
 +.james2-17.com
++.janrevell.com
 +.japarndi.shop
 +.japonnane.com
 +.jarnivoq.shop
@@ -24948,7 +24812,6 @@
 +.jcircleg.cyou
 +.jcnfrsik.shop
 +.jcqbatmq.shop
-+.jd-runsa.club
 +.jdafilter.com
 +.jdbzfwre.shop
 +.jdhmrj6.click
@@ -25010,6 +24873,7 @@
 +.jollycroft.eu
 +.joltmiami.com
 +.joltnode.site
++.jornalnow.xyz
 +.jorvanico.com
 +.jorvenaku.com
 +.josamuel.shop
@@ -25103,7 +24967,6 @@
 +.karumsoft.com
 +.kasarapor.xyz
 +.kasiadimi.mom
-+.katielee.shop
 +.kauf-extra.de
 +.kavysveta.com
 +.kaybetsy.shop
@@ -25166,7 +25029,6 @@
 +.killafand.com
 +.kilnandco.mom
 +.kilokwrw.site
-+.kimicobb.shop
 +.kimiyawax.com
 +.kimsally.shop
 +.kinauviva.pro
@@ -25211,6 +25073,7 @@
 +.kmonumrkj.top
 +.kmxuengka.sbs
 +.kndjmehq.shop
++.knhvxgrj.shop
 +.knipetarn.com
 +.knocimast.com
 +.knovazoh.shop
@@ -25391,6 +25254,7 @@
 +.lidkkvip.shop
 +.lidl-diy.shop
 +.lidl2026.shop
++.lidleuros.com
 +.lidlnuun.shop
 +.lidseller.com
 +.lidstock.shop
@@ -25814,7 +25678,6 @@
 +.monvesta.shop
 +.monvique.shop
 +.moondegens.cc
-+.moonslump.com
 +.moovayoga.mom
 +.morecambe.biz
 +.morelebuy.net
@@ -25826,7 +25689,6 @@
 +.morvenexa.com
 +.mosswines.com
 +.motcz24pl.com
-+.motozemcz.com
 +.movelisse.com
 +.moveyoga.live
 +.mposghana.com
@@ -25974,6 +25836,7 @@
 +.net-flow.site
 +.netbridge.icu
 +.netcoreax.pro
++.netflixde.com
 +.netflixnm.com
 +.netfluxxz.top
 +.netfx-vod.com
@@ -26372,6 +26235,7 @@
 +.orcaslicer.us
 +.ordelunak.com
 +.orderbeie.net
++.orderdaro.com
 +.orderkivo.com
 +.ordermovo.com
 +.ordernivo.com
@@ -26681,8 +26545,10 @@
 +.pl-984952.cfd
 +.pl-991144.cfd
 +.pl-9deap1.cfd
++.pl-aukcja.top
 +.pl-ballet.top
 +.pl-bilet.club
++.pl-bilety.cfd
 +.pl-dakine.com
 +.pl-dostawa.co
 +.pl-focus.cyou
@@ -26707,7 +26573,6 @@
 +.pl1069781.cfd
 +.pl1096770.icu
 +.pl26tooy.shop
-+.pl394834.cyou
 +.pl582581.shop
 +.pl582734.cyou
 +.pl5846734.sbs
@@ -26762,7 +26627,6 @@
 +.plmoknag.shop
 +.plnkapkan.com
 +.plorlapri.org
-+.ploroink.cyou
 +.plozentix.com
 +.plpeciuro.com
 +.plperfiey.com
@@ -26800,10 +26664,10 @@
 +.polarvia.shop
 +.polavexpro.pl
 +.polavira.shop
-+.poldvarol.com
 +.polepolar.com
 +.polfundai.com
 +.polivenix.com
++.polksmast.com
 +.polmeble.shop
 +.polnet24.info
 +.polnews24.com
@@ -26841,7 +26705,6 @@
 +.posarella.com
 +.posciel24.com
 +.poshglobal.co
-+.postale1s.top
 +.postconce.icu
 +.potato-tf.com
 +.potensarc.com
@@ -26961,7 +26824,6 @@
 +.pyronex.click
 +.pyrorobot.com
 +.pyrrnode.site
-+.pyvenbrel.vip
 +.pzokqsky.shop
 +.q4.gy9eol.sbs
 +.qaltemiro.xin
@@ -27032,7 +26894,6 @@
 +.quanteron.com
 +.quanterpl.com
 +.quanthera.net
-+.quantiaai.net
 +.quantunix.com
 +.quarcast.site
 +.quardata.site
@@ -27267,7 +27128,6 @@
 +.roblox-com.pl
 +.roblox.com.am
 +.roblox.com.bi
-+.roblox.com.bn
 +.roblox.com.bo
 +.roblox.com.bz
 +.roblox.com.do
@@ -27284,7 +27144,7 @@
 +.robojump.site
 +.robopeon.site
 +.roburedge.com
-+.robustenj.top
++.robuxmenu.vip
 +.rockchief.com
 +.rockmeusa.com
 +.rodiyatak.com
@@ -27548,7 +27408,6 @@
 +.shibiozai.dev
 +.shieldtec.net
 +.shifanglc.com
-+.shiftbio.casa
 +.shiluohao.com
 +.shimanoeu.sbs
 +.shimmerex.com
@@ -27595,6 +27454,7 @@
 +.sierybam.site
 +.siggipalli.is
 +.sigmunit.site
++.signin.broker
 +.signpath.cyou
 +.silentyin.com
 +.silk-bank.com
@@ -27671,7 +27531,6 @@
 +.smar3465.shop
 +.smartbit.live
 +.smartstor.xyz
-+.smartzysk.com
 +.smavenpro.com
 +.smehlboob.com
 +.smfrsale.shop
@@ -27691,7 +27550,6 @@
 +.smyksiec.club
 +.smykstore.com
 +.snanmtaic.com
-+.snappick.shop
 +.sndtxtmsg.com
 +.snifferip.com
 +.snkerlads.com
@@ -27701,13 +27559,13 @@
 +.socialynx.com
 +.sodaashpn.com
 +.sofaviro.shop
-+.softbeing.pro
 +.softcoin.shop
 +.softgetpc.com
 +.softhearth.eu
 +.softowner.cam
 +.softpabe.life
 +.softsucc.cyou
++.softzspot.com
 +.sohbetet.shop
 +.sohezsoft.net
 +.sohitched.com
@@ -27813,6 +27671,7 @@
 +.stragear.site
 +.strakon.click
 +.stratcell.lol
++.stratsays.com
 +.strausses.pro
 +.strausspl.top
 +.strausszc.pro
@@ -27983,7 +27842,6 @@
 +.tasinonar.com
 +.taskbox.store
 +.taskk6kit.pro
-+.taskk8run.pro
 +.taskview.help
 +.tasmark.store
 +.tatumsell.com
@@ -28266,6 +28124,7 @@
 +.tptgabwo.shop
 +.tpzeuropa.com
 +.tpzyapibg.com
++.tr-suwen.shop
 +.trackk8er.pro
 +.tracourse.top
 +.tradaigen.com
@@ -28461,10 +28320,12 @@
 +.uppergrove.eu
 +.uptonfield.eu
 +.upust-pl.shop
++.upxibhox.shop
 +.upzjmrjc.shop
 +.urbanarc.shop
 +.urbanbase.org
 +.urbanlio.shop
++.urbanmove.fun
 +.urbanoza.shop
 +.urbanporch.eu
 +.urbanzio.shop
@@ -28474,6 +28335,7 @@
 +.urfayemek.com
 +.uricacres.com
 +.urixen-ai.com
++.urlvanish.com
 +.urmaindia.com
 +.urodadoz.shop
 +.urofertil.com
@@ -28783,7 +28645,6 @@
 +.wavespace.mom
 +.wavewear.shop
 +.wayevery.cyou
-+.wbeuvipfx.com
 +.wcgvvhst.shop
 +.wcyludsv.shop
 +.wdcqvcic.shop
@@ -28913,7 +28774,6 @@
 +.wwwmaxslr.top
 +.wxvhdvud.shop
 +.wykewrap.shop
-+.wzrost-pl.com
 +.wzuidgsq.shop
 +.wzvnhvro.shop
 +.xalorveta.pro
@@ -29039,7 +28899,6 @@
 +.yngqnefj.shop
 +.yocartpro.com
 +.yoebiqih.shop
-+.yofi-yofi.com
 +.yogame666.com
 +.yogaspace.mom
 +.yorempide.net
@@ -29294,6 +29153,7 @@
 +.12304982h5.xyz
 +.1239812ht.baby
 +.1239h8453.shop
++.12uheudh8.buzz
 +.135461223.site
 +.1382120h45.lol
 +.15334265x2.sbs
@@ -29366,6 +29226,7 @@
 +.5wfr2we.garden
 +.5wzgtq8dpk.com
 +.6252131902.cfd
++.6517512151.lat
 +.65433y434.surf
 +.65spy7rgcu.com
 +.688162961.rest
@@ -29431,6 +29292,7 @@
 +.a-millenium.pl
 +.a-otomotiv.com
 +.a-sexpress.com
++.a.labu-usd.top
 +.a2.d7expt.casa
 +.a4r.uber.space
 +.aadhyaskin.com
@@ -29531,7 +29393,6 @@
 +.agroleplay.com
 +.agtesigla.cyou
 +.ahdiscount.com
-+.ahmedmaow.shop
 +.ahmetalgan.com
 +.ahmetcifci.com
 +.ahnlabgpt.live
@@ -29591,7 +29452,6 @@
 +.alanlester.com
 +.alanrobin.shop
 +.alapihixkge.eu
-+.alawwaluae.com
 +.albcschool.edu
 +.alberflao.cyou
 +.albionai.click
@@ -29794,12 +29654,10 @@
 +.arrcon.digital
 +.arsabuldum.net
 +.arsamburda.com
-+.artdesirex.com
 +.artema.digital
 +.artemisgpt.net
 +.arthrovia.live
 +.arti-deger.org
-+.articenter.com
 +.artifexfin.com
 +.artmagnus.info
 +.arts-4-all.com
@@ -30109,7 +29967,6 @@
 +.bidolutaki.com
 +.biedonkax.shop
 +.bienmaxton.com
-+.bienvaldor.net
 +.bieqwerag.shop
 +.bigbonjour.mom
 +.bigmailbox.fun
@@ -30233,7 +30090,6 @@
 +.bookk6mark.com
 +.booklearn.pics
 +.boostaloxi.com
-+.boostt14er.pro
 +.boostt1ify.pro
 +.borealmere.biz
 +.borealmere.net
@@ -30283,7 +30139,6 @@
 +.brenolivoq.pro
 +.brenoluxor.pro
 +.brevaskoni.pro
-+.brevkontis.top
 +.brhousevet.com
 +.brhythmn.quest
 +.brickwillow.eu
@@ -30454,7 +30309,6 @@
 +.caflowmexo.com
 +.caflowsofl.com
 +.cafluxmira.com
-+.cafundvest.com
 +.cagitwhale.com
 +.caglowfira.com
 +.caicsarco.cyou
@@ -30604,7 +30458,6 @@
 +.chilosuni.cyou
 +.china-lxgy.com
 +.chipteeamz.com
-+.chobranch.live
 +.chodecraft.com
 +.choice-pl.shop
 +.choix-jour.net
@@ -30691,7 +30544,6 @@
 +.codenrsoft.com
 +.codeprofix.net
 +.codes8tack.com
-+.codeusave.best
 +.cododapto.site
 +.cododrive.site
 +.codoplane.site
@@ -30702,7 +30554,6 @@
 +.coffeezara.com
 +.coher-volt.com
 +.coilipofo.cyou
-+.coilzizeh.cyou
 +.coincraddle.cc
 +.coinealcnv.com
 +.coinsbooth.net
@@ -30790,7 +30641,6 @@
 +.cozyupbase.com
 +.cozyzenora.com
 +.cpm-mza.com.ar
-+.cptfinance.com
 +.crabb2task.pro
 +.crafthollow.eu
 +.craftt1hub.pro
@@ -30957,7 +30807,6 @@
 +.deelmgrove.com
 +.deep-gleam.com
 +.deep-grapa.org
-+.deep9pgate.pro
 +.deeplclick.mba
 +.deeshemoda.com
 +.defendory.pics
@@ -31593,7 +31442,6 @@
 +.eryk-spot.site
 +.esgonwater.com
 +.eskainsaat.com
-+.eskavindol.top
 +.esl-gaming.com
 +.esn-outlet.top
 +.esocrapru.rest
@@ -31617,7 +31465,6 @@
 +.etradeturk.com
 +.eu-auchan.shop
 +.eu-ccc-pl.shop
-+.eu-diytool.com
 +.eu-outlets.com
 +.eu-sizeer.shop
 +.eu.orbitor.dev
@@ -31628,7 +31475,6 @@
 +.eunitwrap.site
 +.euonlines.shop
 +.eur.fifaeu.com
-+.euratempan.com
 +.eurccredit.com
 +.eurocitya.shop
 +.eurodepot.shop
@@ -31670,7 +31516,6 @@
 +.exoltramis.pro
 +.exotradeai.pro
 +.exparkidwe.top
-+.experthain.com
 +.experttea.live
 +.explorenep.com
 +.expomining.net
@@ -31700,7 +31545,6 @@
 +.facilitat.pics
 +.factvista.info
 +.faded-wind.com
-+.fairganesh.com
 +.faithnest.site
 +.fakewtrade.cfd
 +.faktpolska.pro
@@ -32010,7 +31854,6 @@
 +.foxraclng.shop
 +.fpvvipshop.com
 +.fqrs2y.web.app
-+.fr-spotify.com
 +.fracgcube.site
 +.fraclab90.site
 +.framanium.site
@@ -32105,7 +31948,6 @@
 +.gabbyemu.autos
 +.gablemarket.eu
 +.gabrireyn.shop
-+.gabrovella.top
 +.gadgetears.com
 +.gagnor-gpt.com
 +.gaiaatdawn.net
@@ -32138,19 +31980,19 @@
 +.garlenixai.net
 +.garlenixai.pro
 +.garnedapp.shop
-+.garvotella.top
 +.gas-5folex.com
 +.gasaialrex.com
 +.gaslighted.net
 +.gasprofit.live
 +.gate-13549.com
-+.gatepabaz.cyou
++.gate-24921.com
 +.gateserch.live
 +.gazetkaapl.xyz
 +.gbdnejodsg.top
 +.gbisorting.com
 +.gcc-venum.shop
 +.gdjiashiji.com
++.gearfocus.bond
 +.gearhomies.com
 +.gebetajobs.com
 +.gecikhakki.com
@@ -32381,7 +32223,6 @@
 +.grittylegs.com
 +.groktronum.com
 +.grokvalis.live
-+.grothenvik.pro
 +.grovegarb.shop
 +.groveplate.com
 +.grovestion.org
@@ -32390,7 +32231,6 @@
 +.growfuture.top
 +.growinzone.com
 +.growmotive.top
-+.groww11box.pro
 +.groww14hub.pro
 +.groww4line.pro
 +.groww5fast.pro
@@ -32590,7 +32430,6 @@
 +.homlamake.shop
 +.homlamke.homes
 +.homlapromo.com
-+.homlasale.shop
 +.homlasiec.club
 +.homlastore.top
 +.hondakonya.com
@@ -32658,6 +32497,7 @@
 +.huximoova.site
 +.hvcurrent.info
 +.hwxinlaiya.com
++.hybiaoyuan.com
 +.hybridcore.pro
 +.hydanwolff.com
 +.hydrcurve.site
@@ -32729,7 +32569,6 @@
 +.immediategp.io
 +.immunogrow.com
 +.imovintera.net
-+.imparefund.com
 +.imperialgo.org
 +.impiblemi.cyou
 +.implamarkt.com
@@ -32769,6 +32608,7 @@
 +.infociganka.cc
 +.infofactury.pl
 +.infoglobex.pro
++.infogrowth.pro
 +.infonelvia.pro
 +.infonexbpo.com
 +.infopulsex.pro
@@ -32783,7 +32623,6 @@
 +.ingenieous.com
 +.ingrosz-ai.com
 +.injustice.site
-+.inlersatru.com
 +.inletcorner.eu
 +.inmysoul.today
 +.innerauth.best
@@ -32976,6 +32815,7 @@
 +.jorimototo.com
 +.jorlaniss.site
 +.jorlantkex.pro
++.jornalvivo.xyz
 +.josseclass.com
 +.jour847060.pro
 +.jour848037.pro
@@ -33251,7 +33091,6 @@
 +.kvantorix.live
 +.kvelmoryq.tech
 +.kvemiraldu.org
-+.kvintadora.top
 +.kviroad.com.es
 +.kvkkuzmani.com
 +.kwangthana.net
@@ -33309,6 +33148,7 @@
 +.ldseu2388.shop
 +.le-meridien.ch
 +.leahanacl.cyou
++.leahrontes.com
 +.leanlogix.shop
 +.learningn.pics
 +.learnovix.site
@@ -33395,6 +33235,7 @@
 +.liushuyan.work
 +.liuyushun1.top
 +.liveaware.live
++.livejornal.top
 +.livepoleni.com
 +.living2care.pt
 +.livingdom.shop
@@ -33410,6 +33251,7 @@
 +.lmbufrust.cyou
 +.lmnacademy.com
 +.lmnagpark.shop
++.lmtoken365.top
 +.lnpilotage.com
 +.loanable2u.com
 +.loanguide.info
@@ -33444,7 +33286,6 @@
 +.lokrnqeizw.com
 +.lomoshener.com
 +.lomyra.digital
-+.loneqvist.shop
 +.longkun100.com
 +.lontavero.shop
 +.loopconda.live
@@ -33481,6 +33322,7 @@
 +.luckyhomie.com
 +.luckypages.org
 +.luckypot2u.com
++.luckyrate.site
 +.lucravence.net
 +.lucravento.net
 +.lucrenholm.net
@@ -33541,7 +33383,7 @@
 +.lynx-lands.com
 +.lyrzox.digital
 +.m-ticket-pl.eu
-+.m.coinexeu.vip
++.m.90manapp.com
 +.m.royalmro.org
 +.m.sugumail.com
 +.m26m7e.csb.app
@@ -33989,7 +33831,6 @@
 +.nexusfxpro.net
 +.nexusgpt.click
 +.nguvubrand.com
-+.nicamedica.com
 +.nicelegant.com
 +.nicesales.shop
 +.nicesticky.sbs
@@ -34115,6 +33956,7 @@
 +.nowiggins.info
 +.nowinydnia.pro
 +.nowoscipol.com
++.nowvivahoy.xyz
 +.nowystart.site
 +.noyopharm.shop
 +.np.xp9rpg.casa
@@ -34363,7 +34205,6 @@
 +.onomahopy.cyou
 +.onyxarapex.net
 +.oo00s9ds79.lat
-+.oophoawra.rest
 +.ooptirise.site
 +.oordeersii.lat
 +.ooshcasino.net
@@ -34386,7 +34227,6 @@
 +.optigainai.net
 +.optigainai.org
 +.optihover.site
-+.optimaflow.top
 +.optimagine.com
 +.optirepair.vip
 +.opulatrix.live
@@ -34433,6 +34273,7 @@
 +.orsportbet.com
 +.orumluxara.com
 +.orvistore.shop
++.os42ovau.eu.cc
 +.osciachip.site
 +.osciworks.site
 +.osn3ovap.eu.cc
@@ -34460,6 +34301,7 @@
 +.outletpl.store
 +.outletsmyk.com
 +.outsunnypl.com
++.ov.lxmrcve.net
 +.ov4precdos.com
 +.ovanglobal.com
 +.ovedevi.online
@@ -34523,6 +34365,7 @@
 +.paraffinpn.com
 +.parasideco.com
 +.paratlids.shop
++.parcelhub.site
 +.paribu-ai.live
 +.paribu-tr.live
 +.parietate.shop
@@ -34697,6 +34540,7 @@
 +.pl-82693.click
 +.pl-83345.click
 +.pl-8374917.lol
++.pl-841pav5.sbs
 +.pl-84223.click
 +.pl-84382.click
 +.pl-84386.click
@@ -34741,6 +34585,7 @@
 +.pl4.revo.eu.cc
 +.pl49473637.cfd
 +.pl5.revo.eu.cc
++.pl53164613.lol
 +.pl58511528.lol
 +.pl5861896.cyou
 +.pl58686126.lol
@@ -34834,7 +34679,6 @@
 +.podatkigov.com
 +.podiumtaxi.com
 +.poeticfit.shop
-+.pogocinema.com
 +.pointofaim.net
 +.pointsflye.com
 +.poiuytrag.shop
@@ -35105,8 +34949,6 @@
 +.qimyabutik.com
 +.qiro-daix.live
 +.qivzorunai.com
-+.qlaoosjx.click
-+.qlaoxjwq.click
 +.qleverapro.pro
 +.qoventrix24.de
 +.qpolyg.website
@@ -35126,7 +34968,6 @@
 +.quantechgb.com
 +.quantex-hr.com
 +.quantex-sg.com
-+.quantflow.life
 +.quantgenxai.de
 +.quantgrid.site
 +.quantia-ai.com
@@ -35346,7 +35187,6 @@
 +.reytproper.com
 +.rezervevon.net
 +.rgolsklep.shop
-+.rheinmarkt.com
 +.rhonaivene.net
 +.riallacui.cyou
 +.riapeters.shop
@@ -35361,7 +35201,6 @@
 +.rikledesma.com
 +.rilomailer.org
 +.ringa-tech.com
-+.ringspiral.sbs
 +.riocasino.life
 +.riparcart.cyou
 +.rippleless.top
@@ -35619,7 +35458,6 @@
 +.scottkent.shop
 +.scoutrange.com
 +.scqwertag.shop
-+.scretiarmo.com
 +.screwscape.com
 +.scromfip.click
 +.scuffaxbd.shop
@@ -36137,7 +35975,6 @@
 +.streproto.site
 +.strestorun.com
 +.stretaeop.cyou
-+.strevaldok.top
 +.strimetra.site
 +.strinprcy.cyou
 +.strirealm.site
@@ -36407,6 +36244,7 @@
 +.telelproxo.icu
 +.telemquest.icu
 +.telendxcry.icu
++.telenkprox.icu
 +.telenxotic.icu
 +.teleoinno.club
 +.teleoinno.cyou
@@ -36426,6 +36264,7 @@
 +.telerantxx.icu
 +.telereason.icu
 +.telerevnsg.icu
++.teleroxoec.icu
 +.teleroxvib.icu
 +.telesexxs.love
 +.telesoitep.icu
@@ -36845,7 +36684,6 @@
 +.toeagreci.cyou
 +.tokextrade.com
 +.tokyosanno.com
-+.tolasshogo.com
 +.toliparkpl.com
 +.tolvixena.shop
 +.tomastudio.mom
@@ -36886,7 +36724,6 @@
 +.towertopin.com
 +.toya24-pl.shop
 +.toybestbuy.com
-+.toybuyshop.com
 +.toypoodle.live
 +.toytemple.shop
 +.trackk2biz.pro
@@ -36923,7 +36760,6 @@
 +.treflyflow.pro
 +.trefonange.com
 +.trefoywave.pro
-+.trekker9ly.pro
 +.trelivonza.com
 +.trelivoxan.com
 +.treloravex.com
@@ -37131,7 +36967,6 @@
 +.v82-4910.eu.cc
 +.vaaltechki.pro
 +.vacuumupda.cam
-+.vaerdiborg.net
 +.vaggenuine.com
 +.vakifcerez.com
 +.valdricora.pro
@@ -37301,6 +37136,7 @@
 +.vitaldetox.com
 +.vitezeagpt.com
 +.vittosozi.cyou
++.vivadiario.xyz
 +.vivagloww.shop
 +.vivahglow.shop
 +.vivid-kerb.com
@@ -37393,7 +37229,6 @@
 +.waren-markt.de
 +.warm-cairn.com
 +.warmfieldco.eu
-+.warmglowup.top
 +.warmharvest.eu
 +.warmlexira.com
 +.warsawzone.top
@@ -38049,6 +37884,7 @@
 +.1023010h04.shop
 +.1039837h53.shop
 +.120921988df.xyz
++.121z2.ralind.at
 +.123nettrade.com
 +.128310321342.pl
 +.12949280466.xyz
@@ -38219,7 +38055,6 @@
 +.absfoodtech.com
 +.ac13premier.com
 +.acardtorne.cyou
-+.accadinces.rest
 +.accafreinn.cyou
 +.accagpalet.cyou
 +.accalovide.rest
@@ -38304,7 +38139,6 @@
 +.acetiramif.cyou
 +.acetytrism.cyou
 +.acfibackend.com
-+.aciercofin.rest
 +.acieswealth.com
 +.acntudioeu.shop
 +.acoemgasas.rest
@@ -38448,7 +38282,6 @@
 +.agglughiri.cyou
 +.aggluunder.cyou
 +.aggraappro.cyou
-+.aggracadav.rest
 +.aggrahawai.cyou
 +.aggretracu.cyou
 +.aggroabbac.cyou
@@ -38719,7 +38552,6 @@
 +.anaemlambr.cyou
 +.analcparap.cyou
 +.analecatob.cyou
-+.analylife.click
 +.anatodianc.cyou
 +.anatrconte.rest
 +.anayajiun2.shop
@@ -38748,7 +38580,6 @@
 +.angolesist.cyou
 +.anguisgroup.com
 +.angulripet.cyou
-+.anieyyusoff.com
 +.animacja.edu.pl
 +.animaincur.cyou
 +.anitatomek.shop
@@ -38817,6 +38648,7 @@
 +.aocchinsum.rest
 +.aoppislick.cyou
 +.aos-tactics.com
++.apart-koszyk.pl
 +.apart-zakupy.pl
 +.apathstock.cyou
 +.aperformance.de
@@ -38859,7 +38691,6 @@
 +.apprearcha.cyou
 +.appreesore.cyou
 +.approciucc.cyou
-+.approcroch.rest
 +.approdisca.cyou
 +.approvolbo.cyou
 +.appruoverf.cyou
@@ -39069,7 +38900,6 @@
 +.atreuod.web.app
 +.attacctinfo.com
 +.attacundes.cyou
-+.attamavvit.rest
 +.attecaccia.cyou
 +.attecsfrec.cyou
 +.attenrumin.cyou
@@ -39123,7 +38953,6 @@
 +.auth-webang.xyz
 +.auth.properties
 +.authorityile.my
-+.authverify.tech
 +.autk888wt1.info
 +.autk888wt2.info
 +.autk888wt3.info
@@ -39252,7 +39081,6 @@
 +.bagculture.shop
 +.bagcurator.shop
 +.bagordeser.cyou
-+.bagornonsy.rest
 +.bagsclean.space
 +.bagwhisper.shop
 +.bahchetarim.com
@@ -39266,7 +39094,6 @@
 +.balaxorvemi.pro
 +.balcarefou.cyou
 +.balcokilom.cyou
-+.baldmontrek.top
 +.balenperna.cyou
 +.balikasiran.com
 +.balillasag.cyou
@@ -39362,13 +39189,11 @@
 +.bebekstudio.com
 +.becchvagab.cyou
 +.bedavaolmaz.com
-+.bedersharst.com
 +.bedraboico.cyou
 +.bedriarrap.cyou
 +.beefwretri.cyou
 +.beesonbasil.com
 +.beetocoina.site
-+.befinstazi.rest
 +.befutovokigo.eu
 +.begeahotels.com
 +.beggadimen.cyou
@@ -39462,7 +39287,6 @@
 +.bgmforklift.com
 +.bhgjer43iw.shop
 +.bi-platform.net
-+.biafrawatch.com
 +.bianbian123.com
 +.bibimassey.shop
 +.biblijakalba.lt
@@ -39673,10 +39497,10 @@
 +.boostaxid2u.net
 +.boostcormax.pro
 +.boostt13biz.pro
-+.boostt6star.pro
 +.bootlmassa.cyou
 +.borboimpar.cyou
 +.bordeamos.click
++.borderclick.com
 +.bordodicro.rest
 +.borealmere.live
 +.borgimetal.rest
@@ -39684,7 +39508,6 @@
 +.boronguipu.cyou
 +.borrainfor.cyou
 +.borremoons.cyou
-+.borricarna.rest
 +.borsacrypto.com
 +.borsektron.live
 +.borsetanit.cyou
@@ -39702,7 +39525,6 @@
 +.botchcupra.cyou
 +.bothtunsou.cyou
 +.bottifrazi.cyou
-+.bottimonos.rest
 +.bottmarket.site
 +.bottomcoun.best
 +.boudidisin.cyou
@@ -39787,7 +39609,6 @@
 +.bridgerbaby.com
 +.bridgesoft.site
 +.brieforiaq.info
-+.brievtitan.rest
 +.bright-fall.com
 +.bright-fens.com
 +.bright-hood.com
@@ -39987,7 +39808,6 @@
 +.buhtaobmena.com
 +.buildd13hub.pro
 +.buildd6wise.pro
-+.buildd8cast.pro
 +.buildeian.today
 +.bukmienitek.com
 +.bukmienitek.net
@@ -40271,7 +40091,6 @@
 +.cedarandpine.eu
 +.cedis-online.de
 +.cedracause.cyou
-+.celavriatt.rest
 +.celetecube.site
 +.celfdestia.shop
 +.celinepolska.pl
@@ -40316,6 +40135,7 @@
 +.champtrass.cyou
 +.chan-telle.shop
 +.changboucpa.com
++.channelhub.info
 +.chaotic-rye.com
 +.charaegizi.cyou
 +.chargtrifo.cyou
@@ -40337,11 +40157,9 @@
 +.chefsgiving.org
 +.cheirscrag.cyou
 +.chelbrundst.pro
-+.chelgrundt.info
 +.chelistick.rest
 +.chemiguatt.cyou
 +.chemobrita.cyou
-+.cherviglano.top
 +.cherylmicro.com
 +.chezglanzes.com
 +.chiarotech.shop
@@ -40363,7 +40181,6 @@
 +.chinarenusa.com
 +.chinasalsi.cyou
 +.chincricen.cyou
-+.chinese-its.com
 +.chiocdiavo.cyou
 +.chiocrisen.cyou
 +.chiodsquat.cyou
@@ -40473,7 +40290,6 @@
 +.clearfinds.shop
 +.clearguide.info
 +.clerimalig.rest
-+.cleverbea5m.pro
 +.cleverfunds.pro
 +.click.meetwo.de
 +.clickburst.site
@@ -40499,7 +40315,6 @@
 +.cloud-nuage.xyz
 +.cloudd10set.pro
 +.cloudd12pro.pro
-+.cloudd13ify.pro
 +.cloudd15box.pro
 +.cloudd5sync.pro
 +.cloudfluxxz.top
@@ -40532,6 +40347,7 @@
 +.co1nwaatch.site
 +.co1tact.web.app
 +.coaceonoce.cyou
++.coach-outlet.pl
 +.coachbillyg.com
 +.coadvradun.rest
 +.coaguaccio.cyou
@@ -40813,7 +40629,6 @@
 +.couponatome.com
 +.couponzone.help
 +.courarisot.rest
-+.coursrinse.best
 +.couslarifier.fr
 +.cove-assets.com
 +.coveclutch.shop
@@ -41083,7 +40898,6 @@
 +.debruundut.cyou
 +.decalpimfe.cyou
 +.decalscler.cyou
-+.decapthorn.rest
 +.decarcaval.cyou
 +.decarweroo.cyou
 +.decasphoto.rest
@@ -41348,7 +41162,6 @@
 +.dipinbevic.rest
 +.dipinumani.cyou
 +.diploverif.rest
-+.dipresalta.rest
 +.diradsimul.cyou
 +.dirazbreto.rest
 +.direcretas.cyou
@@ -41595,7 +41408,6 @@
 +.donzeoctod.cyou
 +.doormodio.store
 +.doorzfold.click
-+.dopesnow-cc.com
 +.doralina.com.tr
 +.doralumind.shop
 +.doreruncen.cyou
@@ -41712,7 +41524,6 @@
 +.drelvaximo.shop
 +.drelvixanto.com
 +.dremakosuli.pro
-+.drentfalkst.pro
 +.dresseloves.com
 +.dressupfun.shop
 +.drevkontfal.top
@@ -41834,7 +41645,6 @@
 +.eccepresum.cyou
 +.eccerocchi.cyou
 +.eccidramma.cyou
-+.eccodlfoot.shop
 +.eccodlsoon.shop
 +.ecdbusxjxm.site
 +.ecdemtaver.cyou
@@ -42128,7 +41938,6 @@
 +.esimepieti.cyou
 +.esinaurtan.cyou
 +.esisttrasc.cyou
-+.eskaldgrunt.top
 +.eskalmonder.top
 +.esklastudio.com
 +.esoiqstore.shop
@@ -42225,7 +42034,6 @@
 +.everlanehome.eu
 +.evernesone.cyou
 +.everoutlet.shop
-+.evertribad.rest
 +.eviralstore.com
 +.eviscdisac.cyou
 +.evitrapsai.live
@@ -42249,6 +42057,7 @@
 +.ewcdsihojsa.com
 +.ewkafotoart.mom
 +.ex-torrenty.org
++.exactstore.info
 +.exaltcucko.cyou
 +.examicelsi.cyou
 +.exceepuddl.cyou
@@ -42289,6 +42098,7 @@
 +.fabled-lake.com
 +.faccebotton.com
 +.facceoxyge.cyou
++.facebook.net.tw
 +.facegive.online
 +.facoldragh.cyou
 +.faded-ledge.com
@@ -42360,7 +42170,6 @@
 +.fbai-system.pro
 +.fboll-entr.site
 +.fd180.github.io
-+.fday-jarand.com
 +.febichachi.site
 +.fedehiopa.autos
 +.federinner.cyou
@@ -42657,6 +42466,7 @@
 +.flame-motor.com
 +.flamegrills.com
 +.flaresluice.top
++.flashdiario.xyz
 +.flat-shoes.shop
 +.flatluncon.cyou
 +.flavomanic.cyou
@@ -43002,7 +42812,6 @@
 +.gamingbuffs.com
 +.gammerflux.site
 +.gammpadeck.site
-+.gamzanindia.com
 +.ganlivexapp.com
 +.ganoicondu.cyou
 +.gantpweroli.pro
@@ -43111,7 +42920,6 @@
 +.giochrispo.cyou
 +.giocoguber.cyou
 +.gioieherul.cyou
-+.giovalacta.rest
 +.giovaplume.rest
 +.giraconalma.com
 +.githelpdesk.com
@@ -43302,7 +43110,6 @@
 +.greenbitdex.org
 +.greenklinik.com
 +.greenleavez.com
-+.greenlo5gic.pro
 +.gregabeaman.com
 +.grelvaximo.shop
 +.grevholsten.pro
@@ -43561,7 +43368,6 @@
 +.highdpi-ads.com
 +.highfieldx.work
 +.highfxstock.net
-+.highlridar.rest
 +.highlspere.cyou
 +.highmeadow.shop
 +.hikayesibol.com
@@ -43638,6 +43444,7 @@
 +.hostingnana.com
 +.hostpalimit.com
 +.hot.aounmd.shop
++.hotelnest.world
 +.hotelpalmea.com
 +.hotelsellef.com
 +.hotlinkula.link
@@ -43771,7 +43578,6 @@
 +.ideatrinfo.cyou
 +.ideatsotto.rest
 +.ideolcatas.cyou
-+.idioblastty.pro
 +.idle-threat.com
 +.idlehleggi.cyou
 +.idrarindir.cyou
@@ -43878,7 +43684,6 @@
 +.imprefeltr.cyou
 +.imprenibel.cyou
 +.imprerunba.rest
-+.imprezecch.rest
 +.improchange.xyz
 +.improtabic.cyou
 +.imprudiama.cyou
@@ -44025,7 +43830,6 @@
 +.infiosbert.rest
 +.infirelay.click
 +.infiruffic.rest
-+.infisrinfo.rest
 +.influruffa.cyou
 +.influsuffu.cyou
 +.info-ntflix.com
@@ -44121,7 +43925,6 @@
 +.inocuautot.cyou
 +.inocumunge.cyou
 +.inoformwork.com
-+.inoppalkal.rest
 +.inorgdeneg.rest
 +.inorgdenta.cyou
 +.inossbicyc.cyou
@@ -44184,7 +43987,6 @@
 +.interisser.cyou
 +.intermestr.cyou
 +.internetcim.com
-+.internettu.rest
 +.interorine.cyou
 +.interorrer.cyou
 +.interpenet.cyou
@@ -44370,7 +44172,6 @@
 +.jadlojistik.com
 +.jaeseongim.shop
 +.jake-wilson.com
-+.jakeslodges.com
 +.jakfundzen.club
 +.jalverostin.pro
 +.jambesarti.cyou
@@ -44381,11 +44182,8 @@
 +.jandolimeru.xyz
 +.janewilder.shop
 +.janiclubri.cyou
-+.japaneseapi.com
 +.japocbnica.shop
-+.jaredkeogh.shop
 +.jargoconte.cyou
-+.jargogermi.rest
 +.jarovdisam.cyou
 +.jasmibioas.cyou
 +.jasminefield.eu
@@ -44458,6 +44256,8 @@
 +.jonfreebook.com
 +.jonlapoint.shop
 +.jopasidask.shop
++.jornalflash.lat
++.jornalhoy.click
 +.jorvelitaq.info
 +.josepharise.com
 +.joshquizzes.com
@@ -44522,7 +44322,6 @@
 +.jyskplhome.shop
 +.jyskplsale.shop
 +.jyskpoland.shop
-+.jysks-store.com
 +.jysksaleleu.top
 +.jyzyroasi.autos
 +.k-3ag.pages.dev
@@ -44573,7 +44372,6 @@
 +.karmanfresh.com
 +.karnavpoile.com
 +.karrovenilo.pro
-+.kaspi-ai-kz.com
 +.kaspiprofit.com
 +.kaszmirspa.live
 +.katiaschoen.com
@@ -44649,7 +44447,6 @@
 +.kimekrueger.com
 +.kimimischke.com
 +.kindandcraft.eu
-+.kindredsoul.top
 +.kinetic6iot.com
 +.kinetsidet.cyou
 +.kingsgrove.shop
@@ -44764,7 +44561,6 @@
 +.kupolandia.shop
 +.kupujtanio.shop
 +.kurachienai.com
-+.kurentavos.info
 +.kurierpulsu.pro
 +.kursvermberg.de
 +.kurtarankit.com
@@ -44800,6 +44596,7 @@
 +.kyvra-spark.net
 +.kyvra-spark.org
 +.kyvraspark.live
++.l-pay-pal-l.net
 +.labcollege.baby
 +.labdaribom.cyou
 +.labness.digital
@@ -44975,7 +44772,6 @@
 +.liggetrape.cyou
 +.light-strut.com
 +.light-vault.com
-+.lightbearer.top
 +.lightinve.homes
 +.lightmisha.rest
 +.lignumetlux.com
@@ -44996,7 +44792,6 @@
 +.lindenmarket.eu
 +.linen-shed.live
 +.linenworks.shop
-+.linepalur.click
 +.linerating.site
 +.linfoacale.rest
 +.lingerie-eu.com
@@ -45041,6 +44836,7 @@
 +.littlecopper.eu
 +.littlehearth.eu
 +.live-safeyt.com
++.livehoynews.lat
 +.liverollads.com
 +.liviabauer.shop
 +.livingboard.pro
@@ -45078,7 +44874,6 @@
 +.lodgescono.cyou
 +.lofty-cloud.com
 +.lofyfae.digital
-+.loggic11hub.pro
 +.loggic14run.pro
 +.logicaitrade.de
 +.logicgreat.info
@@ -45100,7 +44895,6 @@
 +.loginexttu.site
 +.logitivibe.site
 +.logiwiy.digital
-+.logoquiz.online
 +.logotabbru.cyou
 +.logracoffee.com
 +.lokatowin.click
@@ -45173,7 +44967,6 @@
 +.lucidscyph.cyou
 +.lucilfruit.cyou
 +.lucivspave.cyou
-+.luckisbrod.rest
 +.lucky2lucky.com
 +.luckyspin01.com
 +.lucrant-ai.shop
@@ -45269,6 +45062,7 @@
 +.madrismado.cyou
 +.maestridis.cyou
 +.maevequinn.shop
++.magalu26anos.co
 +.magazineery.mom
 +.magazyn-pl.shop
 +.magicfutsal.com
@@ -45503,7 +45297,6 @@
 +.mercadondo.rest
 +.mercadoxgpt.org
 +.merchugric.rest
-+.mercitopee.rest
 +.mercivanta.live
 +.mercuallel.cyou
 +.merezrr.web.app
@@ -45826,7 +45619,6 @@
 +.my.wqengine.com
 +.my1password.xyz
 +.myapp-acces.com
-+.mybeautytea.com
 +.mycetproat.cyou
 +.mydearbaby.shop
 +.mydpd.eimiru.cc
@@ -45998,14 +45790,11 @@
 +.netvibehost.com
 +.network-main.at
 +.networkerx.work
-+.neuechancei.com
-+.neuraledge.life
 +.neuralinkfx.net
 +.neuralx-ai.live
 +.neurblydeb.site
 +.neurodibot.site
 +.neuroedge.click
-+.neuroflow.today
 +.neuropax-ai.com
 +.neuroperpe.cyou
 +.neurshardai.net
@@ -46230,6 +46019,7 @@
 +.notelinver.cyou
 +.notenewsjp.info
 +.notestream.site
++.noticiaviva.top
 +.notifygate.cyou
 +.notifysmail.com
 +.notino-rabat.pl
@@ -46267,13 +46057,19 @@
 +.nowacijaa.store
 +.nowackafoto.mom
 +.nowanovosty.com
++.nowdesknews.xyz
++.nowdiario.click
 +.nowezplpola.xyz
++.nowflashhoy.pro
 +.nowinaplnet.pro
 +.nowinkipls.info
++.nowlivedesk.pro
++.nownoticias.xyz
 +.nowoczesny.site
 +.nowornaver.info
 +.nowtekstil.shop
 +.nowubaawo.autos
++.nowwiredesk.pro
 +.npu1.weebly.com
 +.nr-237433.click
 +.nr-238434.click
@@ -46316,7 +46112,6 @@
 +.nvrnerlcacv.icu
 +.nybichipdo.site
 +.nycgyroking.com
-+.nymphseque.rest
 +.nyravexio.world
 +.nytheral-ai.net
 +.o0129128127.sbs
@@ -46335,7 +46130,6 @@
 +.obbliquoci.cyou
 +.obedibanch.cyou
 +.obedisciov.cyou
-+.oberklindra.top
 +.obietimban.cyou
 +.oblg-772220.pro
 +.obliarinco.rest
@@ -46448,6 +46242,7 @@
 +.ofisimiture.com
 +.ofrlipijoza.icu
 +.ogdenfences.com
++.ogloboagora.top
 +.ogreporteur.mom
 +.ogrocenter.shop
 +.ogrocrafto.shop
@@ -46532,7 +46327,6 @@
 +.ombridedic.cyou
 +.ombrodocci.cyou
 +.ombroralin.cyou
-+.omeomdefil.rest
 +.omexpuware.site
 +.omexreach.click
 +.omixiyenull.com
@@ -46653,7 +46447,6 @@
 +.orioyflair.site
 +.orizanotmai.com
 +.orjinlancer.net
-+.orkimstaven.top
 +.orkisveltra.top
 +.orllen-pl.eu.cc
 +.ormelavix.world
@@ -46687,6 +46480,8 @@
 +.osn32ovao.eu.cc
 +.osn35ovad.eu.cc
 +.osn36ovay.eu.cc
++.osn40ovai.eu.cc
++.osn43ovae.eu.cc
 +.osnabenter.cyou
 +.osno22vau.eu.cc
 +.osno23vad.eu.cc
@@ -46901,7 +46696,6 @@
 +.parurcellu.cyou
 +.parveloniaz.com
 +.pascemarra.cyou
-+.pascoesche.rest
 +.pashaai.digital
 +.pass-securr.com
 +.passaingiu.cyou
@@ -47096,7 +46890,6 @@
 +.pervantoq24.pro
 +.pervaquadr.rest
 +.pescachoice.com
-+.pesciappor.rest
 +.pescicurva.cyou
 +.pestigesta.cyou
 +.petal-shade.com
@@ -47243,7 +47036,6 @@
 +.pixiesneaks.com
 +.pixrootkart.com
 +.pizzoulisc.rest
-+.pkmtrevhold.pro
 +.pl-02960633.icu
 +.pl-10690206.cfd
 +.pl-10960933.icu
@@ -47298,9 +47090,9 @@
 +.pl121960721.cfd
 +.pl191zs296.cyou
 +.pl196970123.cfd
++.pl1z92nz2b.cyou
 +.pl2bz6vc7u.cyou
 +.pl44389494.shop
-+.pl45824524.cyou
 +.pl53633894.shop
 +.pl586822612.lol
 +.pl5934245.click
@@ -47313,6 +47105,7 @@
 +.pl895894231.cfd
 +.pl92838282.shop
 +.pl92nm7739.cyou
++.pl92zx621z.cyou
 +.pl97zx1172.cyou
 +.plainandwarm.eu
 +.plaindepot.cyou
@@ -47534,6 +47327,7 @@
 +.potamsculp.cyou
 +.pothosubco.rest
 +.potliencha.cyou
++.potrerodiez.lat
 +.pottacopri.rest
 +.potw-5271.eu.cc
 +.powertrend.shop
@@ -47605,13 +47399,11 @@
 +.prespmigno.cyou
 +.prespverni.cyou
 +.press22link.pro
-+.press9tune.info
 +.pressedrein.sbs
 +.pressgridz.info
 +.presslinka.info
 +.pressolviaa.pro
 +.pressposts.cyou
-+.presss5lab.info
 +.presswireuk.com
 +.presszone24.com
 +.prestganova.com
@@ -47636,6 +47428,7 @@
 +.prime-video.app
 +.primeamz010.top
 +.primeauraen.com
++.primecargo.site
 +.primekazino.com
 +.primemania.shop
 +.primeneexus.com
@@ -47686,7 +47479,6 @@
 +.profed-elib.com
 +.profeherba.cyou
 +.proferinvo.rest
-+.proffit21er.pro
 +.profi-learn.com
 +.profit-edge.org
 +.profit-fury.app
@@ -47830,7 +47622,6 @@
 +.pundiinani.cyou
 +.punibcatar.cyou
 +.punisamphi.cyou
-+.punkerotica.com
 +.punktopulex.com
 +.punktopulex.xyz
 +.punktwidoku.pro
@@ -48174,6 +47965,7 @@
 +.reaccnaeth.cyou
 +.reactionpro.org
 +.readjmacro.cyou
++.readyaction.sbs
 +.realgstapp.cyou
 +.reallpeople.com
 +.realppavee.cyou
@@ -48399,7 +48191,6 @@
 +.riaffembas.cyou
 +.riaffergne.cyou
 +.riaffesfol.cyou
-+.riaffsubdi.rest
 +.riafftrans.cyou
 +.riaggareol.cyou
 +.riaggtantr.cyou
@@ -48476,7 +48267,6 @@
 +.rieccunphr.cyou
 +.riechtorci.rest
 +.rieduscari.cyou
-+.riemesprom.rest
 +.rientappet.cyou
 +.riespcinem.cyou
 +.riespsanci.cyou
@@ -48595,7 +48385,6 @@
 +.rinviproce.cyou
 +.rinvoviper.cyou
 +.rinzamelon.cyou
-+.rinzerintr.rest
 +.rionaingob.cyou
 +.rioplatixai.com
 +.riordterro.cyou
@@ -48655,7 +48444,6 @@
 +.risprspons.cyou
 +.ristasgrop.cyou
 +.risteadequ.rest
-+.ristesuper.rest
 +.ristirispl.cyou
 +.ristoscont.rest
 +.ristosynop.cyou
@@ -48872,7 +48660,6 @@
 +.saharaagate.com
 +.sahiblerden.com
 +.sahoiw0.komi.io
-+.saibcapital.com
 +.saidservice.com
 +.sailostere.cyou
 +.sailpdissi.cyou
@@ -49037,8 +48824,8 @@
 +.scaravacou.cyou
 +.scardincas.cyou
 +.scaricontr.cyou
-+.scarimetar.rest
 +.scarnmacro.cyou
++.scarpapolska.pl
 +.scarpscass.rest
 +.scarrgasat.cyou
 +.scartnobil.cyou
@@ -49053,7 +48840,6 @@
 +.scelephoto.rest
 +.scenairran.cyou
 +.scenaportal.top
-+.scenevisual.com
 +.scerbwreat.cyou
 +.scerncionc.cyou
 +.scerpmucip.cyou
@@ -49124,7 +48910,6 @@
 +.scorcoverb.cyou
 +.scorcripas.cyou
 +.scoredermo.cyou
-+.scorpoppen.rest
 +.scorpprefa.cyou
 +.scorrabrot.cyou
 +.scorrbuffa.cyou
@@ -49179,7 +48964,6 @@
 +.seahamcorner.eu
 +.seahodisco.rest
 +.searchh10er.pro
-+.searchh9box.pro
 +.searcprol.store
 +.seaweedgolf.com
 +.secarrental.com
@@ -49198,7 +48982,6 @@
 +.securevault.top
 +.securrity.click
 +.secursovra.rest
-+.sedotmarmo.rest
 +.seduszinzi.cyou
 +.seedandmill.mom
 +.seedybrain.best
@@ -49221,7 +49004,6 @@
 +.seldariora.info
 +.seldovaryn.site
 +.selecqtbox.shop
-+.selectednet.cfd
 +.selectwave.shop
 +.selenfurfa.rest
 +.selgros-pl.shop
@@ -49347,7 +49129,6 @@
 +.sgariuroce.cyou
 +.sgavamisob.cyou
 +.sgoccesige.rest
-+.sgoccscade.rest
 +.sgroncosti.cyou
 +.sgrontronc.cyou
 +.sgropenfia.cyou
@@ -49514,7 +49295,6 @@
 +.sinsay-2026.com
 +.sinsay-sale.top
 +.sintelicen.cyou
-+.sinteurceo.rest
 +.sintrelonix.pro
 +.sinup.mir.quest
 +.sirininexe.cyou
@@ -49832,6 +49612,7 @@
 +.spark-fiber.com
 +.spark-smart.com
 +.spark-spill.com
++.spark-tread.com
 +.sparkasseai.net
 +.sparklebrew.com
 +.sparkleseo.info
@@ -49851,7 +49632,6 @@
 +.specidulse.cyou
 +.spectrumpac.com
 +.specuasper.cyou
-+.speedd17net.pro
 +.speedy-loom.com
 +.spellstrav.cyou
 +.spemail5.online
@@ -49896,7 +49676,6 @@
 +.spillbisog.cyou
 +.spilltweet.cyou
 +.spilunatio.cyou
-+.spineincol.rest
 +.spingrisos.rest
 +.spinisgrig.cyou
 +.spinnn11max.pro
@@ -49908,7 +49687,6 @@
 +.spionpiene.cyou
 +.spiradelet.cyou
 +.spiraindig.rest
-+.spirapalle.rest
 +.spiritaegis.com
 +.spirotipif.cyou
 +.spitishops.shop
@@ -50139,9 +49917,7 @@
 +.stompmarin.cyou
 +.stone-wash.shop
 +.stonepathway.eu
-+.store.navi53.ru
 +.storerack25.com
-+.storigusta.rest
 +.storishock.rest
 +.storm-burst.com
 +.stormcreep.cyou
@@ -50384,7 +50160,6 @@
 +.svezzconfa.cyou
 +.svicomeshe.cyou
 +.svigndisar.rest
-+.svikthalden.pro
 +.svilltriso.rest
 +.svinacontr.rest
 +.svitiarruv.cyou
@@ -50492,10 +50267,8 @@
 +.tachientom.cyou
 +.tachunitga.site
 +.tachzeware.site
-+.tacitpulpi.rest
 +.tacoritastl.com
 +.tactica7.com.mx
-+.tadbirdream.com
 +.tagetscrim.cyou
 +.tagicextra.cyou
 +.taglisfris.cyou
@@ -50558,7 +50331,6 @@
 +.tarihkitabi.com
 +.tarnauncus.cyou
 +.tarntrench.shop
-+.taropriseg.rest
 +.tarpadeodo.cyou
 +.tarsushurda.com
 +.tartabombe.cyou
@@ -50684,7 +50456,6 @@
 +.tejedrooqx.love
 +.tejedsqkim.wiki
 +.tejeebvrqnm.fit
-+.tejeebvrqnm.top
 +.tejeerxuvwc.ink
 +.tejefqtqfa.work
 +.tejegahxvl.love
@@ -50804,6 +50575,8 @@
 +.telegroxxs.cyou
 +.telegsahia.shop
 +.telegsparo.shop
++.telehosyst.club
++.telehosyst.help
 +.teleidelng.luxe
 +.teleidexbb.help
 +.teleidexbb.shop
@@ -50912,6 +50685,7 @@
 +.telerosxsn.cyou
 +.telerosxsn.help
 +.telerosxsn.shop
++.teleroxoec.club
 +.teleroxvib.club
 +.teleroxvib.help
 +.teleroxxos.help
@@ -50939,16 +50713,19 @@
 +.teleterpro.cyou
 +.teleterpro.help
 +.teleterpro.shop
++.teletersme.help
 +.teletlanft.wiki
 +.teletonits.club
 +.teletonits.cyou
 +.teletonits.shop
 +.teletprfol.club
 +.teletproxjx.icu
++.teletproxx.cyou
 +.teletumpro.shop
 +.teletumpro.wiki
 +.teleturepr.cyou
 +.teleturepr.shop
++.teletwoodx.help
 +.teletxrxex.shop
 +.teletxvelf.help
 +.teleundhkb.shop
@@ -50977,6 +50754,7 @@
 +.televgweig.shop
 +.televxsprx.help
 +.telexcsund.help
++.telexodrif.skin
 +.telexogard.help
 +.telexogard.shop
 +.telexoshad.help
@@ -52189,7 +51967,6 @@
 +.tremisuper.rest
 +.trendbuypl.shop
 +.trendd12ify.pro
-+.trendd17set.pro
 +.trendd19box.pro
 +.trendd2rive.pro
 +.trendd4line.pro
@@ -52461,7 +52238,6 @@
 +.unampcappo.cyou
 +.unarocoade.cyou
 +.unattsensi.cyou
-+.unautinvet.rest
 +.unawagrani.cyou
 +.unbelivably.com
 +.unbiawanne.cyou
@@ -52496,7 +52272,6 @@
 +.undervelcro.com
 +.undiavaste.cyou
 +.undrepareg.rest
-+.undynriabi.rest
 +.unejasmori.cyou
 +.unelocolti.rest
 +.unemerefle.cyou
@@ -52641,6 +52416,7 @@
 +.urbanpilot.site
 +.urbanporchco.eu
 +.urbanqwood.shop
++.urbanselvia.com
 +.urbanstoneco.eu
 +.urbanvanta.shop
 +.urbogym-pl.shop
@@ -52908,7 +52684,6 @@
 +.vertliware.site
 +.verzuverge.cyou
 +.veskorra.online
-+.vessechemo.rest
 +.vesselvibes.com
 +.vestumosny.info
 +.vetchnasco.cyou
@@ -53247,6 +53022,7 @@
 +.winuraonu.autos
 +.winwithwits.com
 +.wipertorvlp.com
++.wirehoje.online
 +.wirespacep.site
 +.wireynrepo.site
 +.wisdom-dock.com
@@ -53279,6 +53055,7 @@
 +.wokieraex.click
 +.wolczankapl.com
 +.womens.supplies
++.womezonkart.com
 +.womisouja.autos
 +.wondehumor.cyou
 +.wonderstate.mom
@@ -53483,6 +53260,7 @@
 +.zafezuavo.autos
 +.zafirocrest.com
 +.zafirocrest.org
++.zafvsytqeca.top
 +.zagran423.eu.cc
 +.zahidyakoob.com
 +.zahltor-app.net
@@ -53693,6 +53471,7 @@
 +.zupaqaobe.autos
 +.zurnuavelo.info
 +.zurypoela.autos
++.zve8s937k9.rest
 +.zybrdocksa.site
 +.zybrylmind.site
 +.zyciezulicy.top
@@ -53719,6 +53498,7 @@
 +.118924kraken.com
 +.11teamsports.sbs
 +.1209438h403.shop
++.142cee.ralind.at
 +.1earthliving.org
 +.1rbcbusiness.com
 +.2026-eobuwie.sbs
@@ -53747,6 +53527,7 @@
 +.36592948-731.icu
 +.365analytics.xyz
 +.365companion.net
++.365msnpay.fwh.is
 +.384t348g34ug.lat
 +.3928290h34.click
 +.39zxvw8n73k.surf
@@ -54204,7 +53985,6 @@
 +.andreascohen.net
 +.andrewgagen.info
 +.andrewtdavis.com
-+.andzelasale.shop
 +.anekkepoland.com
 +.anewbornmama.com
 +.anexairlines.com
@@ -54239,7 +54019,6 @@
 +.ansimtradix.live
 +.antalyatavan.com
 +.antenhurra.autos
-+.anthonysees.shop
 +.anthropicipo.net
 +.antilespli.click
 +.antilvideo.store
@@ -54690,7 +54469,6 @@
 +.berksermayac.net
 +.berkwaardiek.net
 +.berlopaawert.com
-+.bernardasim.shop
 +.berniejones.shop
 +.bernixqelvorn.de
 +.bershkapolska.pl
@@ -54931,6 +54709,7 @@
 +.bourcaptive.live
 +.boursaai.digital
 +.boursaaitrade.de
++.boutique-eu.shop
 +.boxingclothe.com
 +.bozyelterazi.com
 +.bper-portale.com
@@ -54980,6 +54759,7 @@
 +.brgerkapita.live
 +.brickandfield.eu
 +.bridgeportx.work
++.briefnowdesk.xyz
 +.brifokasenu.info
 +.bright-flair.com
 +.bright-galas.com
@@ -55046,7 +54826,6 @@
 +.brt.xwddoh.click
 +.brt.zclexs.click
 +.brunozavoli.shop
-+.bruntaaaken.info
 +.brusclucub.store
 +.bruvonix-es.live
 +.bruvonix-fr.live
@@ -55321,7 +55100,6 @@
 +.casaurahomes.com
 +.casaventoza.shop
 +.cascadeless.info
-+.casecuregrid.com
 +.cash-nest365.com
 +.cash-polski.shop
 +.cashflowxx.click
@@ -55447,7 +55225,6 @@
 +.cheeseburgie.com
 +.cheessee5hub.pro
 +.chefanguilla.com
-+.chelkristoft.pro
 +.chelskolvind.pro
 +.chelsvikbron.pro
 +.chemounret.autos
@@ -55510,6 +55287,7 @@
 +.cistaekovina.com
 +.cistimeuvas.live
 +.citizendarke.com
++.citizenpolska.pl
 +.citroenyedek.com
 +.cittopolya.autos
 +.city-cinema.site
@@ -55573,6 +55351,7 @@
 +.closeoutstore.uk
 +.closetcurve.shop
 +.cloudberryg.shop
++.cloudhq-mkt29.us
 +.cloudtalpha.info
 +.cloudtop.digital
 +.cloudy-ether.com
@@ -55808,6 +55587,7 @@
 +.crosscheck.world
 +.crowbbisbo.store
 +.crownnexora.live
++.crownpolsk.store
 +.crownverados.com
 +.crownvermode.net
 +.crownviagpt.live
@@ -55893,15 +55673,18 @@
 +.dagroupindia.com
 +.dahanturkiye.com
 +.daily-polska.com
++.dailydesknow.pro
 +.dailyefresh.shop
 +.dailyfignds.shop
 +.dailyfocusra.com
++.dailyhoynews.lat
++.dailylivenow.xyz
++.dailynowdesk.xyz
 +.dailyoakporch.eu
 +.dailypickco.shop
 +.dailyrangpur.com
 +.dailyspark26.com
 +.dailyspotway.pro
-+.dailystrike.site
 +.dailytabard.shop
 +.dailyveranta.pro
 +.dailywavebox.org
@@ -56049,6 +55832,7 @@
 +.designhomeai.com
 +.designtowave.com
 +.desinpaven.store
++.deskbriefnow.fun
 +.deskisup-pl.shop
 +.deskloni.web.app
 +.desqutrich.click
@@ -56077,7 +55861,6 @@
 +.dextrspana.store
 +.dextyxflair.site
 +.df787.weebly.com
-+.dfsnarrative.com
 +.dfsproviders.com
 +.dharmacollege.cl
 +.dhl.cmvwp-ie.org
@@ -56359,7 +56142,6 @@
 +.drawandcord.shop
 +.draxorivelth.com
 +.drdicleoncel.com
-+.dreamm13wise.pro
 +.dreamsanctum.com
 +.dreamy-burst.com
 +.dreamzone-lb.com
@@ -56402,6 +56184,7 @@
 +.duellansuno.cyou
 +.duffle-bags.shop
 +.dufonmobilya.com
++.dukaofficial.com
 +.dulapharexan.xyz
 +.duma-invexus.com
 +.dummy-finara.com
@@ -56430,6 +56213,7 @@
 +.dygmx.weebly.com
 +.dynamax-flow.com
 +.dynamic-fuel.com
++.dynamicflow.site
 +.dynamicstore.sbs
 +.dynaminane.store
 +.dynaminzav.store
@@ -56498,7 +56282,6 @@
 +.edgeflowgate.com
 +.edgepulsenet.com
 +.edgexaitrade.com
-+.edithchesta.shop
 +.edithpetska.shop
 +.editiowealth.com
 +.editoprezz.store
@@ -56516,7 +56299,6 @@
 +.egesupmarine.com
 +.egetezmakina.com
 +.ehmaservices.com
-+.eichekapital.com
 +.eichekapivolt.de
 +.einvesttrade.com
 +.eirvubewoinb.com
@@ -56736,7 +56518,6 @@
 +.evurbroikacy.pro
 +.ew4rt.weebly.com
 +.ewarfa.skplsa.pl
-+.ewohopevyj.forum
 +.ewolucijapl.site
 +.ex-main-buah.com
 +.excamsepel.store
@@ -56832,7 +56613,6 @@
 +.fecunperce.store
 +.fedavstrad.store
 +.fedcrestai.click
-+.fedexshiping.com
 +.feedilicious.com
 +.fegardisme.store
 +.fegth5t3rwd.shop
@@ -57185,6 +56965,7 @@
 +.flaroketimu.info
 +.flaschenpost.sbs
 +.flash-quartz.com
++.flashhoywire.pro
 +.flashsalepl.shop
 +.flashy-gizmo.com
 +.flaunexeserou.de
@@ -57587,7 +57368,6 @@
 +.glossy-broom.com
 +.glossy-drive.com
 +.glossy1cloud.com
-+.glossy7coat.info
 +.gloswarszawy.pro
 +.glow-reserve.com
 +.glow-scepter.com
@@ -57938,7 +57718,6 @@
 +.hikarighome.shop
 +.hikariyxcore.net
 +.hilardelgado.com
-+.hildamsonga.shop
 +.hilldwelling.com
 +.hillsideandco.eu
 +.hilomarshisk.com
@@ -57971,7 +57750,6 @@
 +.home.qwikett.com
 +.homealiving.shop
 +.homeandbasket.eu
-+.homecloseout.com
 +.homeclub-pl.shop
 +.homecraftline.eu
 +.homedeal-pl.shop
@@ -58298,7 +58076,6 @@
 +.innasspiat.store
 +.inndesigninc.com
 +.innebdefil.autos
-+.innerlightup.top
 +.innewsvision.com
 +.innovainnova.com
 +.innowacjapl.site
@@ -58518,6 +58295,7 @@
 +.jorathiameli.xyz
 +.jordonmbrown.com
 +.jorevexalim.info
++.jornalamanha.top
 +.joshuadolman.com
 +.joshuagrogan.com
 +.joshuakirby.shop
@@ -58619,7 +58397,6 @@
 +.kapivorapro.info
 +.kapterzoraki.pro
 +.karabsmorils.com
-+.karabukbilgi.com
 +.karadenizgaz.com
 +.karamacleod.shop
 +.karbonfiyati.com
@@ -58683,7 +58460,6 @@
 +.kevinmariam.shop
 +.keyknitwear.shop
 +.kfd.drmaxitt.top
-+.kgodsfgk324.cyou
 +.khatulistiwa.net
 +.khynulqex.online
 +.kiautomatik.shop
@@ -58819,7 +58595,6 @@
 +.kwayviplife.shop
 +.kweoxithx-it.com
 +.kylewatson.co.za
-+.kyliewalker.shop
 +.kyliewatson.shop
 +.kynobustack.site
 +.kynofirmdoj.site
@@ -58952,6 +58727,7 @@
 +.lidagonline.shop
 +.lidiormline.shop
 +.lidleuonline.com
++.lidlfronline.com
 +.lidlshop-eur.top
 +.lidnexustech.com
 +.liftaesten.store
@@ -58967,7 +58743,6 @@
 +.limandexeris.net
 +.limanfinthra.pro
 +.limanvalmera.net
-+.limitedsqua.club
 +.lindenfield.shop
 +.lindseyrains.com
 +.linen-bloom.shop
@@ -59001,6 +58776,7 @@
 +.listoran.digital
 +.littlefieldco.eu
 +.live-hotmail.com
++.livedesknow.live
 +.lively-barge.com
 +.lively-brain.com
 +.lively-gains.com
@@ -59269,6 +59045,7 @@
 +.mans-vid.web.app
 +.manuelbravo.shop
 +.manurmolti.autos
++.map-location.com
 +.mapchocolate.mom
 +.mapleaiintel.net
 +.mapleandbrook.eu
@@ -59767,6 +59544,7 @@
 +.news2bulletn.com
 +.newshubpress.com
 +.newspolskapl.pro
++.newsticker.click
 +.newton-drive.com
 +.newworldgpt.live
 +.nexalozuravi.com
@@ -59898,6 +59676,7 @@
 +.notice.xupzp.com
 +.noticeportals.us
 +.noticiasfera.com
++.noticiaslive.lat
 +.notino-promo.com
 +.notinplshop.site
 +.nouapagoovia.com
@@ -59933,7 +59712,11 @@
 +.novoxuzoxave.com
 +.novumcapital.net
 +.nowaciapls.store
++.nowbriefnews.lat
++.nowbriefwire.xyz
++.nowflashwire.xyz
 +.nowinki24pl.info
++.nowliveflash.lat
 +.nowtwomarkup.com
 +.nowydomstyl.shop
 +.nowydziennik.top
@@ -59986,7 +59769,6 @@
 +.obligaczakai.com
 +.obligoriaapp.com
 +.oblimibuild.site
-+.oblintravekk.top
 +.oblivionpath.com
 +.obserwujkraj.pro
 +.obuwieskle.click
@@ -60120,7 +59902,6 @@
 +.olx-pl.agahe.icu
 +.olx-pl.bnanm.icu
 +.olx-pl.buiaq.icu
-+.olx-pl.damsa.icu
 +.olx-pl.hyase.icu
 +.olx-pl.natge.icu
 +.olx.49594992.lat
@@ -60142,7 +59923,6 @@
 +.olx.nekapp.world
 +.olx.nyaplap.bond
 +.olx.orridino.cfd
-+.olx.page6436.com
 +.olx.pl-23423.lol
 +.olx.pl-lokal.sbs
 +.olx.pl-sd72d.sbs
@@ -60793,7 +60573,6 @@
 +.pldegotofisi.com
 +.plebecomin.autos
 +.pleigemike.store
-+.pleksovinda.info
 +.pleuroinvest.com
 +.plfalconeri.live
 +.plfegjoitogi.com
@@ -61049,7 +60828,6 @@
 +.proemmitra.store
 +.proferaymate.com
 +.profesciol.store
-+.proffit19hub.pro
 +.proffit5star.pro
 +.profile8231.help
 +.profilebase.site
@@ -61071,6 +60849,7 @@
 +.programorlen.com
 +.progrcrost.click
 +.progress-360.com
++.progressinfo.pro
 +.proinvest-pl.com
 +.proinvest-pl.net
 +.projectechow.com
@@ -61428,7 +61207,6 @@
 +.rehkapitfels.net
 +.rehobothfirm.com
 +.reibcwdsjknx.com
-+.reikershoes.club
 +.reinnleese.store
 +.reinocapita.live
 +.reinocapital.net
@@ -61663,7 +61441,6 @@
 +.rodnidhendra.net
 +.roesmeraldas.com
 +.rogfundoriax.com
-+.rogfundoriax.net
 +.rohliksalecz.top
 +.roinferflux.site
 +.roinvesttrade.de
@@ -61780,7 +61557,6 @@
 +.sagecompass.site
 +.sageplatform.net
 +.sahidanisman.com
-+.saidoundjim.shop
 +.saifoodanaly.com
 +.sailingvybes.com
 +.saimeatmaca.shop
@@ -61845,6 +61621,7 @@
 +.savitapharma.com
 +.savrynpulseai.de
 +.saway-rabat.shop
++.saway-trend.shop
 +.sawayoutlet.shop
 +.sawweealth.co.za
 +.sayap33trade.com
@@ -62021,10 +61798,8 @@
 +.servicevinci.com
 +.servprotocol.com
 +.sethmgadison.com
-+.settlemodern.com
 +.settupolyg.autos
 +.setupellipal.com
-+.seureonline.shop
 +.sevenstardus.com
 +.severcacum.store
 +.severendange.com
@@ -62185,6 +61960,7 @@
 +.sistemobilya.com
 +.site-program.sbs
 +.site-program.xyz
++.siteapple-id.com
 +.sitecorenet.site
 +.sitioattic.store
 +.sitiooficial.com
@@ -62206,7 +61982,6 @@
 +.skilll21line.pro
 +.skillsion.online
 +.skilltechpro.xyz
-+.skimbruntol.info
 +.skiogdisso.store
 +.skippyy2beat.com
 +.skjgroi43oq.shop
@@ -62303,7 +62078,6 @@
 +.sncf-connect.cam
 +.sneakersole.shop
 +.sniffyy6nose.com
-+.snipppy5cut.info
 +.snjkergt4o1.shop
 +.snobladden.store
 +.snooww1flake.com
@@ -62347,7 +62121,6 @@
 +.solenex-tide.com
 +.solevefundex.pro
 +.solfesoloi.store
-+.solhavengrut.pro
 +.soliachoice.shop
 +.solid-stakes.com
 +.solidatandet.com
@@ -62771,7 +62544,6 @@
 +.swiftly77bot.pro
 +.swiftpressd.info
 +.swifttradex.live
-+.swiftttr4ack.pro
 +.swiftybudget.com
 +.swimedal.digital
 +.swimrungower.com
@@ -62968,6 +62740,7 @@
 +.tejezsnwkfg.club
 +.tekno-sistem.com
 +.tekqmvzlpw.click
++.teleamicxx.click
 +.teleanbcov.click
 +.teleansult.click
 +.teleaterxs.click
@@ -63014,6 +62787,7 @@
 +.telesgloba.click
 +.telesgoldr.click
 +.telesuprem.click
++.telesyield.click
 +.telesystem.click
 +.teletaarraf.rest
 +.teletproxjx.club
@@ -63465,6 +63239,7 @@
 +.toadnotaries.com
 +.tobacdissa.autos
 +.tobytigesr.eu.cc
++.todaynownews.lat
 +.together2010.com
 +.togioi2g3823.cfd
 +.togiveface.store
@@ -64133,7 +63908,6 @@
 +.violetstramy.pro
 +.vip-episz.net.pl
 +.vip-episz.waw.pl
-+.vip-sawaypl.shop
 +.vip.global61.com
 +.vipbellerose.top
 +.vipsignalsfx.com
@@ -64280,7 +64054,6 @@
 +.warmandwillow.eu
 +.warmdailyhome.eu
 +.warmgrovehome.eu
-+.warmheartup.info
 +.warmnestvibe.com
 +.warraundel.autos
 +.warriorcoin.live
@@ -64393,6 +64166,7 @@
 +.winterbrook.shop
 +.wiranilaiwan.net
 +.wirecoreunit.com
++.wirediario.click
 +.wirewavegate.com
 +.wisl-fondawa.com
 +.wisla-zyskor.com
@@ -64948,7 +64722,6 @@
 +.abcstudyguide.com
 +.abiturratgeber.de
 +.ablueprintaj.shop
-+.abochsimenss.shop
 +.aboverseasedu.com
 +.abptechnology.com
 +.abreknewopler.com
@@ -65324,6 +65097,7 @@
 +.amaldlonline.shop
 +.amandabarker.shop
 +.amanexior.digital
++.amanhanews.online
 +.amateureonly.bond
 +.amaz0n.pikfgk.top
 +.amazon.avlinfo.in
@@ -65332,10 +65106,8 @@
 +.ambernamesweb.com
 +.ambulallnces.info
 +.ameknxbrebobo.com
-+.amergolthvikk.top
 +.americaroofco.com
 +.americarxshop.com
-+.amersvikplekk.top
 +.amethance-fr.live
 +.amgefurniture.com
 +.aminixio-tech.com
@@ -65363,7 +65135,6 @@
 +.andinamonetiv.com
 +.andinaveritas.com
 +.andreifurnica.com
-+.angelasyring.shop
 +.angelcardshop.com
 +.angelnikolov.shop
 +.angeltokenize.net
@@ -65392,7 +65163,6 @@
 +.anyma-tickets.com
 +.anytimetowing.biz
 +.anywordsearch.com
-+.anzsecuritybn.com
 +.aoimmigration.com
 +.aol-e9a78.web.app
 +.aoxnprtll.web.app
@@ -65429,7 +65199,6 @@
 +.apteka.plsave.sbs
 +.apteka.plsvip.sbs
 +.aptorumboanza.com
-+.aqostcitv.digital
 +.arabaparcacin.com
 +.aralbluequant.net
 +.aralixio-tech.com
@@ -65604,7 +65373,6 @@
 +.australiatrue.com
 +.austranovaai.live
 +.authenticcart.com
-+.authenticself.pro
 +.auto-abmelden.com
 +.auto-aiapp-pl.com
 +.autocorebuyer.com
@@ -65685,6 +65453,7 @@
 +.balornvepcmsd.com
 +.balosudnegor.info
 +.balticpipe-pl.com
++.balticpipepl.site
 +.baltzyskuraai.com
 +.bambasketball.com
 +.bananachating.com
@@ -66061,6 +65830,7 @@
 +.brickandharbor.eu
 +.bridgesoft.online
 +.briefdesknow.live
++.briefnoticias.lat
 +.brieswaardent.net
 +.briggsdalesch.com
 +.bright-labour.com
@@ -66270,7 +66040,6 @@
 +.caelevatemoby.com
 +.caenofouri.online
 +.caesarinnans.info
-+.cafinancefund.com
 +.caglianishirt.com
 +.caglobalbrief.com
 +.caglobalpulse.com
@@ -66286,7 +66055,6 @@
 +.caitlinsikora.com
 +.caizhuanjixie.com
 +.cajatrujillo.news
-+.cakkssingles.info
 +.calabvent-app.com
 +.calcarcapital.com
 +.calderive-nl.live
@@ -66440,7 +66208,6 @@
 +.centroluxalis.pro
 +.centrumvirtuo.mom
 +.ceopriesthood.com
-+.cephalothorax.pro
 +.cepteelektrik.com
 +.cernoholdings.com
 +.certisogn.web.app
@@ -66478,7 +66245,6 @@
 +.checkfv.pages.dev
 +.checkinghouse.com
 +.checks-portal.com
-+.chelbrungresk.pro
 +.chelbruntmold.pro
 +.chelbruntskol.pro
 +.chelgrevstund.pro
@@ -66537,6 +66303,7 @@
 +.cistmovex.digital
 +.ciszadochodyn.com
 +.ciszadochodyn.net
++.citydesknews.site
 +.cityofdream.co.uk
 +.citytrendgrid.com
 +.citywonderful.com
@@ -66626,7 +66393,6 @@
 +.cofmhf.weebly.com
 +.cognateglobal.com
 +.cohenpatrick.shop
-+.coinfliptrade.com
 +.coinhouseavis.net
 +.coinvekta.digital
 +.coldtakesbeta.com
@@ -66870,10 +66636,13 @@
 +.dailygallery.shop
 +.dailyheadline.xyz
 +.dailyinsight.buzz
++.dailyjornal.click
 +.dailymatrixon.top
++.dailynoticias.lat
 +.dailypapervip.top
 +.dailyreportd.info
 +.dailyridgehome.eu
++.dailywirenews.top
 +.dairyfreeandy.com
 +.daisy-inspire.com
 +.daiyxtaki.web.app
@@ -66982,7 +66751,10 @@
 +.designbypinja.com
 +.designradar.store
 +.designthepast.com
++.deskbriefwire.lat
 +.deskflashlive.lat
++.deskflashnews.top
++.deskhojebrief.lat
 +.deskjockeypro.net
 +.destekmedikal.com
 +.destrbeave.online
@@ -67016,7 +66788,6 @@
 +.didierlebrun.shop
 +.differentappr.cfd
 +.difficultobje.sbs
-+.diffusibuule.info
 +.digiheadlines.com
 +.digikalagroup.com
 +.digikashtrade.com
@@ -67068,6 +66839,7 @@
 +.disgrdislo.online
 +.disheveeeled.info
 +.disinklvana.store
++.dislnnocated.info
 +.disnatolbu.online
 +.disneykonto24.com
 +.disneyplus-pl.com
@@ -67100,6 +66872,7 @@
 +.dogadaninsana.com
 +.dogangelirca.live
 +.dogearpillows.com
++.dogeunblocker.net
 +.dogskstroz.online
 +.dolufinvarta.live
 +.dolunaytravel.com
@@ -67360,7 +67133,6 @@
 +.ekowiedza.digital
 +.ekserdogalgaz.com
 +.ekstrarabaty.shop
-+.ekvskdkcwkvre.sbs
 +.elanfinance.click
 +.elanfortexai.live
 +.elecfluxlabs.site
@@ -67370,10 +67142,8 @@
 +.electro-ridge.com
 +.electromagpl.shop
 +.electron-loop.com
-+.electrosale.click
 +.elegant-niche.com
 +.elemmelindo.co.id
-+.eleve-vextera.net
 +.elevevextera.live
 +.elfinfo.pages.dev
 +.elianeevrain.shop
@@ -68237,7 +68007,6 @@
 +.fundelaris-pl.com
 +.fundelaris.online
 +.funfinityzone.com
-+.funkybuddhagr.com
 +.funnewbalance.com
 +.funnydoggifts.com
 +.furious-titan.com
@@ -68724,7 +68493,6 @@
 +.heikekesting.shop
 +.heiwdskdwsirw.com
 +.helenabielec.shop
-+.helenahirsch.shop
 +.helixvora-ai.live
 +.helixvora-it.live
 +.helixvora.digital
@@ -68786,6 +68554,7 @@
 +.hodnotecs.digital
 +.hodnotmar-app.com
 +.hofkammerpro.live
++.hojebriefdesk.lat
 +.hokaoneonepl.shop
 +.hokfractouch.site
 +.holdpulsenet.site
@@ -68843,6 +68612,7 @@
 +.hovdigitplix.site
 +.hovechipbuzz.site
 +.howtomarriage.com
++.hoydesknews.click
 +.hozaplatownia.com
 +.hozaplatownia.net
 +.hrastboldenza.net
@@ -68868,7 +68638,6 @@
 +.hw7393.craftum.io
 +.hydrclarikit.site
 +.hydreau-spray.com
-+.hydroslots.online
 +.hypearapulse.site
 +.hypeedgelane.site
 +.hyper-voltage.com
@@ -69026,6 +68795,7 @@
 +.infopakkhl-ee.com
 +.infoplharbor.info
 +.infopolskapl.info
++.infoprogress.info
 +.infopulsaq24.info
 +.infopulsevora.com
 +.inform-01.web.app
@@ -69044,7 +68814,6 @@
 +.inksmoabbam.store
 +.inmediateedge.com
 +.inmetroexodus.com
-+.innereafter.click
 +.innewsfeedhub.com
 +.innextinsight.com
 +.inowaciaplus.site
@@ -69147,6 +68916,7 @@
 +.issammoughit.shop
 +.isseverenergy.com
 +.isvvothermal.info
++.italia-dental.com
 +.italiavvin.online
 +.italvestre-it.net
 +.italyancieren.com
@@ -69171,7 +68941,6 @@
 +.izoomproject.info
 +.izusep.weebly.com
 +.j34in43io2n.click
-+.jacksonsofia.shop
 +.jacobstarnes.shop
 +.jacquardjump.shop
 +.jacquesreview.com
@@ -69515,7 +69284,7 @@
 +.kysvantilator.com
 +.kyvrasparkki.live
 +.l2grz.m5olhw.casa
-+.labiogression.pro
++.la-mania-home.com
 +.labjournalweb.com
 +.labrorimar.online
 +.labstable.digital
@@ -69584,6 +69353,7 @@
 +.ledgerbrine.click
 +.ledgerbryn.online
 +.ledgerholmai.live
++.ledgersupport.top
 +.ledgerwertberg.de
 +.ledgur.zapier.app
 +.ledixslca.web.app
@@ -69683,6 +69453,7 @@
 +.listomontegro.com
 +.littlebigflat.com
 +.littlemarketco.eu
++.livedailynews.xyz
 +.lively-branch.com
 +.lively-cinder.com
 +.lively-growth.com
@@ -70488,9 +70259,9 @@
 +.notice.jmsecs.com
 +.notice.tcsrsj.com
 +.notice.xzjy88.com
++.noticiasdesk.site
 +.noticierolive.pro
 +.notifscand.online
-+.notin-shop-pl.com
 +.notino-sklep.club
 +.notlardergisi.com
 +.nova-finpulse.com
@@ -70524,6 +70295,8 @@
 +.nowacijaplsk.site
 +.nowaorderpost.lat
 +.nowasprzedazz.com
++.nowbriefdaily.xyz
++.nowdeskbrief.site
 +.nowe-21-04-26.biz
 +.nowezpoznania.top
 +.nowhairtimetr.com
@@ -70611,8 +70384,11 @@
 +.oferta-574168.cfd
 +.oferta-821147.cfd
 +.oferta1099869.cfd
++.oferta1220794.cfd
 +.oferta2145214.cfd
++.oferta2345781.cfd
 +.oferta2416742.cfd
++.oferta2435114.sbs
 +.oferta2873512.cfd
 +.oferta2874512.cfd
 +.oferta383462.shop
@@ -70643,6 +70419,7 @@
 +.ofertpo889120.cfd
 +.oferty-405921.sbs
 +.ofertymarket.shop
++.ofeta75805345.cfd
 +.offer24id26.click
 +.office-search.com
 +.officecloud24.com
@@ -70746,7 +70523,6 @@
 +.onlinestorez.sale
 +.onlinezwembad.com
 +.onorasuper.online
-+.onrunningshop.com
 +.onsale-malls.shop
 +.onsale-store.shop
 +.onyxen-repair.com
@@ -70761,7 +70537,6 @@
 +.opo127349h34.shop
 +.oponyexpress.shop
 +.oppo900912821.xyz
-+.optif2ramepro.pro
 +.optigainaiapp.net
 +.optigainaiapp.org
 +.optigainaipro.com
@@ -70786,6 +70561,7 @@
 +.orchidsmanana.com
 +.ord1er120223.shop
 +.order03418902.lat
++.orders-124759.com
 +.orgogvagin.online
 +.orichalcumfin.com
 +.originalp.digital
@@ -70879,7 +70655,6 @@
 +.paczka.vertag.icu
 +.paczka.xavcbb.icu
 +.paczka.zamake.icu
-+.paczka.zamuke.icu
 +.paczka.zanuze.icu
 +.paczkanr7254.shop
 +.paczkka636284.icu
@@ -71049,6 +70824,7 @@
 +.pewnosc-23737.top
 +.pewny-tokenex.com
 +.pewny-tokenex.net
++.pewnypodpis.space
 +.pewwtrifiers.info
 +.peyzajmimarim.com
 +.pge-1.proevent.rs
@@ -71251,11 +71027,9 @@
 +.poczta.wwerfg.icu
 +.poczta.xesyge.icu
 +.poczujflowers.mom
-+.podcast.raajje.mv
 +.podgladwiesci.xyz
 +.podslychane24.pro
 +.podslychanepl.pro
-+.podst-crednex.com
 +.podstcrednex.club
 +.poeralkdadwe.site
 +.poglosykraju.info
@@ -71277,6 +71051,7 @@
 +.polar-wertane.org
 +.polar-zinsmere.co
 +.polarcapridge.net
++.polarisai-za.live
 +.polarisaitech.com
 +.polarisxtrade.com
 +.polaroidpolska.pl
@@ -71391,7 +71166,6 @@
 +.prebbinstall.info
 +.prebuiltsites.xyz
 +.precis-bitdex.org
-+.preciseground.sbs
 +.premium-edge.live
 +.premiumstrade.com
 +.preosativncia.com
@@ -71404,14 +71178,11 @@
 +.presscaffeine.com
 +.pressparallax.com
 +.presspointty.info
-+.pressspa0nel.info
-+.pressspa9rkk.info
 +.prestigeapart.com
 +.prestigelevel.org
 +.prestigepress.xyz
 +.prevaliatrade.com
 +.pricecut-sale.sbs
-+.pricedripshop.com
 +.pricedrop-pl.shop
 +.pridelibrary.lgbt
 +.primafundolia.com
@@ -71490,6 +71261,7 @@
 +.promotional.click
 +.promptaiamrix.com
 +.prontowash.com.py
++.propagwwules.info
 +.propetystay.world
 +.prosanasansor.com
 +.proscressa.online
@@ -71510,6 +71282,7 @@
 +.prywatne7239.shop
 +.pryyeexcited.info
 +.pryzmat-nexor.com
++.przedmiot63562.pl
 +.przekazylokal.top
 +.przesylka2152.com
 +.przesylka452.shop
@@ -71759,6 +71532,7 @@
 +.raytoxvaultai.com
 +.rcn163.weebly.com
 +.reactliving.space
++.readyhorizon.info
 +.readyquantpol.com
 +.realgaugehub.site
 +.realskypotolki.ru
@@ -71820,7 +71594,6 @@
 +.reniacade.web.app
 +.rentaviaclara.org
 +.rentelucavie.live
-+.renterichance.com
 +.rentixai-apps.com
 +.rentixai-apps.org
 +.rentixaitrade.com
@@ -71929,7 +71702,6 @@
 +.rocvaloraire.shop
 +.rodendiffi.online
 +.rog-fundoriax.com
-+.rog-fundoriax.net
 +.rolixio-ai-it.com
 +.romelizio-app.com
 +.rompecines.online
@@ -72273,6 +72045,7 @@
 +.shop.olacoffee.vn
 +.shop.vffvllo.shop
 +.shop.vjvvjvz.shop
++.shop.xpqxpqu.shop
 +.shopaldideals.com
 +.shoppingtote.shop
 +.shopraidlight.com
@@ -72315,7 +72088,6 @@
 +.silvervelvion.net
 +.simeonericci.live
 +.similassrity.info
-+.simplecry.digital
 +.simpledwelling.eu
 +.simplypainter.com
 +.sincorrabtcv8.pro
@@ -72364,7 +72136,6 @@
 +.slnnanderers.info
 +.slotingonline.com
 +.slots17cool.store
-+.slotslimbo.online
 +.slowndlgg455.site
 +.slowsuitestay.com
 +.slupskiesmaki.mom
@@ -72427,7 +72198,6 @@
 +.sneakers-sale.com
 +.snimfr.weebly.com
 +.snug-renovate.com
-+.snuzzly3bear.info
 +.so-spacialapp.com
 +.soberpathways.com
 +.sobrerendoire.pro
@@ -72802,7 +72572,6 @@
 +.sweeep10stake.com
 +.sweemhtcraft.shop
 +.sweetaxrelief.com
-+.sweetessence.info
 +.sweetferret.autos
 +.sweetspotgolf.com
 +.swiat-whisky.shop
@@ -72889,7 +72658,6 @@
 +.tasaleschens.shop
 +.taskflowbase.site
 +.taskokomoshna.com
-+.tassmenesses.info
 +.tatianadelfes.com
 +.tatiltavsiyem.com
 +.tatry-rynktra.com
@@ -73078,7 +72846,6 @@
 +.the-handluxgpt.de
 +.the-lucrox-ai.org
 +.the-luprixapp.com
-+.the-north-face.gr
 +.the-pagtrixai.com
 +.the-pagtrixai.org
 +.the-quantumai.com
@@ -73097,7 +72864,6 @@
 +.thebombayone.club
 +.thecanvasbag.shop
 +.thecedarline.shop
-+.thechemlabinc.com
 +.thecleancrep.shop
 +.theclearance.shop
 +.thecloudnest.shop
@@ -73236,6 +73002,8 @@
 +.tm-pixelthugs.com
 +.tms21.edgeone.app
 +.toaconsulting.com
++.todaybriefnow.xyz
++.todaynoticias.lat
 +.toffee-apples.com
 +.tokajalapnexo.com
 +.tokomarching.site
@@ -73304,10 +73072,8 @@
 +.traderia-app.shop
 +.traders-club.live
 +.tradesired-ai.com
-+.tradevaultapp.com
 +.tradinggptapp.com
 +.trafficflowtm.com
-+.traficbooster.com
 +.traglogistics.com
 +.train26-promo.com
 +.trakyatornaci.com
@@ -73565,7 +73331,6 @@
 +.urbanchange.click
 +.urbanpeaklabs.com
 +.urbanpulseona.pro
-+.urbanutopia.click
 +.urencapitrace.com
 +.ureyspowejdrr.com
 +.uricotttelic.info
@@ -73840,6 +73605,7 @@
 +.vitalsupp.digital
 +.vitraneximaai.com
 +.vitrisbron.online
++.vivahoyflash.site
 +.vivelucroire.live
 +.viveplacoire.live
 +.vivid-deposit.com
@@ -74010,7 +73776,6 @@
 +.welovewebhost.com
 +.welsitacch.online
 +.weltmonitor.click
-+.welxcufils.com.ng
 +.wengbulldozer.org
 +.wenge-bucket.shop
 +.werdanikprime.com
@@ -74081,6 +73846,7 @@
 +.wings24store.shop
 +.wings24style.shop
 +.wirealertgrid.com
++.wireflashlive.lat
 +.wisdom-portal.com
 +.wise.hkaskoo.shop
 +.wiseborrowing.com
@@ -74134,6 +73900,7 @@
 +.wyeud.m-pages.com
 +.wylzofin-tech.com
 +.wyprzedazhit.shop
++.wz6778.craftum.io
 +.xabrilonorbit.com
 +.xaldriveniqa.info
 +.xalvendraq365.com
@@ -74675,6 +74442,7 @@
 +.aeroquantxtrade.de
 +.aeshanteen.web.app
 +.aetherintelli.shop
++.af1ae6de.pinme.dev
 +.afaliudnegair.info
 +.affechhtingly.info
 +.afflarabot.web.app
@@ -74992,6 +74760,7 @@
 +.andreahomelive.com
 +.andreasdillge.shop
 +.andreavalente.live
++.andzela.nuvexo.sbs
 +.anemurionhotel.com
 +.angelathedruid.com
 +.angelorosapires.pt
@@ -75086,7 +74855,6 @@
 +.aristocratico.shop
 +.arkforestmerch.com
 +.arkinvesttrade.com
-+.arkvelstundmol.pro
 +.arpg-b000d.web.app
 +.arquantiabitup.net
 +.arrcquiescent.info
@@ -75322,6 +75090,7 @@
 +.bayeracreative.com
 +.bayhdolecenter.com
 +.bbblogisticswi.com
++.bbvasecurities.com
 +.bearingtraders.com
 +.beatusholdings.com
 +.beautyelegance.org
@@ -75519,7 +75288,6 @@
 +.bnmsail.weebly.com
 +.bnofcdsefcwwaw.com
 +.bnpbancoit.web.app
-+.boatcanopieswa.com
 +.bobb-id36153.eu.cc
 +.boc-update.web.app
 +.bodyshopcenter.com
@@ -75618,7 +75386,9 @@
 +.brianlarsonlaw.com
 +.brickyardbloom.vip
 +.bridgewaterai.live
++.briefhojeviva.live
 +.briefnavigator.pro
++.briefwiretoday.xyz
 +.briggght4light.com
 +.bright-element.com
 +.bright-gateway.com
@@ -75826,7 +75596,6 @@
 +.caballoandante.org
 +.cabanasuspedeal.ro
 +.cabriefcentral.com
-+.cacapitalgault.com
 +.cacapitalvalue.com
 +.cacophonyless.info
 +.cadatabulletin.com
@@ -75834,7 +75603,6 @@
 +.cadataflowhope.com
 +.cadigitalbrief.com
 +.cadigitalfocus.com
-+.cadigitalprime.com
 +.cadigitalpulse.com
 +.cadigitalworld.com
 +.cafozi-beroxu.info
@@ -76054,6 +75822,7 @@
 +.chiarafondenza.org
 +.chiaraorlandi.shop
 +.chiasakura.digital
++.chickenrodsapp.com
 +.chilloutchoonz.com
 +.chilloutvrlabs.com
 +.chilloutvrsmod.com
@@ -76138,7 +75907,6 @@
 +.clipqpineapple.sbs
 +.clix.tkburgers.com
 +.clnfflornceapt.com
-+.clooudp9ortlab.pro
 +.clore-valmris.live
 +.clorevalmeris.live
 +.closeoutsale.eu.cc
@@ -76252,6 +76020,7 @@
 +.cortexedgeless.top
 +.corthiqemberai.net
 +.corthiqemberai.org
++.corvenamarket.shop
 +.corvosathletic.com
 +.cosibellacheap.top
 +.cosibellapl-co.com
@@ -76355,7 +76124,6 @@
 +.csgosmurfkings.com
 +.css.aiprotidin.com
 +.csvhwubije.web.app
-+.cub-containers.com
 +.cuculeposertyu.com
 +.cultmaniatike.shop
 +.cultorpartners.com
@@ -76399,10 +76167,13 @@
 +.dacvalutron-ai.com
 +.daily-blend.online
 +.dailybriefion.info
++.dailybriefwire.xyz
 +.dailycoreonix.info
++.dailyflashdesk.xyz
 +.dailyheadline.site
 +.dailyinfodeska.pro
 +.dailyinventory.org
++.dailylivebrief.pro
 +.dailymeadowhome.eu
 +.dailyoffershop.vip
 +.dailyporchlight.eu
@@ -76496,6 +76267,7 @@
 +.designerpump.click
 +.designersguru.cyou
 +.desigual-outlet.pl
++.desknowflash.click
 +.desquamssates.info
 +.destoronexia.click
 +.detechbulletin.com
@@ -76712,6 +76484,7 @@
 +.dubno-id2384.eu.cc
 +.ducalfondelle.shop
 +.duhemo-sucuse.info
++.dukaplofficial.com
 +.dulcineatravel.com
 +.dulcispartners.com
 +.dunainvestanza.net
@@ -77494,6 +77267,8 @@
 +.flammerentelle.net
 +.flamtrekkvonda.top
 +.flarepulseless.top
++.flashbriefdesk.lat
++.flashdeskbrief.pro
 +.flashingphoto.live
 +.flashnowwire.click
 +.flashpulsewire.pro
@@ -77694,7 +77469,6 @@
 +.fyyfyff.weebly.com
 +.g9ldc.slthenny.com
 +.gabi1402.jopr2a.pl
-+.gabrielbotelho.com
 +.gadyshh.weebly.com
 +.gagnorgpttrade.com
 +.gahili-vizike.info
@@ -77727,7 +77501,6 @@
 +.gas-profit-app.com
 +.gastrovascular.top
 +.gateraspberry.casa
-+.gateway-check.info
 +.gaubec-caubeer.com
 +.gavotyyspaten.info
 +.gazinvesttrade.com
@@ -77963,7 +77736,6 @@
 +.greensproutsbd.com
 +.greenvoltis001.pro
 +.greenvoltis013.pro
-+.greenwriting.click
 +.grenvatoria-it.com
 +.greystonerench.com
 +.gridlinkcables.com
@@ -78211,6 +77983,8 @@
 +.howtoconcierge.com
 +.howtooffice365.com
 +.hoy-invexa-pro.com
++.hoyflashnews.click
++.hoytodaynews.click
 +.hoza-platownia.com
 +.hoza-platownia.net
 +.hroprevionpro.live
@@ -78289,6 +78063,7 @@
 +.ilsfabrication.com
 +.imafuxiumtrade.com
 +.image-revolver.com
++.image.ricardo.land
 +.imagincreative.com
 +.imagoproperties.ro
 +.imcyumo.kuz-edu.ru
@@ -78832,6 +78607,7 @@
 +.laliradepozuelo.es
 +.lallhavdec.web.app
 +.lamaniaarchive.com
++.lamaniahome-pl.com
 +.lamaniahome-pl.top
 +.lamaniasale-pl.com
 +.lamporendecto.live
@@ -78957,7 +78733,6 @@
 +.lively-shimmer.com
 +.livepowerhouse.com
 +.living-manual.life
-+.livingpresence.pro
 +.lixxppinesses.info
 +.liyymitlessly.info
 +.llanogestivaje.com
@@ -79722,6 +79497,7 @@
 +.not-from-china.net
 +.noteonline-pt.shop
 +.notice.umaiban.com
++.noticiasmanana.xyz
 +.notifichedigit.top
 +.notino.pzoolza.com
 +.nova-velor-72.live
@@ -79745,6 +79521,7 @@
 +.nowadochodvel.live
 +.nowamajetownia.com
 +.nowapostpack.eu.cc
++.nowdailylive.click
 +.nowe-09-08-26.shop
 +.nowefilmyonline.pl
 +.nowinybiznes.space
@@ -79752,6 +79529,7 @@
 +.nowmediahouse.blog
 +.nowoczesnydom.shop
 +.nowrlfofommgm.site
++.nowtodayflash.site
 +.nowykapitektai.com
 +.nowyportalinfo.top
 +.nr-28432ms8423.lol
@@ -79812,8 +79590,11 @@
 +.oferta-2495741.cfd
 +.oferta-2741854.cfd
 +.oferta-2918546.cfd
++.oferta-4712451.cfd
++.oferta-4731475.cfd
 +.oferta-5384913.cfd
 +.oferta-5794214.cfd
++.oferta-6241534.cfd
 +.oferta-7542351.cfd
 +.oferta-7545311.cfd
 +.oferta-7654127.cfd
@@ -79850,7 +79631,6 @@
 +.oferta813502.click
 +.oferta823161.click
 +.oferta825791.click
-+.oferta832639.click
 +.oferta837133.click
 +.oferta837412.click
 +.oferta837592.click
@@ -80446,7 +80226,6 @@
 +.poczta.tyhbnee.icu
 +.poczta.zajerta.icu
 +.pocztapolska.autos
-+.pocztowylink24.com
 +.podgladpolski.info
 +.podilnimapinov.com
 +.podozu-jisuji.info
@@ -81352,7 +81131,6 @@
 +.shohrehrahmani.com
 +.shop-samsonite.top
 +.shop.ketdtlbg.shop
-+.shopandstyle.click
 +.shopatkshipbox.com
 +.shoptheslings.shop
 +.shorebasketline.eu
@@ -81502,7 +81280,6 @@
 +.smartcorewave.site
 +.smartdetailing.mom
 +.smartek-matrix.com
-+.smartforge.digital
 +.smartpower4all.org
 +.smartproinvest.com
 +.smartsavehome.shop
@@ -81532,7 +81309,6 @@
 +.sneakerstreet.shop
 +.snellafondovia.com
 +.snelmarktheim.live
-+.snoozzzy4road.info
 +.snowpeaksafety.com
 +.so.fi-acconuts.com
 +.sobrekapitorc.live
@@ -81821,7 +81597,6 @@
 +.suleymanokudan.com
 +.suluhnilaiwan.live
 +.sumaiya.jnitbd.com
-+.summerbreeze.click
 +.summerfieldhome.eu
 +.summitavkastel.net
 +.summitfinrevo.live
@@ -81945,7 +81720,6 @@
 +.szeptyzlatarki.top
 +.szeptznadwisly.top
 +.sziklaertekvar.net
-+.szklarventmond.top
 +.szkolaceramiki.mom
 +.szurmondgrelta.top
 +.szybki-profion.com
@@ -82386,7 +82160,6 @@
 +.truckservicer.info
 +.truecapitvane.live
 +.truenocapitivo.net
-+.truespiritless.top
 +.trueworthimery.net
 +.truggvermohavn.net
 +.trulvanqeth-uk.com
@@ -82401,7 +82174,6 @@
 +.trustwalletapp.vip
 +.trustwalletjbv.com
 +.trustwalletjvk.com
-+.trvbskaldgreva.pro
 +.trxtrainingeu.shop
 +.tryggvermohavn.com
 +.trzon-fundoria.com
@@ -82725,7 +82497,6 @@
 +.venneto.weebly.com
 +.ventilatillon.info
 +.ventofinance.click
-+.ventorixaalmra.xyz
 +.ventroviabexia.net
 +.veqsaghknh.web.app
 +.veraaiplatform.com
@@ -82746,7 +82517,6 @@
 +.verif-830251.eu.cc
 +.verified-forms.com
 +.verify-service.top
-+.verifygate.digital
 +.verifykyc2025.info
 +.veritasgrading.com
 +.veritasmedia24.com
@@ -82774,7 +82544,6 @@
 +.vfycbna.weebly.com
 +.vi1ebrequineu.shop
 +.vibrant-harbor.com
-+.vibrapositiva.bond
 +.victoradedokun.com
 +.victornavadaru.com
 +.vid-lv-eds.web.app
@@ -83050,6 +82819,10 @@
 +.wintexfashions.com
 +.winwaybusiness.com
 +.wipica-zibicu.info
++.wirebriefdaily.xyz
++.wiredeskbrief.live
++.wirenowdiario.site
++.wirenowflash.click
 +.wisetobesocial.com
 +.wisla-zyskovek.com
 +.wislazyskor-pl.com
@@ -83158,7 +82931,6 @@
 +.xionforgecell.site
 +.xiongpianshuju.com
 +.xiontrendware.site
-+.xiphoidprocess.top
 +.xixize-veboxu.info
 +.xixochaine-fr.live
 +.xixuza-tusuru.info
@@ -83778,7 +83550,6 @@
 +.allegro.75995.click
 +.allegro.823ggg.casa
 +.allegro.829302.shop
-+.allegro.92380s.bond
 +.allegro.h8848787.pl
 +.allenkatherine.shop
 +.allthingskenton.com
@@ -83917,6 +83688,7 @@
 +.app.pl-medfille.com
 +.app.pontosprime.biz
 +.apple2.reladync.com
++.appleid-suporte.com
 +.apply-9283-ld.eu.cc
 +.apply-job.github.io
 +.appointhjuh.komi.io
@@ -84191,6 +83963,7 @@
 +.bhs-corrugated.live
 +.biedonlineronka.com
 +.biedronka-deals.com
++.biedronka-food.shop
 +.biedronkapl-pl.shop
 +.biedronkasklep.shop
 +.biedronkastore.shop
@@ -84428,7 +84201,9 @@
 +.brick-sneakers.shop
 +.bridge-en.framer.ai
 +.briefcentralia.info
++.briefdeskdaily.site
 +.briefingdeskpro.com
++.briefnownews.online
 +.bright-kapitune.biz
 +.bright-kapitune.com
 +.bright-motorway.com
@@ -84855,7 +84630,6 @@
 +.cimaonrendaviol.com
 +.cimarendavioai.live
 +.cindonsi.weebly.com
-+.circlentriangle.sbs
 +.cirevonta-gpt.click
 +.cirrusgainxpro.live
 +.cisse-ec919.web.app
@@ -84994,7 +84768,6 @@
 +.convertinchtocm.com
 +.conviteaeternum.lat
 +.cookingenergise.com
-+.cooperateict.com.ng
 +.copperrendivale.net
 +.coproducootion.info
 +.coquelicot-bag.shop
@@ -85023,6 +84796,7 @@
 +.corthiqember-ai.net
 +.corthiqember-ai.org
 +.corvalenixtrade.com
++.cosibelladeals.shop
 +.coslychaczzauka.xyz
 +.cosmetologyexec.net
 +.cosmoredivanza.live
@@ -85126,6 +84900,7 @@
 +.czysty-zyskovik.net
 +.czystyfondewnik.net
 +.czystystandard.shop
++.czystystatut24.site
 +.d8b4feea80.nxcli.io
 +.dachsrendivelt.live
 +.daftarakungacor.xyz
@@ -85286,7 +85061,6 @@
 +.displaydigital.casa
 +.distancia-radio.com
 +.divantalyahotel.com
-+.diverseonlines.shop
 +.divesconsulting.com
 +.divisabolsario.live
 +.diyetisyensafak.com
@@ -85511,7 +85285,6 @@
 +.elanfortextrade.com
 +.elanmonrixtrade.com
 +.elazigcicekcisi.com
-+.electrooutlet.click
 +.elegabrockville.com
 +.elektriktutkusu.com
 +.eleve-vextera.click
@@ -85527,7 +85300,6 @@
 +.elta-postal.web.app
 +.eltapackage.web.app
 +.eltrummoxisware.com
-+.elvgrundmontik.info
 +.elviora.lovable.app
 +.elvukaris-ai-es.com
 +.elvukaris-ai-it.com
@@ -85596,7 +85368,6 @@
 +.ep-petroecuador.com
 +.epargnesolution.com
 +.epic-lotemax-01.com
-+.epic-manerix-xp.com
 +.epiclotemax2uia.com
 +.epigloffttises.info
 +.eqhvb-10ffe.web.app
@@ -85690,7 +85461,6 @@
 +.ewouldepese.web.app
 +.exiodhun.gitbook.io
 +.exito-ambiental.org
-+.exitor-luxerise.net
 +.exitorluxerise.club
 +.exolvianustrade.com
 +.exoticsregister.com
@@ -85881,6 +85651,7 @@
 +.finanzpilottrade.de
 +.finavoltreztrade.de
 +.finchmeadowless.pro
++.findtrezorsuite.com
 +.finereportless.info
 +.finestgalaxy.beauty
 +.finhub1-alias10.sbs
@@ -85971,7 +85742,6 @@
 +.finovestaire-it.com
 +.finozanetix-app.com
 +.finpulseupdatex.top
-+.finreportpulse8.pro
 +.fintaro.lovable.app
 +.fintmegacapital.net
 +.finvektormtrade.com
@@ -86103,7 +85873,6 @@
 +.fisios9-omnis52.sbs
 +.fixedluxeron-ai.com
 +.fjallreuoutlet.shop
-+.fjel-bruntdova.info
 +.fkposcertle.web.app
 +.fkrimbra.weebly.com
 +.flameashenvoid.shop
@@ -86113,6 +85882,7 @@
 +.flamskrentovid.info
 +.flashbrieftoday.pro
 +.flashcityhubpro.com
++.flashlivebrief.live
 +.flashmetropulse.com
 +.flashreportless.pro
 +.flaviogallozzi.live
@@ -86664,6 +86434,7 @@
 +.hogfundrelixpro.com
 +.hogwartsleia.online
 +.hojdfinoryx.digital
++.hojejornalviva.site
 +.holders.sellpass.io
 +.holycrossobits.site
 +.home-house38212.com
@@ -86718,6 +86489,7 @@
 +.houston-academy.com
 +.houstonportsbet.com
 +.howular.af7119.info
++.hoyflashdiario.live
 +.hozaplatowniaai.com
 +.hravaziskovstvo.com
 +.htccarpetstudio.com
@@ -87117,7 +86889,6 @@
 +.karpatrentovanz.com
 +.kartopnexistrax.org
 +.kasa-dochodnosc.com
-+.kasa-dochodnosc.org
 +.kasehoricup.web.app
 +.kategoria5764523.pl
 +.katophlepro.digital
@@ -87294,6 +87065,7 @@
 +.lakelomi.weebly.com
 +.lamania-archive.com
 +.lamaniaarchive.shop
++.lamaniahome-hot.com
 +.lampoinvestecto.net
 +.lamporendecto.click
 +.lan-dochodura.click
@@ -87412,7 +87184,7 @@
 +.littlewindowshop.eu
 +.litvvterateurs.info
 +.live24watchzone.com
-+.livejasminebony.com
++.livebriefnews.click
 +.liveldgr.zapier.app
 +.livelinessedds.info
 +.lively-hardware.com
@@ -87478,6 +87250,7 @@
 +.lorynfundstead.live
 +.losgatoscommons.com
 +.lotusfundektron.com
++.loy-office.mdbgo.io
 +.loyalpaycore-fr.com
 +.lskdakakorakla.site
 +.lucavieannuity.live
@@ -87574,6 +87347,7 @@
 +.marketporchfield.eu
 +.marketstonefield.eu
 +.markettrendhubx.top
++.marketworksasia.com
 +.marquisfundwick.net
 +.marulacapstead.live
 +.mastercardcrc.gu.cc
@@ -87717,7 +87491,6 @@
 +.monivaracapital.net
 +.monollchromats.info
 +.monopatikerdion.net
-+.monophylrretic.info
 +.monotheistyyic.info
 +.monprime-espace.com
 +.monsooncredwick.com
@@ -87936,7 +87709,6 @@
 +.nexportaris.digital
 +.nextgen-football.it
 +.nextgenadvisors.lat
-+.nextpr2essmedia.pro
 +.nexus-invest-ai.com
 +.nexusbeaconless.top
 +.nexussakura.digital
@@ -88011,6 +87783,7 @@
 +.notatkiredakcji.pro
 +.notice.hongjia1.com
 +.notice.zyjgjzkj.com
++.noticiasdehoy.click
 +.notpuremichigan.org
 +.notress.c8kdyn.info
 +.nova-residences.com
@@ -88043,6 +87816,7 @@
 +.nowe-22-05-26.click
 +.nowe-22-o6-26.click
 +.nowe-23-08-26.click
++.nowe-23-09-26.click
 +.nowe-23-o7-26.click
 +.nowe-25-06-26.click
 +.nowe-26-03-26.click
@@ -88134,6 +87908,7 @@
 +.oferta594973629.cfd
 +.oferta64174146.shop
 +.oferta65422643.shop
++.oferta666378512.cfd
 +.oferta6754302pl.cfd
 +.oferta7358274.click
 +.oferta7678678564.pl
@@ -88258,6 +88033,7 @@
 +.ordid-731521921.top
 +.ordid-731820921.top
 +.ordmv.due-tasnz.com
++.organsomainn7.eu.cc
 +.orichalcumtrade.com
 +.origatoranline.site
 +.original-diplom.com
@@ -88316,7 +88092,6 @@
 +.paczzka83489723.cfd
 +.paczzkaa6236238.sbs
 +.paczzkaa6613238.sbs
-+.pages-metaquest.com
 +.pages.tempisite.com
 +.pagronaiupdates.com
 +.pagronaiupdates.org
@@ -88367,7 +88142,6 @@
 +.pcbnr.jdevcloud.com
 +.pcrectdkbz6.web.app
 +.pdf-zone-update.com
-+.pdo-application.com
 +.peaceandpassage.org
 +.peakfinthor.digital
 +.pearl-structure.com
@@ -88501,8 +88275,6 @@
 +.pl-oferta783694.biz
 +.pl-oferta786812.lol
 +.pl-oferta812281.lol
-+.pl-oferta814239.sbs
-+.pl-oferta819129.sbs
 +.pl-oferta855434.lol
 +.pl-oferta856868.lol
 +.pl-oferta873411.lol
@@ -88628,7 +88400,6 @@
 +.polskagoldai-pl.com
 +.polskanaczylej.info
 +.polskandnewinfo.com
-+.polskaprzeglad.site
 +.polskiefilmyusa.com
 +.polskiemennice.info
 +.polskiewydarza.info
@@ -88915,6 +88686,7 @@
 +.rabatydiscount.shop
 +.rabotauemdhj72.cyou
 +.rachel-and-matt.com
++.radaperla-italy.sbs
 +.radaperla-spain.sbs
 +.radexorkinvario.com
 +.radiance-bridge.com
@@ -89027,11 +88799,11 @@
 +.renueva-net-acc.com
 +.renvekstnor.digital
 +.reorhdhe.weebly.com
-+.repairtools-hot.top
 +.repoira.lovable.app
 +.reportdaily365a.com
 +.reporterwearry.shop
 +.reptioli.weebly.com
++.research-secure.com
 +.reservaplatform.pro
 +.reservations-ai.com
 +.reserve-inn-now.com
@@ -89047,7 +88819,6 @@
 +.restauracjaefes.mom
 +.restaurantblauw.mom
 +.restaurantegrex.com
-+.restimulauutes.info
 +.restinpeacehub.site
 +.restorationcrew.org
 +.resuscbbitator.info
@@ -89496,7 +89267,6 @@
 +.slideplatform.click
 +.sligoplantation.com
 +.sloks.bubbleapps.io
-+.slotsgorilla.online
 +.slowsuitestayin.com
 +.sluchajwmiastie.top
 +.slurvenix-ai-it.com
@@ -89778,6 +89548,7 @@
 +.sterkkalvix-tr.live
 +.sterkkalvix-zh.live
 +.sterlingoutlook.com
++.sterlingprofit.site
 +.stetson-outlet.shop
 +.stihllpl-store.shop
 +.stillerentveer.live
@@ -89801,8 +89572,6 @@
 +.stonex-payments.net
 +.stonnryboarded.info
 +.store-sending.forum
-+.store.24uniswap.xyz
-+.store.robuxmenu.vip
 +.storm-capholm.click
 +.storm-portfolio.com
 +.stormmminesses.info
@@ -90047,7 +89816,6 @@
 +.techprogramplus.com
 +.tecnoglobalnews.com
 +.tecnovisionnews.com
-+.teehalidomides.info
 +.teknolifemersin.com
 +.telegrafpolski.info
 +.telimenastudio.live
@@ -90065,7 +89833,6 @@
 +.teslatraderlink.com
 +.tesoralta-spain.sbs
 +.testamentooary.info
-+.texasfirsttrust.com
 +.texastradecraft.com
 +.texisfinanza-fr.com
 +.text-tee.weebly.com
@@ -90243,6 +90010,9 @@
 +.tkohlerplumbing.com
 +.tmateknikinsaat.com
 +.todaydeskwire.click
++.todayflashdesk.site
++.todaywirebrief.site
++.todaywireflash.live
 +.toirane.lovable.app
 +.tolario.lovable.app
 +.tolesmeeinions.info
@@ -90528,6 +90298,7 @@
 +.updatelivedump.info
 +.upddpercutting.info
 +.updmnail.weebly.com
++.upewnijrekord24.fun
 +.upneduco.weebly.com
 +.upperfieldcorner.eu
 +.upstatecardshow.com
@@ -90975,6 +90746,7 @@
 +.wintora-restore.com
 +.wiodosodsifooj.site
 +.wiprobatelawyer.com
++.wiredailyflash.site
 +.wiretodaylive.click
 +.wise-pathfinder.com
 +.wise.binjaikia.shop
@@ -91041,6 +90813,7 @@
 +.xinfinit.weebly.com
 +.xjchxbcccc.carrd.co
 +.xn--boxbrry-uya.com
++.xn--btpanda-rfb.com
 +.xndhefuh.weebly.com
 +.xrplatformtrade.com
 +.xtradeclaude-ai.com
@@ -91076,6 +90849,7 @@
 +.yottelixlytics.site
 +.youneedawebsite.net
 +.younglifeterlik.com
++.yqlkpuov.d1abos.biz
 +.yrriwdewartdji.site
 +.ysfsgshs.weebly.com
 +.yucattan.weebly.com
@@ -91248,6 +91022,7 @@
 +.2834912oferi180.shop
 +.289326758976235.asia
 +.334556789.weebly.com
++.3399581-coinbase.com
 +.3412674812891236.sbs
 +.3883191920234871.cfd
 +.3928g84783494302.sbs
@@ -91755,6 +91530,7 @@
 +.attcardpdate.web.app
 +.attmailer.boxmode.io
 +.atualizacao-2026.app
++.atualizartaxasnv.sbs
 +.atualizataxas.online
 +.atvsafarigokturk.com
 +.aubeluxavor-tech.com
@@ -92127,6 +91903,7 @@
 +.bridge-oi.zapier.app
 +.bridgehub.zapier.app
 +.bridgesintounity.org
++.brieflivedaily.click
 +.bright-dashboard.com
 +.bright-economics.com
 +.brightaccrudance.net
@@ -92610,7 +92387,10 @@
 +.cortexverditrade.net
 +.corvinepatrimaux.com
 +.cosebellestudio.live
++.cosibella-plodor.sbs
++.cosibellaodor-pl.sbs
 +.cosibellaonline.shop
++.cosibellapoland.shop
 +.costapatrimencia.net
 +.costierasultenza.com
 +.coteeazur.weebly.com
@@ -92759,6 +92539,8 @@
 +.designerapparel.shop
 +.designhub-0e6.mvt.so
 +.designuniversal.info
++.deskflashtoday.click
++.desktodayflash.click
 +.detailedanalysis.pro
 +.deutschlandnews.info
 +.deutschmitmilena.com
@@ -93107,7 +92889,6 @@
 +.etoroaiautomatic.org
 +.eu-karllagcrfeld.com
 +.eu-outlet-store.shop
-+.eu.drmartensales.com
 +.eu.masterxseries.com
 +.euflowermountain.com
 +.eulalieboursier.shop
@@ -93143,7 +92924,6 @@
 +.exitplanhotsauce.com
 +.exittoys-online.shop
 +.exodustrading-ai.com
-+.exotic-birdsfarm.com
 +.experiorholdings.com
 +.expertdeathmatch.com
 +.explorationsrip.best
@@ -93163,13 +92943,11 @@
 +.fablabmetalworks.com
 +.fabled-labyrinth.com
 +.fabricdepotaz.com.es
-+.facebook.webstore.vn
 +.faceformclinic.co.uk
 +.faceit.id-invite.pro
 +.fachofundvia-app.com
 +.facialyogaonline.com
 +.facto1-e8374.web.app
-+.factsheetsguides.org
 +.facturatie-odido.sbs
 +.faktylokaltresci.xyz
 +.faktyzpodjazdow.info
@@ -93364,7 +93142,6 @@
 +.finny7-dolorum89.sbs
 +.finny7-nostrum84.sbs
 +.finovestaire-fr.live
-+.finpulsematrixq.info
 +.finpulseplatform.com
 +.fintradix-ai-bot.com
 +.fintrendvectorv.info
@@ -93646,7 +93423,6 @@
 +.fuzzy-suspension.com
 +.fwcpublicarchive.com
 +.fwimu-drixofwimu.com
-+.fxtradeincomepro.com
 +.fylmatickrentos.info
 +.fyronex-driftor.live
 +.g4-valley.vercel.app
@@ -93696,14 +93472,12 @@
 +.germansthalgroup.com
 +.germantechreport.com
 +.gerteuzonimtrade.com
-+.gestioncolocanza.net
 +.get-platypuslabs.org
 +.get.whitelllshop.icu
 +.getipass.com-btg.top
 +.getnow.medn-pay.shop
 +.gewinnektaai-de.live
 +.ghghgjhjh.weebly.com
-+.ghirtrevondakkel.pro
 +.ghjfdjhgdfkjkgdf.com
 +.ghyytttdd.weebly.com
 +.gianetto-meridia.pro
@@ -93715,7 +93489,6 @@
 +.glavironsoftware.com
 +.glazkapitonis-pl.com
 +.gleam-carburetor.com
-+.gleeppfulnesses.info
 +.glideinplainview.com
 +.glimmer-syllabus.com
 +.glimmering-crest.com
@@ -94119,7 +93892,6 @@
 +.infolinkd.weebly.com
 +.inforlaeconomico.com
 +.informationsante.com
-+.infosdisney-svod.com
 +.infostates.github.io
 +.infouredu.weebly.com
 +.infrastructureyx.com
@@ -94131,7 +93903,6 @@
 +.inicio-cad.pages.dev
 +.inlatestinsights.com
 +.inmymotherswords.com
-+.innerserenitypro.pro
 +.innertravelbooks.com
 +.innerwarmhearted.top
 +.innewstechnology.com
@@ -94200,8 +93971,8 @@
 +.intimissimipolska.pl
 +.intranet.universe.us
 +.intricatelineage.com
++.introgresnnsive.info
 +.investbriefcorex.top
-+.investbriefhubx.info
 +.investffgroupfin.com
 +.investflowai.digital
 +.investimente-fr.live
@@ -94278,7 +94049,6 @@
 +.jessicaguillory.shop
 +.jesusuterusfacts.com
 +.jetgradeadhesive.com
-+.jetspeedycourier.com
 +.jhgfdgf.w3spaces.com
 +.jijkaleneiktrade.com
 +.jiolatest.vercel.app
@@ -95171,6 +94941,7 @@
 +.notafr-abfab.web.app
 +.notatkazredakcji.pro
 +.notica-a1ab9.web.app
++.noticiasflashhoy.pro
 +.nourish-and-heal.com
 +.nova-capital-lab.com
 +.nova-certificate.com
@@ -95230,6 +95001,7 @@
 +.oceanridgeforge.info
 +.ochnik-sprzedaz.shop
 +.ochnikesbikeshop.com
++.odorcosibella-pl.sbs
 +.oepoadiwrodadof.site
 +.ofeir28387923019.lat
 +.ofeliahomedecor.live
@@ -95395,7 +95167,6 @@
 +.outlets-online1.shop
 +.outletwyprzedaz.shop
 +.ovemmrambitious.pics
-+.overexccposures.info
 +.overrepornnting.info
 +.overweightinrrg.info
 +.ovplatformsystem.com
@@ -95609,6 +95380,7 @@
 +.pl-9853-oferta.click
 +.pl-alebilet-3427.sbs
 +.pl-alebilet-8278.cfd
++.pl-oferta-521691.sbs
 +.pl-oferta0482758.sbs
 +.pl-oferta0973202.sbs
 +.pl-oferta1257272.sbs
@@ -95656,7 +95428,6 @@
 +.pl-oferta9360428.sbs
 +.pl-oferta9362056.cfd
 +.pl-oferta9372649.cfd
-+.pl-oferta9404366.cfd
 +.pl-oferta9786324.lol
 +.pl-oferta9825479.cfd
 +.pl-oferta9825479.sbs
@@ -95826,7 +95597,6 @@
 +.premiercipherpro.net
 +.premio-instagram.com
 +.premium.flixflow.net
-+.premiumcartsshop.com
 +.premiummicrosoft.com
 +.prepbahia.vercel.app
 +.preprpqeworoqwr2.com
@@ -95946,6 +95716,7 @@
 +.puramercadea-ai.live
 +.puramercoviabot.live
 +.purecrystalslay.info
++.puredailycareca.shop
 +.purfinrevoux-pro.com
 +.purolator.etcexh.vip
 +.purotattoostudio.mom
@@ -96126,7 +95897,6 @@
 +.rentndfiosdpsdo.site
 +.renuev-acces-net.com
 +.renueval-net-sub.com
-+.reotboeoeeorbvkv.sbs
 +.repayments-ukgov.com
 +.reportdeskstudio.com
 +.reportinghubspro.com
@@ -96297,6 +96067,7 @@
 +.ryptowolfzengine.pro
 +.ryudanceacademy.live
 +.ryzexorsurge-app.com
++.rzetelnadomena.space
 +.rzutka-rendovnia.com
 +.rzutka-rendovnia.net
 +.rzutka-rendovnia.org
@@ -96351,7 +96122,6 @@
 +.saveclovervalley.org
 +.savefuneralcosts.com
 +.saveonfurniture.shop
-+.saveouremsunion.info
 +.saveurs-provence.mom
 +.savrynpulseai-app.de
 +.savrynpulseaiapp.com
@@ -96776,6 +96546,7 @@
 +.stevenzarnowitz.shop
 +.stevoluon.vercel.app
 +.stewartnicholas.shop
++.stg.evergreenfin.ltd
 +.stiriactualnova.info
 +.stjerneavkastnas.net
 +.stjernerendem-da.com
@@ -96788,6 +96559,7 @@
 +.stoneislandworld.top
 +.stonewynboldvik.live
 +.stop.sahkoautot.info
++.store.m.coinexeu.vip
 +.stormbound-realm.com
 +.stormgrovecraft.info
 +.stormoakalchemy.info
@@ -96835,7 +96607,6 @@
 +.subjzzectivisms.info
 +.sublilleutenant.info
 +.sublimirovanier.site
-+.succesdirecticiu.net
 +.suede-poncho-pl.shop
 +.sugar-0007.github.io
 +.suicidedeathcult.com
@@ -96863,7 +96634,6 @@
 +.supchecmessmta.store
 +.supercollidevvr.info
 +.superdealonline.shop
-+.superhomeliving.shop
 +.supermarkets-pl.shop
 +.supertradeai-app.com
 +.supertritonlease.com
@@ -96952,7 +96722,6 @@
 +.targetsalestores.com
 +.tarrtngmbnngggh.site
 +.tasarimdunyasi.store
-+.taschen-boutique.top
 +.tasdertn.lovable.app
 +.tastefulwombat.autos
 +.tatilimviptravel.com
@@ -96965,7 +96734,6 @@
 +.tbd54566975.ghost.io
 +.td.moqusopestore.top
 +.teamp-sup.weebly.com
-+.tech-consultants.com
 +.techfrontierlabs.com
 +.techfrontiernews.com
 +.technologiapls.store
@@ -97136,9 +96904,11 @@
 +.titanbreakinghub.com
 +.tk.carousell-one.cfd
 +.tlacoveran-italy.com
++.todaybriefnews.click
 +.toiletpaperprice.com
 +.tokecorentengine.com
 +.token360daytrade.com
++.tokenim-cdn-hk.click
 +.tokenizer360-app.com
 +.tokombpptiko24.today
 +.tokumitoushikamu.net
@@ -97202,7 +96972,6 @@
 +.transgruuessive.info
 +.transilvania-ai.live
 +.transilvaniaai.click
-+.transitstras2384.icu
 +.translatecovid19.com
 +.translatorenence.com
 +.transpetroltrade.com
@@ -97237,6 +97006,7 @@
 +.tridentappengine.com
 +.trinity-capital.live
 +.trinityistesting.com
++.trinitylivesound.com
 +.trinurtofsai-app.com
 +.trivaxonvelquant.pro
 +.trixonixpro-tech.com
@@ -97280,6 +97050,7 @@
 +.tyiilkdslfdslsdf.com
 +.typescript-tacos.com
 +.typicalnessekks.info
++.tzoskudran-italy.sbs
 +.uaenationalpower.com
 +.ubrauliocarrillo.com
 +.ucatolica.weebly.com
@@ -97379,6 +97150,7 @@
 +.unam.myfreesites.net
 +.unemotionaluuly.info
 +.unfoldingflow.online
++.uni-181819188218.com
 +.uniaen-fr.weebly.com
 +.unifins-official.com
 +.unikalnyprjectpl.com
@@ -97523,6 +97295,7 @@
 +.vero-fondavio-it.com
 +.vero-omavero.web.app
 +.veroglabilvellad.pro
++.verostrevionbase.com
 +.vertexcapital-ai.com
 +.verticefundex-it.com
 +.vesperacosmetics.com
@@ -97720,6 +97493,7 @@
 +.wildcrownvoyage.live
 +.wildflower-tours.com
 +.wildharborunion.info
++.wildlands.acltci.com
 +.wildlifehotspots.com
 +.wilhelmlehmann.co.za
 +.willowcapitwick.live
@@ -98493,6 +98267,7 @@
 +.amerskuldventmold.top
 +.ametrixv182ai-app.com
 +.aminako-2b8d0.web.app
++.ammdhesivesterol.info
 +.amphilfundraising.com
 +.ampiogestivora-ai.com
 +.ampiogestivora-it.com
@@ -98755,7 +98530,6 @@
 +.bhdwebpage.vercel.app
 +.biaempresanet.digital
 +.biapontosdigitalx.com
-+.bibleversustheday.com
 +.bicoastalholdings.com
 +.biedrankosale-pl.shop
 +.biedronka-market.shop
@@ -99067,7 +98841,6 @@
 +.capitaltradingai.shop
 +.capitalupdatezone.pro
 +.capitalvectorhubz.pro
-+.capitalwatchcore4.pro
 +.capivalsolvandra.live
 +.capsizecrestance.live
 +.carderyyscirrhus.info
@@ -99393,7 +99166,6 @@
 +.decreasedsupply.click
 +.dedikoduhaberleri.com
 +.deedjdjdksoodksd.site
-+.deepconnectionty.info
 +.deepfieldalchemy.info
 +.deepoceanwhisper.info
 +.deepseekv3-trader.com
@@ -99405,6 +99177,7 @@
 +.delfin-investanza.sbs
 +.delightstreamsltd.com
 +.deliveritapp-apis.com
++.deliverypayment.click
 +.deluxepizzaburger.com
 +.delvirohaxent.digital
 +.delwickgainstead.live
@@ -99495,11 +99268,9 @@
 +.dorightvaliantly.info
 +.dorivoinvestment.live
 +.dorsoventrallooy.info
-+.doshwwascutdowns.info
 +.doucefluxelle.digital
 +.douvefondenca.digital
 +.download.dasckup.site
-+.doxiebreedershome.com
 +.dpanel.vetactivity.ro
 +.dpd.parcelstahcq.bond
 +.dpd.parcelstahct.bond
@@ -99661,7 +99432,6 @@
 +.epurefundexsystem.com
 +.equinoxisdrive-de.com
 +.equismartsolution.com
-+.equitabitline-app.com
 +.equlum-app-ai-pro.com
 +.erdeihozamveny-ai.com
 +.erdemlizeytinyagi.com
@@ -100069,6 +99839,7 @@
 +.flantorexo-engine.com
 +.flashmediainsight.pro
 +.flashreportupdate.pro
++.flashwiredesk.website
 +.flexbitboosttrade.com
 +.flexbridgelexhub.info
 +.flexshiftalis.digital
@@ -100525,6 +100296,7 @@
 +.identity.wpenqine.com
 +.idsyhyde.w3spaces.com
 +.idusal1ser.weebly.com
++.ie-aldi.ryntexllc.com
 +.ieodjajreowddjar.site
 +.ifood.monkey.exchange
 +.igoteainvesttrade.com
@@ -100632,6 +100404,7 @@
 +.innerlighthearted.pro
 +.innerspiritattire.com
 +.innovaationledger.com
++.innovarazvitie.online
 +.innovativefilmcity.in
 +.inovasyonyonetimi.com
 +.inowaciinaproect.site
@@ -100679,6 +100452,7 @@
 +.instrumental-b.com.ar
 +.intechscopeglobal.com
 +.interbankempresas.com
++.interbankiniciarr.lat
 +.interferoguurams.info
 +.internetfirehouse.com
 +.intesa365erix.digital
@@ -100836,7 +100610,6 @@
 +.kastamonupsikolog.com
 +.kategoria-75423523.pl
 +.kategorie-4838849.xyz
-+.katerinofaresrifa.com
 +.katherinerichards.com
 +.katilimsistemleri.com
 +.kaweoadpoqeritys.site
@@ -101379,7 +101152,6 @@
 +.nehahahy55.weebly.com
 +.neopixellightsaber.co
 +.neosportstore-pl.shop
-+.neotrustfinancial.com
 +.neoutdoorlighting.com
 +.nerjsidwjreksdods.com
 +.nerodjwrakopweor.site
@@ -101854,6 +101626,7 @@
 +.pl-oferta59860123.sbs
 +.pl-oferta5y53f44a.cfd
 +.pl-oferta6484958.shop
++.pl-oferta7382186.shop
 +.pl-oferta7392634.shop
 +.pl-oferta745hf65.shop
 +.pl-oferta759257831.pl
@@ -101954,6 +101727,7 @@
 +.polestracravendo.info
 +.polishprojectom.store
 +.polishprojectum.store
++.polnfirap.lovable.app
 +.polntrasd.lovable.app
 +.poloaeosopweodfk.site
 +.polooaidiwoeikda.site
@@ -102072,7 +101846,6 @@
 +.profitexofundbase.com
 +.profitexofundbase.pro
 +.profitezfundrun.click
-+.profitinafundcore.net
 +.profitionplatform.com
 +.profitiumcorevia.shop
 +.profitivafundalis.net
@@ -102283,6 +102056,7 @@
 +.reserve-stay-here.com
 +.reserve-your-stay.com
 +.reserve.16cushing.com
++.reserve.tieniusem.com
 +.reserveadonline.store
 +.reservedsales-pl.shop
 +.reservesafegrove.live
@@ -102327,6 +102101,7 @@
 +.riskmadeinwarsaw.live
 +.risparmiokivotech.com
 +.ritmocorexartrade.com
++.rituals-cosmetic.shop
 +.rivaprofitextrade.com
 +.rivecapitange-ai.live
 +.riverstonehub.digital
@@ -102432,6 +102207,7 @@
 +.samriddhibuilders.com
 +.sandeeppk03.github.io
 +.sanlam-ai-wealth.live
++.santander.firstjob.me
 +.santandercustodia.com
 +.sante-vitale-aide.com
 +.santecarte-compte.com
@@ -102458,6 +102234,7 @@
 +.savrynpulseai-app.com
 +.savrynpulseai-app.net
 +.savrynpulseai-app.org
++.saway-idealstyle.shop
 +.saway-newproduct.shop
 +.saway-polandsale.shop
 +.sawaylight-poland.xyz
@@ -102607,7 +102384,6 @@
 +.sinotruckistanbul.com
 +.sisterfriendmarie.net
 +.site-bradesco.digital
-+.site-google-havan.com
 +.site235744746.fo.team
 +.site2723vftu6f-it.com
 +.site726580035.fo.team
@@ -102903,7 +102679,6 @@
 +.swaprivoire-app.click
 +.swapsun.typedream.app
 +.sweet-bonanza-demo.gr
-+.sweetspriritless.info
 +.swift-culmination.com
 +.swiftedgefinvexor.pro
 +.swiftlink-valnex.live
@@ -102915,7 +102690,6 @@
 +.switluxent-system.com
 +.switshburgutrbes.club
 +.symmetricalidiot.site
-+.synaptic-surgical.com
 +.synaraveltix-tech.com
 +.synoraveyrox-soft.com
 +.syntecai-software.com
@@ -103158,9 +102932,9 @@
 +.torkvulidplatform.com
 +.torrecapitezza-ai.com
 +.torrent-anlagholm.net
-+.totalfreightlogis.com
 +.totallyunrelated.blog
 +.totalpest-control.com
++.touristvisaonline.com
 +.touwale-89321.web.app
 +.towderegar.weebly.com
 +.track-hiberix-pip.com
@@ -103312,7 +103086,6 @@
 +.ukzasalopqiogreti.com
 +.ultimate-fund1000.com
 +.ultimatvvenesses.info
-+.ultracleanmasters.com
 +.ultramarinekiwi.autos
 +.ultrapremiumvodka.com
 +.ulveron-qesthira.live
@@ -103606,6 +103379,7 @@
 +.welkruvozanai-pl.live
 +.welliscore72trade.com
 +.wellplatedbyerin.info
++.wellsfargogethelp.com
 +.wellsfraudsupport.com
 +.welomolch.lovable.app
 +.weloweladakoweka.site
@@ -104036,6 +103810,7 @@
 +.aldi-eu.actinshop.shop
 +.aldi-eu.ruzmarket.shop
 +.aldi-eu.tyzpantry.shop
++.aldi-uk.arvionauto.com
 +.aldi-uk.dxzbasket.shop
 +.aldi-uk.eldenmart.shop
 +.aldi-uk.getlorvane.com
@@ -104266,6 +104041,7 @@
 +.allegro.4912919gg.qpon
 +.allegro.63493849g0.lol
 +.allegro.7662377gh.rest
++.allegro.81238tho5.buzz
 +.allegro.8723893g92.lol
 +.allegro.8t238g823.rest
 +.allegro.9349g7934g.cfd
@@ -104457,6 +104233,7 @@
 +.autenticarbradesco.com
 +.authfremont.weebly.com
 +.authorise-mypayee.live
++.authstep26-booking.com
 +.authwebuxux.weebly.com
 +.autocomplex-zgierz.mom
 +.autoexportfreiburg.com
@@ -104728,7 +104505,6 @@
 +.bvvumptiousnesses.info
 +.bystra-inwestornia.com
 +.bystragieldero-app.com
-+.bystrahodnotex-app.com
 +.bystryzyskownia-ai.com
 +.byvkpjvpatradb.web.app
 +.c-a-espace01.bolt.host
@@ -104754,7 +104530,6 @@
 +.cancunboatcharters.com
 +.cangrants-platform.com
 +.capitalecrypto-app.com
-+.capitalflowmatrixx.top
 +.capitalflux-system.pro
 +.capitalgrowthflows.com
 +.capitalpro-app.digital
@@ -104808,7 +104583,6 @@
 +.centralhomeoffers.shop
 +.centrefinrivotrade.com
 +.centrium24.veriftv.com
-+.centrixaccountants.com
 +.centroluxalis-tech.com
 +.centronoticiastech.com
 +.centrumrowerowe-pl.com
@@ -104921,6 +104695,7 @@
 +.comisariatoelsitio.com
 +.commerciauulising.info
 +.companhiadossitters.pt
++.compliance-central.com
 +.compositionstudios.com
 +.computermechanics.live
 +.concaskarbez-ai-it.com
@@ -105272,7 +105047,6 @@
 +.elitiumtermalhotel.com
 +.ellidetrenikstrade.com
 +.elmarinyxquxyttrade.de
-+.elvgrundharstovikk.top
 +.emaiilsidbi.weebly.com
 +.emberwealthwick-ai.com
 +.embodyfacilitation.com
@@ -105364,6 +105138,7 @@
 +.expressrelay.bolt.host
 +.exquisitgeessence.shop
 +.eyutioetiusifietf.site
++.ezeb.saldi-scholl.shop
 +.fabrykarozmaitosci.cfd
 +.facebook.gapesta.my.id
 +.facebook1029.github.io
@@ -105713,7 +105488,6 @@
 +.frozencraft-skills.com
 +.frrorgivingnesses.info
 +.ftfconstructionllc.com
-+.fttlatlyeutherian.info
 +.fuertana-inversura.icu
 +.fulgorfundoriatech.com
 +.fundedtradingplus.live
@@ -105929,6 +105703,7 @@
 +.helikontex-retail.shop
 +.hellekapitberg.digital
 +.hello11teamsports.club
++.help.core-whatapps.com
 +.helpcenter-bbteam.site
 +.helpcenterauth.web.app
 +.helpcenterspotify.help
@@ -106032,6 +105807,7 @@
 +.idms-adorngraphics.com
 +.idtykeenvry.weebly.com
 +.idxbillings-567804.com
++.ie-aldi.redwoodyoo.com
 +.igacorp.conohawing.com
 +.ignitionoffenffds.info
 +.iiivolny777.weebly.com
@@ -106871,7 +106647,6 @@
 +.new-briddge.zapier.app
 +.new-started.zapier.app
 +.newborncelebration.com
-+.newinnovation-tech.com
 +.newmexico.gov-zca.help
 +.newmexico.gov-zci.help
 +.newshanghaiaolans.info
@@ -106935,6 +106710,7 @@
 +.notice.info-eu3830.com
 +.notice.info-eu6861.com
 +.notice38923.weebly.com
++.noticiashoybrief.click
 +.notiseconomicashoy.com
 +.nottinghamcaraudio.com
 +.nouvelleformat.web.app
@@ -107266,7 +107042,6 @@
 +.pl-oferta684792173.sbs
 +.pl-oferta692145367.sbs
 +.pl-oferta697412832.cfd
-+.pl-oferta7238439.click
 +.pl-oferta732691879.cfd
 +.pl-oferta7358277.click
 +.pl-oferta7358929.click
@@ -107551,7 +107326,6 @@
 +.rachid.acces948207.pro
 +.radicalreadingclub.com
 +.rainbarrelsoftener.com
-+.rainewscrystalline.com
 +.rakan87900.m-pages.com
 +.raku-point-cebinde.com
 +.raku-point-ensheng.com
@@ -107590,7 +107364,6 @@
 +.redpeak-evobit-app.com
 +.redsfcucare.weebly.com
 +.redwoodcoastdental.com
-+.reebokrunningstore.com
 +.reels.workresource.cfd
 +.refinetozenvex.digital
 +.regalisfinthorsoft.com
@@ -107672,6 +107445,7 @@
 +.rikucoresystem.digital
 +.riqueazacoinlume.click
 +.river-run-services.com
++.riverbendbargains.shop
 +.riverinamonspire.click
 +.rizeozeldisdoktoru.com
 +.rizeozeldisklinigi.com
@@ -107835,7 +107609,6 @@
 +.sfisoisfsdaidofis.site
 +.sfr.hwf.temporary.site
 +.sfr.portailclients.com
-+.sghealthtendersuae.com
 +.sgpropertysolution.com
 +.shadowed-promenade.com
 +.shadowmeadowcraft.live
@@ -107942,7 +107715,6 @@
 +.sniffinessprssize.info
 +.soat-mundia.vercel.app
 +.socialdistancecafe.com
-+.socmaalltimenewone.com
 +.sofoffic365.weebly.com
 +.sofor2.firebaseapp.com
 +.sogen-reactivation.com
@@ -108076,6 +107848,7 @@
 +.subtronix-caraudio.com
 +.successfullstudent.com
 +.sudburyartscouncil.org
++.sui.faultllnecomms.com
 +.suietsapp.framer.media
 +.suite-trrzr.zapier.app
 +.suitetrezur.zapier.app
@@ -108918,7 +108691,6 @@
 +.1uanl-edu-mx.weebly.com
 +.2026onlinealid.software
 +.2026summerclearance.com
-+.2026wojasviponline.shop
 +.24carterbk66.weebly.com
 +.24hourpumpedstorage.com
 +.267382update.weebly.com
@@ -108958,6 +108730,7 @@
 +.acces7.godaddysites.com
 +.acciaccappture.business
 +.accommodationlink.click
++.account-core.base44.app
 +.accountbitpanda.web.app
 +.accountgmx05.weebly.com
 +.accounts.bmwweb.academy
@@ -109237,6 +109010,7 @@
 +.allebilet.103748234.lat
 +.allegro-pl.viredol.cyou
 +.allegro.01201290.beauty
++.allegro.012030945h.pics
 +.allegro.0120h95732.shop
 +.allegro.031209h58h45.me
 +.allegro.100020bb4.autos
@@ -109275,6 +109049,7 @@
 +.allegro.anonservice.lol
 +.allegro.aukceuu8125.cfd
 +.allegro.gay-porevo.buzz
++.allegro.h9491d002d.buzz
 +.allegro.j9of823791n.lol
 +.allegro.m38r7ghe7er.cfd
 +.allegro.mypg043812.qpon
@@ -109299,7 +109074,6 @@
 +.allegroseafoodgrill.com
 +.allegroshoppingmart.com
 +.allmediasuppliesinc.com
-+.allocateseyewppash.info
 +.allroadsproductions.com
 +.almoldservicefr.web.app
 +.alphagrudger.cloudns.ph
@@ -109728,7 +109502,6 @@
 +.cartaocontinte-ptrc.cfd
 +.cartaocontinte-ptsz.cfd
 +.case10502036121.web.app
-+.case839213-coinbase.com
 +.casipledunre.weebly.com
 +.casmwediedakweoqwe.site
 +.casnasadforfijuren.site
@@ -109781,6 +109554,7 @@
 +.chikauzorfoundation.org
 +.chimneyproinsurance.com
 +.chinatradingpremium.com
++.chmweao.thehhegroup.com
 +.chocholowskietermy.live
 +.chocoviachocolatier.com
 +.cholesteroldowndiet.com
@@ -109876,6 +109650,7 @@
 +.correoserv25.weebly.com
 +.correosprepago.bnext.es
 +.corsageleukemicuus.info
++.cosibella-promocja.shop
 +.coslychacztalerzyka.xyz
 +.costierasultenza-ai.com
 +.costierasultenza-it.com
@@ -110705,6 +110480,7 @@
 +.headlinestoriesnow.live
 +.headsets4business.co.uk
 +.healthassistcarepro.com
++.healthyselfretreats.com
 +.heavensenttributes.site
 +.helderrendemvale-nl.com
 +.helldiverzymoiigen.info
@@ -111570,6 +111346,7 @@
 +.nodebitonline.pages.dev
 +.noelriverainsurance.com
 +.nofeptservicefr.web.app
++.noka1003.oceanwbview.de
 +.nonazvelqorn-norway.com
 +.nonexclusivelisting.com
 +.nonsolarhardenelld.info
@@ -111672,7 +111449,6 @@
 +.olx.przelew-paycore.sbs
 +.olxxpre-vo42.ro9bmd.top
 +.oml97comcast.weebly.com
-+.on-suite-profitroom.com
 +.ondo-migrate.vercel.app
 +.onet-konto-verify.ct.ws
 +.onetimefstip.weebly.com
@@ -111821,6 +111597,7 @@
 +.pl-oferta2746287453.sbs
 +.pl-oferta34529492.click
 +.pl-oferta4146161729.sbs
++.pl-oferta4187287941.sbs
 +.pl-oferta48340234.click
 +.pl-oferta4846295.online
 +.pl-oferta48574856.click
@@ -111835,6 +111612,7 @@
 +.pl-oferta7639128732.cfd
 +.pl-oferta7742433.online
 +.pl-oferta7837428483.sbs
++.pl-oferta7891241924.sbs
 +.pl-oferta837419830.shop
 +.pl-oferta8532623636.sbs
 +.pl-oferta85fj598f.click
@@ -111924,7 +111702,6 @@
 +.porezna-upirava.web.app
 +.pornographichhally.info
 +.portal-bradesco.digital
-+.portal-dubaiholding.com
 +.portal.huihengjixie.com
 +.portalnutrimania.com.br
 +.portalofertaspromos.com
@@ -112262,6 +112039,7 @@
 +.sauletradevo-system.com
 +.savvieqqrchangeful.info
 +.saway-upperleather.shop
++.saway-wintertrends.shop
 +.sawleipzigde.weebly.com
 +.scarlet-tassel-bag.shop
 +.scglobalpayment.digital
@@ -112349,7 +112127,6 @@
 +.silvermeadowhub.digital
 +.simon-smith-flowers.com
 +.simpleandnourishing.net
-+.simplefuneralplans.site
 +.simplicatecreations.com
 +.simplnwap.wixstudio.com
 +.sinarmas77org.pages.dev
@@ -112397,7 +112174,6 @@
 +.sobrerendoireai-nl.live
 +.socialmediasamachar.com
 +.societegeneraleinfo.com
-+.socmaeveryonenewday.com
 +.sofinco.apprval-net.org
 +.sofmyspace.w3spaces.com
 +.sognnfr.firebaseapp.com
@@ -112767,6 +112543,7 @@
 +.trinurmatrix-engine.com
 +.triopkl234ty.start.page
 +.tripinpremiumsnacks.com
++.triplefronteraparts.com
 +.triumpheduucrinkle.info
 +.trivaxonvelquant-ai.com
 +.trizorbridge.wasmer.app
@@ -112895,7 +112672,6 @@
 +.varvenmarkstead.digital
 +.vasaddadidaoadwjdi.site
 +.vasto-cambiante-app.com
-+.vdiffe.cabinethoods.com
 +.vectoriumfluxengine.com
 +.veddgdhdusioasjddo.site
 +.vefy-new-sale83122.help
@@ -113542,8 +113318,11 @@
 +.aldimart.yorleymart.shop
 +.aldionline.alvofind.shop
 +.aldionline.darofind.shop
++.aldionline.firafind.shop
 +.aldionline.galofind.shop
 +.aldionline.jarofind.shop
++.aldionline.kelafind.shop
++.aldionline.rinofind.shop
 +.aldionline.welofind.shop
 +.aldionline.xorofind.shop
 +.aldishop.aislecrate.shop
@@ -113635,12 +113414,15 @@
 +.allegro.912376h745.forum
 +.allegro.9193129h45h.skin
 +.allegro.92381928h75.rest
++.allegro.98237gioo28.buzz
 +.allegro.984398t39843.lol
 +.allegro.998138128gg.buzz
++.allegro.drac7763299.buzz
 +.allegro.ioudsuoifsdi.lat
 +.allegro.mdsmas882199.xyz
 +.allegro.msrat9387199.cam
 +.allegro.my5829119f.study
++.allegro.oferta238546.sbs
 +.allegro.ok3927812899.biz
 +.allegro.paoso381291.baby
 +.allegro.pfeof172d1g4.cfd
@@ -113979,6 +113761,7 @@
 +.bradesco.praempresas.sbs
 +.bradesco.suporteagil.xyz
 +.bradesco.suportejapj.xyz
++.bradescosegurosop.com.br
 +.brainedcorednodtrade.com
 +.bramleyfundex-system.com
 +.bramoviquldrexan.digital
@@ -114006,7 +113789,6 @@
 +.bridgeenus.wixstudio.com
 +.bridgeportprimerooms.com
 +.bridgwatersso.weebly.com
-+.bright-lifecorezone.info
 +.brightfritexiumtrade.com
 +.brightminds-learning.com
 +.brightoakventure.digital
@@ -114751,7 +114533,6 @@
 +.freemaillllal.weebly.com
 +.freeshiipping.weebly.com
 +.freiosdakdooadkadoa.site
-+.frenchfurnituredeals.com
 +.freshdiscountcorner.shop
 +.freshvaluewarehouse.shop
 +.fretsodfdkeosdpaddl.site
@@ -114811,6 +114592,7 @@
 +.global-exchange.ghost.io
 +.global-homepage.ghost.io
 +.global-software.ghost.io
++.global.core-whatapps.com
 +.globalactualidadtech.com
 +.globalarubapro.pages.dev
 +.globalfuturedispatch.com
@@ -114849,7 +114631,6 @@
 +.grenoble-inp3.weebly.com
 +.greyfordcorebit-tech.com
 +.grimhaldtorvekblist.info
-+.grimstvaldbreskonda.info
 +.grundtekamstfordvikl.pro
 +.grupobecaatty.weebly.com
 +.gspounos.firebaseapp.com
@@ -115063,7 +114844,6 @@
 +.interdependencetrade.com
 +.interesricquario.digital
 +.intermodalequipments.com
-+.interrapidisimopunto.com
 +.interrelatedgameeut.info
 +.intersportsonlinero.shop
 +.intersportsroonline.shop
@@ -115533,6 +115313,7 @@
 +.microsoft-365.weebly.com
 +.microsoft.teams-live.com
 +.microsoft.vpn-update.org
++.microsoftoffice-o365.com
 +.mienierentowinia.digital
 +.mijnnationaleomgevlng.es
 +.militaria-sprzedanie.sbs
@@ -115749,6 +115530,7 @@
 +.oferta-737376462647.shop
 +.oferta-84239232-pl.click
 +.oferta-lokalna523905.sbs
++.ofeta6xv17yj0b75v09.shop
 +.officce365-e63c9.web.app
 +.officialtrzre.wasmer.app
 +.officialvanguardwire.pro
@@ -115987,7 +115769,6 @@
 +.poctzakdms-pl.weebly.com
 +.poczta-polska.aniamis.ro
 +.pocztaapolish.weebly.com
-+.pocztapl.kgodsfgk324.sbs
 +.podslychanewtramwaju.pro
 +.podslychanezgalerii.info
 +.podslychanezparapetu.pro
@@ -116200,6 +115981,7 @@
 +.riseandshinebakeryco.com
 +.ritae1e1.myportfolio.com
 +.ritmoportrevo-system.com
++.rituals-womenbeauty.shop
 +.riverlightscommunity.com
 +.riversidebank.weebly.com
 +.rngkuqoo.elementor.cloud
@@ -116495,7 +116277,6 @@
 +.stocksblitz-official.com
 +.stonex-website.pages.dev
 +.store-aldiuk.felyrac.com
-+.store.407payment-etr.com
 +.stormwillowguild.digital
 +.stpatricksdaycrafts.info
 +.strategicoutlookwire.com
@@ -116590,7 +116371,6 @@
 +.tdefiban.firebaseapp.com
 +.tduidiodmkslp.weebly.com
 +.teach-started.zapier.app
-+.teacuppomeranianpups.com
 +.teamworkspace.weebly.com
 +.techberlinquarytrade.com
 +.technologiapolskaa.store
@@ -116678,7 +116458,6 @@
 +.tortest1-nqvb.vercel.app
 +.totalinversencatrade.com
 +.totallybrazenmassage.com
-+.tourniquetsdisssked.info
 +.tpaoyatirimplatformu.pro
 +.traceincosmagrid.digital
 +.track-chantixfinsoft.com
@@ -116745,6 +116524,7 @@
 +.tuper-wedamatl.pages.dev
 +.turanexpresslojistik.com
 +.turbitsamyotonvvias.info
++.turbrelaytrx-germany.sbs
 +.turbvault-ai-germany.sbs
 +.turkeyaiporttransfer.com
 +.turnsolo.cosmicsands.com
@@ -116811,7 +116591,6 @@
 +.ushemployeetix.pages.dev
 +.usonsonatelog.weebly.com
 +.uspsaunitedworkforce.com
-+.utility-stead-manual.pro
 +.uuser89accept.start.page
 +.uuser90accept.start.page
 +.uvjgyxga.firebaseapp.com
@@ -116819,6 +116598,7 @@
 +.uwrierusirwowisdofs.site
 +.uyyndeceivesrankles.info
 +.v-potwierdz-602914.eu.cc
++.v3r1fy1ngupl1nk.v6.rocks
 +.vacamuertainvestment.net
 +.vacamuertainvestment.pro
 +.vaelmorie-xanthyrel.live
@@ -116888,7 +116668,6 @@
 +.vidasana.thebundleco.com
 +.vif-valtrix-software.com
 +.villamayorempresarial.es
-+.villeroy-boch-outlet.top
 +.vintaroquorixhubline.com
 +.vintaroquorixhubline.pro
 +.vinted.delivery-line.com
@@ -117035,7 +116814,6 @@
 +.worldfinancebulletin.com
 +.worldinnovationdaily.com
 +.worldinsightbulletin.com
-+.worldlinkedlogistics.com
 +.worldobservernetwork.com
 +.worldupdatecentralk.info
 +.woundedmarinecareers.org
@@ -117157,6 +116935,7 @@
 +.1nf0fr3eyui564.start.page
 +.20-172-65-119.cpanel.site
 +.2026desen-beta.vercel.app
++.2026workclothesvipqx.shop
 +.2e344trgdfxczz.weebly.com
 +.2farmersb4nk76.weebly.com
 +.34erfdxbc.firebaseapp.com
@@ -117331,6 +117110,7 @@
 +.aldiuk.foxmerebasket.shop
 +.aldiuk.halebrookmart.shop
 +.aldius-store.merlano1.com
++.aldius.kelmerepantry.shop
 +.aldiusa.evanorchoice.shop
 +.aldiusa.mythorincart.shop
 +.aldiusa.sylvexiscart.shop
@@ -117381,6 +117161,7 @@
 +.allegro.2394904f3f3f.qpon
 +.allegro.252352352hh.click
 +.allegro.291293128g75.beer
++.allegro.312030129y45.buzz
 +.allegro.320239128hh8.rest
 +.allegro.3529238g8g8.click
 +.allegro.43509239128g.baby
@@ -117416,6 +117197,7 @@
 +.allegro.pl-5910240142.lol
 +.allegro.poifei7282-f2.lat
 +.allegro.prot34u7391.homes
++.allegro.prwanmm38899.beer
 +.allegro.pry437823919.rest
 +.allegro.pryi40-23gf2.casa
 +.allegro.prywan31278129.me
@@ -117489,6 +117271,7 @@
 +.allegrolokalnie.71821.top
 +.allegrolokalnie.72387.cfd
 +.allegrolokalnie.72389.xyz
++.allegrolokalnie.72732.lol
 +.allegrolokalnie.72832.cfd
 +.allegrolokalnie.73346.lat
 +.allegrolokalnie.73774.lat
@@ -118424,6 +118207,7 @@
 +.florisvanbommel-zira.shop
 +.fluxionprotocolvector.com
 +.flxerros2.firebaseapp.com
++.fmidevice-location.com.tr
 +.fmlawrencebank.weebly.com
 +.fomnptlex.firebaseapp.com
 +.footballladdup.weebly.com
@@ -118653,6 +118437,8 @@
 +.id73idd237sidas8nv832.sbs
 +.id812dn23yf327239fbsd.sbs
 +.id847222281237482.web.app
++.id8f73f923f736f289f23.sbs
++.ie-aldi.vireliahomeco.com
 +.iekobo-wakayamaminato.com
 +.ifaaiekqopweksareowr.site
 +.ifyouloveityoucandoit.com
@@ -119562,7 +119348,6 @@
 +.quaerat-excepturi-sit.top
 +.quantexhellasplatform.com
 +.quantitativeanalysis.live
-+.quantoryxfluxprotocol.com
 +.quantoryxvectorengine.com
 +.quantumfutureireland.shop
 +.quantumgrowthofficial.com
@@ -119739,7 +119524,6 @@
 +.selectunivcote.weebly.com
 +.selgros24.cupioosell.shop
 +.sell-ukaldi.fielrflow.com
-+.sell.globalshiptiktok.com
 +.sendesohbetebasla.website
 +.senerwindapp-solution.com
 +.sensebroker-ai-france.sbs
@@ -120107,7 +119891,6 @@
 +.truanciesindooicates.info
 +.true-north-aisoftware.com
 +.trulvanqueth-platform.com
-+.trumregdomainscanmeta.com
 +.trustgate359-booking.info
 +.trustgate408-booking.info
 +.truust-web3.wixstudio.com
@@ -120130,7 +119913,6 @@
 +.turkiyeticaretmerkezi.com
 +.turnkeynftcollection.shop
 +.turva-bitnex-software.com
-+.tutoysseringvanadium.info
 +.txnodemicermode.pages.dev
 +.tysdiiaudisfyidaufsi.site
 +.tzzoughenercaprifigs.info
@@ -120364,7 +120146,6 @@
 +.worldheadlineobserver.com
 +.worldinnovationreport.com
 +.worldlife86.wixstudio.com
-+.worshiperjelleeified.info
 +.wpinoscinueouvybwdodc.com
 +.wqgquple.usw-1.sealos.app
 +.wrightttpattcu.weebly.com
@@ -120630,6 +120411,7 @@
 +.aldimart.yorleygrocer.shop
 +.aldionline.avexsearch.shop
 +.aldionline.calengoods.shop
++.aldionline.elvosearch.shop
 +.aldionline.ivrasearch.shop
 +.aldiuk-store.clyverask.com
 +.aldiuk-store.cparsons9.com
@@ -120684,6 +120466,7 @@
 +.allegro.130120h945h54.bond
 +.allegro.1902381923912.pics
 +.allegro.2134812310h0h.best
++.allegro.234942398g9hi.buzz
 +.allegro.239423812jh6.click
 +.allegro.2398r237r129g.qpon
 +.allegro.293743038596.click
@@ -120692,6 +120475,7 @@
 +.allegro.52300t92g3223.qpon
 +.allegro.523523878kj6j.pics
 +.allegro.878279jsmar889.lol
++.allegro.9039129412ggh.buzz
 +.allegro.9281238712gh9.beer
 +.allegro.98j657503f23.homes
 +.allegro.ayrage93817g6.beer
@@ -120710,7 +120494,6 @@
 +.allegro.popka29129hh5.beer
 +.allegro.prftanwm238129.cfd
 +.allegro.prowar8u237h45.cfd
-+.allegro.pruyrh3g41293f.cfd
 +.allegro.prwatn4238129j.mom
 +.allegro.prywane893200.casa
 +.allegro.prywant842768.baby
@@ -120907,8 +120690,8 @@
 +.app.resgatefacilitado.site
 +.app.resgatepremiado.sa.com
 +.app3-smsvn.firebaseapp.com
-+.appeal-case.about-help.com
 +.appendesktop.wixstudio.com
++.applecard.limitupdate3.com
 +.appledgerlive.framer.media
 +.appliancerepairnearyou.com
 +.apply.ggcareersrecruit.com
@@ -121267,6 +121050,7 @@
 +.correo--gob--es.weebly.com
 +.corvus-intelligence-ai.com
 +.corvusintelligence.digital
++.cosibella-beautysalon.shop
 +.cosibella.promocja-pl.shop
 +.cosibella.svetnapojovs.sbs
 +.cossuthieunconfounded.info
@@ -121292,7 +121076,6 @@
 +.crypto-boursivo-france.sbs
 +.crypto-tax-declaration.com
 +.cryptoconnect-solution.com
-+.cryptosphereengine.digital
 +.crystalharborcraft.digital
 +.crystallum-lotemax-app.com
 +.crystalvoyageforge.digital
@@ -121425,7 +121208,6 @@
 +.elecrmdownld.wixstudio.com
 +.electrodynooamometers.info
 +.elegiacaaallychemisms.info
-+.elitesonlinedispensary.com
 +.elvaronzqmwkdportalix.site
 +.email.alternatives.digital
 +.emailcompany.bubbleapps.io
@@ -121656,7 +121438,6 @@
 +.globalcurrencyadvisory.com
 +.globaleducationproject.org
 +.globallogisticsservies.com
-+.globalmaritimelogisitc.com
 +.globalobserverbulletin.com
 +.globalrepresentaciones.com
 +.globalstart.framer.website
@@ -122003,7 +121784,6 @@
 +.l7lnost-ui-vi23.h3ltgq.cfd
 +.la-boutique-de-luxe.online
 +.la-nouvelle-carte-2026.com
-+.lactazzsesapophthegms.info
 +.ladger--live.wixstudio.com
 +.lagourmandise-traiteur.xyz
 +.lakehamiltonproperties.com
@@ -122159,7 +121939,6 @@
 +.mailling.sissanovecole.com
 +.mailservice0973.weebly.com
 +.makechangelogin.weebly.com
-+.malssignitystraphangs.info
 +.malversavvtionspumous.guru
 +.mamamiasdeuxleplusbeau.com
 +.manage-kucoin-en.framer.ai
@@ -122351,6 +122130,7 @@
 +.olx.paycore24-expressi.cfd
 +.olx.pl-478857818758322.sbs
 +.olx.pl-oferta08492721.shop
++.olx.pl-oferta962187323.cfd
 +.olx.processing-skri1l.cyou
 +.olx.processing-skrill.cyou
 +.olx.sprzedane-521852.click
@@ -122428,7 +122208,6 @@
 +.persistent-front.pages.dev
 +.pessoa-fisica.nesh6.com.br
 +.petinsurancesacramento.com
-+.pge-group-pl.alphaweb.bond
 +.phantom-wallet.zendesk.com
 +.phare-investoire-italy.com
 +.photo-0973.firebaseapp.com
@@ -122693,6 +122472,7 @@
 +.saskatoonautodetailing.com
 +.savemoneyanplplplmksal.com
 +.savvyshopperfurniture.shop
++.saway-astylishrefresh.shop
 +.saway-high-endfashion.shop
 +.sbcglobe-2648f1.webflow.io
 +.sbcglobe-8c0210.webflow.io
@@ -122726,6 +122506,7 @@
 +.seguro.livesuporteaqui.com
 +.segurossurah360.vercel.app
 +.seignddoragesclappers.info
++.sell-iealdi.clyrionllc.com
 +.sell-ukaldi.alveriqo96.com
 +.sell-ukaldi.lumorae-ca.com
 +.sell-ukaldi.veltrinox1.com
@@ -122748,6 +122529,7 @@
 +.seuacesso.dragonway.com.br
 +.sfdsdfbgbgf.kangganghk.com
 +.sfr-fixe-mobile.weebly.com
++.sg.annulation-paiement.com
 +.sg.davidagostinotattoo.com
 +.shadowharvestunion.digital
 +.shadowspire-chronicles.com
@@ -123351,11 +123133,13 @@
 +.3564847436464387.weebly.com
 +.365unisalleeduco.weebly.com
 +.37gjfdfjgodfjoigfdjiog.site
++.52d5836e.heftrucksbelgie.eu
 +.52vfdfgfd434kdfgkdfgkf.site
 +.566504ef249d9ce8.lolipop.jp
 +.745catapultscx.pineforge.de
 +.875645758-gob-mx.weebly.com
 +.8p04bb6.workwearandlogo.com
++.958dca20.heftrucksbelgie.eu
 +.aaaaatttttttmail.boxmode.io
 +.aabnepfrtis.firebaseapp.com
 +.able-lily-193337.framer.app
@@ -123592,7 +123376,6 @@
 +.allegrolokalnie.5009282.lol
 +.allegrolokalnie.5032421.cfd
 +.allegrolokalnie.5239272.cfd
-+.allegrolokalnie.5270216.cfd
 +.allegrolokalnie.5382346.cfd
 +.allegrolokalnie.5385346.cfd
 +.allegrolokalnie.5665781.lol
@@ -123640,6 +123423,8 @@
 +.allegrolokalnie.8090775.cfd
 +.allegrolokalnie.8124673.lol
 +.allegrolokalnie.8235672.lol
++.allegrolokalnie.8237525.cfd
++.allegrolokalnie.8237525.sbs
 +.allegrolokalnie.8375235.lol
 +.allegrolokalnie.8495025.lat
 +.allegrolokalnie.8534215.lat
@@ -123679,6 +123464,7 @@
 +.allegrolokalnie.pl-dpd24.pl
 +.allegrolokalnie.pl-kup.site
 +.allegrolokalnie.pl18363.lol
++.allegrolokalnie.pl21893.top
 +.allegrolokalnie.pl23339.top
 +.allegrolokalnie.pl23953.top
 +.allegrolokalnie.pl29139.top
@@ -123717,6 +123503,8 @@
 +.allegrolokalnie.pl74604.top
 +.allegrolokalnie.pl74646.top
 +.allegrolokalnie.pl74682.top
++.allegrolokalnie.pl76018.top
++.allegrolokalnie.pl76028.top
 +.allegrolokalnie.pl76413.top
 +.allegrolokalnie.pl76452.top
 +.allegrolokalnie.pl76453.top
@@ -123735,6 +123523,7 @@
 +.allegrolokalnie.pl84353.top
 +.allegrolokalnie.pl87621.top
 +.allegrolokalnie.pl89233.top
++.allegrolokalnie.pl92139.top
 +.allegrolokalnie.pl92921.top
 +.allegrolokalnie.pl94323.top
 +.allegrolokalnie.pl94324.top
@@ -123791,7 +123580,6 @@
 +.apps-ledge-us.wixstudio.com
 +.apps-ledgrcdn.wixstudio.com
 +.apps-metmsaks.wixstudio.com
-+.apps-profil-help-center.com
 +.apps-rabbyyio.wixstudio.com
 +.apps-simplwpa.wixstudio.com
 +.apps-sutescdn.wixstudio.com
@@ -125257,7 +125045,6 @@
 +.rfp-sharing.myportfolio.com
 +.rhodeislandwebmarketing.com
 +.ri0xfjwj8c.northgamehub.com
-+.rightwayfinancialtrades.com
 +.rioapzxoxoz.firebaseapp.com
 +.risedesloginhffh.weebly.com
 +.riskmadeinwarsawretail.shop
@@ -125374,7 +125161,6 @@
 +.simplicitytenebrnnists.guru
 +.sites-trezbridge.zapier.app
 +.siwkk-a37dc.firebaseapp.com
-+.siwwdepiecessubversion.info
 +.skarb-point-wro.lovable.app
 +.skill-game-ifood.vercel.app
 +.skurvorizan-netherlands.com
@@ -125597,7 +125383,6 @@
 +.ubrs-staging.up.railway.app
 +.udhayarraj619-art.github.io
 +.ueujsfoosdiksofpwofdos.site
-+.uintahitecohhngelation.info
 +.ukaldi-sale.steetstudis.com
 +.ultravioleta-ten.vercel.app
 +.unhaliivedelocutionary.info
@@ -125795,6 +125580,7 @@
 +.zelvarionqorthalextrade.com
 +.zenith-bitnova-solution.com
 +.zepkori-aumveth-germany.sbs
++.zesty-poppy-120.harvis.page
 +.zevriocapiture-software.com
 +.zh-mobile-xiongmaozhibo.com
 +.zhcn-event-kaiyunsports.com
@@ -125873,12 +125659,14 @@
 +.aitim-aforou.firebaseapp.com
 +.akademipsgfr.firebaseapp.com
 +.aldi-fine.cybercoutureji.com
++.aldi-ie.evertrailcamping.com
 +.aldideals.ashquaymarket.shop
 +.aldideals.ashquaypantry.shop
 +.aldideals.orchardgrocer.shop
 +.aldieu.bylcorvenniceday.shop
 +.aldieu.cindarvexniceday.shop
 +.aldieu.lightingfixtures.shop
++.aldiie-market.virellapet.com
 +.aldimart.aislelanehouse.shop
 +.aldimart.basketcourtway.shop
 +.aldimart.basketpavilion.shop
@@ -125977,6 +125765,8 @@
 +.allegrolokalnie.215543ka.top
 +.allegrolokalnie.234455ip.top
 +.allegrolokalnie.23514285.cfd
++.allegrolokalnie.23687236.cfd
++.allegrolokalnie.23687236.sbs
 +.allegrolokalnie.23852352.cfd
 +.allegrolokalnie.23857235.lol
 +.allegrolokalnie.238823.click
@@ -126098,6 +125888,7 @@
 +.allegrolokalnie.83038493.xyz
 +.allegrolokalnie.8321712.shop
 +.allegrolokalnie.84386547.sbs
++.allegrolokalnie.845455ip.top
 +.allegrolokalnie.852312hh.top
 +.allegrolokalnie.857402.click
 +.allegrolokalnie.876503.click
@@ -126108,7 +125899,6 @@
 +.allegrolokalnie.93047425.xyz
 +.allegrolokalnie.962554th.top
 +.allegrolokalnie.962854th.top
-+.allegrolokalnie.984503.click
 +.allegrolokalnie.98645127.cfd
 +.allegrolokalnie.d2djj213.lol
 +.allegrolokalnie.id45681.info
@@ -126288,7 +126078,6 @@
 +.asset-web.00701952218163.com
 +.assets-desktop.wixstudio.com
 +.assistance4.godaddysites.com
-+.assistancemeter.sideodds.com
 +.assistenzahypepartner.online
 +.astranovaquantumtradeai.live
 +.asygduneagri.firebaseapp.com
@@ -126324,6 +126113,7 @@
 +.b8376mghi5d.jp.larksuite.com
 +.balanceyourlifeandhealth.com
 +.ballonfahrten-in-saarland.de
++.baltic-ledger-pro.base44.app
 +.baltimorehoardingcleanup.com
 +.bancodeoccidente.blogspot.lt
 +.banrusegurid.myportfolio.com
@@ -126352,6 +126142,7 @@
 +.bghouklbgsza.firebaseapp.com
 +.bhdcrenditienlinea.iceiy.com
 +.bia.appservicoempresas.click
++.biedronka-homeappliances.xyz
 +.biedronka.myamericanshop.sbs
 +.biezkolnjkla.firebaseapp.com
 +.billing-status-check.web.app
@@ -126381,6 +126172,7 @@
 +.booking.bookingverif2421.com
 +.booking.digitalguestform.com
 +.booking.frwonderfulparis.net
++.booking.guestarrivaldesk.com
 +.booking.rezerwacja864463.lat
 +.bookingveriflcation96327.com
 +.botologixinvest-software.com
@@ -127408,6 +127200,7 @@
 +.pl-ofeta-aukcja58347901.cyou
 +.pl-ogloszenie683240140.click
 +.pl-ogloszenie9967883927.cyou
++.pl-produkt67rndp12458957.lol
 +.pl-produkty8rs653794826.shop
 +.pl-sklep2oferta76959134.shop
 +.pl-ticketnumber712931912.com
@@ -127526,6 +127319,7 @@
 +.refund-request.ebok-pge.info
 +.refundbill24.firebaseapp.com
 +.regionalnyzflpawidokweb.site
++.regularizeprocesso-acesse.co
 +.reload-desktop.wixstudio.com
 +.remede-1dc91.firebaseapp.com
 +.renew-registration-ntflx.com
@@ -127567,6 +127361,7 @@
 +.santandervyg.transcom-fs.com
 +.santos-99117.firebaseapp.com
 +.satreufufgngnvnfnfbgb.online
++.saway-newwinterarrivals.shop
 +.sbc-verify-a64836.webflow.io
 +.sbofaeddprepaid.w3spaces.com
 +.scceure-well05access.web.app
@@ -127767,7 +127562,6 @@
 +.swiftcapmontaluxsoftware.com
 +.swiftcrestvalnexsolution.com
 +.swiftlinkvalnex-solution.com
-+.swiftviewnationalfinance.com
 +.sylvarafjordhildplatform.com
 +.sylvarafjordhildsoftware.com
 +.system-setting-ecosystem.com
@@ -128293,12 +128087,15 @@
 +.allegrolokalnie.645286yyf.top
 +.allegrolokalnie.653462347.lol
 +.allegrolokalnie.65894waka.top
++.allegrolokalnie.683475843.cfd
++.allegrolokalnie.683475843.sbs
 +.allegrolokalnie.689576trb.top
 +.allegrolokalnie.723562352.lol
 +.allegrolokalnie.723647234.lol
 +.allegrolokalnie.726123412.cfd
 +.allegrolokalnie.787273423.lol
 +.allegrolokalnie.787273425.lol
++.allegrolokalnie.827836532.lol
 +.allegrolokalnie.8564326.click
 +.allegrolokalnie.858151949.lat
 +.allegrolokalnie.89457-752.icu
@@ -128333,7 +128130,9 @@
 +.allegrolokalnie.lokalne12.cfd
 +.allegrolokalnie.oferta2313.pl
 +.allegrolokalnie.oferta3893.pl
++.allegrolokalnie.pi-91412k.cfd
 +.allegrolokalnie.pl-013337.icu
++.allegrolokalnie.pl-029402.top
 +.allegrolokalnie.pl-121212.lol
 +.allegrolokalnie.pl-129911.cfd
 +.allegrolokalnie.pl-214154.cfd
@@ -128514,6 +128313,7 @@
 +.bienvenido-portal.lovable.app
 +.biglobemailservice.weebly.com
 +.birkenstock-outlet-store.shop
++.bisesdiaphragmatccically.info
 +.bisnagasconstruchhtivism.guru
 +.bitcoin-goldmine-official.com
 +.bitcoin-lexipro2-platform.com
@@ -128647,6 +128447,7 @@
 +.clarior-fundalis-platform.com
 +.clearlakebanktrust.weebly.com
 +.clickbank-pro.firebaseapp.com
++.clienteonline.clicyactiva.com
 +.clientes.3wpublicidade.com.br
 +.cmkgracedvnes.firebaseapp.com
 +.cnci--seguridad019.replit.app
@@ -128695,6 +128496,7 @@
 +.copyrights-violation-help.com
 +.cordillerapatrimoniotrade.com
 +.correopoliciagovco.weebly.com
++.cosibella-facialcleanser.shop
 +.cosmetologycareerguidance.com
 +.coumaroureconttstructing.info
 +.countaaerplottedeucaines.info
@@ -128721,6 +128523,7 @@
 +.d32yelvf3fh72e.cloudfront.net
 +.d518c1d0.diabetes-bewegung.de
 +.d568ee4a.diabetes-bewegung.de
++.dabex.davidelucianostudio.com
 +.dagestanmedicaluniversity.com
 +.dandy-trust-951785.framer.app
 +.dapp-walletnd.firebaseapp.com
@@ -129082,7 +128885,6 @@
 +.iostarts-trecon.wixstudio.com
 +.iostrt-trezocdn.wixstudio.com
 +.iotrezzorstart-us.dream.space
-+.irksomenesjjsoutsparkles.info
 +.ironpeaktradebit-solution.com
 +.irs.digitalasset-platform.com
 +.is292-express.firebaseapp.com
@@ -129408,7 +129210,6 @@
 +.other-times-029137.framer.app
 +.otterfish-ixgkne.stormkit.dev
 +.outlookfireworking.weebly.com
-+.overadveoortiseddeadbeat.info
 +.overexpectatiiionagonise.info
 +.overlandparkka-roofrepair.com
 +.owa-mail-auth.firebaseapp.com
@@ -129438,6 +129239,7 @@
 +.pharmaceuticalsolutionerp.com
 +.phuerteinwersanzasolution.com
 +.piedrasdecorativaszapopan.com
++.pierheadleisure.spahotel.guru
 +.pivotpoint-cowork.lovable.app
 +.pl-nd0produkty47282868591.lat
 +.pl-oferta4114211315122981.sbs
@@ -129486,7 +129288,6 @@
 +.posturinn-9e8.firebaseapp.com
 +.povrat-poreza.firebaseapp.com
 +.powleolsdfiosfoisdfosdfi.site
-+.pozc74p0llska-hg81.y4cfcc.sbs
 +.preannounceddkkonsie.business
 +.prefix-suiteapp.wixstudio.com
 +.prefix-trezo-io.wixstudio.com
@@ -129779,6 +129580,7 @@
 +.tavofaketihoxivohapezivo.info
 +.teal-vision-945028.framer.app
 +.techsupport.servicelloyds.com
++.telalapartments.spahotel.guru
 +.teledrfdghygfghjvv.weebly.com
 +.telkom-online-mail.weebly.com
 +.telstranotebigpond.weebly.com
@@ -130095,6 +129897,7 @@
 +.aldimart.prairiefieldmart.shop
 +.aldionline.wegosrlysupply.shop
 +.aldistore.crestedtailoring.com
++.aldiuk-market.pureresthome.com
 +.aldiuk-market.reenhouranch.com
 +.aldiuk-market.veloriacrest.com
 +.aldiuk-store.animefoggellc.com
@@ -130204,6 +130007,7 @@
 +.allegrolokalnie.idd1r122v2.lol
 +.allegrolokalnie.kab739hs38.lol
 +.allegrolokalnie.kupterazx.shop
++.allegrolokalnie.kupterazz.shop
 +.allegrolokalnie.lokalna-03.sbs
 +.allegrolokalnie.ofera-2939.lol
 +.allegrolokalnie.oferta0492.lat
@@ -130263,6 +130067,7 @@
 +.allegrolokalnie.pl5926952.cyou
 +.allegrolokalnie.pl5929582.cyou
 +.allegrolokalnie.pl91zc381.cyou
++.allegrolokalnie.pl91zc771.cyou
 +.allegrolokalnie.plk-6032.click
 +.allegrolokalnie.vsj1gdgzcs.biz
 +.allegrolokalnie.xlpprodukt.xyz
@@ -130916,6 +130721,7 @@
 +.ln8poospol-79qfpre.a9lvpe.qpon
 +.lnnpo0spo1-v1-netu8.x2sbit.cfd
 +.lnpoowpol-qgc6-dem.hi7ekf.casa
++.lntermaticoportalpersonas.site
 +.load-page-100054287954.web.app
 +.log-exodswallet-com.wasmer.app
 +.login-desktopapp.wixstudio.com
@@ -130964,8 +130770,8 @@
 +.mejfoulkhnjkda.firebaseapp.com
 +.melbournetelanganaforum.com.au
 +.melladflouknba.firebaseapp.com
++.mellow-biscuit-254.harvis.page
 +.mentorship3211.firebaseapp.com
-+.messagelquiet.cabinethoods.com
 +.messagerlev0cal8883900.fo.team
 +.meta-maskloig.godaddysites.com
 +.metaamusk-un-wuleet.gitbook.io
@@ -131340,7 +131146,6 @@
 +.sienna-shape-366096.framer.app
 +.signin-att-verifier.webflow.io
 +.signin.officepaymentportal.com
-+.silverinvestmentcompanyllc.com
 +.simple-brand-124884.framer.app
 +.site-9by26xnw.godaddysites.com
 +.site-exouds_webs.teachable.com
@@ -131719,6 +131524,7 @@
 +.alebilet.pl-oferta879403213.sbs
 +.alebilet.pl-oferta9494498.click
 +.alebilet.pl-oferta9542718.click
++.alebilet.pl-oferta962187323.cfd
 +.aletknyafxcluis.firebaseapp.com
 +.allebilet.oier773r28g43-g34.lat
 +.allebilet.pl-65891248791243.sbs
@@ -131804,6 +131610,7 @@
 +.allegrolokalnie.ofert-43819.sbs
 +.allegrolokalnie.oferta0854.cyou
 +.allegrolokalnie.oferta395.click
++.allegrolokalnie.oferta6926.shop
 +.allegrolokalnie.oferta73528.xyz
 +.allegrolokalnie.oferta78206.lol
 +.allegrolokalnie.oferta79301.lol
@@ -132346,6 +132153,7 @@
 +.irs.digitalcomplianceportal.com
 +.it-8568f96248.preview.weglot.io
 +.itsvalidations.godaddysites.com
++.iwaniak-ledger-plock.base44.app
 +.jengbetieleajantiele.weebly.com
 +.jhdmhqwertyuikjvcxcv.weebly.com
 +.julianabreu924-source.github.io
@@ -132737,6 +132545,7 @@
 +.shopaldius.phyrian-concepts.com
 +.shppee-oficiialtinta.vercel.app
 +.shy-influence-729694.framer.app
++.signin.billingaccountcenter.com
 +.signin.microsoft.com.cerblos.ch
 +.silly-studies-327811.framer.app
 +.silver-months-172645.framer.app
@@ -133185,6 +132994,7 @@
 +.aldimart.prairiefieldmarket.shop
 +.aldiuk-market.lionsgatecreek.com
 +.aldiuk-store.natorimooretoys.com
++.aldiuk-store.selvaralighting.com
 +.aldius-market.plthsadaoyroly.com
 +.aldius-store.nuvexirarichard.com
 +.alebilet.pl-oferta21921180.click
@@ -133303,6 +133113,7 @@
 +.allegrolokalnie.lokalna-3289.sbs
 +.allegrolokalnie.lokalna-3298.sbs
 +.allegrolokalnie.lokalna-382.shop
++.allegrolokalnie.lokalna-3913.sbs
 +.allegrolokalnie.lokalna-4019.sbs
 +.allegrolokalnie.lokalna-4928.sbs
 +.allegrolokalnie.lokalna-49843.cc
@@ -133325,6 +133136,7 @@
 +.allegrolokalnie.oferta233823.cfd
 +.allegrolokalnie.oferta274930.cfd
 +.allegrolokalnie.oferta282616.cfd
++.allegrolokalnie.oferta298124.cfd
 +.allegrolokalnie.oferta324452.cfd
 +.allegrolokalnie.oferta34681.shop
 +.allegrolokalnie.oferta412475.cfd
@@ -133340,6 +133152,7 @@
 +.allegrolokalnie.oferta743821.lol
 +.allegrolokalnie.oferta812751.cfd
 +.allegrolokalnie.oferta812751.lol
++.allegrolokalnie.oferta85286.shop
 +.allegrolokalnie.oferta963254.cfd
 +.allegrolokalnie.oferta981762.com
 +.allegrolokalnie.oferte378673.sbs
@@ -133618,7 +133431,6 @@
 +.digital3rivers-e.firebaseapp.com
 +.diner-tag-thermos.ngrok-free.dev
 +.discover-bridgeapp.wixstudio.com
-+.disneyprzypomnienieplatnosci.com
 +.djdjdjdjjdjdjdjdjdjdj.weebly.com
 +.djhjdcdhscbchdchjbhjh.weebly.com
 +.dobramyslaxcjnwwolnejchwili.site
@@ -133637,6 +133449,7 @@
 +.dropper-refactor-staging.web.app
 +.duolingo-remboursement.bolt.host
 +.duolingo-subscriptions.bolt.host
++.dutch-brown-ozwy2ypo.edgeone.dev
 +.easy-exo-extension.wixstudio.com
 +.ebanking-centier.firebaseapp.com
 +.eddmailproccessing001.weebly.com
@@ -134115,6 +133928,7 @@
 +.remoinertunesole.firebaseapp.com
 +.requirments3500040142.weebly.com
 +.resiliation-multimedia-prime.com
++.resistance-reefs.natureguid.info
 +.restark.z13.web.core.windows.net
 +.ricardo.data-offer1504083552.cfd
 +.rockprofessional.romanjordan.com
@@ -134583,7 +134397,6 @@
 +.allegrolokalnie.oferta0326850.lat
 +.allegrolokalnie.oferta0376175.lat
 +.allegrolokalnie.oferta104814.rest
-+.allegrolokalnie.oferta1220794.cfd
 +.allegrolokalnie.oferta1993370.cfd
 +.allegrolokalnie.oferta2225311.lat
 +.allegrolokalnie.oferta288784.shop
@@ -134612,6 +134425,7 @@
 +.allegrolokalnie.pl-06940912.click
 +.allegrolokalnie.pl-0930495831.xyz
 +.allegrolokalnie.pl-10904395.click
++.allegrolokalnie.pl-17664684.click
 +.allegrolokalnie.pl-1938281937.lat
 +.allegrolokalnie.pl-23480442.click
 +.allegrolokalnie.pl-2966226823.xyz
@@ -134620,6 +134434,7 @@
 +.allegrolokalnie.pl-4281796266.lat
 +.allegrolokalnie.pl-4910249012.lol
 +.allegrolokalnie.pl-4976581791.sbs
++.allegrolokalnie.pl-49767468.click
 +.allegrolokalnie.pl-57286982.click
 +.allegrolokalnie.pl-5789127853.sbs
 +.allegrolokalnie.pl-5809124124.xyz
@@ -134668,7 +134483,6 @@
 +.allegrolokalnie.plmsnxknclz3.cyou
 +.allegrolokalnie.plx9106825478.cfd
 +.allegrolokalnie.plx9423665784.cfd
-+.allegrolokalnie.ptrboedvskcsk.sbs
 +.allegrolokalnie.pubilczna-291.lol
 +.allegrolokalnie.pzp-3-428573.shop
 +.allegrolokalnie.qnm013tndas32.sbs
@@ -135679,6 +135493,7 @@
 +.allegrolokalnie.lokalna7809429.sbs
 +.allegrolokalnie.lokalnie-34891.sbs
 +.allegrolokalnie.mn19sba7g3na7s.sbs
++.allegrolokalnie.nr-2832483sn32.sbs
 +.allegrolokalnie.nr-3284329ms32.lol
 +.allegrolokalnie.oferta-2451784.cfd
 +.allegrolokalnie.oferta0275532.shop
@@ -137229,6 +137044,7 @@
 +.pl-ogloszenia-firmowe-id-332388.sbs
 +.pl-ogloszenia-firmowe-id83380.click
 +.pl-ogloszenia-frimowe-8328409.click
++.pl-ogloszenie-jaroslawkarasz-58.top
 +.pl-ogloszenie-prywatne7584645.click
 +.pl6c-wbak2s-kkff8e-rllgwp.pages.dev
 +.pleasant-vacation-703142.framer.app
@@ -137345,6 +137161,7 @@
 +.steamcommunity-balanceworkshop.shop
 +.stonehenge.webdesignsanantonio.info
 +.store.workshopcommunityvotesmod.com
++.streamlined-works-986841.framer.app
 +.strong-everything-224154.framer.app
 +.studentfinance-help.firebaseapp.com
 +.successful-colors-257629.framer.app
@@ -137540,6 +137357,7 @@
 +.allegrolokalnie.kup-teraz-144654.com
 +.allegrolokalnie.kup-teraz-323033.com
 +.allegrolokalnie.kup-teraz-400311.com
++.allegrolokalnie.kup-teraz-431333.com
 +.allegrolokalnie.kup-teraz-4477378.pl
 +.allegrolokalnie.kup-teraz-642557.com
 +.allegrolokalnie.kup-teraz-753556.com
@@ -137614,7 +137432,6 @@
 +.allegrolokalnie.pl-oferta45217.click
 +.allegrolokalnie.pl-oferta5234545.cfd
 +.allegrolokalnie.pl-oferta5585422.cfd
-+.allegrolokalnie.pl-oferta5614131.cfd
 +.allegrolokalnie.pl-oferta5848947.cfd
 +.allegrolokalnie.pl-oferta6284902.cfd
 +.allegrolokalnie.pl-oferta6392648.sbs
@@ -137644,7 +137461,6 @@
 +.allegrolokalnie.pl-smart9859124.cyou
 +.allegrolokalnie.pl-sprzedawca.online
 +.allegrolokalnie.pll-firmowo47456.icu
-+.allegrolokalnie.pls2gkkleqas25xk.sbs
 +.allegrolokalnie.pls2gksarkre25xk.sbs
 +.allegrolokalnie.pls3lfjfcfgr21xk.sbs
 +.allegrolokalnie.pls3lfjffecr21xk.sbs
@@ -138346,6 +138162,8 @@
 +.allegrolokalnie.oferta873712121.click
 +.allegrolokalnie.oferta888619921.click
 +.allegrolokalnie.oferta91821928912.cfd
++.allegrolokalnie.ofertaa8592437235.cfd
++.allegrolokalnie.ofertaa9039853025.cfd
 +.allegrolokalnie.ofertaknxo233846.shop
 +.allegrolokalnie.offerta85814123.click
 +.allegrolokalnie.p8oferta294zv92.forum
@@ -138417,6 +138235,7 @@
 +.allegrolokalnie.ploferta232434324.lol
 +.allegrolokalnie.ploferta432823620.cfd
 +.allegrolokalnie.podkategoria764324.pl
++.allegrolokalnie.rezerwacja09134.click
 +.allegrolokalnie.rezerwacja2790248.cfd
 +.allegrolokalnie.rezerwacja3632016.sbs
 +.allegrolokalnie.rezerwacja49228.click
@@ -138845,7 +138664,6 @@
 +.vinted.verificationseller-order.click
 +.visual-contributors-047142.framer.app
 +.vocational-white-5xciizxu.edgeone.dev
-+.voyeuristicallyrrcryoprotectants.info
 +.vqqznoqjxh.charliec-glenn.workers.dev
 +.vrf-d7zj-oeea74-5hio-fd8pl8.pages.dev
 +.vsw1e-m7z-vwrjy4-8vy-9unfd1.pages.dev
@@ -138955,6 +138773,7 @@
 +.allegrolokalnie.lokalna-ofeta92112.cfd
 +.allegrolokalnie.lokalna-ofeta94811.lol
 +.allegrolokalnie.oferta-id57691052.shop
++.allegrolokalnie.oferta109238129038.cfd
 +.allegrolokalnie.oferta2947274947.forum
 +.allegrolokalnie.oferta29lj0b6vw8v.site
 +.allegrolokalnie.oferta3847ns5k86g.live
@@ -138969,6 +138788,8 @@
 +.allegrolokalnie.ofertaa38258204128.cfd
 +.allegrolokalnie.ofertaa46757637373.sbs
 +.allegrolokalnie.ofertaa53265745425.cfd
++.allegrolokalnie.ofertaa84092585213.sbs
++.allegrolokalnie.ofertaa89705697523.cfd
 +.allegrolokalnie.pl-478857818758322.sbs
 +.allegrolokalnie.pl-753799264698462.lol
 +.allegrolokalnie.pl-867387177425245.lol
@@ -139031,6 +138852,7 @@
 +.allegrolokalnie.pl-oferta6937166.click
 +.allegrolokalnie.pl-oferta71028169.shop
 +.allegrolokalnie.pl-oferta718156417.lol
++.allegrolokalnie.pl-oferta7238439.click
 +.allegrolokalnie.pl-oferta7278713.click
 +.allegrolokalnie.pl-oferta728541851.lol
 +.allegrolokalnie.pl-oferta73828482.shop
@@ -139053,6 +138875,7 @@
 +.allegrolokalnie.pl-oferta9385629.click
 +.allegrolokalnie.pl-oferta9443014.click
 +.allegrolokalnie.pl-oferta949492773.lat
++.allegrolokalnie.pl-oferta962187323.cfd
 +.allegrolokalnie.pl-oferta98574023.shop
 +.allegrolokalnie.pl-ofertan1hij3ha.shop
 +.allegrolokalnie.pl-promowane2026.click
@@ -139284,6 +139107,7 @@
 +.manageappupdateuservgdv.ender-zone.com
 +.manager-area-client92745867.vttlr77.fr
 +.manual-load-page-1009724739501.web.app
++.marketplace.merchant-collect-relay.cfd
 +.marlavo-gld-belzeta-p5t2fw74.pages.dev
 +.marlavo-gld-fentora-a8x9hc63.pages.dev
 +.marnavi-gld-zentora-r4x9dc63.pages.dev
@@ -139658,6 +139482,7 @@
 +.allegrolokalnie.ofertaa528532953725.cfd
 +.allegrolokalnie.ofertaa643289412876.cfd
 +.allegrolokalnie.ofertaa848295327520.cfd
++.allegrolokalnie.ofertaa849420352815.cfd
 +.allegrolokalnie.ofeta-lokalna65915.shop
 +.allegrolokalnie.p03oferta3847zxw00.shop
 +.allegrolokalnie.p09oferta9374zvs93.rest
@@ -139670,7 +139495,6 @@
 +.allegrolokalnie.pl-9897348673489734.lol
 +.allegrolokalnie.pl-aukcja834736245.shop
 +.allegrolokalnie.pl-firmowe-284919.click
-+.allegrolokalnie.pl-firmowe-allegrol.sbs
 +.allegrolokalnie.pl-firmowe-allegroo.sbs
 +.allegrolokalnie.pl-oferta-047177732.lat
 +.allegrolokalnie.pl-oferta-598201953.sbs
@@ -139682,6 +139506,7 @@
 +.allegrolokalnie.pl-oferta29421722.click
 +.allegrolokalnie.pl-oferta349009842.shop
 +.allegrolokalnie.pl-oferta53791428.click
++.allegrolokalnie.pl-oferta5982511123.cfd
 +.allegrolokalnie.pl-oferta62859900.click
 +.allegrolokalnie.pl-oferta647921638.shop
 +.allegrolokalnie.pl-oferta680594726.shop
@@ -139691,6 +139516,7 @@
 +.allegrolokalnie.pl-oferta748054326.shop
 +.allegrolokalnie.pl-oferta784301099.surf
 +.allegrolokalnie.pl-oferta874023543.shop
++.allegrolokalnie.pl-oferta908212346.shop
 +.allegrolokalnie.pl-oferta91361552.click
 +.allegrolokalnie.pl-oferta92147929.click
 +.allegrolokalnie.pl-oferta92733729.click
@@ -139698,7 +139524,6 @@
 +.allegrolokalnie.pl-ofertan5noi4gq.click
 +.allegrolokalnie.pl-ofertazv7eic9v.click
 +.allegrolokalnie.pl-ogloszenie895812.sbs
-+.allegrolokalnie.pl-prywatne-allegro.sbs
 +.allegrolokalnie.pl-ticketnumber0392.lat
 +.allegrolokalnie.pl-ticketnumber2094.lat
 +.allegrolokalnie.pll-d-offer-4828163.xyz
@@ -140183,6 +140008,7 @@
 +.adminbtinternetverification.w3spaces.com
 +.adminitracion-serviciosbhd2026.iceiy.com
 +.allegro-lokalnie.kupteraz81723129-t3.sbs
++.allegro.lokalna-ofeta6xv17yj0b75v09.shop
 +.allegrolokainie.pl-oferta754f5f543.click
 +.allegrolokalnie.0oferta92847zcw299.forum
 +.allegrolokalnie.181421442-wszystkie.shop
@@ -140383,7 +140209,6 @@
 +.navigate-circumstances-557381.framer.app
 +.netempresa-bradesco.cantareiraead.com.br
 +.netempresas.atendimentoexclusivo.digital
-+.oferta1763210-proponowane-dla-ciebie.sbs
 +.offficcezofficcceeeeehiwwoork.weebly.com
 +.oijogijoirjgojgojroigjrtojgojrtgjoi.site
 +.olx.oferta1632794792-lato-wyroznione.sbs
@@ -140430,6 +140255,7 @@
 +.secure-site-builder--currentd.replit.app
 +.securedfirstcommunitybankhtml.weebly.com
 +.security-page-builder--omnia6.replit.app
++.security-server-site--eellis2.replit.app
 +.securitylater.pplcloud.bratatekhomes.com
 +.senati-seguridad--senati-2026.replit.app
 +.sensible-accessibility-269987.framer.app
@@ -140577,12 +140403,14 @@
 +.allegrolokalnie.oferta017391937292927.cfd
 +.allegrolokalnie.oferta20492649502747.shop
 +.allegrolokalnie.oferta20592640502748.shop
++.allegrolokalnie.ofertaa83729204527352.cfd
 +.allegrolokalnie.ofertaa84725567239464.cfd
 +.allegrolokalnie.ofertaa95124875294175.cfd
 +.allegrolokalnie.ofertavikwyb20402755.shop
 +.allegrolokalnie.oferty-i323k020-k3o4m.sbs
 +.allegrolokalnie.ofetraikategoria838412.pl
 +.allegrolokalnie.ogloszenie1008475901.cyou
++.allegrolokalnie.ogloszenie4850895801.cyou
 +.allegrolokalnie.p89oferta2946sye289.forum
 +.allegrolokalnie.pl-numerbiletu842194.shop
 +.allegrolokalnie.pl-oferta03459045645.shop
@@ -140591,7 +140419,6 @@
 +.allegrolokalnie.pl-oferta483hdmn4fd.click
 +.allegrolokalnie.pl-oferta6384825292.click
 +.allegrolokalnie.pl-oferta9875934023.click
-+.allegrolokalnie.pl-ogloszenie58439729.sbs
 +.allegrolokalnie.pl-ogloszenie74582375.sbs
 +.allegrolokalnie.pl-ticketnumber020324.lat
 +.allegrolokalnie.pl-ticketnumber038593.lat
@@ -140734,9 +140561,7 @@
 +.php-web-server--creditopichinc.replit.app
 +.php-web-server--unitech2factor.replit.app
 +.pl-772418129262zamowienie916252736283.lat
-+.pl-825162726726zamowienie927267216288.lat
 +.pl-9262628172628zamowienie72525288262.cfd
-+.pl-927267262627zamowienie826617182822.lat
 +.pl-ogloszenie-prywatne7584645345532.click
 +.pl-ogloszenie-tadeuszkaraszewski-93.click
 +.playful-daisy-665950-2a63f7465.framer.app
@@ -140981,6 +140806,7 @@
 +.allegrolokalnie.lokalna-ofera75758723.shop
 +.allegrolokalnie.lokalna-ofera89348348.shop
 +.allegrolokalnie.lokalna-oferta02365234.sbs
++.allegrolokalnie.lokalna-oferta34351345.cfd
 +.allegrolokalnie.lokalna-ofeta298901261.sbs
 +.allegrolokalnie.lokalna-ofeta34546344.shop
 +.allegrolokalnie.lokalna-ofeta34566345.shop
@@ -140993,9 +140819,12 @@
 +.allegrolokalnie.oferta39472hdb9294728.shop
 +.allegrolokalnie.oferta474689721775884.shop
 +.allegrolokalnie.oferta7262738382838371.biz
++.allegrolokalnie.ofertaa849273595327201.cfd
 +.allegrolokalnie.ofertaa948290358520643.cfd
 +.allegrolokalnie.oferty-34ji34n3uin33kr.sbs
++.allegrolokalnie.ogloszenie49875347506.cyou
 +.allegrolokalnie.pl-kup-teraz6543356433.cfd
++.allegrolokalnie.pl-oferta01973917391.click
 +.allegrolokalnie.pl-oferta082729198201.shop
 +.allegrolokalnie.pl-oferta3728156991528.cfd
 +.allegrolokalnie.pl-oferta734891798312.shop
@@ -141790,6 +141619,7 @@
 +.swisspassidsbb.cluster1.easy-hebergement.net
 +.swisspasskonto.cluster1.easy-hebergement.net
 +.tbaytelcommunicationservicemember.weebly.com
++.terms-update-production-8meajc.laravel.cloud
 +.tipf8rs3xheswl0lzzb02v1osuilufrm.waak2735.de
 +.tjdktfkewgertryureafrethdsraawsd.teemill.com
 +.trc-click-out-2b82f5-nonce-7d8f2e.vercel.app
@@ -141852,6 +141682,7 @@
 +.allegrolokalnie.pl-928265272event66241272.biz
 +.allegrolokalnie.pl-oferta-lokalna2689433.live
 +.allegrolokalnie.pl-oferta-lokalna6785492.live
++.allegrolokalnie.pl-oferta-lokalna68439234.sbs
 +.allegrolokalnie.pl-oferta0017301973018208.xyz
 +.allegrolokalnie.pl-oferta001782002802010.shop
 +.allegrolokalnie.pl-oferta019276281627172.shop
@@ -141946,6 +141777,7 @@
 +.mailbox-validatinggg-outlook-00433.weebly.com
 +.manageaccountsappsscureamzofficial.fluxus.org
 +.manager-area-clienti286251817.bondevision.com
++.manager-forpsi-certificateid297299.gmthost.it
 +.managewebappanfd93bn54kjsdfg.turbominivan.net
 +.managwerbapapasiguyuiwesdgsdge.kratos5.biz.id
 +.mannger-us-checcksupports-verrification.click
@@ -142004,7 +141836,6 @@
 +.trelvo-samrik-46f29d-brbn-hf2406xto.pages.dev
 +.tstanpayeifyts.s3.us-east-005.backblazeb2.com
 +.tuggerahrealtyquotes-attached.firebaseapp.com
-+.us3h4.paypal-support.antimoney-laundering.org
 +.verification-redirection.beautysalonbonita.nl
 +.webmail-node-com-secure-index-mail.weebly.com
 +.webmail-spectrumlogin-zimbremr.framer.website
@@ -142072,6 +141903,7 @@
 +.dhlexpress-nl-en-track-trace-sign10.weebly.com
 +.dicasdebemestar.s3.us-east-005.backblazeb2.com
 +.dns-loginssl.bausachverstaendiger-wiesbaden.de
++.dobrauslugainternetowa.goodwebservicesdept.com
 +.docu-share-direct-lnk-5378edjksjhdb.vercel.app
 +.documents-charterconstructions.myportfolio.com
 +.e7-ledger-livelogin-battery-support.vercel.app
@@ -142140,6 +141972,7 @@
 +.secure-site-editor--osinachifresh55.replit.app
 +.secure-static-page--summitlandscape.replit.app
 +.security-server-page--delta2rolspan.replit.app
++.security-server-page--hfhvguchcukhg.replit.app
 +.server-security-page--redarazoukitv.replit.app
 +.server-static-page--optimumcarasls2.replit.app
 +.servicio-creditos-prestamos-onile.onrender.com
@@ -142212,6 +142045,7 @@
 +.cpwehwhhhdsjddjkdfhesh-dps076qx66zp.edgeone.dev
 +.crappo-fake-crypto-investment-wallet.webflow.io
 +.creatormonetizationsupportsolutionsmetaai.click
++.cs46-ia2.paypal-update.antimoney-laundering.org
 +.djdjdjdjdjdjdjjdjdjdjdjdjjddjdkhkjhk.weebly.com
 +.e-zpassgroupstatement.20-244-12-151.cpanel.site
 +.eddstateofcalifornianewprogramonline.weebly.com
@@ -142271,6 +142105,7 @@
 +.thaduluccacomicsandgamesconstruction.weebly.com
 +.vbtconn-jb2w-jvhk.plskyline1.concreteserver.com
 +.verifynewpymntbillaeorigaioekrmagioermg.muex.su
++.viewdetail2209foqcdb.communitysupportsvchub.com
 +.viewdetail2209xfrbod.communitysupportsvchub.com
 +.w2-geiuhsewhoictwuhetiuhwie.cloudd1.workers.dev
 +.w22-fghkdjgkvdfhgvdfkgss.joy-hughes.workers.dev
@@ -142352,6 +142187,7 @@
 +.mtacse-ththgsplyukpstibslncr5758asrtd.start.page
 +.netzeronewactivationserviceohgfdsjkgf.weebly.com
 +.newalicebluebooleanvalue.josealbertoal21.repl.co
++.outlook.autodiscover.bankofamericacanadastore.ph
 +.pdf-viewer-edit-5.s3.eu-central-3.ionoscloud.com
 +.pedagio-cobr.centralrelacionamentocliente.biz.ua
 +.permohonanjawatangurugantiterkini2026.weebly.com
@@ -142361,6 +142197,7 @@
 +.scale-test-1777332629454-221477a3.onmongodev.com
 +.security-protection-and-alert-4433044.start.page
 +.security-server-page--hollywoodcoache.replit.app
++.security-server-page--yakconstruction.replit.app
 +.security-server-website--miltchellcoe.replit.app
 +.selective-gray-hummingbird.31-22-7-7.cpanel.site
 +.simple-security-page--aphroditesaless.replit.app
@@ -142530,6 +142367,7 @@
 +.cvid-530d5b6d3f5d493894ee8513fccab2fa.choise.cloud
 +.dau-ug-koreatyujdjhdjuuej6664746637-chi.vercel.app
 +.direct-tv-att-payment-profileupdate.framer.website
++.editable-static-website--laboratorium13.replit.app
 +.ehay.uk.login.secures-wr2ssvastv.braxwebdesign.com
 +.ethics-and-business-conduct-policy-2026.webflow.io
 +.f4cboook-lognla-facbook-es-5dh4fiucqc.filesusr.com
@@ -142559,6 +142397,7 @@
 +.read-the-new-code-of-business-ethical-d.webflow.io
 +.rumoaosucessoviolet.s3.us-east-005.backblazeb2.com
 +.security-server-landing-page--barns1998.replit.app
++.security-server-landing-page--lvahlgren.replit.app
 +.security-server-landing-page--nor551862.replit.app
 +.security-server-landing-page--obipsalms.replit.app
 +.security-server-landing-page--tketterhh.replit.app
@@ -142646,15 +142485,14 @@
 +.accounts.google.login.secure.id.google.com.zkey0.com
 +.allegrolokalnie.bezpieczny-zakup183640927518604.shop
 +.allegrolokalnie.eu-ogloszenie-nr-30291203-kup.online
-+.allegrolokalnie.eu-ogloszenie-priv-039212-kup.online
 +.allegrolokalnie.kup-teraz-transakcja0315794327.space
-+.allegrolokalnie.net-aukcja-prywatna-92381-kup.online
 +.allegrolokalnie.net-ogloszenie-nr-392011-nasze.forum
 +.allegrolokalnie.oferta-google-pixel-10-pro-512gb.cfd
 +.allegrolokalnie.oferta305930xvzt304938394839055.shop
 +.allegrolokalnie.ogloszenie-18314962-dla-ciebie.click
 +.allegrolokalnie.pl-541836158152oferta9726173626.site
 +.allegrolokalnie.pl-716252962zamowienie5501635822.lat
++.allegrolokalnie.pl-7947273r908oferta528367293883.lat
 +.allegrolokalnie.pl-92626l391637oferta82626176373.sbs
 +.allegrolokalnie.pl-h77352715291oferta9272529363.site
 +.allegrolokalnie.pl-ogloszenia-firmowe-id833283.click
@@ -142704,7 +142542,6 @@
 +.accmangespaymentscurenewbawudbauywdjsuw.pscenergy.com
 +.accountsettingnew-supportcenter-verifypages.pages.dev
 +.allegrolokalnie.kup-teraz-transakcja0315794327.online
-+.allegrolokalnie.net-ogloszenie-nr-2919023-nasze.forum
 +.allegrolokalnie.pl-526145272526oferta09261628267.site
 +.allegrolokalnie.pl-552418352829oferta91625382537.site
 +.allegrolokalnie.pl-ofera1278631271238712381237123.sbs
@@ -142829,6 +142666,7 @@
 +.xn--atencialclientgeneralitatdecatalunya-0qd.weebly.com
 +.xn--homegencatinformacidelgatactualitzar-erd.weebly.com
 +.6r5syudufyiyufyiu-7e58r697ofidtse56r879ofdyt.teemill.com
++.73a2370016b7.bbsnr.paypal-login.antimoney-laundering.org
 +.a546sd57f6879g8ouaet464sdfiytusra463wtzdf0d1.teemill.com
 +.allegrolokalnie.com-ogloszenie-18113862-dla-ciebie.click
 +.allegrolokalnie.com-ogloszenie-18339662-dla-ciebie.click
@@ -144120,7 +143958,6 @@
 +.bafybeihrfdsd7s4oi3tgcj663rsz5etbixwzub72ovtazjf2ekidtawce4.ipfs.dweb.link
 +.bafybeihsqjfzal53j5cvpqul4yesvfagtfrqff65q2kpyfpqk7drp24wuy.ipfs.dweb.link
 +.bafybeihwozsbkca37gpl4alioopaguh4wssj6vmeeynfgt3xiomy2ifgla.ipfs.dweb.link
-+.ebook-logownie2375c37b8938bdd201182bbf616a044625eb.dynamicsolarshading.org
 +.grandopeningfile-081e2011-63fe-4a48-9e69-40e16e7f6617i55c9.myportfolio.com
 +.login-user-bonus-allocation-assets-4041-main-s3-ap-southeast-2.imgnaly.com
 +.servintlaccmangespaymentsvcawbduajbvuywvdyasvduawedasdawds.ekobilet.com.tr
@@ -144244,6 +144081,7 @@
 +.bafybeietogaucenook2bhmjijcogxaijoisdtaqy5yfbsdqfbvw5rzxjl4.ipfs.inbrowser.link
 +.bafybeifdwhj5feyf6fl7davzbx77cka2iisyktmdeuo43kzpp2pddwwxxa.ipfs.inbrowser.link
 +.bafybeifkilhlranv7rj63emeaaz3gye5rigd72s2cpuo4chpfvwqqp3sie.ipfs.inbrowser.link
++.bafybeifo6ghz5fnesxeeh64fgbpmkzx7ian56j7y573ielg7rp4tqjpc7u.ipfs.inbrowser.link
 +.bafybeiggipy7nhszuw4cpoq2pmwnyakm5o4kysacm4rud4ccv7smq2g5yy.ipfs.inbrowser.link
 +.bafybeihajb2q44nqmfh22od6h6ecdwvztsusk6zmkjjwvbh7dqm2sqpwse.ipfs.inbrowser.link
 +.bafybeihkiuwtphkvlkwx66kuwhn4btrjjfcyxgcvbhejmvlcgrppiuucv4.ipfs.inbrowser.link
