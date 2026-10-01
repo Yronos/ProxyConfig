@@ -57,6 +57,7 @@ RULES_TO_REMOVE_CONTAINS = [
 RULES_TO_ADD = [
     # "DOMAIN,example.com",
     # "DOMAIN-SUFFIX,amazon.com",
+    "DOMAIN-SUFFIX,cloudflare-gateway.com",
 ]
 
 # ============================================================

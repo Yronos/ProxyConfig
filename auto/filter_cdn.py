@@ -49,6 +49,7 @@ DOMAIN-SUFFIX,bsky.app
 DOMAIN-SUFFIX,wikimedia.org
 DOMAIN-SUFFIX,gravatar.com
 DOMAIN-SUFFIX,esm.sh
+DOMAIN-SUFFIX,ldstatic.com
 DOMAIN-SUFFIX,111666.best
 DOMAIN-SUFFIX,adtidy.org
 """
