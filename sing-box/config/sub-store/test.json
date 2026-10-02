@@ -611,17 +611,17 @@
         "clash_mode": "global",
         "outbound": "Selector"
       },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "ip_cidr": ["198.18.0.0/15", "2001:2::/48"]
-          },
-          { "protocol": ["quic"] }
-        ],
-        "action": "reject"
-      },
+      //{
+      //  "type": "logical",
+      //  "mode": "and",
+      //  "rules": [
+      //    {
+      //      "ip_cidr": ["198.18.0.0/15", "2001:2::/48"]
+      //    },
+      //    { "protocol": ["quic"] }
+      //  ],
+      //  "action": "reject"
+      //},
       {
         "action": "route",
         "rule_set": ["cdn_domainset", "cdn_non_ip"],
