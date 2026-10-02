@@ -92,11 +92,11 @@
         "disable_cache": false
       },
       { "action": "predefined", "query_type": "PTR", "rcode": "NXDOMAIN" },
-      {
-        "action": "predefined",
-        "query_type": ["SVCB", "HTTPS"],
-        "rcode": "NOERROR"
-      },
+      //{
+      //  "action": "predefined",
+      //  "query_type": ["SVCB", "HTTPS"],
+      //  "rcode": "NOERROR"
+      //},
       {
         "action": "route",
         "query_type": ["A", "AAAA"],
@@ -610,6 +610,17 @@
         "action": "route",
         "clash_mode": "global",
         "outbound": "Selector"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "ip_cidr": ["198.18.0.0/15", "2001:2::/48"]
+          },
+          { "protocol": ["quic"] }
+        ],
+        "action": "reject"
       },
       {
         "action": "route",
