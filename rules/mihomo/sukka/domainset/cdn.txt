@@ -1,14 +1,14 @@
 #########################################
 # Sukka's Ruleset - CDN Domains
-# Last Updated: 2026-10-01T14:48:46.522Z
-# Size: 4681
+# Last Updated: 2026-10-08T10:17:55.635Z
+# Size: 4685
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
 #
 # This file contains object storage and static assets CDN domains.
 #
-# $content-hash-v1$:3KDAmIXIptWVb3BQKZQXD3nTYSbk4Ikr5Bxkln7HLqE$
+# $content-hash-v1$:r6VZZkC6fXyLAVkr2_iv4S30nuy0KrLagXiaO4L6dF4$
 #########################################
 7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
 0x0.st
@@ -1789,6 +1789,7 @@ assets.stash.com
 assets.toot.cafe
 assets.twitch.tv
 assets.upload.io
+assets.vanta.com
 assets.vogue.com
 assets.volvo.com
 assets.xmind.net
@@ -2360,6 +2361,7 @@ media.nownews.com
 +.media.zestyio.com
 +.mediadelivery.net
 +.monitor.azure.com
+n.approveit.today
 netlify.apollo.io
 +.notion-static.com
 ocsp.comodoca.com
@@ -4400,6 +4402,7 @@ player-frontend.cnevids.com
 prego-cache.prod.sketch.com
 public-pages.cbinsights.com
 resources-live.sketch.cloud
+rum-ingest.us1.signalfx.com
 safebrowsing.googleapis.com
 sessions-bugsnag.docker.com
 +.siteintercept.qualtrics.com
@@ -4409,6 +4412,7 @@ static-homepage-en.pluto.tv
 static-mh.content.disney.io
 static-production.npmjs.com
 static-webfonts.myfonts.com
+static.acm.account.sony.com
 static.captcha-delivery.com
 sts.online.visualstudio.com
 tvdownloaddw-a.akamaihd.net
