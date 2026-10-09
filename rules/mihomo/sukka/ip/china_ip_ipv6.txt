@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Mainland China IPv6 CIDR
-# Last Updated: 2026-10-08T10:17:52.594Z
-# Size: 3467
+# Last Updated: 2026-10-09T11:55:31.388Z
+# Size: 3466
 # License: CC BY-SA 2.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -12,7 +12,7 @@
 # This file contains data from:
 #   - https://github.com/gaoyifan/china-operator-ip
 #
-# $content-hash-v1$:vrOy1CHymLD9WqTYH12JfD0OEuz2_4-JflFW8ygkCLU$
+# $content-hash-v1$:YnBtSA91jVxyYQLRmPEWDMX8hcmMQ6NY-u4lcbreQ7s$
 #########################################
 2001:250::/30
 2001:254::/33
@@ -2238,6 +2238,7 @@
 2406:840:9103::/48
 2406:840:9104::/46
 2406:840:9108::/45
+2406:840:9111::/48
 2406:840:9112::/47
 2406:840:9114::/46
 2406:840:9118::/45
@@ -3297,12 +3298,10 @@
 2a04:f580:9010::/48
 2a04:f580:9012::/47
 2a04:f580:9020::/48
-2a04:f580:9030::/48
 2a04:f580:9040::/48
 2a04:f580:9050::/48
 2a04:f580:9060::/48
 2a04:f580:9070::/48
-2a04:f580:9080::/48
 2a04:f580:9210::/48
 2a04:f580:9212::/47
 2a04:f580:9220::/48
