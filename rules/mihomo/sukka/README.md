@@ -2,7 +2,7 @@
 
 > Auto-synced from [SukkaLab/ruleset.skk.moe](https://github.com/SukkaLab/ruleset.skk.moe) Clash format
 
-> Last updated: 2026-10-14 18:06:57 UTC
+> Last updated: 2026-10-15 17:51:53 UTC
 > Compiled with: mihomo v1.19.32
 
 **Total: 71 TXT | 58 YAML | 58 MRS**
