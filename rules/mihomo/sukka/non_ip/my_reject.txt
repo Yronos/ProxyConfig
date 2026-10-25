@@ -1,12 +1,12 @@
 #########################################
 # Sukka's Ruleset - Reject (REJECT-DROP)
-# Last Updated: 2026-08-30T07:31:52.210Z
-# Size: 54
+# Last Updated: 2026-10-25T13:45:20.457Z
+# Size: 55
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
 #
-# $content-hash-v1$:nXJIU2khrnABzCLuW4-pSlaxGz_udeYjwiizypmxZBw$
+# $content-hash-v1$:ktuS3AdG6B0i02ci6PdfvO2WhDE8tdaM1CZ56UoIrY4$
 #########################################
 DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
 DOMAIN-SUFFIX,pipi.cn
@@ -48,6 +48,7 @@ DOMAIN,app-download.fliggy.com
 DOMAIN-SUFFIX,expenses-fe.meituan.com
 DOMAIN,userlocation.googleapis.com
 DOMAIN,loan-supermarket.faas.ele.me
+DOMAIN,userlocations.googleapis.com
 DOMAIN,locationhistory-pa.googleapis.com
 DOMAIN-SUFFIX,video-zb.cloudvideocdn.taobao.com
 DOMAIN,locationhistoryaggregates-pa.googleapis.com
