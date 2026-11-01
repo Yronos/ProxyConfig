@@ -1,14 +1,14 @@
 #########################################
 # Sukka's Ruleset - Reject And Drop
-# Last Updated: 2026-08-30T07:31:52.226Z
-# Size: 29
+# Last Updated: 2026-11-01T07:23:42.385Z
+# Size: 31
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
 #
 # This file This file contains rules for domain should be used with REJECT-DROP policy.
 #
-# $content-hash-v1$:O5LorNmqJuxol6-Y3WgqPE9Iszdz1BAQennk_Ad6ktk$
+# $content-hash-v1$:NfN_bAheTXtg-hQ7E26mcletvHukoHBCol0GALVKPL4$
 #########################################
 DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
 DOMAIN-SUFFIX,null
@@ -20,7 +20,9 @@ DOMAIN-SUFFIX,undefined
 DOMAIN-SUFFIX,gepush.com
 DOMAIN-SUFFIX,slackb.com
 DOMAIN-SUFFIX,trace.qq.com
+DOMAIN-SUFFIX,amplitude.com
 DOMAIN-SUFFIX,beacon.qq.com
+DOMAIN,api.segment.io
 DOMAIN-SUFFIX,geo2.adobe.com
 DOMAIN,data.bilibili.com
 DOMAIN-SUFFIX,easytomessage.com
