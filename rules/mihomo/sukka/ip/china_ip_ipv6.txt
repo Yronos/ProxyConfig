@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Mainland China IPv6 CIDR
-# Last Updated: 2026-11-01T11:51:32.077Z
+# Last Updated: 2026-11-02T13:32:07.944Z
 # Size: 3479
 # License: CC BY-SA 2.0
 # Homepage: https://ruleset.skk.moe
@@ -12,7 +12,7 @@
 # This file contains data from:
 #   - https://github.com/gaoyifan/china-operator-ip
 #
-# $content-hash-v1$:87vGdf16WPwdB90RN9OA2qkyzKux1_uGyrM9mEOe18s$
+# $content-hash-v1$:VxejcvQP_c2ulzXYW4eXjg8eFaKkrTMPQV-XM_qqmBE$
 #########################################
 2001:250::/30
 2001:254::/33
@@ -2076,7 +2076,7 @@
 2406:840:a40::/42
 2406:840:a80::/41
 2406:840:b00::/40
-2406:840:c00::/47
+2406:840:c00::/48
 2406:840:c03::/48
 2406:840:c04::/46
 2406:840:c08::/45
@@ -2664,7 +2664,6 @@
 2406:840:fee8::/46
 2406:840:feec::/48
 2406:840:feee::/47
-2406:840:feff::/48
 2406:840:ff00::/40
 2406:880::/32
 2406:8c0::/32
@@ -3378,7 +3377,8 @@
 2a0a:d685:240::/42
 2a0a:d685:280::/41
 2a0a:d685:400::/40
-2a0a:d685:500::/46
+2a0a:d685:500::/48
+2a0a:d685:502::/47
 2a0a:d685:504::/48
 2a0a:d685:506::/47
 2a0a:d685:508::/48
