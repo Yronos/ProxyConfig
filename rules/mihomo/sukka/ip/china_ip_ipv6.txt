@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Mainland China IPv6 CIDR
-# Last Updated: 2026-11-17T14:28:33.193Z
-# Size: 3441
+# Last Updated: 2026-11-18T14:03:11.924Z
+# Size: 3444
 # License: CC BY-SA 2.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -12,7 +12,7 @@
 # This file contains data from:
 #   - https://github.com/gaoyifan/china-operator-ip
 #
-# $content-hash-v1$:JjCsT2kh_ERcOyM2YJr7W0zyiQY1iaw0rP-dqwlCFyQ$
+# $content-hash-v1$:NMvCFzye1RL0oiHXrni9n-7qFV3Gf1Uzn8h1ZVSRLqI$
 #########################################
 2001:250::/30
 2001:254::/33
@@ -2316,7 +2316,9 @@
 2406:840:e0d0::/44
 2406:840:e0e4::/48
 2406:840:e0e6::/47
-2406:840:e0e8::/45
+2406:840:e0e9::/48
+2406:840:e0ea::/47
+2406:840:e0ec::/46
 2406:840:e0f0::/44
 2406:840:e100::/45
 2406:840:e108::/46
@@ -2645,7 +2647,6 @@
 2406:840:fee8::/46
 2406:840:feec::/48
 2406:840:feee::/47
-2406:840:feff::/48
 2406:840:ff20::/43
 2406:840:ff40::/42
 2406:840:ff80::/41
@@ -3217,6 +3218,7 @@
 2605:9d80:9042::/48
 2605:9d80:9071::/48
 2605:9d80:9092::/48
+2620:57:4004::/47
 2a03:f900::/29
 2a04:3e00::/48
 2a04:3e00:2::/47
@@ -3447,6 +3449,7 @@
 2a13:1802:e000::/35
 2a13:1803::/32
 2a13:1804::/30
+2a13:7100::/29
 2a13:8b40::/29
 2c0f:f7a8:8011::/48
 2c0f:f7a8:8050::/48
